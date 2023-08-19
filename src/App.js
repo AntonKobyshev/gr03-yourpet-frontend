@@ -7,11 +7,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <header className="App-header">
-        <ModalNotice />
-        <ModalCongrats />
-        <ModalDelete />
-      </header>
+      <header className="App-header"></header>
+
+      <ModalNotice />
+      <ModalCongrats />
+      <ModalDelete />
     </div>
   );
 }
