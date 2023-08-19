@@ -1,0 +1,89 @@
+.form {
+    width: 280px;
+    margin-top: 44px;
+    margin-bottom: 44px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 12px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
+}
+
+@media screen and (min-width: 768px) {
+    .form {
+        width: 608px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        padding: 60px 80px 40px 80px;
+        border-radius: 40px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .form {
+        margin-top: 44px;
+        padding: 60px 80px;
+    }
+}
+
+.title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.38;
+    letter-spacing: 0.04em;
+    margin-bottom: 40px;
+    color: #111111;
+}
+
+@media screen and (min-width: 768px) {
+    .title {
+        font-size: 36px;
+        line-height: 1.36;
+    }
+}
+
+.questionText {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.33;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #888888;
+}
+
+.registerLink {
+    display: inline-block;
+    color: #54adff;
+}
+
+.buttonContainer {
+    margin-top: 40px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 28px;
+    width: 100%;
+    height: 48px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border: 2px solid #54adff;
+    border-radius: 40px;
+    color: #ffffff;
+    background-color: #54adff;
+}
+
+.button:hover {
+    background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
+    color: #ffffff;
+    cursor: pointer;
+}
