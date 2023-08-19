@@ -1,5 +1,6 @@
 import ModalNotice from "./modules/ModalNotice/ModalNotice";
 import ModalCongrats from "./modules/ModalCongrats/ModalCongrats";
+import ModalDelete from "./modules/ModalDelete/ModalDelete";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <header className="App-header">
         <ModalNotice />
         <ModalCongrats />
+        <ModalDelete />
       </header>
     </div>
   );
