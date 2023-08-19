@@ -3,12 +3,10 @@ import ModalCongrats from "./modules/ModalCongrats/ModalCongrats";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <ModalNotice />
-        <ModalCongrats />
-      </header>
-    </div>
+    <>
+      <ModalNotice />
+      <ModalCongrats />
+    </>
   );
 }
 
