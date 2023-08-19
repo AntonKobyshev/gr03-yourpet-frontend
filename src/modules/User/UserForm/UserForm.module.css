@@ -1,0 +1,46 @@
+
+.imageWrapper {
+    width: 182px;
+    height: 182px;
+    border-radius: 20px;
+
+    margin: auto;
+
+    background-color: gray;
+}
+
+.userImage {
+    width: 100%;
+    
+}
+
+.form {
+
+    margin-top: 59px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+}
+
+.formLabelBox {
+display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.formLabelBox label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19.12px;
+}
+
+.input {
+    width: 190px;
+    height: 24px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(84, 173, 255, 1);
+
+}

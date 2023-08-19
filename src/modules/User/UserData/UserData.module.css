@@ -1,0 +1,27 @@
+.userContainer {
+  position: relative;
+  height: 517px;
+  width: 280px;
+    padding: 20px 8px;
+margin: auto;
+  border-radius: 20px;
+
+  background-color: #ffffff;
+  box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.2);
+}
+
+.editBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+
+display: flex;
+align-items: center;
+  justify-content: center; 
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: transparent;
+}
