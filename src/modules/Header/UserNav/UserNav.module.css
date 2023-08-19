@@ -11,7 +11,6 @@
     align-items: center;
     justify-content: center;
     border: none;
-    font-family: "Manrope";
     font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.64px;
@@ -40,7 +39,6 @@
     align-items: center;
     justify-content: center;
     border: none;
-    font-family: "Manrope";
     font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.64px;
@@ -65,7 +63,6 @@
     align-items: center;
     justify-content: center;
     border: none;
-    font-family: "Manrope";
     font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.64px;
@@ -86,7 +83,6 @@
     display: flex;
     gap: 12px;
     color: #ffc107;
-    font-family: "Manrope";
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 0.64px;
@@ -107,7 +103,6 @@
     display: flex;
     gap: 12px;
     color: #ffc107;
-    font-family: "Manrope";
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 0.64px;
