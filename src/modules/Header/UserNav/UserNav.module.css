@@ -1,0 +1,140 @@
+.logoutBtn {
+  @media screen and (min-width: 320px) {
+    width: 135px;
+    height: 40px;
+    border-radius: 40px;
+    background-color: #54adff;
+    color: #fff;
+    padding: 8px 20px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-family: "Manrope";
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.64px;
+    margin-top: 159px;
+    margin-right: auto;
+  }
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.logoutBtnTab {
+  @media screen and (min-width: 320px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 135px;
+    height: 40px;
+    border-radius: 40px;
+    background-color: #54adff;
+    color: #fff;
+    padding: 8px 20px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-family: "Manrope";
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.64px;
+    margin-right: auto;
+  }
+}
+
+.logoutBtnDesc {
+  @media screen and (min-width: 320px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 135px;
+    height: 40px;
+    border-radius: 40px;
+    background-color: #54adff;
+    color: #fff;
+    padding: 8px 20px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-family: "Manrope";
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.64px;
+    margin-right: auto;
+  }
+}
+
+.menuBtn {
+  background-color: transparent;
+  border: none;
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.userInfo {
+  @media screen and (min-width: 320px) {
+    display: flex;
+    gap: 12px;
+    color: #ffc107;
+    font-family: "Manrope";
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.64px;
+    margin-bottom: 84px;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.userInfoTab {
+  @media screen and (min-width: 320px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 12px;
+    color: #ffc107;
+    font-family: "Manrope";
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.64px;
+  }
+}
+
+.menu {
+  @media screen and (min-width: 320px) {
+    position: absolute;
+    left: 0;
+    padding-top: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.navBox {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  @media screen and (min-width: 1280px) {
+    gap: 40px;
+  }
+}

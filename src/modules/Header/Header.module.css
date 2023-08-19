@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.shouldShowNav {
+  display: none;
+  @media screen and (min-width: 1280px) {
+    display: block;
+  }
+}
