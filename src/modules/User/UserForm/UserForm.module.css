@@ -43,4 +43,31 @@ display: flex;
     border-radius: 20px;
     border: 1px solid rgba(84, 173, 255, 1);
 
+    /* pointer-events: all;
+user-select: all; */
+}
+
+.input[readonly] {
+    pointer-events: none;
+    user-select: none;
+}
+
+.saveBtn {
+
+    display: block;
+        margin: 0 auto;
+
+    padding: 0;
+    width: 248px;
+    height: 31px;
+
+    border-radius: 40px;
+    border: transparent;
+
+    background-color: #54ADFF;
+
+    color: #FEF9F9;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19.12px;
 }

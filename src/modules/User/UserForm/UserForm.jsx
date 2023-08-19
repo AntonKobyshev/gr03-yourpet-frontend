@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import css from "./UserForm.module.css";
+import Logout from "../UserForm/Logout";
 
-const UserForm = () => {
-  const initialValues = {
-    name: "",
-    email: "",
-    birthday: "",
-    phone: "",
-    city: "",
-    avatar: null,
-  };
-
+const UserForm = ({ initialValues, editing, onEdit }) => {
   const [avatarPreview, setAvatarPreview] = useState(null);
+
+  const handleSaveClick = () => {
+    onEdit(false);
+  };
 
   return (
     <div className={css.formContainer}>
@@ -26,7 +22,13 @@ const UserForm = () => {
         <Form className={css.form}>
           <div className={css.formLabelBox}>
             <label htmlFor="name">Name:</label>
-            <Field className={css.input} type="text" id="name" name="name" />
+            <Field
+              className={css.input}
+              type="text"
+              id="name"
+              name="name"
+              readOnly={!editing}
+            />
           </div>
           <div className={css.formLabelBox}>
             <label htmlFor="email">Email:</label>
@@ -35,6 +37,7 @@ const UserForm = () => {
               type="number"
               id="email"
               name="email"
+              readOnly={!editing}
             />
           </div>
           <div className={css.formLabelBox}>
@@ -44,6 +47,7 @@ const UserForm = () => {
               type="text"
               id="birthday"
               name="birthday"
+              readOnly={!editing}
             />
           </div>
           <div className={css.formLabelBox}>
@@ -53,14 +57,29 @@ const UserForm = () => {
               type="number"
               id="phone"
               name="phone"
+              readOnly={!editing}
             />
           </div>
           <div className={css.formLabelBox}>
             <label htmlFor="city">City:</label>
-            <Field className={css.input} type="text" id="city" name="city" />
+            <Field
+              className={css.input}
+              type="text"
+              id="city"
+              name="city"
+              readOnly={!editing}
+            />
           </div>
         </Form>
       </Formik>
+
+      {editing ? (
+        <button className={css.saveBtn} onClick={handleSaveClick}>
+          Save
+        </button>
+      ) : (
+        <Logout />
+      )}
     </div>
   );
 };
