@@ -1,0 +1,36 @@
+.navList {
+  margin: 0;
+  padding: 0;
+  @media screen and (min-width: 320px) {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: 1.28px;
+  }
+
+  @media screen and (min-width: 768px) {
+    gap: 60px;
+    font-size: 48px;
+    letter-spacing: 1.92px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
+    gap: 40px;
+    font-size: 20px;
+    letter-spacing: 0.8px;
+  }
+}
+
+.active {
+  text-decoration: none;
+  color: #ffc107;
+}
+
+.inactive {
+  text-decoration: none;
+  color: #111111;
+}
