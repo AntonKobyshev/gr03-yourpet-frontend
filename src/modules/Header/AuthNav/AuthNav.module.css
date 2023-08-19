@@ -1,0 +1,110 @@
+.menuBtn {
+  background-color: transparent;
+  border: none;
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.menu {
+  @media screen and (min-width: 320px) {
+    position: absolute;
+    left: 0;
+    padding-top: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.loginBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  color: #fef9f9;
+  background-color: #ffc107;
+  width: 165px;
+  padding: 8px 20px;
+  gap: 8px;
+  border: 2px solid transparent;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.64px;
+  margin-bottom: 12px;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.loginBtnTab {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    color: #fef9f9;
+    background-color: #ffc107;
+    width: 165px;
+    padding: 8px 20px;
+    gap: 8px;
+    border: 2px solid transparent;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.64px;
+    margin-right: 20px;
+  }
+}
+
+.registerBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  width: 165px;
+  padding: 8px 20px;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.64px;
+  color: #ffc107;
+  background-color: #fef9f9;
+  border: 2px solid #ffc107;
+  margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.registerBtnTab {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    width: 165px;
+    padding: 8px 20px;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.64px;
+    color: #ffc107;
+    background-color: #fef9f9;
+    border: 2px solid #ffc107;
+    margin-right: 24px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: 0;
+  }
+}
+
+.navBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
