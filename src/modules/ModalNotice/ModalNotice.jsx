@@ -1,6 +1,6 @@
 import { Backdrop, Box, Button, Fade, Modal } from "@mui/material";
 import React from "react";
-import css from "./NoticeModal.module.css";
+import css from "./ModalNotice.module.css";
 import LogoutIcon from "@mui/icons-material/Logout";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -15,7 +15,7 @@ const style = {
   borderRadius: 8,
 };
 
-const NoticeModal = () => {
+const ModalNotice = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -63,4 +63,4 @@ const NoticeModal = () => {
   );
 };
 
-export default NoticeModal;
+export default ModalNotice;
