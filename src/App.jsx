@@ -5,12 +5,12 @@ import ModalDelete from "./modules/ModalDelete/ModalDelete";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Header />
       <ModalNotice />
       <ModalCongrats />
       <ModalDelete />
-    </div>
+    </>
   );
 }
 
