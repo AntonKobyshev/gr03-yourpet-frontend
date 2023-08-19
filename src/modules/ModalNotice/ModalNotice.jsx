@@ -22,7 +22,7 @@ const ModalNotice = () => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={handleOpen}>Modal Notice</Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -43,18 +43,20 @@ const ModalNotice = () => {
               className={css.closeBtn}
               sx={{ width: 30, height: 30 }}
             />
-            <p className={css.title}>Already leaving?</p>
-            <div className={css.btnContainer}>
-              <button
-                onClick={handleClose}
-                className={css.btnAccent}
-                type="button"
-              >
-                Cancel
-              </button>
-              <button className={css.btn} type="button">
-                <span>Yes</span> <LogoutIcon />
-              </button>
+            <div className={css.contentContainer}>
+              <p className={css.title}>Already leaving?</p>
+              <div className={css.btnContainer}>
+                <button
+                  onClick={handleClose}
+                  className={css.btnAccent}
+                  type="button"
+                >
+                  Cancel
+                </button>
+                <button className={css.btn} type="button">
+                  <span>Yes</span> <LogoutIcon />
+                </button>
+              </div>
             </div>
           </Box>
         </Fade>
