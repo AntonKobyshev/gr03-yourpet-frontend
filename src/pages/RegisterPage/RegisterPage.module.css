@@ -1,0 +1,53 @@
+.sectionMain {
+  background-color: #fef9f9;
+  background-blend-mode: multiply;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../../images/bg-desktop.png");
+  height: 100vh;
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .sectionMain {
+    background-image: url("../../images/bg-desktop@2x.png");
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sectionMain {
+    padding-top: 80px;
+    background-blend-mode: multiply;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../../images/bg-tablet.png");
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .sectionMain {
+      background-image: url("../../images/bg-tablet@2x.png");
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .sectionMain {
+    padding-top: 0px;
+    background-image: url("../../images/bg-desktop.png");
+    background-blend-mode: multiply;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 60px;
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .sectionMain {
+      background-image: url("../../images/404-desktop@2x.png");
+    }
+  }
+}
