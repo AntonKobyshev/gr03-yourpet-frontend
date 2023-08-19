@@ -1,0 +1,115 @@
+.modalBox {
+  width: 280px;
+  height: 302px;
+  border-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    width: 608px;
+    height: 354px;
+  }
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 60px;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    margin-top: 80px;
+    gap: 40px;
+  }
+}
+
+.title {
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.3;
+
+  @media (min-width: 768px) {
+    font-size: 36px;
+  }
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.btnAccent {
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 25px;
+  border: solid 2px #54adff;
+  color: #54adff;
+  background-color: transparent;
+
+  min-width: 256px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    min-width: 129px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  &:hover {
+    box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
+  }
+}
+
+.btn {
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 25px;
+  border: none;
+  background-color: #54adff;
+  color: #ffffff;
+  min-height: 40px;
+  min-width: 256px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
+  }
+
+  @media (min-width: 768px) {
+    min-width: 129px;
+  }
+}
+
+.closeBtn {
+  cursor: pointer;
+  color: #54adff;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  @media (min-width: 768px) {
+    top: 20px;
+    right: 20px;
+  }
+}
