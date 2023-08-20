@@ -194,7 +194,6 @@
   color: var(--bg-color);
   width: 256px;
   height: 40px;
-  /* padding: 8px 28px; */
 
   display: flex;
   align-items: center;
