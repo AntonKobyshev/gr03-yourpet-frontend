@@ -8,9 +8,14 @@ import {
   fetchAllFavoriteNotices,
 } from "../../redux/notices/notices-operations";
 
-import { getAllNotices } from "../../redux/notices/notices-selectors";
+import {
+  getAllNotices,
+  selectNoticesTotalPages,
+  selectNoticesPage,
+} from "../../redux/notices/notices-selectors";
 import NoticesSearch from "../../modules/Notices/NoticesSearch/NoticesSearch";
 import NoticesCategoriesNav from "../../modules/Notices/NoticesCategoriesNav/NoticesCategoriesNav";
+import PaginationNotices from "../../shared/components/Pagination/PaginationNotices";
 
 import css from "../NoticesPage/NoticesPage.module.css";
 import ScrollButton from "../../shared/components/ScrollButton/ScrollButton";
@@ -19,11 +24,12 @@ const NoticesPage = () => {
   const dispatch = useDispatch();
   const notices = useSelector(getAllNotices);
 
-  const location = useLocation();
-  const currentCategory = location.pathname.split("/")[2];
-
   const [ownCurrentPage, setOwnCurrentPage] = useState(1);
   const [favoriteCurrentPage, setFavoriteCurrentPage] = useState(1);
+  const totalPages = useSelector(selectNoticesTotalPages);
+  const currentPage = useSelector(selectNoticesPage);
+  const location = useLocation();
+  const currentCategory = location.pathname.split("/")[2];
 
   useEffect(() => {
     if (currentCategory === "sell") {
@@ -76,6 +82,33 @@ const NoticesPage = () => {
     dispatch(fetchAllFavoriteNotices({ query: "", page: favoriteCurrentPage }));
   };
 
+  const onPageChange = (page) => {
+    if (currentCategory === "own") {
+      dispatch(fetchNoticesByOwn({ query: "", page }));
+      return;
+    } else if (currentCategory === "favorite") {
+      dispatch(fetchAllFavoriteNotices({ query: "", page }));
+      return;
+    } else {
+      dispatch(
+        fetchNoticesByCategory({
+          categoryName: currentCategory,
+          query: "",
+          page,
+        })
+      );
+    }
+  };
+
+  const handleOwnPageChange = (page) => {
+    setOwnCurrentPage(page);
+    dispatch(fetchNoticesByOwn({ query: "", page }));
+  };
+
+  const handleFavoritePageChange = (page) => {
+    setFavoriteCurrentPage(page);
+    dispatch(fetchAllFavoriteNotices({ query: "", page }));
+  };
   return (
     <div className="container">
       <h2 className={css.title}>Find your favorite pet</h2>
@@ -86,7 +119,22 @@ const NoticesPage = () => {
       />
 
       {notices && <Outlet />}
-
+      <PaginationNotices
+        currentPage={currentPage}
+        totalPages={totalPages}
+        currentCategory={currentCategory}
+        ownCurrentPage={ownCurrentPage}
+        favoriteCurrentPage={favoriteCurrentPage}
+        onPageChange={(page) => {
+          if (currentCategory === "own") {
+            handleOwnPageChange(page);
+          } else if (currentCategory === "favorite") {
+            handleFavoritePageChange(page);
+          } else {
+            onPageChange(page);
+          }
+        }}
+      />
       <ScrollButton />
     </div>
   );
