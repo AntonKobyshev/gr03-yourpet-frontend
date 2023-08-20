@@ -1,7 +1,6 @@
-import { Backdrop, Box, Button, Fade, Modal } from "@mui/material";
+import { Backdrop, Box, Fade, Modal } from "@mui/material";
 import React from "react";
 import css from "./ModalNotice.module.css";
-import LogoutIcon from "@mui/icons-material/Logout";
 import CloseIcon from "@mui/icons-material/Close";
 import logoutSvg from "../../modules/Header/UserNav/logout.svg";
 
@@ -58,7 +57,7 @@ const ModalNotice = () => {
                   Cancel
                 </button>
                 <button className={css.btn} type="button">
-                  <span>Yes</span> <LogoutIcon />
+                  <span>Yes</span> <img src={logoutSvg} alt="log out button" />
                 </button>
               </div>
             </div>
