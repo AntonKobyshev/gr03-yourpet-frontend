@@ -1,10 +1,14 @@
-import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import AddPetForm from '../../modules/AddPetForm'
+
+const AddPetPage = () => {
+  useEffect(() => {
+    document.title = 'YourPet | Add pet';
+  });
+
+    
+  return <AddPetForm />;
+};
 
 
-const AddPetForm = () => {
-    const [step, setStep] = useState(0);
-    const navigate = useNavigate();
-    const steps = ['Choose option', 'Personal details', 'More info'];
-}
+export default AddPetPage;
