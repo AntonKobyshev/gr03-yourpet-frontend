@@ -3,23 +3,23 @@
   font-weight: 700;
   line-height: 44px;
   text-align: center;
-  min-width: 280px;
   max-width: 280px;
+  height: 88px;
 
   @media screen and (min-width: 768px) {
     font-size: 68px;
     line-height: 100px;
     text-align: left;
-    min-width: 588px;
     max-width: 588px;
+    height: 200px;
     margin-left: 32px;
   }
 
   @media screen and (min-width: 1280px) {
     font-weight: 800;
     line-height: 130%;
-    min-width: 501px;
     max-width: 501px;
+    height: 264px;
     margin-left: 16px;
   }
 }
@@ -27,6 +27,9 @@
 .background {
   padding-top: 80px;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
   width: calc(100% + 40px);
   height: 100vh;
   margin-left: -20px;
@@ -53,6 +56,7 @@
     }
   }
   @media screen and (min-width: 1280px) {
+    display: flex;
     padding-top: 188px;
     width: calc(100% + 32px);
     height: 100vh;
