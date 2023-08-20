@@ -3,6 +3,9 @@ import React from "react";
 import css from "./ModalNotice.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 import logoutSvg from "../../modules/Header/UserNav/logout.svg";
+import { logout } from '../../redux/auth/auth-operations';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const style = {
   position: "absolute",
@@ -19,6 +22,14 @@ const ModalNotice = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+    const handleLogout = () => {
+    handleClose();
+    dispatch(logout());
+    navigate('/');
+  };
 
   return (
     <div>
@@ -56,7 +67,7 @@ const ModalNotice = () => {
                 >
                   Cancel
                 </button>
-                <button className={css.btn} type="button">
+                <button className={css.btn} type="button" onClick={handleLogout}>
                   <span>Yes</span> <img src={logoutSvg} alt="log out button" />
                 </button>
               </div>
