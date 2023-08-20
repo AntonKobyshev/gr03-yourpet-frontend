@@ -1,0 +1,348 @@
+.item {
+    border-radius: 40px;
+    background: var(--white-color);
+    box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 456px;
+    flex-shrink: 0;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .item {
+        width: 336px;
+        height: 456px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .item {
+        width: 288px;
+        height: 456px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+}
+
+.item:hover,
+.item:focus {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.image {
+    align-self: flex-start;
+    width: 280px;
+    height: 288px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+@media screen and (min-width: 768px) {
+    .image {
+        width: 336px;
+        height: 288px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .image {
+        width: 288px;
+        height: 288px;
+    }
+}
+
+.title {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    margin: 20px 29px 20px 20px;
+
+    width: 231px;
+    height: 66px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.category {
+    color: var(--black-color);
+    text-align: center;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    flex-direction: column;
+    position: absolute;
+    top: 16px;
+
+    display: flex;
+    width: 126px;
+    height: 32px;
+    justify-content: center;
+
+    background-color: var(--blue-light-color);
+    border-radius: 0 16px 16px 0;
+}
+
+.infoWrapper {
+    display: flex;
+    position: absolute;
+    gap: 12px;
+    top: 248px;
+    left: 8px;
+}
+
+@media screen and (min-width: 768px) {
+    .infoWrapper {
+        gap: 24px;
+        top: 248px;
+        left: 24px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .infoWrapper {
+        gap: 12px;
+        top: 248px;
+        left: 12px;
+    }
+}
+
+.addToFavoritesButton {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    top: 12px;
+    left: 228px;
+    background-color: var(--blue-light-color);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+@media screen and (min-width: 768px) {
+    .addToFavoritesButton {
+        top: 12px;
+        left: 284px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .addToFavoritesButton {
+        top: 12px;
+        left: 231px;
+    }
+}
+
+.deleteFavoritesButton {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    top: 68px;
+    left: 228px;
+    background-color: var(--blue-light-color);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+@media screen and (min-width: 768px) {
+    .delFavoritesButton {
+        top: 68px;
+        left: 284px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .delFavoritesButton {
+        top: 68px;
+        left: 231px;
+    }
+}
+
+.location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 28px;
+    padding: 2px 4px;
+
+    background-color: var(--blue-light-color);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.location:hover,
+.location:focus {
+    background: var(--blue-color);
+    color: rgb(253, 247, 242);
+    border: none;
+}
+
+.iconSvg {
+    margin-right: 4px;
+    width: 24px;
+    height: 24px;
+}
+
+.texProp {
+    color: var(--text-color);
+    font-family: Manrope;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.48px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.texProp:hover,
+.texProp:focus {
+    color: rgb(253, 247, 242);
+
+}
+
+.age {
+    display: flex;
+    padding: 2px 4px;
+
+    width: 80px;
+    height: 28px;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 16px;
+    background: var(--blue-light-color);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.age:hover,
+.age:focus {
+    color: rgb(253, 247, 242);
+    background: var(--blue-color);
+    border: none;
+}
+
+.sex {
+    display: flex;
+    padding: 2px 4px;
+    width: 80px;
+    height: 28px;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 16px;
+    background: var(--blue-light-color);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sex:hover,
+.sex:focus {
+    background: var(--blue-color);
+    color: rgb(253, 247, 242);
+    border: none;
+}
+
+
+.location:hover svg,
+.age:hover svg,
+.sex:hover svg {
+    width: 24px;
+    height: 24px;
+    --color1: var(--white-color);
+}
+
+
+.learnMoreButton {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-left: 16px;
+
+    background-color: var(--white-color);
+    color: var(--blue-color);
+
+    flex-direction: row;
+    padding: 8px 28px;
+    width: 248px;
+    height: auto;
+    border: 2px solid var(--blue-color);
+    border-radius: 40px;
+
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+@media screen and (min-width: 768px) {
+    .learnMoreButton {
+        margin-left: 44px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .learnMoreButton {
+        margin-left: 20px;
+    }
+}
+
+.learnMoreButton:hover,
+.learnMoreButton:focus {
+    background: linear-gradient(315deg, #419ef1 0%, #9bd0ff 100%);
+    color: rgb(253, 247, 242);
+    border: none;
+}
+
+.learnMoreButton svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--blue-color);
+    display: none;
+}
+
+.learnMoreButton:hover svg,
+.learnMoreButton:focus svg {
+    fill: var(--white-color);
+    display: inline-block;
+    margin-left: 12px;
+}
