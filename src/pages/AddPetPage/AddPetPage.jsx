@@ -6,7 +6,9 @@ const AddPetPage = () => {
     document.title = 'YourPet | Add pet';
   });
 
+    
   return <AddPetForm />;
 };
+
 
 export default AddPetPage;
