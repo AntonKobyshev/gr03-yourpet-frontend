@@ -23,8 +23,8 @@ const data = {
 const LoginForm = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const dispatch = useDispatch();
   const handleClickShowPassword = () => setShowPassword((show) => !show);
+   const dispatch = useDispatch();
 
   const handleFormSubmit = async (values) => {
     const data = {
