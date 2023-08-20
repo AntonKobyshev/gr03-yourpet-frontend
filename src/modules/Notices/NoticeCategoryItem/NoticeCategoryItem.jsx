@@ -85,19 +85,19 @@ const NoticeCategoryItem = ({
             </button>
             <div className={css.infoWrapper}>
               <p className={css.location}>
-                <svg class={css.iconSvg} width="24" height="24">
+                <svg className={css.iconSvg} width="24" height="24">
                   <use href={`${svgSprite}#icon-location-1`}></use>
                 </svg>
                 <span className={css.texProp}>{"location"}</span>
               </p>
               <p className={css.age}>
-                <svg class={css.iconSvg} width="24" height="24">
+                <svg className={css.iconSvg} width="24" height="24">
                   <use href={`${svgSprite}#icon-clock`}></use>
                 </svg>
                 <span className={css.texProp}>{"age"}</span>
               </p>
               <p className={css.sex}>
-                <svg class={css.iconSvg} width="24" height="24">
+                <svg className={css.iconSvg} width="24" height="24">
                   <use href={`${svgSprite}#${sexIcon}`}></use>
                 </svg>
                 <span className={css.texProp}>{"sex"}</span>
