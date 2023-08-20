@@ -1,0 +1,40 @@
+.placeholder {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+}
+.inputContainer {
+  width: 280px;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 321px) and (max-width: 767px) {
+  .inputContainer {
+    width: 100%;
+    max-width: 608px;
+  }
+}
+
+@media (min-width: 768px) {
+  .inputContainer {
+    width: 608px;
+    margin-top: 40px;
+  }
+  .title {
+    font-size: 48px;
+    line-height: 66px;
+    margin-top: 80px;
+  }
+  .placeholder {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.myСomponent.dark .placeholder {
+  color: #c3bfbf;
+}
