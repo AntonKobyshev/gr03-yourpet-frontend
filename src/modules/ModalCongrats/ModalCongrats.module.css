@@ -47,13 +47,13 @@
 .btn {
   font-weight: 700;
   font-size: 16px;
-  border-radius: 25px;
+
+  border-radius: 40px;
   border: none;
-  background-color: #54adff;
-  color: #ffffff;
+  background-color: var(--blue-color);
+  color: var(--bg-color);
   min-width: 248px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  height: 40px;
 
   display: flex;
   align-items: center;
@@ -61,20 +61,20 @@
   gap: 10px;
   cursor: pointer;
 
-  &:hover {
-    box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
-    box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
-  }
-
   @media (min-width: 768px) {
     max-width: 248px;
+  }
+
+  &:hover,
+  &:focus {
+    background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
+    box-shadow: 7px 13px 14px 0px rgba(116, 177, 232, 0.24);
   }
 }
 
 .closeBtn {
   cursor: pointer;
-  color: #54adff;
+  color: var(--blue-color);
   position: absolute;
   top: 15px;
   right: 15px;

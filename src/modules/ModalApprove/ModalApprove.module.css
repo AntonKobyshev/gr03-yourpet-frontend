@@ -69,14 +69,14 @@
 .btnAccent {
   font-weight: 700;
   font-size: 16px;
-  border-radius: 25px;
-  border: solid 2px #ffc107;
-  color: #ffc107;
+
+  border-radius: 40px;
+  border: solid 2px var(--yellow-color);
+  color: var(--yellow-color);
   background-color: transparent;
 
   min-width: 256px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  height: 40px;
   cursor: pointer;
 
   @media (min-width: 768px) {
@@ -85,7 +85,8 @@
     padding-bottom: 6px;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
     box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
@@ -95,14 +96,13 @@
 .btn {
   font-weight: 700;
   font-size: 16px;
-  border-radius: 25px;
+
+  border-radius: 40px;
   border: none;
-  background-color: #ffc107;
-  color: #ffffff;
+  background-color: var(--yellow-color);
+  color: var(--bg-color);
   min-height: 40px;
   min-width: 256px;
-  padding-top: 10px;
-  padding-bottom: 10px;
 
   display: flex;
   align-items: center;
@@ -110,20 +110,21 @@
   gap: 10px;
   cursor: pointer;
 
-  &:hover {
+  @media (min-width: 768px) {
+    min-width: 129px;
+  }
+
+  &:hover,
+  &:focus {
     box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
     box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
-  }
-
-  @media (min-width: 768px) {
-    min-width: 129px;
   }
 }
 
 .closeBtn {
   cursor: pointer;
-  color: #ffc107;
+  color: var(--blue-color);
   position: absolute;
   top: 15px;
   right: 15px;

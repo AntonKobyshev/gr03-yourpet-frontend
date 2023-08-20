@@ -2,6 +2,7 @@ import { Backdrop, Box, Button, Fade, Modal } from "@mui/material";
 import React from "react";
 import css from "./ModalApprove.module.css";
 import CloseIcon from "@mui/icons-material/Close";
+import pawprint from "../../images/icons/pawprint.svg";
 
 const style = {
   position: "absolute",
@@ -54,12 +55,13 @@ const ModalApprove = () => {
               <div className={css.btnContainer}>
                 <button
                   //   onClick={handleClose}
-                  className={css.btnAccent}
+                  className={css.btn}
                   type="button"
                 >
-                  Log IN
+                  <span>Log IN</span>
+                  <img src={pawprint} alt="paw print" />
                 </button>
-                <button className={css.btn} type="button">
+                <button className={css.btnAccent} type="button">
                   <span>Registration</span>
                 </button>
               </div>

@@ -49,14 +49,14 @@
 .btnAccent {
   font-weight: 700;
   font-size: 16px;
-  border-radius: 25px;
-  border: solid 2px #54adff;
-  color: #54adff;
+
+  border-radius: 40px;
+  border: solid 2px var(--blue-color);
+  color: var(--blue-color);
   background-color: transparent;
 
   min-width: 256px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  height: 40px;
   cursor: pointer;
 
   @media (min-width: 768px) {
@@ -65,24 +65,25 @@
     padding-bottom: 6px;
   }
 
-  &:hover {
-    box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
-    box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
+  &:hover,
+  &:focus {
+    background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
+    border: none;
+    color: var(--bg-color);
+    box-shadow: 7px 13px 14px 0px rgba(116, 177, 232, 0.24);
   }
 }
 
 .btn {
   font-weight: 700;
   font-size: 16px;
-  border-radius: 25px;
+
+  border-radius: 40px;
   border: none;
-  background-color: #54adff;
-  color: #ffffff;
+  background-color: var(--blue-color);
+  color: var(--bg-color);
   min-height: 40px;
   min-width: 256px;
-  padding-top: 10px;
-  padding-bottom: 10px;
 
   display: flex;
   align-items: center;
@@ -90,20 +91,20 @@
   gap: 10px;
   cursor: pointer;
 
-  &:hover {
-    box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
-    box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
-  }
-
   @media (min-width: 768px) {
     min-width: 129px;
+  }
+
+  &:hover,
+  &:focus {
+    background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
+    box-shadow: 7px 13px 14px 0px rgba(116, 177, 232, 0.24);
   }
 }
 
 .closeBtn {
   cursor: pointer;
-  color: #54adff;
+  color: var(--blue-color);
   position: absolute;
   top: 15px;
   right: 15px;
@@ -118,8 +119,8 @@
   width: 135px;
   height: 40px;
   border-radius: 40px;
-  background-color: #54adff;
-  color: #fff;
+  background-color: var(--blue-color);
+  color: var(--bg-color);
   padding: 8px 20px;
   display: flex;
   gap: 8px;
@@ -129,4 +130,10 @@
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.64px;
+
+  &:hover,
+  &:focus {
+    background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
+    box-shadow: 7px 13px 14px 0px rgba(116, 177, 232, 0.24);
+  }
 }
