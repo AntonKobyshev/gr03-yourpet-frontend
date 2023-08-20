@@ -2,11 +2,11 @@ import React from "react";
 import css from "./Logout.module.css";
 import LogoutIcon from "../../../images/icons/logout.svg";
 
-const handleButtonClick = () => {
-  alert("ButtonClick");
-};
-
 const Logout = () => {
+  const handleButtonClick = () => {
+    alert("ButtonClick");
+  };
+
   return (
     <div>
       <button
