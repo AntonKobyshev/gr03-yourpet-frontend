@@ -1,11 +1,16 @@
-
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchNoticesByCategory } from "../../redux/notices/notices-operations";
+import {
+  fetchNoticesByCategory,
+  fetchNoticesByOwn,
+  fetchAllFavoriteNotices,
+} from "../../redux/notices/notices-operations";
+
 import { getAllNotices } from "../../redux/notices/notices-selectors";
 import NoticesSearch from "../../modules/Notices/NoticesSearch/NoticesSearch";
+import NoticesCategoriesNav from "../../modules/Notices/NoticesCategoriesNav/NoticesCategoriesNav";
 
 import css from "../NoticesPage/NoticesPage.module.css";
 import ScrollButton from "../../shared/components/ScrollButton/ScrollButton";
@@ -16,6 +21,9 @@ const NoticesPage = () => {
 
   const location = useLocation();
   const currentCategory = location.pathname.split("/")[2];
+
+  const [ownCurrentPage, setOwnCurrentPage] = useState(1);
+  const [favoriteCurrentPage, setFavoriteCurrentPage] = useState(1);
 
   useEffect(() => {
     if (currentCategory === "sell") {
@@ -48,12 +56,35 @@ const NoticesPage = () => {
       );
       return;
     }
-  }, [currentCategory, dispatch]);
+    if (currentCategory === "own") {
+      dispatch(fetchNoticesByOwn({ query: "", page: ownCurrentPage }));
+      return;
+    }
+    if (currentCategory === "favorite") {
+      dispatch(
+        fetchAllFavoriteNotices({ query: "", page: favoriteCurrentPage })
+      );
+      return;
+    }
+  }, [currentCategory, dispatch, ownCurrentPage, favoriteCurrentPage]);
+
+  const handleOwnClick = () => {
+    dispatch(fetchNoticesByOwn({ query: "", page: ownCurrentPage }));
+  };
+
+  const handleFavoriteClick = () => {
+    dispatch(fetchAllFavoriteNotices({ query: "", page: favoriteCurrentPage }));
+  };
 
   return (
     <div className="container">
       <h2 className={css.title}>Find your favorite pet</h2>
       <NoticesSearch />
+      <NoticesCategoriesNav
+        onOwnClick={handleOwnClick}
+        onFavoriteClick={handleFavoriteClick}
+      />
+
       {notices && <Outlet />}
 
       <ScrollButton />
