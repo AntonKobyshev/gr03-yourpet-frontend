@@ -4,6 +4,11 @@ import SharedLayout from "./shared/components/SharedLayout/SharedLayout";
 import MainPage from "./pages/MainPage/MainPage";
 import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList";
 
+import ModalTitle from "./modules/ModalTitle/ModalTitle";
+
+import UserPage from "./pages/UserPage/UserPage";
+import AddPetPage from "./pages/AddPetPage/AddPetPage";
+
 // import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList/NoticesCategoriesList";
 const NoticesPage = lazy(() => import("./pages/NoticesPage/NoticesPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
