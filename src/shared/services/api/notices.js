@@ -40,17 +40,17 @@ export const getNoticesByOwn = async (query = "", page = 1) => {
 
 export const getAllFavoriteNotices = async (query = "", page = 1) => {
   const { data } = await instance.get(
-    `notices/favorite/all?searchValue=${query}&page=${page}&limit=12`
+    `notices/favorites/all?searchValue=${query}&page=${page}&limit=12`
   );
   return data;
 };
 
 export const addToFavoriteNotices = async (_id) => {
-  const { data } = await instance.patch(`notices/favorite/add/${_id}`);
+  const { data } = await instance.patch(`notices/favorites/add/${_id}`);
   return data;
 };
 
 export const removeFromFavoriteNotices = async (_id) => {
-  const { data } = await instance.patch(`notices/favorite/remove/${_id}`);
+  const { data } = await instance.patch(`notices/favorites/remove/${_id}`);
   return data;
 };
