@@ -72,7 +72,7 @@ const RegisterForm = () => {
                     },
 
                     "& .MuiInputLabel-root.Mui-focused": {
-                      color: "#183a3d",
+                      color: "#54ADFF",
                     },
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {

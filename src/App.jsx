@@ -17,7 +17,6 @@ function App() {
         <Route path="/main" element={<MainPage />} index />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-
         <Route path="/notices" element={<NoticesPage />}>
           <Route index element={<Navigate to="sell" replace />} />
           <Route path=":categoryName" element={<NoticesCategoriesList />} />

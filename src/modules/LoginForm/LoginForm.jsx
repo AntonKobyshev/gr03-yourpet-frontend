@@ -60,7 +60,7 @@ const LoginForm = () => {
                 <TextField
                   name="email"
                   type="email"
-                  label={"Email"}
+                  label="Email"
                   size="small"
                   fullWidth
                   sx={{
