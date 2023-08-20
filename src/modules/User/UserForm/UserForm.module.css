@@ -1,73 +1,117 @@
+.formContainer {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+}
 
 .imageWrapper {
-    width: 182px;
-    height: 182px;
-    border-radius: 20px;
+  width: 182px;
+  height: 182px;
+  margin: auto;
+  border-radius: 20px;
 
+  background-color: gray;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-right: 76px;
+    margin-top: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
     margin: auto;
-
-    background-color: gray;
+    margin-bottom: 63px;
+  }
 }
 
 .userImage {
-    width: 100%;
-    
+  width: 100%;
 }
 
 .form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
+  @media screen and (max-width: 767px) {
     margin-top: 59px;
     margin-bottom: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  }
 
+  @media screen and (min-width: 768px) {
+    gap: 10px;
+  }
 }
 
 .formLabelBox {
-display: flex; 
-    justify-content: space-between; 
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+  }
 }
 
 .formLabelBox label {
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 19.12px;
+  font-weight: 600;
+  font-size: 14px;
+
+  line-height: 1.37;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 }
 
 .input {
-    width: 190px;
-    height: 24px;
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(84, 173, 255, 1);
+  width: 190px;
+  height: 24px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(84, 173, 255, 1);
 
-    /* pointer-events: all;
-user-select: all; */
+  @media screen and (min-width: 768px) {
+    width: 255px;
+    height: 30px;
+  }
 }
 
 .input[readonly] {
-    pointer-events: none;
-    user-select: none;
+  pointer-events: none;
+  user-select: none;
 }
 
 .saveBtn {
+  display: block;
 
-    display: block;
-        margin: 0 auto;
+  padding: 0;
+  width: 248px;
+  height: 31px;
 
-    padding: 0;
-    width: 248px;
-    height: 31px;
+  border-radius: 40px;
+  border: transparent;
 
-    border-radius: 40px;
-    border: transparent;
+  background-color: #54adff;
 
-    background-color: #54ADFF;
+  color: #fef9f9;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.37;
 
-    color: #FEF9F9;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 19.12px;
+  @media screen and (max-width: 767px) {
+    margin: auto;
+  }
+  @media screen and (min-width: 768px) {
+    margin-top: 10px;
+    height: 32px;
+    width: 255px;
+
+    font-size: 16px;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
 }

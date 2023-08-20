@@ -2,12 +2,27 @@
   position: relative;
   height: 517px;
   width: 280px;
-    padding: 20px 8px;
-margin: auto;
+  padding: 20px 8px;
+  margin: auto;
+  margin-top: 18px;
+
   border-radius: 20px;
 
   background-color: #ffffff;
   box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.2);
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 268px;
+    padding: 20px;
+    border-radius: 40px;
+    margin-top: 24px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+    height: 520px;
+  }
 }
 
 .editBtn {
@@ -15,13 +30,17 @@ margin: auto;
   top: 14px;
   right: 14px;
 
-
-display: flex;
-align-items: center;
-  justify-content: center; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   width: 24px;
   height: 24px;
   border: none;
   background-color: transparent;
+
+  @media screen and (min-width: 768px) {
+    top: 18px;
+    right: 18px;
+  }
 }
