@@ -49,7 +49,6 @@ function App() {
         </Route>
         <Route path="/news" element={null} />
         <Route path="/friends" element={null} />
-        <Route path="*" element={<NotFoundPage />} />
         <Route element={<PublicRoute />}>
           <Route path="register" element={<RegisterPage />} />
           <Route path="login" element={<LoginPage />} />
@@ -58,6 +57,7 @@ function App() {
           <Route path="user" element={<UserPage />} />
           {/* <Route path="add-pet" element={<AddPetPage />} /> */}
         </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   );
