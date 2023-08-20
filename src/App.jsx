@@ -5,7 +5,6 @@ import { lazy } from "react";
 import SharedLayout from "./shared/components/SharedLayout/SharedLayout";
 import MainPage from "./pages/MainPage/MainPage";
 import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList";
-import NoticesPage from "./pages/NoticesPage/NoticesPage";
 // import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList/NoticesCategoriesList";
 
 const NoticesPage = lazy(() => import("./pages/NoticesPage/NoticesPage"));
