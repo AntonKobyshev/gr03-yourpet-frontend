@@ -31,13 +31,3 @@ export const Input = styled(Field)`
   border: 1px solid;
 
 `;
-
-export const Message = styled(ErrorMessage)`
-  position: absolute;
-  bottom: -15px;
-  left: 20px;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: calc(16 / 12);
-  color: #f43f5e;
-`;
