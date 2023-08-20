@@ -5,6 +5,7 @@ import CloseMenu from "./closeMenuBtn.svg";
 import LogoutIcon from "./logout.svg";
 import Nav from "../Nav/Nav";
 import css from "./UserNav.module.css";
+import ModalNotice from "../../ModalNotice/ModalNotice";
 
 export default function UserNav() {
   const [isMenuShown, setIsMenuShown] = useState(false);
@@ -15,16 +16,22 @@ export default function UserNav() {
     <div>
       <div className={css.navBox}>
         {isMenuShown ? (
-          <button type="button" className={css.logoutBtnTab}>
-            Log out
-            <img src={LogoutIcon} alt="log out button" />
-          </button>
+          <div className={css.logoutBtnTab}>
+            <ModalNotice />
+          </div>
         ) : (
+          // <button type="button" className={css.logoutBtnTab}>
+          //   Log out
+          //   <img src={LogoutIcon} alt="log out button" />
+          // </button>
           <>
-            <button type="button" className={css.logoutBtnDesc}>
+            {/* <button type="button" className={css.logoutBtnDesc}>
               Log out
               <img src={LogoutIcon} alt="log out button" />
-            </button>
+            </button> */}
+            <div className={css.logoutBtnDesc}>
+              <ModalNotice />
+            </div>
             <div className={css.userInfoTab}>
               <img src={UserIcon} alt="user icon" />
               <p>User name</p>
@@ -46,10 +53,13 @@ export default function UserNav() {
             <p>User name</p>
           </div>
           <Nav />
-          <button type="button" className={css.logoutBtn}>
+          {/* <button type="button" className={css.logoutBtn}>
             Log out
             <img src={LogoutIcon} alt="log out button" />
-          </button>
+          </button> */}
+          <div className={css.logoutBtn}>
+            <ModalNotice />
+          </div>
         </div>
       )}
     </div>

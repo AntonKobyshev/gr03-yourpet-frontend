@@ -11,8 +11,8 @@ export default function Header() {
       <div className={css.shouldShowNav}>
         <Nav />
       </div>
-      {/* <UserNav /> */}
-      <AuthNav />
+      <UserNav />
+      {/* <AuthNav /> */}
     </header>
   );
 }

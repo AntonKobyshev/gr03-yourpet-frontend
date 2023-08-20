@@ -1,0 +1,47 @@
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 100px;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    gap: 32px;
+    margin-top: 62px;
+    margin-bottom: 57px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* .userContainer {
+  margin-top: 18px;
+} */
+
+.title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.37;
+
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+  }
+}
+
+.petsContainer {
+  @media screen and (max-width: 767px) {
+    margin-top: 46px;
+  }
+  @media screen and (max-width: 1279px) {
+    margin-top: 40px;
+  }
+}
