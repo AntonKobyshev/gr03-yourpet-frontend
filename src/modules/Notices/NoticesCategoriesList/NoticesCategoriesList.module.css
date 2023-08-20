@@ -1,0 +1,24 @@
+.list {
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    gap: 24px 32px;
+    margin-bottom: 68px;
+}
+
+.list-item {
+    flex: 0 0 calc(25% - 63px);
+    max-width: calc(25% - 63px);
+    margin: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 16px;
+    text-align: center;
+}
