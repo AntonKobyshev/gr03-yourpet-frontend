@@ -1,0 +1,48 @@
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 8px;
+  width: 256px;
+  height: 40px;
+  padding: 8px 0;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.37;
+  letter-spacing: 0.04em;
+  color: #54adff;
+  background-color: transparent;
+  border: 2px solid #54adff;
+  border-radius: 40px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (min-width: 768px) {
+  .contact {
+    width: 129px;
+  }
+}
+
+.contact:hover,
+.contact:focus {
+  color: #fef9f9;
+  background-image: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
+  border: 2px solid #ffffff;
+}
+
+.contactLink {
+  color: inherit;
+  width: 100%;
+}
+
+.myСomponent.dark .contact {
+  color: #c9c7c7;
+  background-color: #417075;
+  border: 2px solid #c9c7c7;
+}
+
+.myСomponent.dark .contact:hover {
+  background: linear-gradient(290.46deg, #55787c 0%, #64999e 107.89%);
+}
