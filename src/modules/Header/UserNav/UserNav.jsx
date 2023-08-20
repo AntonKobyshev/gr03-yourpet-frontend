@@ -26,7 +26,7 @@ export default function UserNav() {
             <div className={css.logoutBtnDesc}>
               <ModalNotice />
             </div>
-            <NavLink className={css.userInfoTab} to="/user">
+            <NavLink className={css.userInfoTab} to="/user" onClick={toggleMenu}>
               <img src={user.imageURL} alt="user icon" width="28" />
               <p>{user.name}</p>
             </NavLink>

@@ -16,14 +16,13 @@ const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 
 function App() {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route path="/main" element={<MainPage />} index />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/notices" element={<NoticesPage />}>
-            {/* <Route index element={<NoticesCategoriesList />} />
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route path="/main" element={<MainPage />} index />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/notices" element={<NoticesPage />}>
+          {/* <Route index element={<NoticesCategoriesList />} />
 
     <Routes>
       <Route path="/" element={<SharedLayout />}>
@@ -41,19 +40,16 @@ function App() {
           <Route path="favorite" element={<NoticesCategoriesList />} />
           <Route path="own" element={<NoticesCategoriesList />} /> */}
 
-            <Route index element={<Navigate to="sell" replace />} />
-            <Route path=":categoryName" element={<NoticesCategoriesList />} />
-          </Route>
-          <Route path="/news" element={null} />
-          <Route path="/friends" element={null} />
-          <Route path="add-pet" element={<AddPetPage />} />
-
           <Route index element={<Navigate to="sell" replace />} />
           <Route path=":categoryName" element={<NoticesCategoriesList />} />
         </Route>
-      </Routes>
-      <ModalTitle />
-    </>
+        <Route path="/news" element={null} />
+        <Route path="/friends" element={null} />
+
+        <Route index element={<Navigate to="sell" replace />} />
+        <Route path=":categoryName" element={<NoticesCategoriesList />} />
+      </Route>
+    </Routes>
   );
 }
 
