@@ -51,4 +51,7 @@ const PersonalDetails = ({ category, touched, errors }) => {
   );
 };
 
+
+
+
 export default PersonalDetails;
