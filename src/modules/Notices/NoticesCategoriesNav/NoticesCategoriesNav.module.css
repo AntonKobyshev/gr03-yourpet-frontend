@@ -1,0 +1,169 @@
+.navList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+@media (min-width: 768px) {
+  .navList {
+    margin-top: 40px;
+    gap: 12px;
+  }
+}
+.navLink {
+  border-radius: 40px;
+  padding: 8px 16px;
+  font-family: 'Manrope';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+  background: #cce4fb;
+  color: #54adff;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navLink.active {
+  background: #54adff;
+  color: #fef9f9;
+}
+
+.navLink:hover,
+.navLink:focus {
+  background: #54adff;
+  color: #fef9f9;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btnContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .btnContainer {
+    margin-top: 40px;
+    position: sticky;
+    top: 0;
+  }
+}
+/* .btn {
+  display: none;
+} */
+
+@media screen and (max-width: 767px) {
+  .btn {
+    position: fixed;
+    top: 39%;
+    right: 9%;
+    width: 80px;
+    height: 80px;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.04em;
+    color: #fef9f9;
+    border: 0;
+    cursor: pointer;
+    padding: 9px 16px;
+    background: #54adff;
+    border-radius: 50%;
+    animation: pulse-animation 2s ease-in-out infinite;
+    z-index: 50;
+  }
+  .iconBtn {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 4px;
+  }
+}
+@media (min-width: 768px) {
+  .btn {
+    width: 129px;
+    height: 40px;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    letter-spacing: 0.04em;
+    color: #fef9f9;
+    border: 0;
+    cursor: pointer;
+    padding: 9px 16px;
+    background: #54adff;
+    border-radius: 40px;
+    position: relative;
+    animation: pulse-animation 2s ease-in-out infinite;
+  }
+}
+.btn:hover,
+.btn:focus {
+  background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
+}
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(136, 198, 253, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(136, 198, 253, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(136, 198, 253, 0.4);
+  }
+}
+.iconBtn {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.myСomponent.dark .active {
+  color: #c3bfbf;
+}
+
+.myСomponent.dark .navLink {
+  color: #c3bfbf;
+}
+
+.myСomponent.dark .btn {
+  color: #c9c7c7;
+  background-color: #417075;
+}
+
+.myСomponent.dark .btn:hover {
+  background: linear-gradient(290.46deg, #55787c 0%, #64999e 107.89%);
+}
+
+.myСomponent.dark .navLink {
+  color: #c9c7c7;
+  background-color: #417075;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.myСomponent.dark .navLink.active {
+  background: linear-gradient(290.46deg, #55787c 0%, #89b4b7 107.89%);
+  border: 1px solid #c9c7c7;
+}
+
+.myСomponent.dark .navLink:hover,
+.myСomponent.dark .navLink:focus {
+  background: linear-gradient(290.46deg, #55787c 0%, #64999e 107.89%);
+}
