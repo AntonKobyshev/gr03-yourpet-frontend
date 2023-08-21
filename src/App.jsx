@@ -7,6 +7,7 @@ import PublicRoute from "./Routes/PublicRoute/PublicRoute";
 import PrivateRoute from "./Routes/PrivateRoute/PrivateRoute";
 import ModalTitle from "./modules/ModalTitle/ModalTitle";
 import UserPage from "./pages/UserPage/UserPage";
+import AddPetPage from "./pages/AddPetPage/AddPetPage";
 // import AddPetPage from "./pages/AddPetPage/AddPetPage";
 
 // import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList/NoticesCategoriesList";
@@ -34,7 +35,7 @@ function App() {
         </Route>
         <Route element={<PrivateRoute />}>
           <Route path="user" element={<UserPage />} />
-          {/* <Route path="add-pet" element={<AddPetPage />} /> */}
+          { <Route path="add-pet" element={<AddPetPage />} /> }
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Route>

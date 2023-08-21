@@ -1,5 +1,5 @@
+import { AddPetForm } from "../../modules/AddPetForm/AddPetForm"
 import { useEffect } from 'react';
-import AddPetForm from '../../modules/AddPetForm'
 import css from "./AddPetPage.module.css"
 
 const AddPetPage = () => {
@@ -12,7 +12,9 @@ const AddPetPage = () => {
     };
   }, []);
   return (
-    <>AddPetForm</>
+    <>
+    < AddPetForm/>
+    </>
   );
 
 };
