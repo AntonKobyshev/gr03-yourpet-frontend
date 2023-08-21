@@ -15,6 +15,7 @@
 
   @media screen and (min-width: 1280px) {
     display: flex;
+    justify-content: center;
     gap: 32px;
     margin-top: 62px;
     margin-bottom: 57px;
