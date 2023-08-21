@@ -1,11 +1,8 @@
-import { Backdrop, Box, Fade, Modal } from "@mui/material";
 import React from "react";
+import { Backdrop, Box, Button, Fade, Modal } from "@mui/material";
+import heart from "../../images/icons/heart.svg";
 import css from "./ModalNotice.module.css";
 import CloseIcon from "@mui/icons-material/Close";
-import logoutSvg from "../../modules/Header/UserNav/logout.svg";
-import { logout } from '../../redux/auth/auth-operations';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 const style = {
   position: "absolute",
@@ -22,21 +19,9 @@ const ModalNotice = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-    const handleLogout = () => {
-    handleClose();
-    dispatch(logout());
-    navigate('/');
-  };
-
   return (
     <div>
-      <button className={css.logoutBtn} onClick={handleOpen}>
-        Log out
-        <img src={logoutSvg} alt="log out button" />
-      </button>
+      <Button onClick={handleOpen}>Modal Notice</Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -57,18 +42,62 @@ const ModalNotice = () => {
               className={css.closeBtn}
               sx={{ width: 30, height: 30 }}
             />
-            <div className={css.contentContainer}>
-              <p className={css.title}>Already leaving?</p>
+            <div className={css.container}>
+              {" "}
+              <div className={css.contentContainer}>
+                <img
+                  className={css.image}
+                  src={""}
+                  alt={"title"}
+                  loading="lazy"
+                />
+                <div className={css.textContainer}>
+                  <p className={css.title}>{`Сute dog looking for a home`}</p>
+                  <div className={css.flexContainer}>
+                    <div className={css.firstContainer}>
+                      <p className={css.subTitle}>Name:</p>
+                      <p className={css.subTitle}>Birthday:</p>
+                      <p className={css.subTitle}>Type:</p>
+                      <p className={css.subTitle}>Place:</p>
+                      <p className={css.subTitle}>The sex:</p>
+                      <p className={css.subTitle}>Email:</p>
+                      <p className={css.subTitle}>Phone:</p>
+                    </div>
+                    <div className={css.secondContainer}>
+                      <p className={css.text}>{"Rich"}</p>
+                      <p className={css.text}>{"21.09.2020"}</p>
+                      <p className={css.text}>{"Pomeranian"}</p>
+                      <p className={css.text}>{"Lviv"}</p>
+                      <p className={css.text}>{"male"}</p>
+                      <a className={css.textContact} href={`mailto:{' '}`}>
+                        {"user@mail.com"}
+                      </a>
+                      <a className={css.textContact} href={`tel:${" "}`}>
+                        {"+380971234567"}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className={css.commentContainer}>
+                {" "}
+                <p className={css.subTitle}>
+                  Comments:{" "}
+                  <span
+                    className={css.textComment}
+                  >{`'Rich would be the perfect addition to an active family that loves to play and go on walks. I bet he would love having a doggy playmate too! '`}</span>
+                </p>
+              </div>
               <div className={css.btnContainer}>
                 <button
                   onClick={handleClose}
                   className={css.btnAccent}
                   type="button"
                 >
-                  Cancel
+                  Contact
                 </button>
-                <button className={css.btn} type="button" onClick={handleLogout}>
-                  <span>Yes</span> <img src={logoutSvg} alt="log out button" />
+                <button className={css.btn} type="button">
+                  <span>Add to </span> <img src={heart} alt="heart icon" />
                 </button>
               </div>
             </div>
