@@ -11,7 +11,7 @@ const UserData = () => {
     birthday: "",
     phone: "",
     city: "",
-    avatar: null,
+    avatar: "",
   };
 
   const [editing, setEditing] = useState(false);

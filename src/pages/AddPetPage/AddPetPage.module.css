@@ -16,8 +16,8 @@
     }
 }
 
-@media screen and (min-width: 1280px) {
+ @media screen and (min-width: 1280px) {
     .bodyBg::after {
-        background-image: url('../../../src/images/bg.png');
+        background-image: url('../../../src/images/bg-desktop.png');
     }
-}
+} 

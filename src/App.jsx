@@ -3,13 +3,11 @@ import { lazy } from "react";
 import SharedLayout from "./shared/components/SharedLayout/SharedLayout";
 import MainPage from "./pages/MainPage/MainPage";
 import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList";
-
 import PublicRoute from "./Routes/PublicRoute/PublicRoute";
 import PrivateRoute from "./Routes/PrivateRoute/PrivateRoute";
-
 import ModalTitle from "./modules/ModalTitle/ModalTitle";
-
 import UserPage from "./pages/UserPage/UserPage";
+import AddPetPage from "./pages/AddPetPage/AddPetPage";
 // import AddPetPage from "./pages/AddPetPage/AddPetPage";
 
 // import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList/NoticesCategoriesList";
@@ -26,24 +24,6 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/notices" element={<NoticesPage />}>
-          {/* <Route index element={<NoticesCategoriesList />} />
-
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route path="/main" element={<MainPage />} index />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/user" element={<UserPage />} />
-
-        <Route path="/notices" element={<NoticesPage />}>
-          {/* <Route index element={<NoticesCategoriesList />} />
-
-          <Route path="sell" element={<NoticesCategoriesList />} />
-          <Route path="lost-found" element={<NoticesCategoriesList />} />
-          <Route path="for-free" element={<NoticesCategoriesList />} />
-          <Route path="favorite" element={<NoticesCategoriesList />} />
-          <Route path="own" element={<NoticesCategoriesList />} /> */}
-
           <Route index element={<Navigate to="sell" replace />} />
           <Route path=":categoryName" element={<NoticesCategoriesList />} />
         </Route>
@@ -55,11 +35,12 @@ function App() {
         </Route>
         <Route element={<PrivateRoute />}>
           <Route path="user" element={<UserPage />} />
-          {/* <Route path="add-pet" element={<AddPetPage />} /> */}
+          { <Route path="add-pet" element={<AddPetPage />} /> }
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
+
   );
 }
 

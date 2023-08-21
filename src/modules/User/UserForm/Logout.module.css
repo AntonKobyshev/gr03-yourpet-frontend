@@ -3,12 +3,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row-reverse;
   gap: 12px;
   border: transparent;
   background-color: transparent;
-}
-
-.logoutBtn p {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.37;

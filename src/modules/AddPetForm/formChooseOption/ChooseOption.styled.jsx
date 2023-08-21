@@ -19,4 +19,19 @@ export const Label = styled.label`
   font-size: 14px;
   line-height: calc(19 / 14);
   border-radius: 40px;
+
+  background-color: ${props => (props.checked ? '#54adff' : '#CCE4FB')};
+  color: ${props => (props.checked ? '#FEF9F9' : '#54ADFF')};
+  transition: all 0.2s ease-in-out;
+  will-change: transform;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  > input[type='radio'] {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
 `;
