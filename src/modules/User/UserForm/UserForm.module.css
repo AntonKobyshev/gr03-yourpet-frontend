@@ -29,7 +29,7 @@
   width: 100%;
 }
 
-.form {
+.inputsContainer {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -114,4 +114,47 @@
 .buttonContainer {
   display: flex;
   justify-content: flex-end;
+}
+
+.editPhotoButton {
+  position: absolute;
+  top: 216px;
+  left: 93px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: transparent;
+  background-color: transparent;
+
+  font-size: 12px;
+  line-height: 1.83;
+
+  @media screen and (min-width: 768px) {
+    right: -230px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 100px;
+  }
+}
+
+.confirmButtons {
+  margin-top: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.deleteBtn,
+.confirmBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: transparent;
+  background-color: transparent;
 }
