@@ -3,23 +3,23 @@
   font-weight: 700;
   line-height: 44px;
   text-align: center;
-  min-width: 280px;
   max-width: 280px;
+  height: 88px;
 
   @media screen and (min-width: 768px) {
     font-size: 68px;
     line-height: 100px;
     text-align: left;
-    min-width: 588px;
     max-width: 588px;
+    height: 200px;
     margin-left: 32px;
   }
 
   @media screen and (min-width: 1280px) {
     font-weight: 800;
     line-height: 130%;
-    min-width: 501px;
     max-width: 501px;
+    height: 264px;
     margin-left: 16px;
   }
 }
@@ -27,6 +27,9 @@
 .background {
   padding-top: 80px;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
   width: calc(100% + 40px);
   height: 100vh;
   margin-left: -20px;
@@ -53,6 +56,7 @@
     }
   }
   @media screen and (min-width: 1280px) {
+    display: flex;
     padding-top: 188px;
     width: calc(100% + 32px);
     height: 100vh;
@@ -64,6 +68,159 @@
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       background-image: url(../../images/bg-desktop@2x.png);
+    }
+  }
+}
+
+.box {
+  position: relative;
+  overflow: visible;
+  margin: 30px auto 0;
+  width: 320px;
+  height: 390px;
+
+  @media screen and (min-width: 768px) {
+    height: 820px;
+    width: 768px;
+    margin-top: 20px;
+    margin-left: -30px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 0;
+    width: 917px;
+    height: 570px;
+    top: 180px;
+  }
+}
+
+.bulldog {
+  position: absolute;
+  width: 183px;
+  height: auto;
+  left: -60px;
+  bottom: 55px;
+  content: url(../../images/main_page/mobile/bulldog-mob-1x.webp);
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    content: url(../../images/main_page/mobile/bulldog-mob-2x.webp);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 380px;
+    bottom: 112px;
+    left: -45px;
+    content: url(../../images/main_page/tablet/bulldog-tab-1x.webp);
+
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      content: url(../../images/main_page/tablet/bulldog-tab-2x.webp);
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 380px;
+    bottom: -25px;
+    left: -140px;
+    content: url(../../images/main_page/desctop/bulldog-desc-1x.webp);
+
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      content: url(../../images/main_page/desctop/bulldog-desc-2x.webp);
+    }
+  }
+}
+
+.dog {
+  position: absolute;
+  width: 235px;
+  height: auto;
+  right: -45px;
+  bottom: 131px;
+
+  content: url(../../images/main_page/mobile/dog-mob-1x.webp);
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    content: url(../../images/main_page/mobile/dog-mob-2x.webp);
+  }
+
+  @media screen and (min-width: 768px) {
+    bottom: 280px;
+    width: 490px;
+    right: -74px;
+    content: url(../../images/main_page/tablet/dog-tab-1x.webp);
+
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      content: url(../../images/main_page/tablet/dog-tab-2x.webp);
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    bottom: 130px;
+    right: 30px;
+    width: 490px;
+    content: url(../../images/main_page/desctop/dog-desc-1x.webp);
+
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      content: url(../../images/main_page/desctop/dog-desc-2x.webp);
+    }
+  }
+}
+
+.cat {
+  position: absolute;
+  width: 165px;
+  height: auto;
+  bottom: -5px;
+  right: 1px;
+
+  content: url(../../images/main_page/mobile/cat-mob-1x.webp);
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    content: url(../../images/main_page/mobile/cat-mob-2x.webp);
+  }
+
+  @media screen and (min-width: 768px) {
+    bottom: 12px;
+    right: 12px;
+    width: 332px;
+    content: url(../../images/main_page/tablet/cat-tab-1x.webp);
+
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      content: url(../../images/main_page/tablet/cat-tab-2x.webp);
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    bottom: -140px;
+    right: 112px;
+    width: 336px;
+    content: url(../../images/main_page/desctop/cat-desc-1x.webp);
+
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      content: url(../../images/main_page/desctop/cat-desc-2x.webp);
     }
   }
 }

@@ -1,0 +1,169 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 20px;
+}
+
+table tr {
+  display: flex;
+  align-items: center;
+}
+
+table tr:not(:last-child) {
+  margin-bottom: 8px;
+}
+.contentWrapper {
+  padding: 44px 12px 16px;
+  max-width: 420px;
+}
+
+.imgThumb {
+  position: relative;
+  height: 240px;
+  margin-bottom: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.categoryInfo {
+  position: absolute;
+  top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 126px;
+  height: 32px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.357;
+  background-color: #cce4fb;
+  border-radius: 0px 16px 16px 0px;
+}
+
+.photo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.title {
+  text-align: start;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin-bottom: 22px;
+}
+
+.infoTitle {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.35;
+  width: 81px;
+}
+
+.info {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+}
+
+.contacts {
+  color: #ffc107;
+  text-decoration: underline;
+}
+.contacts:hover {
+  color: #54adff;
+}
+.commentsTitle {
+  letter-spacing: 0.04em;
+}
+.commentsInfo {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .contentWrapper {
+    padding: 32px 32px 24px 32px;
+    max-width: 681px;
+  }
+
+  .tabletBox {
+    display: flex;
+    margin-bottom: 28px;
+  }
+
+  .imgThumb {
+    margin-bottom: 0;
+    width: 262px;
+    height: 298px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 24px;
+  }
+
+  table {
+    width: 332px;
+    margin-bottom: 0;
+  }
+
+  .title {
+    margin-bottom: 20px;
+  }
+
+  .infoTitle {
+    font-size: 16px;
+    line-height: 1.37;
+  }
+
+  .info {
+    font-size: 16px;
+    line-height: 1.37;
+  }
+
+  .commentsInfo {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 28px;
+  }
+
+  .btnWrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 275px;
+    margin-left: auto;
+  }
+}
+
+.myСomponent.dark .title {
+  color: #c9c7c7;
+}
+
+.myСomponent.dark .categoryInfo {
+  color: #c9c7c7;
+  background-color: #417075;
+}
+
+.myСomponent.dark .infoTitle {
+  color: #c9c7c7;
+}
+
+.myСomponent.dark .info {
+  color: #c9c7c7;
+}
+
+.myСomponent.dark .commentsInfo {
+  color: #c9c7c7;
+}
+
+.myСomponent.dark .commentsInfo {
+  color: #c9c7c7;
+}

@@ -1,14 +1,16 @@
 import { useState } from "react";
-import UserIcon from "./userIcon.svg";
 import BurgerMenuBtn from "./burgerMenuBtn.svg";
 import CloseMenu from "./closeMenuBtn.svg";
-import LogoutIcon from "./logout.svg";
 import Nav from "../Nav/Nav";
 import css from "./UserNav.module.css";
 import ModalNotice from "../../ModalNotice/ModalNotice";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 export default function UserNav() {
   const [isMenuShown, setIsMenuShown] = useState(false);
+  const { user } = useSelector((state) => state.auth);
+  console.log(user.imageURL);
   const toggleMenu = () => {
     setIsMenuShown(!isMenuShown);
   };
@@ -16,26 +18,18 @@ export default function UserNav() {
     <div>
       <div className={css.navBox}>
         {isMenuShown ? (
-          <div className={css.logoutBtnTab}>
+          <NavLink className={css.logoutBtnTab} to="/user" onClick={toggleMenu}>
             <ModalNotice />
-          </div>
+          </NavLink>
         ) : (
-          // <button type="button" className={css.logoutBtnTab}>
-          //   Log out
-          //   <img src={LogoutIcon} alt="log out button" />
-          // </button>
           <>
-            {/* <button type="button" className={css.logoutBtnDesc}>
-              Log out
-              <img src={LogoutIcon} alt="log out button" />
-            </button> */}
             <div className={css.logoutBtnDesc}>
               <ModalNotice />
             </div>
-            <div className={css.userInfoTab}>
-              <img src={UserIcon} alt="user icon" />
-              <p>User name</p>
-            </div>
+            <NavLink className={css.userInfoTab} to="/user" onClick={toggleMenu}>
+              <img src={user.imageURL} alt="user icon" width="28" />
+              <p>{user.name}</p>
+            </NavLink>
           </>
         )}
         <button onClick={toggleMenu} type="button" className={css.menuBtn}>
@@ -48,15 +42,11 @@ export default function UserNav() {
 
       {isMenuShown && (
         <div className={css.menu}>
-          <div className={css.userInfo}>
-            <img src={UserIcon} alt="user icon" />
-            <p>User name</p>
-          </div>
+          <NavLink className={css.userInfo} to="/user" onClick={toggleMenu}>
+            <img src={user.imageURL} alt="user icon" width="28" />
+            <p>{user.name}</p>
+          </NavLink>
           <Nav />
-          {/* <button type="button" className={css.logoutBtn}>
-            Log out
-            <img src={LogoutIcon} alt="log out button" />
-          </button> */}
           <div className={css.logoutBtn}>
             <ModalNotice />
           </div>

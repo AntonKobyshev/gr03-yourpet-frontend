@@ -1,0 +1,59 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--overlay-color);
+  z-index: 100;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 40px;
+  background-color: #ffffff;
+  z-index: 5;
+  padding: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .modal {
+    min-width: 280px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    min-width: 680px;
+  }
+}
+
+.btnClose {
+  position: absolute;
+  top: 23px;
+  right: 26px;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btnClose:hover,
+.btnClose:focus {
+  transform: scale(1.2);
+}
+
+.modalContent {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.myСomponent.dark .modal {
+  background-color: #467c82;
+}

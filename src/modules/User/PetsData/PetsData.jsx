@@ -2,10 +2,12 @@ import React from "react";
 import css from "./PetsData.module.css";
 import PlusIcon from "../../../images/icons/plus.svg";
 import PetsList from "../PetsList/PetsList";
+import { useNavigate, useNavigation } from "react-router-dom";
 
 const PetsData = () => {
+  const navigate = useNavigate()
   const handleButtonClick = () => {
-    alert("ButtonClick");
+    navigate('/add-pet') 
   };
 
   return (
