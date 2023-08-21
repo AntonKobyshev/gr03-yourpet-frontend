@@ -1,0 +1,216 @@
+.listItems {
+  list-style: none;
+  width: 280px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 24px;
+  box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
+  border-radius: 0px 0px 40px 40px;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.listItems:hover,
+.listItems:focus {
+  box-shadow: 7px 13px 14px rgba(116, 177, 232, 0.24);
+}
+.imageThumb {
+  position: relative;
+  height: 288px;
+}
+.photoAnimal {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.topBlock {
+  position: absolute;
+  top: 12px;
+  width: 100%;
+  padding-right: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons {
+  stroke: #54adff;
+}
+.favoriteIcon {
+  fill: #54adff;
+}
+.infoIcons {
+  margin-right: 4px;
+}
+.categoryInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 126px;
+  height: 32px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.357;
+  background-color: #cce4fb;
+  border-radius: 0px 16px 16px 0px;
+}
+.topBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  width: 40px;
+  height: 40px;
+  background-color: #c5dff6;
+  border: none;
+  border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.topbtn:not(:last-child) {
+  margin-bottom: 16px;
+}
+.topbtn:hover,
+.topBtn:focus {
+  background-color: #9bd0ff;
+}
+
+.infoCardBlock {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-around;
+  width: 280px;
+}
+.noticeInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  /* max-width: 80px; */
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+  background-color: #cce4fb;
+  border-radius: 16px;
+}
+.noticeinfo:nth-child(even) {
+  min-width: 84px;
+}
+
+.locationInfo {
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.locationInfo:hover,
+.locationInfo:focus {
+  background-color: #54adff;
+}
+
+.icon {
+  margin-right: 4px;
+}
+.noticeDesc {
+  padding: 20px;
+  padding-bottom: 24px;
+}
+.locationIcon {
+  margin-right: 4px;
+  stroke: #54adff;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.locationIcon:hover,
+.locationIcon:focus {
+  stroke: #ffffff;
+}
+
+.noticeTitle {
+  margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 1.375;
+}
+.learnBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  padding: 8px 0;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.375;
+  letter-spacing: 0.04em;
+  color: #54adff;
+  background-color: transparent;
+  border: 2px solid #54adff;
+  border-radius: 40px;
+  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.learnBtn::before {
+  content: '';
+  position: absolute;
+  right: 50px;
+  opacity: 0;
+  height: 24px;
+  width: 24px;
+}
+.learnBtn:hover,
+.learnBtn:focus {
+  text-indent: -15px;
+  color: #fef9f9;
+  background-image: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
+  border: none;
+  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media screen and (min-widt: 768px) {
+  .listItems {
+    width: 336px;
+    flex-basis: calc((100% - 32px) / 2);
+  }
+  .noticeDesc {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+  }
+  .noticeTitle {
+    text-align: start;
+  }
+  .learnBtn {
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .listItems {
+    width: 288px;
+    flex-basis: calc((100% - 96px) / 4);
+  }
+}
+
+.myСomponent.dark .categoryInfo {
+  color: #c9c7c7;
+  background-color: #417075;
+}
+
+.myСomponent.dark .noticeInfo {
+  color: #c9c7c7;
+  background-color: #417075;
+}
+
+.myСomponent.dark .learnBtn {
+  color: #c9c7c7;
+  background-color: #417075;
+  /* border: 1px solid #c9c7c7; */
+}
+
+.myСomponent.dark .learnBtn:hover,
+.learnBtn:focus {
+  background: linear-gradient(290.46deg, #55787c 0%, #64999e 107.89%);
+  /* border: 1px solid #c9c7c7; */
+}

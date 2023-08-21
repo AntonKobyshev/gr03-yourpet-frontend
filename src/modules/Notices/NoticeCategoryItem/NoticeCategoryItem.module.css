@@ -163,6 +163,7 @@
     align-items: center;
     width: 40px;
     height: 40px;
+    flex-shrink: 0;
     top: 68px;
     left: 228px;
     background-color: var(--blue-light-color);
@@ -173,14 +174,14 @@
 }
 
 @media screen and (min-width: 768px) {
-    .delFavoritesButton {
+    .deleteFavoritesButton {
         top: 68px;
         left: 284px;
     }
 }
 
 @media screen and (min-width: 1280px) {
-    .delFavoritesButton {
+    .deleteFavoritesButton {
         top: 68px;
         left: 231px;
     }
