@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CloseMenu from "../UserNav/closeMenuBtn.svg";
 import BurgerMenuBtn from "../UserNav/burgerMenuBtn.svg";
 import css from "./AuthNav.module.css";
@@ -13,14 +13,29 @@ export default function AuthNav() {
   const toggleMenu = () => {
     setIsMenuShown(!isMenuShown);
   };
-
+  const closeMenu = () => {
+    setIsMenuShown(false);
+  };
   const handleRegisterBtnClick = () => {
     navigate("/register");
+    closeMenu();
   };
 
   const handleLoginBtnClick = () => {
     navigate("/login");
+    closeMenu();
   };
+  useEffect(() => {
+    if (isMenuShown) {
+      document.body.classList.add(css.noScroll);
+    } else {
+      document.body.classList.remove(css.noScroll);
+    }
+
+    return () => {
+      document.body.classList.remove(css.noScroll);
+    };
+  }, [isMenuShown]);
 
   return (
     <div>
@@ -67,7 +82,7 @@ export default function AuthNav() {
             Registration
           </button>
 
-          <Nav />
+          <Nav onClick={closeMenu} />
         </div>
       )}
     </div>
