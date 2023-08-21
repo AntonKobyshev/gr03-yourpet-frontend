@@ -31,7 +31,7 @@ const NotFoundRoute = () => {
             />
           </picture>
         </div>
-        <Link to="/">
+        <Link to="/main">
           <button className={css.btn}>
             To main page <PawPrintIcon className={css.icon} />
           </button>
