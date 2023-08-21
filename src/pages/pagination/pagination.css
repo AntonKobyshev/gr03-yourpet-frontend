@@ -1,0 +1,88 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+  
+    gap: 7px;
+    padding: 12px 8px;
+    border-radius: 45px;
+  }
+  
+  .page-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    color: #111;
+  
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    cursor: pointer;
+    border: 1px solid #54adff;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .active-btn a {
+    background-color: #54adff;
+    border-color: #54adff;
+    color: #fef9f9;
+  }
+  .page-item {
+    border: none;
+  }
+  .page-link-arrov {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .page-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .page-arr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    color: #54adff;
+  
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    cursor: pointer;
+    border: 1px solid #54adff;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      color 450ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .page-arr svg {
+    stroke: currentColor;
+  }
+  
+  .page-link:hover,
+  .page-link:focus {
+    background-color: #54adff;
+    border-color: #54adff;
+    color: #fef9f9;
+  }
+  .page-arr:hover {
+    color: #fef9f9;
+    border-color: #54adff;
+    background-color: #54adff;
+  }
+  
+  .page-item.disabled a {
+    pointer-events: none;
+  }
+  .page-item.disabled a > svg {
+    color: rgba(17, 17, 17, 0.5);
+  }
