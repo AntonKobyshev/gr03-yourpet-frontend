@@ -1,25 +1,7 @@
 .logoutBtn {
   margin-top: 159px;
   align-self: start;
-  margin-left: 20px; /* @media screen and (min-width: 320px) {
-    width: 135px;
-    height: 40px;
-    border-radius: 40px;
-    background-color: #54adff;
-    color: #fff;
-    padding: 8px 20px;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 0.64px;
-    margin-top: 159px;
-    align-self: start;
-    margin-left: 20px;
-  } */
+  margin-left: 20px;
   @media screen and (min-width: 768px) {
     display: none;
   }
@@ -84,6 +66,8 @@
 
 .menu {
   @media screen and (min-width: 320px) {
+    overflow: hidden;
+
     width: 100%;
     height: 100%;
     position: fixed;
@@ -109,4 +93,8 @@
   @media screen and (min-width: 1280px) {
     gap: 40px;
   }
+}
+
+.noScroll {
+  overflow: hidden;
 }
