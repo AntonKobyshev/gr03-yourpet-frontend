@@ -5,7 +5,7 @@
   text-align: center;
   max-width: 280px;
   height: 88px;
-
+  margin-top: 88px;
   @media screen and (min-width: 768px) {
     font-size: 68px;
     line-height: 100px;
@@ -16,6 +16,7 @@
   }
 
   @media screen and (min-width: 1280px) {
+    margin-top: 188px;
     font-weight: 800;
     line-height: 130%;
     max-width: 501px;
@@ -25,11 +26,12 @@
 }
 
 .background {
-  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
   background-repeat: no-repeat;
-  background-position: center;
   background-size: contain;
-
   width: calc(100% + 40px);
   height: 100vh;
   margin-left: -20px;
@@ -45,7 +47,6 @@
 
   @media screen and (min-width: 768px) {
     width: calc(100% + 64px);
-    height: 100vh;
     margin-left: -32px;
     margin-right: -32px;
     background-image: url(../../images/bg-tablet.png);
@@ -56,10 +57,9 @@
     }
   }
   @media screen and (min-width: 1280px) {
-    display: flex;
-    padding-top: 188px;
+    flex-direction: row;
+
     width: calc(100% + 32px);
-    height: 100vh;
     margin-left: -16px;
     margin-right: -16px;
     background-image: url(../../images/bg-desktop.png);
@@ -88,8 +88,8 @@
 
   @media screen and (min-width: 1280px) {
     right: 0;
-    width: 917px;
-    height: 570px;
+    mmax-width: 917px;
+    max-height: 570px;
     top: 180px;
   }
 }
@@ -107,6 +107,12 @@
     (min-resolution: 2dppx) {
     content: url(../../images/main_page/mobile/bulldog-mob-2x.webp);
   }
+  @media (min-device-pixel-ratio: 3),
+    (-webkit-min-device-pixel-ratio: 3),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    content: url(../../images/main_page/mobile/bulldog-mob-3x.webp);
+  }
 
   @media screen and (min-width: 768px) {
     width: 380px;
@@ -119,6 +125,12 @@
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       content: url(../../images/main_page/tablet/bulldog-tab-2x.webp);
+    }
+    @media (min-device-pixel-ratio: 3),
+      (-webkit-min-device-pixel-ratio: 3),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      content: url(../../images/main_page/tablet/bulldog-tab-3x.webp);
     }
   }
 
@@ -133,6 +145,12 @@
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       content: url(../../images/main_page/desctop/bulldog-desc-2x.webp);
+    }
+    @media (min-device-pixel-ratio: 3),
+      (-webkit-min-device-pixel-ratio: 3),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      content: url(../../images/main_page/desctop/bulldog-desc-3x.webp);
     }
   }
 }
@@ -151,6 +169,12 @@
     (min-resolution: 2dppx) {
     content: url(../../images/main_page/mobile/dog-mob-2x.webp);
   }
+  @media (min-device-pixel-ratio: 3),
+    (-webkit-min-device-pixel-ratio: 3),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    content: url(../../images/main_page/mobile/dog-mob-3x.webp);
+  }
 
   @media screen and (min-width: 768px) {
     bottom: 280px;
@@ -163,6 +187,12 @@
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       content: url(../../images/main_page/tablet/dog-tab-2x.webp);
+    }
+    @media (min-device-pixel-ratio: 3),
+      (-webkit-min-device-pixel-ratio: 3),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      content: url(../../images/main_page/tablet/dog-tab-3x.webp);
     }
   }
 
@@ -177,6 +207,12 @@
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       content: url(../../images/main_page/desctop/dog-desc-2x.webp);
+    }
+    @media (min-device-pixel-ratio: 3),
+      (-webkit-min-device-pixel-ratio: 3),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      content: url(../../images/main_page/desctop/dog-desc-3x.webp);
     }
   }
 }
@@ -195,6 +231,12 @@
     (min-resolution: 2dppx) {
     content: url(../../images/main_page/mobile/cat-mob-2x.webp);
   }
+  @media (min-device-pixel-ratio: 3),
+    (-webkit-min-device-pixel-ratio: 3),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    content: url(../../images/main_page/mobile/cat-mob-3x.webp);
+  }
 
   @media screen and (min-width: 768px) {
     bottom: 12px;
@@ -207,6 +249,12 @@
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       content: url(../../images/main_page/tablet/cat-tab-2x.webp);
+    }
+    @media (min-device-pixel-ratio: 3),
+      (-webkit-min-device-pixel-ratio: 3),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      content: url(../../images/main_page/tablet/cat-tab-3x.webp);
     }
   }
 
@@ -221,6 +269,12 @@
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       content: url(../../images/main_page/desctop/cat-desc-2x.webp);
+    }
+    @media (min-device-pixel-ratio: 3),
+      (-webkit-min-device-pixel-ratio: 3),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      content: url(../../images/main_page/desctop/cat-desc-3x.webp);
     }
   }
 }
