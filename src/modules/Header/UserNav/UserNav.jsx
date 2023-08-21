@@ -3,7 +3,7 @@ import BurgerMenuBtn from "./burgerMenuBtn.svg";
 import CloseMenu from "./closeMenuBtn.svg";
 import Nav from "../Nav/Nav";
 import css from "./UserNav.module.css";
-import ModalNotice from "../../ModalNotice/ModalNotice";
+import ModalTitle from "../../ModalTitle/ModalTitle";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
@@ -49,13 +49,13 @@ export default function UserNav() {
       <div className={css.navBox}>
         {isMenuShown ? (
           <NavLink className={css.logoutBtnTab} to="/user" onClick={toggleMenu}>
-            <ModalNotice />
+            <ModalTitle />
           </NavLink>
         ) : (
           <>
             {isWideScreen ? (
               <div className={css.logoutBtnDesc}>
-                <ModalNotice />
+                <ModalTitle />
               </div>
             ) : null}
             <NavLink
@@ -85,7 +85,7 @@ export default function UserNav() {
           </NavLink>
           <Nav onClick={closeMenu} />
           <div className={css.logoutBtn}>
-            <ModalNotice />
+            <ModalTitle />
           </div>
         </div>
       )}
