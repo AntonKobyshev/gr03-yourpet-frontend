@@ -9,10 +9,9 @@ import { NavLink } from "react-router-dom";
 
 export default function UserNav() {
   const [isMenuShown, setIsMenuShown] = useState(false);
-  const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 768);
+  const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1280);
 
   const { user } = useSelector((state) => state.auth);
-  console.log(user.imageURL);
   const toggleMenu = () => {
     setIsMenuShown(!isMenuShown);
   };
@@ -34,7 +33,7 @@ export default function UserNav() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsWideScreen(window.innerWidth >= 768);
+      setIsWideScreen(window.innerWidth >= 1280);
     };
 
     window.addEventListener("resize", handleResize);
@@ -44,11 +43,17 @@ export default function UserNav() {
     };
   }, []);
 
+  useEffect(() => {
+    if (isWideScreen) {
+      closeMenu();
+    }
+  }, [isWideScreen]);
+
   return (
     <div>
       <div className={css.navBox}>
         {isMenuShown ? (
-          <NavLink className={css.logoutBtnTab} to="/user" onClick={toggleMenu}>
+          <NavLink className={css.logoutBtnTab} to="/user" onClick={closeMenu}>
             <ModalTitle />
           </NavLink>
         ) : (
@@ -58,11 +63,7 @@ export default function UserNav() {
                 <ModalTitle />
               </div>
             ) : null}
-            <NavLink
-              className={css.userInfoTab}
-              to="/user"
-              onClick={toggleMenu}
-            >
+            <NavLink className={css.userInfoTab} to="/user" onClick={closeMenu}>
               <img src={user.imageURL} alt="user icon" width="28" />
               <p>{user.name}</p>
             </NavLink>
@@ -79,7 +80,7 @@ export default function UserNav() {
 
       {isMenuShown && (
         <div className={css.menu}>
-          <NavLink className={css.userInfo} to="/user" onClick={toggleMenu}>
+          <NavLink className={css.userInfo} to="/user" onClick={closeMenu}>
             <img src={user.imageURL} alt="user icon" width="28" />
             <p>{user.name}</p>
           </NavLink>
