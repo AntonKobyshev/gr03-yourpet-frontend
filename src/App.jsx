@@ -20,7 +20,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route path="/main" element={<MainPage />} index />
+        <Route index element={<MainPage />} />
+        <Route path="main" element={<MainPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/notices" element={<NoticesPage />}>
@@ -35,12 +36,11 @@ function App() {
         </Route>
         <Route element={<PrivateRoute />}>
           <Route path="user" element={<UserPage />} />
-          { <Route path="add-pet" element={<AddPetPage />} /> }
+          {<Route path="add-pet" element={<AddPetPage />} />}
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
-
   );
 }
 
