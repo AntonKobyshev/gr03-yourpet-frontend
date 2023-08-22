@@ -1,0 +1,88 @@
+[{
+  "_id": {
+    "$oid": "64dfa7d493bdded86a3b1593"
+  },
+  "imgUrl": "https://www.nytimes.com/images/2022/02/23/dining/23Pet-Diet-Cover/merlin_202123932_237f5864-5a45-4e0e-9772-fcf770edfae1-blog480.jpg",
+  "title": "The Diet Worked For Them. Now Their Pets Are on It.",
+  "text": "Paleo, vegan, gluten-free: Owners are putting animals on human regimens and fueling a huge pet-wellness industry. But some health experts are concerned.",
+  "date": "2022-02-22T10:00:17+0000",
+  "url": "https://www.nytimes.com/2022/02/22/dining/pets-diet.html",
+  "id": "nyt://article/19335085-7800-5e91-8875-bf2d1b195a86"
+},
+{
+  "_id": {
+    "$oid": "64dfa7d493bdded86a3b15ac"
+  },
+  "imgUrl": "https://www.nytimes.com/images/2022/09/13/world/13OZ-KANGAROO/merlin_213029799_b9d1f734-1c06-43fa-aa8f-3d9ba4741161-blog480.jpg",
+  "title": "Fatal Kangaroo Attack Is Said to Be First in Australia in 86 Years",
+  "text": "The police said they believed that the man had been keeping the wild animal as a pet.",
+  "date": "2022-09-13T11:09:25+0000",
+  "url": "https://www.nytimes.com/2022/09/13/world/australia/man-killed-kangaroo.html",
+  "id": "nyt://article/890f7af6-361f-564b-a764-1d2950df4a1b"
+},
+{
+  "_id": {
+    "$oid": "64dfa7d493bdded86a3b15c0"
+  },
+  "imgUrl": "https://www.nytimes.com/images/2022/07/31/magazine/31mag-ethicist/31mag-ethicist-blog480.jpg",
+  "title": "How Much Should I Spend to Keep My Elderly Dog Alive?",
+  "text": "The magazine’s Ethicist columnist on how to do right by our pets as they reach the end of life.",
+  "date": "2022-07-26T09:00:13+0000",
+  "url": "https://www.nytimes.com/2022/07/26/magazine/pets-euthanasia-ethics.html",
+  "id": "nyt://article/3805de02-1a0a-5f25-8ab5-133c83b9d828"
+},
+{
+  "_id": {
+    "$oid": "64dfa7d493bdded86a3b15c2"
+  },
+  "imgUrl": "https://www.nytimes.com/images/2022/06/10/science/10virus-briefing-cat-transmission-b/merlin_201284151_4bfbf549-2b50-4ef9-97a6-d42e3730515f-blog480.jpg",
+  "title": "A new study is the first to document likely cat-to-human virus transmission, but risks are low overall, experts say.",
+  "text": "People are far more likely to give the virus to cats than cats are to pass it to humans, experts stress.",
+  "date": "2022-06-10T20:03:37+0000",
+  "url": "https://www.nytimes.com/2022/06/10/health/cat-human-covid-transmission.html",
+  "id": "nyt://article/6d683c99-9ee9-5dad-95f6-0c72a6f624d7"
+},
+{
+  "_id": {
+    "$oid": "64dfa7d493bdded86a3b15c3"
+  },
+  "imgUrl": "https://www.nytimes.com/images/2022/08/04/autossell/LAWN_THUMB_02_CLEAN/LAWN_THUMB_02_CLEAN-blog480.png",
+  "title": "How to Fall Out of Love With Your Lawn",
+  "text": "Lawns are bad for you, your pets and the planet. It’s time to move on to greener pastures.",
+  "date": "2022-08-09T08:50:02+0000",
+  "url": "https://www.nytimes.com/video/opinion/100000008475338/lawns-water-environment.html",
+  "id": "nyt://video/f4abe1b3-0424-5594-a386-de90c8af9ecc"
+},
+{
+  "_id": {
+    "$oid": "64dfa7d493bdded86a3b15c4"
+  },
+  "imgUrl": "https://www.nytimes.com/images/2022/03/11/smarter-living/wirecutter/ask-wc-dog-rain-slide-D6LE/ask-wc-dog-rain-slide-D6LE-blog480.png",
+  "title": "Ask Wirecutter: Dog Walking in the Rain",
+  "text": "Helping a reader with a reluctant pet.",
+  "date": "2022-03-11T15:26:43+0000",
+  "url": "https://www.nytimes.com/interactive/2022/03/11/smarter-living/wirecutter/dog-walking-rain.html",
+  "id": "nyt://interactive/84274df8-2af0-5a44-8626-caa9ef783334"
+},
+{
+  "_id": {
+    "$oid": "64dfa7d493bdded86a3b15cb"
+  },
+  "imgUrl": "https://www.nytimes.com/images/2023/01/24/opinion/20krugman-newsletter-image/20krugman-newsletter-image-blog480.jpg",
+  "title": "Wonking Out: Give Me That Gold Time Religion",
+  "text": "Are traditional pet rocks making a comeback?",
+  "date": "2023-01-20T17:57:24+0000",
+  "url": "https://www.nytimes.com/2023/01/20/opinion/bitcoin-gold-inflation.html",
+  "id": "nyt://article/8ec263f6-f6a6-51e3-9b94-e8f1708a21a9"
+},
+{
+  "_id": {
+    "$oid": "64dfa7d493bdded86a3b15d1"
+  },
+  "imgUrl": "https://www.nytimes.com/images/2022/09/28/us/28ian-blog-evacuations/merlin_213920979_7064795a-fb4a-4a26-815b-037c250fb46c-blog480.jpg",
+  "title": "Here’s Where People Are Being Evacuated in Florida",
+  "text": "The orders are concentrated along Florida’s Gulf Coast. On Wednesday, some were replaced with requests to shelter in place.",
+  "date": "2022-09-28T16:55:42+0000",
+  "url": "https://www.nytimes.com/2022/09/28/us/hurricane-ian-evacuations-florida.html",
+  "id": "nyt://article/1f7eb6ca-c13e-59e8-b18f-af573ffb9de5"
+}]
