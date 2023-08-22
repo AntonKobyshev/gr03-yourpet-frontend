@@ -2,11 +2,13 @@
   font-size: 32px;
   font-weight: 700;
   line-height: 44px;
-  text-align: center;
+  /* text-align: center; */
+  align-self: center;
   max-width: 280px;
   height: 88px;
   margin-top: 88px;
   @media screen and (min-width: 768px) {
+    align-self: start;
     font-size: 68px;
     line-height: 100px;
     text-align: left;
@@ -80,15 +82,15 @@
   height: 390px;
 
   @media screen and (min-width: 768px) {
-    height: 820px;
-    width: 768px;
+    min-height: 820px;
+    min-width: 768px;
     margin-top: 20px;
     margin-left: -30px;
   }
 
   @media screen and (min-width: 1280px) {
     right: 0;
-    mmax-width: 917px;
+    max-width: 917px;
     max-height: 570px;
     top: 180px;
   }
