@@ -1,23 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import css from "./UserForm.module.css";
 import Logout from "../UserForm/Logout";
 import CameraIcon from "../../../images/icons/camera.svg";
 import CheckIcon from "../../../images/icons/check.svg";
 import CrossIcon from "../../../images/icons/cross14.svg";
-import { TextField } from "@mui/material";
-import { useSelector } from "react-redux";
 
 const UserForm = ({ initialValues, editing, onEdit }) => {
   const [avatarPreview, setAvatarPreview] = useState(null);
   const [avatarUploaded, setAvatarUploaded] = useState(false);
   const [showConfirmButtons, setShowConfirmButtons] = useState(false);
-
-  const { user } = useSelector((state) => state.auth);
-
-  useEffect(() => {
-    setAvatarPreview(user.imageURL);
-  }, [user]);
 
   const handleSaveClick = () => {
     onEdit(false);
@@ -25,6 +17,7 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
 
   const handleEditPhotoClick = () => {
     const fileInput = document.getElementById("avatar");
+
     fileInput.click();
   };
 
@@ -58,7 +51,9 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
   return (
     <div className={css.formContainer}>
       <div className={css.imageWrapper}>
-        <img src={avatarPreview} alt="avatar" className={css.userImage} />
+        {avatarPreview && (
+          <img src={avatarPreview} alt="avatar" className={css.userImage} />
+        )}
 
         {editing && !showConfirmButtons && (
           <button
@@ -96,7 +91,7 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
         <Formik initialValues={initialValues}>
           <Form>
             <div className={css.formAvatar}>
-              <TextField
+              <Field
                 className={css.input}
                 type="file"
                 id="avatar"
@@ -122,7 +117,7 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
                 <label htmlFor="email">Email:</label>
                 <Field
                   className={css.input}
-                  type="email"
+                  type="number"
                   id="email"
                   name="email"
                   readOnly={!editing}
@@ -132,7 +127,7 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
                 <label htmlFor="birthday">Birthday:</label>
                 <Field
                   className={css.input}
-                  type="number"
+                  type="text"
                   id="birthday"
                   name="birthday"
                   readOnly={!editing}
