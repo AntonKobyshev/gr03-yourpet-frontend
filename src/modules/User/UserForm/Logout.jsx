@@ -14,7 +14,7 @@ const Logout = () => {
         className={css.logoutBtn}
         onClick={handleButtonClick}
       >
-        Log Out
+        Log out
         <img src={LogoutIcon} alt="Logout icon" />
       </button>
     </div>

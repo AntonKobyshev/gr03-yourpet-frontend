@@ -18,29 +18,30 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route path="/main" element={<MainPage />} index />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/notices" element={<NoticesPage />}>
-          <Route index element={<Navigate to="sell" replace />} />
-          <Route path=":categoryName" element={<NoticesCategoriesList />} />
+    <>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route path="/main" element={<MainPage />} index />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/notices" element={<NoticesPage />}>
+            <Route index element={<Navigate to="sell" replace />} />
+            <Route path=":categoryName" element={<NoticesCategoriesList />} />
+          </Route>
+          <Route path="/news" element={null} />
+          <Route path="/friends" element={null} />
+          <Route element={<PublicRoute />}>
+            <Route path="register" element={<RegisterPage />} />
+            <Route path="login" element={<LoginPage />} />
+          </Route>
+          <Route element={<PrivateRoute />}>
+            <Route path="user" element={<UserPage />} />
+            {<Route path="add-pet" element={<AddPetPage />} />}
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
-        <Route path="/news" element={null} />
-        <Route path="/friends" element={null} />
-        <Route element={<PublicRoute />}>
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="login" element={<LoginPage />} />
-        </Route>
-        <Route element={<PrivateRoute />}>
-          <Route path="user" element={<UserPage />} />
-          { <Route path="add-pet" element={<AddPetPage />} /> }
-        </Route>
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
-    </Routes>
-
+      </Routes>
+    </>
   );
 }
 
