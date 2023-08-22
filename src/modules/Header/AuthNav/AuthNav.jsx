@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function AuthNav() {
   const [isMenuShown, setIsMenuShown] = useState(false);
+  const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1280);
+
   const navigate = useNavigate();
 
   const toggleMenu = () => {
@@ -36,6 +38,24 @@ export default function AuthNav() {
       document.body.classList.remove(css.noScroll);
     };
   }, [isMenuShown]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsWideScreen(window.innerWidth >= 1280);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isWideScreen) {
+      closeMenu();
+    }
+  }, [isWideScreen]);
 
   return (
     <div>
