@@ -53,9 +53,9 @@ export default function UserNav() {
     <div>
       <div className={css.navBox}>
         {isMenuShown ? (
-          <NavLink className={css.logoutBtnTab} to="/user" onClick={closeMenu}>
+          <div className={css.logoutBtnTab}>
             <ModalTitle />
-          </NavLink>
+          </div>
         ) : (
           <>
             {isWideScreen ? (
