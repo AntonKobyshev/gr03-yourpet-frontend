@@ -2,7 +2,6 @@
   font-size: 32px;
   font-weight: 700;
   line-height: 44px;
-  /* text-align: center; */
   align-self: center;
   max-width: 280px;
   height: 88px;
@@ -60,7 +59,6 @@
   }
   @media screen and (min-width: 1280px) {
     flex-direction: row;
-
     width: calc(100% + 32px);
     margin-left: -16px;
     margin-right: -16px;
@@ -84,6 +82,8 @@
   @media screen and (min-width: 768px) {
     min-height: 820px;
     min-width: 768px;
+    max-width: 768px;
+
     margin-top: 20px;
     margin-left: -30px;
   }
@@ -98,6 +98,7 @@
 
 .bulldog {
   position: absolute;
+  overflow: hidden;
   width: 183px;
   height: auto;
   left: -60px;
@@ -158,6 +159,7 @@
 }
 
 .dog {
+  overflow: hidden;
   position: absolute;
   width: 235px;
   height: auto;
@@ -220,6 +222,7 @@
 }
 
 .cat {
+  overflow: hidden;
   position: absolute;
   width: 165px;
   height: auto;
