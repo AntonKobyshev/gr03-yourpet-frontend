@@ -1,6 +1,6 @@
 import { Backdrop, Box, Button, Fade, Modal } from "@mui/material";
 import React from "react";
-import css from "./ModalApprove.module.css";
+import css from "./ModalAttention.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 import pawprint from "../../images/icons/pawprint.svg";
 
@@ -15,13 +15,13 @@ const style = {
   borderRadius: 8,
 };
 
-const ModalApprove = () => {
+const ModalAttention = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
     <div>
-      <Button onClick={handleOpen}>ModalApprove</Button>
+      <Button onClick={handleOpen}>Modal Attention</Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -73,4 +73,4 @@ const ModalApprove = () => {
   );
 };
 
-export default ModalApprove;
+export default ModalAttention;

@@ -5,7 +5,7 @@ import MainPage from "./pages/MainPage/MainPage";
 import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList";
 import PublicRoute from "./Routes/PublicRoute/PublicRoute";
 import PrivateRoute from "./Routes/PrivateRoute/PrivateRoute";
-import ModalTitle from "./modules/ModalTitle/ModalTitle";
+
 import UserPage from "./pages/UserPage/UserPage";
 import AddPetPage from "./pages/AddPetPage/AddPetPage";
 //  import AddPetPage from "./pages/AddPetPage/AddPetPage";
