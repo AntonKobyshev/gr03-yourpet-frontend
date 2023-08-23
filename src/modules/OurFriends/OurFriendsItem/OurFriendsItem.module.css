@@ -24,7 +24,7 @@
     height: 287px;
   }
 }
-
+.MuiTypography-root,
 .typoStyled {
   font-family: var(--primary-font);
   font-style: normal;
@@ -34,13 +34,13 @@
 }
 
 @media screen and (min-width: 768px) {
-  .typoStyled {
+  .typoStyled, .MuiTypography-root {
     font-size: 14px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .typoStyled {
+  .typoStyled, .MuiTypography-root {
     font-size: 15px;
   }
 }
