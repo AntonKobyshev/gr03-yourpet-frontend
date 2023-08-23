@@ -1,0 +1,39 @@
+.modalBox {
+  width: 280px;
+  height: 302px;
+  border-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    width: 608px;
+    height: 354px;
+  }
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 60px;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    margin-top: 80px;
+    gap: 40px;
+  }
+}
+
+.closeBtn {
+  cursor: pointer;
+  color: var(--blue-color);
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  @media (min-width: 768px) {
+    top: 20px;
+    right: 20px;
+  }
+}

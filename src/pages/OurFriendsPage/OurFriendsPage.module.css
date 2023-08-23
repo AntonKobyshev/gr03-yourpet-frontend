@@ -1,0 +1,21 @@
+@import '../../index.css';
+
+.title {
+    text-align: center;
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    margin-top: 40px;
+    margin-bottom: 24px;
+    color: var(--black-color);
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 48px;
+        line-height: 66px;
+        margin-top: 80px;
+        margin-bottom: 40px;
+    }
+}
