@@ -35,7 +35,7 @@ function App() {
           <Route index element={<Navigate to="sell" replace />} />
           <Route path=":categoryName" element={<NoticesCategoriesList />} />
         </Route>
-        <Route path="/news" element={null} />
+        <Route path="/news" element={<NewsPage />} />
         <Route path="friends" element={<OurFriendsPage />} />
         <Route element={<PublicRoute />}>
           <Route path="register" element={<RegisterPage />} />
