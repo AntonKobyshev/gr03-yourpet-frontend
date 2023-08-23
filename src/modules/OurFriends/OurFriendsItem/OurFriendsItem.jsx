@@ -34,7 +34,7 @@ const OurFriendsItem = ({
           </a>
         }
       />
-      <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
+      <Box sx={{ display: "flex", justifyContent: "flex-start", fontFamily: 'Manrope', }}>
         <Box sx={{ flex: 1 }}>
           <CardMedia
             className={`${css.cardMediaStyle} ${css.responsiveImage}`}
@@ -49,7 +49,7 @@ const OurFriendsItem = ({
                 variant="body1"
                 component="p"
                 gutterBottom
-                className={css.typoStyle}
+                className={css.typoStyled}
               >
                 <strong>{"Time"}:</strong> <br /> {"day and night"}
               </Typography>
@@ -59,7 +59,7 @@ const OurFriendsItem = ({
               variant="body1"
               component="p"
               gutterBottom
-              className={css.typoStyle}
+              className={css.typoStyled}
               sx={{
                 "&:hover": {
                   color: "#54ADFF",
@@ -87,7 +87,7 @@ const OurFriendsItem = ({
               variant="body1"
               component="p"
               gutterBottom
-              className={css.typoStyle}
+              className={css.typoStyled}
               sx={{
                 "&:hover": {
                   color: "#54ADFF",
@@ -112,7 +112,7 @@ const OurFriendsItem = ({
               variant="body1"
               component="p"
               gutterBottom
-              className={css.typoStyle}
+              className={css.typoStyled}
               sx={{
                 "&:hover": {
                   color: "#54ADFF",

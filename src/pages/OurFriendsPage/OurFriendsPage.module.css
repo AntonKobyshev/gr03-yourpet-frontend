@@ -2,7 +2,7 @@
 
 .title {
     text-align: center;
-    font-family: 'Manrope';
+    font-family: var(--primary-font);
     font-weight: 700;
     font-size: 24px;
     line-height: 33px;
