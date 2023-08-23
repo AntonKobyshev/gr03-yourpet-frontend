@@ -8,10 +8,6 @@ import PrivateRoute from "./Routes/PrivateRoute/PrivateRoute";
 
 import UserPage from "./pages/UserPage/UserPage";
 import AddPetPage from "./pages/AddPetPage/AddPetPage";
-
-import NewsPage from "./pages/NewsPage/NewsPage";
-// import AddPetPage from "./pages/AddPetPage/AddPetPage";
-
 //  import AddPetPage from "./pages/AddPetPage/AddPetPage";
 
 // import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList/NoticesCategoriesList";
@@ -35,7 +31,7 @@ function App() {
           <Route index element={<Navigate to="sell" replace />} />
           <Route path=":categoryName" element={<NoticesCategoriesList />} />
         </Route>
-        <Route path="/news" element={<NewsPage />} />
+        <Route path="/news" element={null} />
         <Route path="friends" element={<OurFriendsPage />} />
         <Route element={<PublicRoute />}>
           <Route path="register" element={<RegisterPage />} />
