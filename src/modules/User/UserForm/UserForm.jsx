@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import css from "./UserForm.module.css";
 // import Logout from "../../Header/Logout/Logout";
@@ -18,7 +18,7 @@ import ApproveLeaving from "../../ApproveLeaving/ApproveLeaving";
 
 
 const UserForm = ({ initialValues, editing, onEdit }) => {
-  const [avatarPreview, setAvatarPreview] = useState(null);
+  const [ setAvatarPreview] = useState(null);
   const [avatarUploaded, setAvatarUploaded] = useState(false);
   const [showConfirmButtons, setShowConfirmButtons] = useState(false);
 

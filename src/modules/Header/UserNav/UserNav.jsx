@@ -9,7 +9,7 @@ import ModalApproveAction from "../../ModalApproveAction/ModalApproveAction";
 import ApproveLeaving from "../../ApproveLeaving/ApproveLeaving";
 import { logout } from "../../../redux/auth/auth-operations";
 import Logout from "../Logout/Logout";
-import { withTheme } from "@emotion/react";
+// import { withTheme } from "@emotion/react";
 
 export default function UserNav() {
   const [isMenuShown, setIsMenuShown] = useState(false);
