@@ -1,0 +1,136 @@
+.modalBox {
+  width: 280px;
+  height: 389px;
+  border-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    width: 608px;
+    height: 352px;
+  }
+}
+
+.title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.3;
+  max-width: 200px;
+
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.text {
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.3;
+  max-width: 235px;
+
+  @media (min-width: 768px) {
+    max-width: 385px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+}
+.textAccent {
+  font-weight: 700;
+  font-size: 14px;
+
+  @media (min-width: 768px) {
+    font-weight: 700;
+    font-size: 16px;
+  }
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.btnAccent {
+  font-weight: 700;
+  font-size: 16px;
+
+  border-radius: 40px;
+  border: solid 2px var(--yellow-color);
+  color: var(--yellow-color);
+  background-color: transparent;
+
+  min-width: 256px;
+  height: 40px;
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    min-width: 129px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
+  }
+}
+
+.btn {
+  font-weight: 700;
+  font-size: 16px;
+
+  border-radius: 40px;
+  border: none;
+  background-color: var(--yellow-color);
+  color: var(--bg-color);
+  min-height: 40px;
+  min-width: 256px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    min-width: 129px;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 6px 22px -11px rgba(0, 0, 0, 0.75);
+  }
+}
+
+.closeBtn {
+  cursor: pointer;
+  color: var(--blue-color);
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  @media (min-width: 768px) {
+    top: 20px;
+    right: 20px;
+  }
+}
