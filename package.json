@@ -2,7 +2,7 @@
   "name": "gr03-yourpet-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AntonKobyshev.github.io/gr03-yourpet-frontend",
+  "homepage": "https://AntonKobyshev.github.io/gr03-yourpet-frontend/",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
