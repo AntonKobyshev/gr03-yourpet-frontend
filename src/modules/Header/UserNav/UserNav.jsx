@@ -8,7 +8,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import ModalApproveAction from "../../ModalApproveAction/ModalApproveAction";
 import ApproveLeaving from "../../ApproveLeaving/ApproveLeaving";
 import { logout } from "../../../redux/auth/auth-operations";
-import logoutSvg from "../UserNav/logout.svg";
+import Logout from "../Logout/Logout";
+import { withTheme } from "@emotion/react";
 
 export default function UserNav() {
   const [isMenuShown, setIsMenuShown] = useState(false);
@@ -69,19 +70,21 @@ export default function UserNav() {
         <div className={css.navBox}>
           {isMenuShown ? (
             <div className={css.logoutBtnTab}>
-              <button className={css.logoutBtnMain} onClick={handleOpen}>
-                Log out
-                <img src={logoutSvg} alt="log out button" />
-              </button>
+              <Logout
+                onClick={handleOpen}
+                className={css.logoutBtnMain}
+                iconColor="white"
+              />
             </div>
           ) : (
             <>
               {isWideScreen ? (
                 <div className={css.logoutBtnDesc}>
-                  <button className={css.logoutBtnMain} onClick={handleOpen}>
-                    Log out
-                    <img src={logoutSvg} alt="log out button" />
-                  </button>
+                  <Logout
+                    onClick={handleOpen}
+                    className={css.logoutBtnMain}
+                    iconColor="white"
+                  />
                 </div>
               ) : null}
               <NavLink
@@ -111,10 +114,11 @@ export default function UserNav() {
             </NavLink>
             <Nav onClick={closeMenu} />
             <div className={css.logoutBtn}>
-              <button className={css.logoutBtnMain} onClick={handleOpen}>
-                Log out
-                <img src={logoutSvg} alt="log out button" />
-              </button>
+              <Logout
+                onClick={handleOpen}
+                className={css.logoutBtnMain}
+                iconColor="white"
+              />
             </div>
           </div>
         )}
