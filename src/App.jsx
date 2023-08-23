@@ -8,8 +8,11 @@ import PrivateRoute from "./Routes/PrivateRoute/PrivateRoute";
 import ModalTitle from "./modules/ModalTitle/ModalTitle";
 import UserPage from "./pages/UserPage/UserPage";
 import AddPetPage from "./pages/AddPetPage/AddPetPage";
+
 import NewsPage from "./pages/NewsPage/NewsPage";
 // import AddPetPage from "./pages/AddPetPage/AddPetPage";
+
+//  import AddPetPage from "./pages/AddPetPage/AddPetPage";
 
 // import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList/NoticesCategoriesList";
 const NoticesPage = lazy(() => import("./pages/NoticesPage/NoticesPage"));
@@ -21,7 +24,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route path="/main" element={<MainPage />} index />
+        <Route index element={<MainPage />} />
+        <Route path="main" element={<MainPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/notices" element={<NoticesPage />}>
