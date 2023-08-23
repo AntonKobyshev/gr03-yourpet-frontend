@@ -5,7 +5,7 @@ import MainPage from "./pages/MainPage/MainPage";
 import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList";
 import PublicRoute from "./Routes/PublicRoute/PublicRoute";
 import PrivateRoute from "./Routes/PrivateRoute/PrivateRoute";
-import ModalTitle from "./modules/ModalTitle/ModalTitle";
+
 import UserPage from "./pages/UserPage/UserPage";
 import AddPetPage from "./pages/AddPetPage/AddPetPage";
 
@@ -18,6 +18,9 @@ import NewsPage from "./pages/NewsPage/NewsPage";
 const NoticesPage = lazy(() => import("./pages/NoticesPage/NoticesPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
+const OurFriendsPage = lazy(() =>
+  import("./pages/OurFriendsPage/OurFriendsPage")
+);
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 function App() {
@@ -32,8 +35,8 @@ function App() {
           <Route index element={<Navigate to="sell" replace />} />
           <Route path=":categoryName" element={<NoticesCategoriesList />} />
         </Route>
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="/friends" element={null} />
+        <Route path="/news" element={null} />
+        <Route path="friends" element={<OurFriendsPage />} />
         <Route element={<PublicRoute />}>
           <Route path="register" element={<RegisterPage />} />
           <Route path="login" element={<LoginPage />} />

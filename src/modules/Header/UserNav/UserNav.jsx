@@ -3,13 +3,28 @@ import BurgerMenuBtn from "./burgerMenuBtn.svg";
 import CloseMenu from "./closeMenuBtn.svg";
 import Nav from "../Nav/Nav";
 import css from "./UserNav.module.css";
-import ModalTitle from "../../ModalTitle/ModalTitle";
-import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
+import ModalApproveAction from "../../ModalApproveAction/ModalApproveAction";
+import ApproveLeaving from "../../ApproveLeaving/ApproveLeaving";
+import { logout } from "../../../redux/auth/auth-operations";
+import Logout from "../Logout/Logout";
+// import { withTheme } from "@emotion/react";
 
 export default function UserNav() {
   const [isMenuShown, setIsMenuShown] = useState(false);
   const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1280);
+  const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const handleLogout = () => {
+    handleClose();
+    dispatch(logout());
+    navigate("/");
+  };
 
   const { user } = useSelector((state) => state.auth);
   const toggleMenu = () => {
@@ -50,46 +65,76 @@ export default function UserNav() {
   }, [isWideScreen]);
 
   return (
-    <div>
-      <div className={css.navBox}>
-        {isMenuShown ? (
-          <div className={css.logoutBtnTab}>
-            <ModalTitle />
-          </div>
-        ) : (
-          <>
-            {isWideScreen ? (
-              <div className={css.logoutBtnDesc}>
-                <ModalTitle />
-              </div>
-            ) : null}
-            <NavLink className={css.userInfoTab} to="/user" onClick={closeMenu}>
+    <>
+      <div>
+        <div className={css.navBox}>
+          {isMenuShown ? (
+            <div className={css.logoutBtnTab}>
+              <Logout
+                onClick={handleOpen}
+                className={css.logoutBtnMain}
+                iconColor="white"
+              />
+            </div>
+          ) : (
+            <>
+              {isWideScreen ? (
+                <div className={css.logoutBtnDesc}>
+                  <Logout
+                    onClick={handleOpen}
+                    className={css.logoutBtnMain}
+                    iconColor="white"
+                  />
+                </div>
+              ) : null}
+              <NavLink
+                className={css.userInfoTab}
+                to="/user"
+                onClick={closeMenu}
+              >
+                <img src={user.imageURL} alt="user icon" width="28" />
+                <p>{user.name}</p>
+              </NavLink>
+            </>
+          )}
+
+          <button onClick={toggleMenu} type="button" className={css.menuBtn}>
+            <img
+              src={isMenuShown ? CloseMenu : BurgerMenuBtn}
+              alt="burger menu button"
+            />
+          </button>
+        </div>
+
+        {isMenuShown && (
+          <div className={css.menu}>
+            <NavLink className={css.userInfo} to="/user" onClick={closeMenu}>
               <img src={user.imageURL} alt="user icon" width="28" />
               <p>{user.name}</p>
             </NavLink>
-          </>
-        )}
-
-        <button onClick={toggleMenu} type="button" className={css.menuBtn}>
-          <img
-            src={isMenuShown ? CloseMenu : BurgerMenuBtn}
-            alt="burger menu button"
-          />
-        </button>
-      </div>
-
-      {isMenuShown && (
-        <div className={css.menu}>
-          <NavLink className={css.userInfo} to="/user" onClick={closeMenu}>
-            <img src={user.imageURL} alt="user icon" width="28" />
-            <p>{user.name}</p>
-          </NavLink>
-          <Nav onClick={closeMenu} />
-          <div className={css.logoutBtn}>
-            <ModalTitle />
+            <Nav onClick={closeMenu} />
+            <div className={css.logoutBtn}>
+              <Logout
+                onClick={handleOpen}
+                className={css.logoutBtnMain}
+                iconColor="white"
+              />
+            </div>
           </div>
-        </div>
+        )}
+      </div>
+      {open && (
+        <ModalApproveAction
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+          open={open}
+        >
+          <ApproveLeaving
+            handleClose={handleClose}
+            handleLogout={handleLogout}
+          />
+        </ModalApproveAction>
       )}
-    </div>
+    </>
   );
 }

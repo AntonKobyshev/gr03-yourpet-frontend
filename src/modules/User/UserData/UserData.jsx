@@ -3,14 +3,16 @@ import UserForm from "../UserForm/UserForm";
 import css from "./UserData.module.css";
 import EditIcon from "../../../images/icons/edit.svg";
 import CrossIcon from "../../../images/icons/cross14.svg";
-
+import { useSelector } from "react-redux";
 const UserData = () => {
+  const user = useSelector((state) => state.auth.user);
+
   const initialValues = {
-    name: "",
-    email: "",
-    birthday: "",
-    phone: "",
-    city: "",
+    name: user?.name || "",
+    email: user?.email || "",
+    birthday: user?.birthday || "",
+    phone: user?.phone || "",
+    city: user?.city || "",
     avatar: "",
   };
 

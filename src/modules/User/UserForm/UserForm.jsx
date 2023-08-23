@@ -5,12 +5,31 @@ import Logout from "../../Header/Logout/Logout";
 import CameraIcon from "../../../images/icons/camera.svg";
 import CheckIcon from "../../../images/icons/check.svg";
 import CrossIcon from "../../../images/icons/cross14.svg";
-// import ModalTitle from "../../ModalTitle/ModalTitle";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../../../redux/auth/auth-operations";
+import ModalApproveAction from "../../ModalApproveAction/ModalApproveAction";
+import ApproveLeaving from "../../ApproveLeaving/ApproveLeaving";
 
 const UserForm = ({ initialValues, editing, onEdit }) => {
-  const [avatarPreview, setAvatarPreview] = useState(null);
+  const [setAvatarPreview] = useState(null);
   const [avatarUploaded, setAvatarUploaded] = useState(false);
   const [showConfirmButtons, setShowConfirmButtons] = useState(false);
+
+  const { user } = useSelector((state) => state.auth);
+
+  const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const handleLogout = () => {
+    handleClose();
+    dispatch(logout());
+    navigate("/");
+  };
 
   const handleSaveClick = () => {
     onEdit(false);
@@ -52,9 +71,7 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
   return (
     <div className={css.formContainer}>
       <div className={css.imageWrapper}>
-        {avatarPreview && (
-          <img src={avatarPreview} alt="avatar" className={css.userImage} />
-        )}
+        <img src={user.imageURL} alt="avatar" className={css.userImage} />
 
         {editing && !showConfirmButtons && (
           <button
@@ -118,7 +135,7 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
                 <label htmlFor="email">Email:</label>
                 <Field
                   className={css.input}
-                  type="number"
+                  type="email"
                   id="email"
                   name="email"
                   readOnly={!editing}
@@ -169,9 +186,25 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
             </button>
           </div>
         ) : (
-          <Logout className={css.logoutBtnProfile} />
+          <Logout
+            className={css.logoutBtnProfile}
+            onClick={handleOpen}
+            iconColor="blue"
+          />
         )}
       </div>
+      {open && (
+        <ModalApproveAction
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+          open={open}
+        >
+          <ApproveLeaving
+            handleClose={handleClose}
+            handleLogout={handleLogout}
+          />
+        </ModalApproveAction>
+      )}
     </div>
   );
 };

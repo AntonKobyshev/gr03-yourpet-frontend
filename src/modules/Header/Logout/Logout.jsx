@@ -1,20 +1,20 @@
 import React from "react";
-import LogoutIcon from "../../../images/icons/logout.svg";
+import LogoutIconBlue from "../../../images/icons/logoutBlue.svg";
+import LogoutIconWhite from "../../../images/icons/logoutWhite.svg";
 
-const Logout = ({ className }) => {
-  const handleButtonClick = () => {
-    alert("ButtonClick");
-  };
+const Logout = ({ className, onClick, iconColor }) => {
+  let logoutIcon = null;
+  if (iconColor === "blue") {
+    logoutIcon = LogoutIconBlue;
+  } else if (iconColor === "white") {
+    logoutIcon = LogoutIconWhite;
+  }
 
   return (
     <div>
-      <button
-        type="button"
-        className={`${className}`}
-        onClick={handleButtonClick}
-      >
+      <button type="button" className={`${className}`} onClick={onClick}>
         Log Out
-        <img src={LogoutIcon} alt="Logout icon" />
+        <img src={logoutIcon} alt="Logout icon" className="logout-icon" />
       </button>
     </div>
   );
