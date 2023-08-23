@@ -19,7 +19,7 @@
 // export default NoticesCategoriesList;
 
 // ======================
-// -- code by Oleksandr --
+// -- code by Sergiy --
 // ======================
 
 import PropTypes from "prop-types";
