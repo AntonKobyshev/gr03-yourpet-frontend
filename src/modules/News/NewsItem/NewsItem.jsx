@@ -1,6 +1,5 @@
 import React from "react";
 import css from "./NewsItem.module.css";
-import PropTypes from "prop-types";
 
 const NewsItem = ({ news }) => {
   const inputDate = news.date;
@@ -16,7 +15,7 @@ const NewsItem = ({ news }) => {
   return (
     <li className={css.item}>
       <div className={css.itemContentWrapper}>
-        <img src={news.imgUrl} alt={news.title} />
+        <img сlassName={css.newsImage} src={news.imgUrl} alt={news.title} />
         <div className={css.contentWrapper}>
           <h2 className={css.title}>
             {news.title.length > 58
@@ -43,14 +42,6 @@ const NewsItem = ({ news }) => {
       </div>
     </li>
   );
-};
-
-NewsItem.propTypes = {
-  imgUrl: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
 };
 
 export default NewsItem;
