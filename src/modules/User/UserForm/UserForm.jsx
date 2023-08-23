@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import css from "./UserForm.module.css";
-import Logout from "../UserForm/Logout";
+import Logout from "../../Header/Logout/Logout";
 import CameraIcon from "../../../images/icons/camera.svg";
 import CheckIcon from "../../../images/icons/check.svg";
 import CrossIcon from "../../../images/icons/cross14.svg";
+// import ModalTitle from "../../ModalTitle/ModalTitle";
 
 const UserForm = ({ initialValues, editing, onEdit }) => {
   const [avatarPreview, setAvatarPreview] = useState(null);
@@ -168,7 +169,7 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
             </button>
           </div>
         ) : (
-          <Logout />
+          <Logout className={css.logoutBtnProfile} />
         )}
       </div>
     </div>
