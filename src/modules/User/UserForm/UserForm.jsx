@@ -35,7 +35,7 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
     handleClose();
     dispatch(logout());
     navigate("/");
-
+  }; 
 
   const handleSaveClick = () => {
     onEdit(false);
