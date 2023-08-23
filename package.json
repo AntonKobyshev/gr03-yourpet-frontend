@@ -2,7 +2,6 @@
   "name": "gr03-yourpet-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AntonKobyshev.github.io/gr03-yourpet-frontend/",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -29,8 +28,6 @@
     "yup": "^1.2.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -55,7 +52,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "7.16.5",
-    "gh-pages": "^6.0.0"
+    "@babel/plugin-proposal-private-property-in-object": "7.16.5"
   }
 }
