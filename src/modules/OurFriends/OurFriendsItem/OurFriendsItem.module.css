@@ -1,0 +1,91 @@
+@import "../../../index.css";
+
+.cardItem {
+  width: 280px;
+  height: 239px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 40px;
+  padding: 16px 12px;
+  background-color: var(--white-color);
+  box-shadow: var(--main-shadow);
+}
+
+@media screen and (min-width: 768px) {
+  .cardItem {
+    width: 336px;
+    height: 275px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .cardItem {
+    width: 395px;
+    height: 287px;
+  }
+}
+
+.typoStyle {
+  font-family: var(--primary-font);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: normal;
+}
+
+@media screen and (min-width: 768px) {
+  .typoStyle {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .typoStyle {
+    font-size: 15px;
+  }
+}
+
+.friendLink {
+  margin-bottom: 4px;
+  text-align: center;
+  font-family: "Manrope";
+  font-weight: 700;
+  font-size: 17px;
+  font-style: normal;
+  text-align: center;
+  color: var(--blue-color);
+  transition: all 0.3s ease;
+}
+
+.friendLink:hover {
+  color: var(--yellow-color);
+}
+
+@media screen and (min-width: 768px) {
+  .friendLink {
+    font-size: 18px;
+  }
+}
+
+.responsiveImage {
+  width: 100px;
+  height: 68px;
+  background-size: contain;
+  margin-right: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .responsiveImage {
+    width: 124px;
+    height: 88px;
+    margin-right: 12px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .responsiveImage {
+    width: 146px;
+    height: 104px;
+    margin-right: 20px;
+  }
+}

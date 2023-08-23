@@ -1,8 +1,7 @@
 import instance from "./auth";
 
 const getSponsors = async () => {
-  const { data } = await instance.get(`/sponsors`);
-
+  const data = await instance.get("/sponsors");
   return data;
 };
 
