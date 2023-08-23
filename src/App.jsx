@@ -14,6 +14,9 @@ import AddPetPage from "./pages/AddPetPage/AddPetPage";
 const NoticesPage = lazy(() => import("./pages/NoticesPage/NoticesPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
+const OurFriendsPage = lazy(() =>
+  import("./pages/OurFriendsPage/OurFriendsPage")
+);
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 function App() {
@@ -29,7 +32,7 @@ function App() {
           <Route path=":categoryName" element={<NoticesCategoriesList />} />
         </Route>
         <Route path="/news" element={null} />
-        <Route path="/friends" element={null} />
+        <Route path="friends" element={<OurFriendsPage />} />
         <Route element={<PublicRoute />}>
           <Route path="register" element={<RegisterPage />} />
           <Route path="login" element={<LoginPage />} />

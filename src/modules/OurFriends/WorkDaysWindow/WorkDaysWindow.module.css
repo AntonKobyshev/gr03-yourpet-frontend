@@ -1,0 +1,58 @@
+@import "../../../index.css";
+
+.typoStyled {
+  font-family: var(--primary-font);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: normal;
+}
+
+@media screen and (min-width: 768px) {
+  .typoStyled {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .typoStyled {
+    font-size: 15px;
+  }
+}
+
+.timeBox {
+  position: relative;
+}
+
+.timeList {
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 120px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: #ffffff;
+  box-shadow: var(--main-shadow);
+  border: 1px solid var(--blue-color);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.timeItem {
+  font-family: var(--primary-font);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeItem:not(:last-child) {
+  margin-bottom: 4px;
+}

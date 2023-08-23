@@ -1,28 +1,29 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import OurFriendsItem from '../../OurFriends/OurFriendsItem/OurFriendsItem';
-import { FriendsList } from '../OurFriendsList/OurFriendsList.styled';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { getAllFriends } from '../../../redux/friends/friends-selectors';
+import OurFriendsItem from '../OurFriendsItem/OurFriendsItem';
+import css from './OurFriendsList.module.css';
 
-export const OurFriendsList = ({ items }) => {
-  const [hoveredTime, setHoveredTime] = useState('');
-  if (items.length > 9) {
-    items.length = 9;
-  }
-  const handleTimeHover = index => {
-    setHoveredTime(index);
-  };
+const OurFriendsList = () => {
+  const friends = useSelector(getAllFriends);
 
   return (
-      <FriendsList>
+    <ul className={css.cardList}>
+      {friends.map(({ _id, url, title, imageUrl, workDays, address, addressUrl, email, phone }) => (
         <OurFriendsItem
-          items={items}
-          handleTimeHover={handleTimeHover}
-          hoveredTime={hoveredTime}
+          key={_id}
+          url={url}
+          title={title}
+          imageUrl={imageUrl}
+          workDays={workDays}
+          address={address}
+          addressUrl={addressUrl}
+          email={email}
+          phone={phone}
         />
-      </FriendsList>
+      ))}
+    </ul>
   );
 };
 
-OurFriendsList.propTypes = {
-  items: PropTypes.array.isRequired,
-};
+export default OurFriendsList;
