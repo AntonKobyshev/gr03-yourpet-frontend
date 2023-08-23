@@ -13,7 +13,7 @@ export const fetchAllNews = createAsyncThunk(
   }
 );
 export const fetchFilteredNews = createAsyncThunk(
-  "news/filteredNews",
+  "news/fetch-filtered",
   async ({ query, page }, thunkAPI) => {
     try {
       const data = await api.getFilteredNews(query, page);
