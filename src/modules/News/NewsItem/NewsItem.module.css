@@ -66,12 +66,28 @@ img {
   font-family: "Manrope";
   font-weight: 700;
   margin-bottom: 16px;
+  display: block;
+  height: 66;
 }
 
 .text {
   font-size: 16px;
   font-family: "Manrope";
   margin-bottom: 40px;
+  display: block;
+  height: 154px;
+}
+
+@media screen and (min-width: 768px) {
+  .text {
+    height: 132px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .text {
+    height: 110px;
+  }
 }
 
 .dateReadMoreWrapper {

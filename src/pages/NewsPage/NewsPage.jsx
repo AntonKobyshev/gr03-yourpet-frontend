@@ -1,14 +1,26 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import css from "./NewsPage.module.css";
 import NewsList from "../../modules/News/NewsList/NewsList";
+import { useDispatch } from "react-redux";
+import { fetchAllNews } from "../../redux/news/news-operation";
+import NewsSearch from "../../modules/News/NewsSearch/NewsSearch";
 
 const NewsPage = () => {
+  const dispatch = useDispatch();
+
+  // const totalPages = useSelector(selectAllNewsTotalPages);
+  // const currentPage = useSelector(selectAllNewsPage);
+
+  useEffect(() => {
+    dispatch(fetchAllNews(1));
+  }, [dispatch]);
+
   return (
     <div className="container">
-      <div className="news-page">
+      <div className="NewsPage">
         <h1 className={css.title}>News</h1>
-        <NewsList />
+        <NewsSearch />
+        {<NewsList />}
       </div>
     </div>
   );
