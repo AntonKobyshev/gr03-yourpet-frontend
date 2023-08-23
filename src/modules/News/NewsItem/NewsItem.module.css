@@ -37,7 +37,7 @@
   display: block;
   margin-bottom: 16px;
   border-radius: 20px;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   overflow: hidden;
 }

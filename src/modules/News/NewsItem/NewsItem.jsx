@@ -15,7 +15,7 @@ const NewsItem = ({ news }) => {
   return (
     <li className={css.item}>
       <div className={css.itemContentWrapper}>
-        <img сlassName={css.newsImage} src={news.imgUrl} alt={news.title} />
+        <img className={css.newsImage} src={news.imgUrl} alt={news.title} />
         <div className={css.contentWrapper}>
           <h2 className={css.title}>
             {news.title.length > 58
