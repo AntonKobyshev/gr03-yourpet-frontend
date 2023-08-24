@@ -16,33 +16,31 @@ const style = {
 
 const ModalApproveAction = ({ children, handleOpen, handleClose, open }) => {
   return (
-    <div>
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        slots={{ backdrop: Backdrop }}
-        slotProps={{
-          backdrop: {
-            timeout: 500,
-          },
-        }}
-      >
-        <Fade in={open}>
-          <Box sx={style} className={css.modalBox}>
-            <CloseIcon
-              onClick={handleClose}
-              className={css.closeBtn}
-              sx={{ width: 30, height: 30 }}
-            />
+    <Modal
+      aria-labelledby="transition-modal-title"
+      aria-describedby="transition-modal-description"
+      open={open}
+      onClose={handleClose}
+      closeAfterTransition
+      slots={{ backdrop: Backdrop }}
+      slotProps={{
+        backdrop: {
+          timeout: 500,
+        },
+      }}
+    >
+      <Fade in={open}>
+        <Box sx={style} className={css.modalBox}>
+          <CloseIcon
+            onClick={handleClose}
+            className={css.closeBtn}
+            sx={{ width: 30, height: 30 }}
+          />
 
-            <div className={css.contentContainer}>{children}</div>
-          </Box>
-        </Fade>
-      </Modal>
-    </div>
+          <div className={css.contentContainer}>{children}</div>
+        </Box>
+      </Fade>
+    </Modal>
   );
 };
 
