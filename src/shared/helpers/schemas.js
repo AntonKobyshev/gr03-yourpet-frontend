@@ -40,3 +40,38 @@ export const registerSchema = yup.object().shape({
     .required("Confirm password is required")
     .oneOf([yup.ref("password"), null], "Passwords must match"),
 });
+
+export const userFormSchema = yup.object().shape({
+  avatar: yup
+    .mixed()
+    .required("Avatar is required")
+    .test("fileSize", "The file is too large", (value) => {
+      if (!value.length) return true;
+      return value[0].size <= 3000000; // максимальний розмір файлу 3 МБ
+    }),
+  name: yup.string().required("Name is required").trim(),
+  email: yup
+    .string()
+    .required("Email is required")
+    .email("Invalid email")
+    .matches(
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+      "Invalid email format"
+    )
+    .trim(),
+  birthday: yup
+    .string()
+    .required("Birthday is required")
+    .matches
+    // /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$/,
+    // "Invalid date format (DD-MM-YYYY)"
+    (),
+  phone: yup
+    .string()
+    .required("Phone is required")
+    .matches(
+      /^[\+]?3?[\s]?8?[\s]?\(?0\d{2}?\)?[\s]?\d{3}[\s|-]?\d{2}[\s|-]?\d{2}$/,
+      "Invalid phone format"
+    ),
+  city: yup.string().required("City is required"),
+});

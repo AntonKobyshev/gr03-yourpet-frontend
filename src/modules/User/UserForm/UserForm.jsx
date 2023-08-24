@@ -5,15 +5,17 @@ import Logout from "../../Header/Logout/Logout";
 import CameraIcon from "../../../images/icons/camera.svg";
 import CheckIcon from "../../../images/icons/check.svg";
 import CrossIcon from "../../../images/icons/cross14.svg";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../../redux/auth/auth-operations";
 import ModalApproveAction from "../../ModalApproveAction/ModalApproveAction";
 import ApproveLeaving from "../../ApproveLeaving/ApproveLeaving";
+import Tooltip from "./Tooltip";
+import { userFormSchema } from "../../../shared/helpers/schemas";
+import { useSelector } from "react-redux";
 
 const UserForm = ({ initialValues, editing, onEdit }) => {
-  const [setAvatarPreview] = useState(null);
+  const [avatarPreview, setAvatarPreview] = useState(initialValues.avatar);
   const [avatarUploaded, setAvatarUploaded] = useState(false);
   const [showConfirmButtons, setShowConfirmButtons] = useState(false);
 
@@ -106,92 +108,135 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
       </div>
 
       <div>
-        <Formik initialValues={initialValues}>
-          <Form>
-            <div className={css.formAvatar}>
-              <Field
-                className={css.input}
-                type="file"
-                id="avatar"
-                name="avatar"
-                accept=".jpg, .jpeg, .png"
-                onChange={handleAvatarChange}
-                style={{ display: "none" }}
-                readOnly={!editing}
-              />
-            </div>
-            <div className={css.inputsContainer}>
-              <div className={css.formLabelBox}>
-                <label htmlFor="name">Name:</label>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={userFormSchema}
+          onSubmit={handleSaveClick}
+        >
+          {({ errors, touched }) => (
+            <Form>
+              <div className={css.formAvatar}>
                 <Field
                   className={css.input}
-                  type="text"
-                  id="name"
-                  name="name"
+                  type="file"
+                  id="avatar"
+                  name="avatar"
+                  accept=".jpg, .jpeg, .png"
+                  onChange={handleAvatarChange}
+                  style={{ display: "none" }}
                   readOnly={!editing}
                 />
               </div>
-              <div className={css.formLabelBox}>
-                <label htmlFor="email">Email:</label>
-                <Field
-                  className={css.input}
-                  type="email"
-                  id="email"
-                  name="email"
-                  readOnly={!editing}
-                />
+              <div className={css.inputsContainer}>
+                <div className={css.formLabelBox}>
+                  <label htmlFor="name">Name:</label>
+                  <Tooltip
+                    text={errors.name}
+                    show={touched.name && errors.name}
+                  >
+                    <Field
+                      className={`${css.input} ${
+                        touched.name && errors.name ? css.errorInput : ""
+                      }`}
+                      type="text"
+                      id="name"
+                      name="name"
+                      readOnly={!editing}
+                    />
+                  </Tooltip>
+                </div>
+                <div className={css.formLabelBox}>
+                  <label htmlFor="email">Email:</label>
+                  <Tooltip
+                    text={errors.email}
+                    show={touched.email && errors.email}
+                  >
+                    <Field
+                      className={`${css.input} ${
+                        touched.email && errors.email ? css.errorInput : ""
+                      }`}
+                      type="email"
+                      id="email"
+                      name="email"
+                      readOnly={!editing}
+                    />
+                  </Tooltip>
+                </div>
+                <div className={css.formLabelBox}>
+                  <label htmlFor="birthday">Birthday:</label>
+                  <Tooltip
+                    text={errors.birthday}
+                    show={touched.birthday && errors.birthday}
+                  >
+                    <Field
+                      className={`${css.input} ${
+                        touched.birthday && errors.birthday
+                          ? css.errorInput
+                          : ""
+                      }`}
+                      type="date"
+                      id="birthday"
+                      name="birthday"
+                      // format="DD-MM-YYYY"
+                      readOnly={!editing}
+                    />
+                  </Tooltip>
+                </div>
+                <div className={css.formLabelBox}>
+                  <label htmlFor="phone">Phone:</label>
+                  <Tooltip
+                    text={errors.phone}
+                    show={touched.phone && errors.phone}
+                  >
+                    <Field
+                      className={`${css.input} ${
+                        touched.phone && errors.phone ? css.errorInput : ""
+                      }`}
+                      type="number"
+                      id="phone"
+                      name="phone"
+                      readOnly={!editing}
+                    />
+                  </Tooltip>
+                </div>
+                <div className={css.formLabelBox}>
+                  <label htmlFor="city">City:</label>
+                  <Tooltip
+                    text={errors.city}
+                    show={touched.city && errors.city}
+                  >
+                    <Field
+                      className={`${css.input} ${
+                        touched.city && errors.city ? css.errorInput : ""
+                      }`}
+                      type="text"
+                      id="city"
+                      name="city"
+                      readOnly={!editing}
+                    />
+                  </Tooltip>
+                </div>
               </div>
-              <div className={css.formLabelBox}>
-                <label htmlFor="birthday">Birthday:</label>
-                <Field
-                  className={css.input}
-                  type="text"
-                  id="birthday"
-                  name="birthday"
-                  readOnly={!editing}
+              {editing ? (
+                <div className={css.buttonContainer}>
+                  <button
+                    type="submit"
+                    className={css.saveBtn}
+                    onClick={handleSaveClick}
+                  >
+                    Save
+                  </button>
+                </div>
+              ) : (
+                <Logout
+                  className={css.logoutBtnProfile}
+                  onClick={handleOpen}
+                  iconColor="blue"
                 />
-              </div>
-              <div className={css.formLabelBox}>
-                <label htmlFor="phone">Phone:</label>
-                <Field
-                  className={css.input}
-                  type="number"
-                  id="phone"
-                  name="phone"
-                  readOnly={!editing}
-                />
-              </div>
-              <div className={css.formLabelBox}>
-                <label htmlFor="city">City:</label>
-                <Field
-                  className={css.input}
-                  type="text"
-                  id="city"
-                  name="city"
-                  readOnly={!editing}
-                />
-              </div>
-            </div>
-          </Form>
+              )}
+            </Form>
+          )}
         </Formik>
-
-        {editing ? (
-          <div className={css.buttonContainer}>
-            <button
-              type="submit"
-              className={css.saveBtn}
-              onClick={handleSaveClick}
-            >
-              Save
-            </button>
-          </div>
-        ) : (
-          <Logout
-            className={css.logoutBtnProfile}
-            onClick={handleOpen}
-            iconColor="blue"
-          />
-        )}
       </div>
       {open && (
         <ModalApproveAction
