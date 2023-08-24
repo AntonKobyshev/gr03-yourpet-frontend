@@ -11,12 +11,10 @@ const Logout = ({ className, onClick, iconColor }) => {
   }
 
   return (
-    <div>
       <button type="button" className={`${className}`} onClick={onClick}>
         Log Out
         <img src={logoutIcon} alt="Logout icon" className="logout-icon" />
       </button>
-    </div>
   );
 };
 
