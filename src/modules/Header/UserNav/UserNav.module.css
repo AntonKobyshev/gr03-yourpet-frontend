@@ -86,7 +86,7 @@
   }
 } 
 
-
+/* 
 .burgerMenu {
  {
   @media screen and (min-width: 320px) {
@@ -107,7 +107,7 @@
   @media screen and (min-width: 1280px) {
     display: none;
   }
-}
+} */
 
 .navBox {
   display: flex;
