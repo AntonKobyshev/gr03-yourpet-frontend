@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import CloseMenu from "../UserNav/closeMenuBtn.svg";
-import BurgerMenuBtn from "../UserNav/burgerMenuBtn.svg";
+import CloseMenu from "../../../images/icons/cross-small.svg";
+import BurgerMenuBtn from "../../../images/icons/menu-hamburger.svg";
 import css from "./AuthNav.module.css";
 import Nav from "../Nav/Nav";
-import PawIcon from "./paw.svg";
+import PawIcon from "../../../images/icons/paw.svg";
 import { useNavigate } from "react-router-dom";
 
 export default function AuthNav() {
@@ -70,13 +70,17 @@ export default function AuthNav() {
         </button>
         <button
           type="button"
-          className={css.registerBtnTab}
+          className={css.registerBtnWideScreen}
           onClick={handleRegisterBtnClick}
         >
           Registration
         </button>
 
-        <button onClick={toggleMenu} type="button" className={css.menuBtn}>
+        <button
+          onClick={toggleMenu}
+          type="button"
+          className={css.toggleBurgerBtn}
+        >
           <img
             src={isMenuShown ? CloseMenu : BurgerMenuBtn}
             alt="burger menu button"
@@ -85,7 +89,7 @@ export default function AuthNav() {
       </div>
 
       {isMenuShown && (
-        <div className={css.menu}>
+        <div className={css.burgerMenu}>
           <button
             type="button"
             className={css.loginBtn}
@@ -96,7 +100,7 @@ export default function AuthNav() {
           </button>
           <button
             type="button"
-            className={css.registerBtn}
+            className={css.registerBtnMob}
             onClick={handleRegisterBtnClick}
           >
             Registration

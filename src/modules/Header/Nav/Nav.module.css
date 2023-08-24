@@ -28,10 +28,10 @@
 
 .active {
   text-decoration: none;
-  color: #ffc107;
+  color: var(--yellow-color);
 }
 
 .inactive {
   text-decoration: none;
-  color: #111111;
+  color: var(--black-color);
 }

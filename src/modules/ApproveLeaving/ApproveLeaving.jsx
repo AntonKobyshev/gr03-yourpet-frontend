@@ -1,6 +1,6 @@
 import React from "react";
 import css from "./ApproveLeaving.module.css";
-import logoutSvg from "../../modules/Header/UserNav/logout.svg";
+import logoutSvg from "../../images/icons/logoutWhite.svg";
 
 const ApproveLeaving = ({ handleClose, handleLogout }) => {
   return (
