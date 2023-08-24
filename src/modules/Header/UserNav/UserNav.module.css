@@ -79,7 +79,7 @@
   @media screen and (min-width: 768px) {
     display: flex;
     gap: 12px;
-    color: var();
+    color: var(--yellow-color);
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 0.64px;
@@ -87,12 +87,7 @@
 } 
 
 .burgerMenu {
-  display: none;
-}
-
-@media screen and (min-width: 320px) and (max-width: 1279px) {
-
-  .burgerMenu {
+  @media screen and (min-width: 320px) {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -100,17 +95,14 @@
     left: 0;
     background-color: var(--bg-color);
     z-index: 999;
+    left: 0;
     padding-top: 48px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-}
 
-@media screen and (min-width: 1280px) {
-
-
-  .burgerMenu {
+  @media screen and (min-width: 1280px) {
     display: none;
   }
 }
