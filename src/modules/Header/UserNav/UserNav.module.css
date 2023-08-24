@@ -31,10 +31,10 @@
 
 .logoutBtnTab {
   @media screen and (min-width: 320px) {
-    visibility: hidden;
+    display: none;
   }
   @media screen and (min-width: 768px) {
-    visibility: visible;
+    display: block;
   }
 }
 
