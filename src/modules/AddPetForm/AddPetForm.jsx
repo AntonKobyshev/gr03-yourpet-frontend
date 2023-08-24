@@ -58,7 +58,7 @@ export const AddPetForm = () => {
       initialValues={initialValues}
       validationSchema={validationSchema(step)}
       onSubmit={values => {
-        console.log(values); // Ваші дані з форми
+        console.log(values); 
       }}
     >
       {({
@@ -164,7 +164,7 @@ export const AddPetForm = () => {
                   }}
                 >
                   Next
-                  {/* <span>Next</span> */}
+        
                   <Pets
                     sx={{ width: 24, height: 24, transform: 'rotate(25deg)' }}
                   />

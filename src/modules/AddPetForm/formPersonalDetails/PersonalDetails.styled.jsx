@@ -1,16 +1,17 @@
 import styled from '@emotion/styled';
 import { Field, ErrorMessage } from 'formik';
-export const PersonalDetailsWrapper = styled.div`
+export const PersonalDetailsBlock = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
   margin-bottom: ${props => (props.category === 'your pet' ? 44 : 24)}px;
 `;
 
-export const Label = styled.label`
+export const Point = styled.label`
   position: relative;
   font-weight: 500;
   font-size: 14px;
+  
   line-height: calc(19 / 14);
   color: #111111;
 
@@ -23,6 +24,16 @@ export const Label = styled.label`
     line-height: calc(16 / 12);
     color: #f43f5e;
   }
+`;
+
+export const Message = styled(ErrorMessage)`
+  position: absolute;
+  bottom: -15px;
+  left: 20px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: calc(16 / 12);
+  color: #f43f5e;
 `;
 
 export const Input = styled(Field)`
@@ -39,12 +50,3 @@ export const Input = styled(Field)`
   border-color: ${props => (props.errors ? '#f43f5e' : '#54ADFF')};
 `;
 
-export const Message = styled(ErrorMessage)`
-  position: absolute;
-  bottom: -15px;
-  left: 20px;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: calc(16 / 12);
-  color: #f43f5e;
-`;

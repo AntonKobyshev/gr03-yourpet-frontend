@@ -1,10 +1,10 @@
-import { Label, Input, PersonalDetailsWrapper } from './PersonalDetails.styled';
+import { Point, Input, PersonalDetailsBlock } from './PersonalDetails.styled';
 
 const PersonalDetails = ({ category, touched, errors }) => {
   return (
-    <PersonalDetailsWrapper category={category}>
+    <PersonalDetailsBlock category={category}>
       {category !== 'my-pet' && (
-        <Label>
+        <Point>
           Title of add
           <Input
             type="text"
@@ -13,9 +13,9 @@ const PersonalDetails = ({ category, touched, errors }) => {
             errors={touched.title && errors.title}
           />
           {touched.title && errors.title && <div>{errors.title}</div>}
-        </Label>
+        </Point>
       )}
-      <Label>
+      <Point>
         Name pet
         <Input
           type="text"
@@ -24,8 +24,8 @@ const PersonalDetails = ({ category, touched, errors }) => {
           errors={touched.name && errors.name}
         />
         {touched.name && errors.name && <div>{errors.name}</div>}
-      </Label>
-      <Label>
+      </Point>
+      <Point>
         Date of birth
         <Input
           type="text"
@@ -36,8 +36,8 @@ const PersonalDetails = ({ category, touched, errors }) => {
         {touched.dateOfBirth && errors.dateOfBirth && (
           <div>{errors.dateOfBirth}</div>
         )}
-      </Label>
-      <Label>
+      </Point>
+      <Point>
         Breed
         <Input
           type="text"
@@ -46,8 +46,8 @@ const PersonalDetails = ({ category, touched, errors }) => {
           errors={touched.breed && errors.breed}
         />
         {touched.breed && errors.breed && <div>{errors.breed}</div>}
-      </Label>
-    </PersonalDetailsWrapper>
+      </Point>
+    </PersonalDetailsBlock>
   );
 };
 

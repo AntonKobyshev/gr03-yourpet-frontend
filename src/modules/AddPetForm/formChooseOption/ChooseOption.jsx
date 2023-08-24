@@ -1,10 +1,10 @@
-import { CategoryWrapper, Label } from './ChooseOption.styled';
+import { FormCategory, Form } from './ChooseOption.styled';
 import { Field } from 'formik';
 
 const ChooseOption = ({ values }) => {
   return (
-    <CategoryWrapper role="group" aria-labelledby="category-radio-group">
-      <Label checked={values.category === 'my-pet'}>
+    <FormCategory role="group" aria-labelledby="category-radio-group">
+      <Form checked={values.category === 'my-pet'}>
         <Field
           type="radio"
           value="my-pet"
@@ -12,9 +12,9 @@ const ChooseOption = ({ values }) => {
           checked={values.category === 'my-pet'}
         />
         your pet
-      </Label>
+      </Form>
 
-      <Label checked={values.category === 'sell'}>
+      <Form checked={values.category === 'sell'}>
         <Field
           type="radio"
           value="sell"
@@ -22,9 +22,9 @@ const ChooseOption = ({ values }) => {
           checked={values.category === 'sell'}
         />
         sell
-      </Label>
+      </Form>
 
-      <Label checked={values.category === 'lost-found'}>
+      <Form checked={values.category === 'lost-found'}>
         <Field
           type="radio"
           value="lost-found"
@@ -32,8 +32,8 @@ const ChooseOption = ({ values }) => {
           checked={values.category === 'lost-found'}
         />
         lost/found
-      </Label>
-      <Label checked={values.category === 'for-free'}>
+      </Form>
+      <Form checked={values.category === 'for-free'}>
         <Field
           type="radio"
           value="for-free"
@@ -41,8 +41,8 @@ const ChooseOption = ({ values }) => {
           checked={values.category === 'for-free'}
         />
         in good hands
-      </Label>
-    </CategoryWrapper>
+      </Form>
+    </FormCategory>
   );
 };
 

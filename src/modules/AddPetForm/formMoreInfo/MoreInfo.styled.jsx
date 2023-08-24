@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Field, ErrorMessage } from 'formik';
 
-export const MoreInfoWrapper = styled.div`
+export const MoreInfoBlock = styled.div`
   margin-bottom: 24px;
 
   @media (min-width: 768px) {
@@ -15,7 +15,7 @@ export const MoreInfoWrapper = styled.div`
   }
 `;
 
-export const TheSexWrapper = styled.div`
+export const GenderBlock = styled.div`
   position: relative;
   margin-bottom: 16px;
 
@@ -29,14 +29,14 @@ export const TheSexWrapper = styled.div`
   }
 `;
 
-export const TheSexTitle = styled.p`
+export const GenderTitle = styled.p`
   font-weight: 500;
   font-size: 14px;
   color: #111111;
   line-height: 1.36;
 `;
 
-export const SexLabel = styled.label`
+export const GenderLabelBlock = styled.label`
   display: flex;
   align-items: center;
   font-weight: 400;
@@ -57,7 +57,7 @@ export const SexLabel = styled.label`
   }
 `;
 
-export const PhotoWrap = styled.div`
+export const PhotoBlock = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
@@ -85,7 +85,7 @@ export const PhotoText = styled.p`
   }
 `;
 
-export const AddLabel = styled.label`
+export const AddPoint = styled.label`
   position: relative;
   display: flex;
   justify-content: center;
@@ -134,7 +134,7 @@ export const FormFields = styled.div`
   }
 `;
 
-export const Label = styled.label`
+export const Point = styled.label`
   position: relative;
   font-weight: 500;
   font-size: 14px;
@@ -155,7 +155,7 @@ export const Input = styled(Field)`
   border-color: ${props => (props.errors ? '#f43f5e' : '#54ADFF')};
 `;
 
-export const CommentsLabel = styled.label`
+export const PointComment = styled.label`
   position: relative;
   display: block;
   color: #111111;
