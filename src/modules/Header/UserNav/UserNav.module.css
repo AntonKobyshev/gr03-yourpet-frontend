@@ -2,6 +2,7 @@
   margin-top: 159px;
   align-self: start;
   margin-left: 20px;
+
   @media screen and (min-width: 768px) {
     display: none;
   }
@@ -22,6 +23,7 @@
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.64px;
+
   &:hover,
   &:focus {
     background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
@@ -30,33 +32,28 @@
 }
 
 .logoutBtnTab {
-  @media screen and (min-width: 320px) {
-    display: none;
-  }
   @media screen and (min-width: 768px) {
-    display: block;
+    display: none;
   }
 }
 
 .logoutBtnDesc {
-  @media screen and (min-width: 320px) {
-    display: none;
-  }
   @media screen and (min-width: 1280px) {
-    display: block;
+    display: none;
   }
 }
 
 .toggleBurgerBtn {
   background-color: transparent;
   border: none;
+
   @media screen and (min-width: 1280px) {
     display: none;
   }
 }
 
 .userInfoMobile {
-  @media screen and (min-width: 320px) {
+  @media screen and (max-width: 767px) {
     display: flex;
     gap: 12px;
     color: var(--yellow-color);
@@ -65,17 +62,9 @@
     letter-spacing: 0.64px;
     margin-bottom: 84px;
   }
-
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
 }
 
 .userInfoWideScreen {
-  @media screen and (min-width: 320px) {
-    display: none;
-  }
-
   @media screen and (min-width: 768px) {
     display: flex;
     gap: 12px;
@@ -84,26 +73,21 @@
     font-size: 16px;
     letter-spacing: 0.64px;
   }
-} 
+}
 
 .burgerMenu {
-  @media screen and (min-width: 320px) {
+  @media screen and (max-width: 767px) {
     width: 100%;
     height: 100%;
     position: fixed;
-    top: 20;
+    top: 20px;
     left: 0;
     background-color: var(--bg-color);
     z-index: 999;
-    left: 0;
     padding-top: 48px;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  @media screen and (min-width: 1280px) {
-    display: none;
   }
 }
 
@@ -111,6 +95,7 @@
   display: flex;
   gap: 22px;
   align-items: center;
+
   @media screen and (min-width: 1280px) {
     gap: 40px;
   }
