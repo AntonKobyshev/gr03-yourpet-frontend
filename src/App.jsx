@@ -3,13 +3,14 @@ import { lazy, Suspense } from "react";
 import SharedLayout from "./shared/components/SharedLayout/SharedLayout";
 import MainPage from "./pages/MainPage/MainPage";
 import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList";
-import PublicRoute from "./Routes/PublicRoute/PublicRoute";
+// import PublicRoute from "./Routes/PublicRoute/PublicRoute";
 import PrivateRoute from "./Routes/PrivateRoute/PrivateRoute";
 import Loader from "./shared/components/Loader/Loader";
 import UserPage from "./pages/UserPage/UserPage";
 import AddPetPage from "./pages/AddPetPage/AddPetPage";
 
 import NewsPage from "./pages/NewsPage/NewsPage";
+import { RestrictedRoute } from "./Routes/RestrictedRoute";
 // import AddPetPage from "./pages/AddPetPage/AddPetPage";
 
 //  import AddPetPage from "./pages/AddPetPage/AddPetPage";
@@ -26,31 +27,45 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 function App() {
   return (
     <>
-    <Suspense fallback={<Loader />}>
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<MainPage />} />
-        <Route path="main" element={<MainPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/notices" element={<NoticesPage />}>
-          <Route index element={<Navigate to="sell" replace />} />
-          <Route path=":categoryName" element={<NoticesCategoriesList />} />
-        </Route>
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="friends" element={<OurFriendsPage />} />
-        <Route element={<PublicRoute />}>
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="login" element={<LoginPage />} />
-        </Route>
-        <Route element={<PrivateRoute />}>
-          <Route path="user" element={<UserPage />} />
-          {<Route path="add-pet" element={<AddPetPage />} />}
-        </Route>
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
-      </Routes>
-    </Suspense>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<MainPage />} />
+            <Route path="main" element={<MainPage />} />
+            <Route
+              path="/register"
+              element={
+                <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <RestrictedRoute redirectTo="/" component={<LoginPage />} />
+              }
+            />
+            <Route path="/notices" element={<NoticesPage />}>
+              <Route index element={<Navigate to="sell" replace />} />
+              <Route path=":categoryName" element={<NoticesCategoriesList />} />
+            </Route>
+            <Route path="/news" element={<NewsPage />} />
+            <Route path="friends" element={<OurFriendsPage />} />
+            <Route
+              path="/user"
+              element={
+                <PrivateRoute redirectTo="/login" component={<UserPage />} />
+              }
+            />
+            <Route
+              path="/add-pet"
+              element={
+                <PrivateRoute redirectTo="/login" component={<AddPetPage />} />
+              }
+            />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </>
   );
 }
