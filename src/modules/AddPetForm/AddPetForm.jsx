@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import ChooseOption from './formChooseOption/ChooseOption';
@@ -29,13 +29,14 @@ const initialValues = {
   title: '',
 };
 
- export const AddPetForm = () => {
+export const AddPetForm = () => {
   const [step, setStep] = useState(0);
   const navigate = useNavigate();
   const steps = ['Choose option', 'Personal details', 'More info'];
 
   const handleClickNext = e => {
     e.preventDefault();
+
     if (step === 2) {
       return;
     }
@@ -56,6 +57,9 @@ const initialValues = {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema(step)}
+      onSubmit={values => {
+        console.log(values); // Ваші дані з форми
+      }}
     >
       {({
         values,
@@ -119,10 +123,7 @@ const initialValues = {
             )}
             <ButtonWrap category={values.category} step={step}>
               {step === 2 ? (
-                <ButtonFilled
-                  type="submit"
-            
-                >
+                <ButtonFilled type="submit">
                   <span>Done</span>
                   <Pets
                     sx={{
@@ -163,6 +164,7 @@ const initialValues = {
                   }}
                 >
                   Next
+                  {/* <span>Next</span> */}
                   <Pets
                     sx={{ width: 24, height: 24, transform: 'rotate(25deg)' }}
                   />

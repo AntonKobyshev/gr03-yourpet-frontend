@@ -4,6 +4,7 @@ export const AddPetFormWrapper = styled.div`
   margin: 0 auto;
   max-width: 458px;
   padding: 20px 8px;
+  margin-top: 40px;
 
   background-color: #ffffff;
   box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
