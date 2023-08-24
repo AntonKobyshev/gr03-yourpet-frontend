@@ -4,7 +4,7 @@ import CloseMenu from "./closeMenuBtn.svg";
 import Nav from "../Nav/Nav";
 import css from "./UserNav.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ModalApproveAction from "../../ModalApproveAction/ModalApproveAction";
 import ApproveLeaving from "../../ApproveLeaving/ApproveLeaving";
 import { logout } from "../../../redux/auth/auth-operations";
@@ -87,14 +87,10 @@ export default function UserNav() {
                   />
                 </div>
               ) : null}
-              <NavLink
-                className={css.userInfoTab}
-                to="/user"
-                onClick={closeMenu}
-              >
+              <Link className={css.userInfoTab} to="/user" onClick={closeMenu}>
                 <img src={user.imageURL} alt="user icon" width="28" />
                 <p>{user.name}</p>
-              </NavLink>
+              </Link>
             </>
           )}
 
@@ -108,10 +104,10 @@ export default function UserNav() {
 
         {isMenuShown && (
           <div className={css.menu}>
-            <NavLink className={css.userInfo} to="/user" onClick={closeMenu}>
+            <Link className={css.userInfo} to="/user" onClick={closeMenu}>
               <img src={user.imageURL} alt="user icon" width="28" />
               <p>{user.name}</p>
-            </NavLink>
+            </Link>
             <Nav onClick={closeMenu} />
             <div className={css.logoutBtn}>
               <Logout
