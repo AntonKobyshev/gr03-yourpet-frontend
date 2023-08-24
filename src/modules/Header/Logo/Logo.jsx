@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
-
+import css from "./Logo.module.css";
 import YourPetLogo from "./yourPetLogo.svg";
 
 export default function Logo() {
   return (
     <NavLink to="/main">
-      <img src={YourPetLogo} alt="Your pet logo" />
+      <img src={YourPetLogo} alt="Your pet logo" className={css.logo} />
     </NavLink>
   );
 }
