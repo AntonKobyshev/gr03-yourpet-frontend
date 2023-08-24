@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import BurgerMenuBtn from "./burgerMenuBtn.svg";
-import CloseMenu from "./closeMenuBtn.svg";
+import BurgerMenuBtn from "../../../images/icons/menu-hamburger.svg";
+import CloseMenu from "../../../images/icons/cross-small.svg";
 import Nav from "../Nav/Nav";
 import css from "./UserNav.module.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -87,14 +87,22 @@ export default function UserNav() {
                   />
                 </div>
               ) : null}
-              <Link className={css.userInfoTab} to="/user" onClick={closeMenu}>
+              <Link
+                className={css.userInfoWideScreen}
+                to="/user"
+                onClick={closeMenu}
+              >
                 <img src={user.imageURL} alt="user icon" width="28" />
                 <p>{user.name}</p>
               </Link>
             </>
           )}
 
-          <button onClick={toggleMenu} type="button" className={css.menuBtn}>
+          <button
+            onClick={toggleMenu}
+            type="button"
+            className={css.toggleBurgerBtn}
+          >
             <img
               src={isMenuShown ? CloseMenu : BurgerMenuBtn}
               alt="burger menu button"
@@ -103,13 +111,13 @@ export default function UserNav() {
         </div>
 
         {isMenuShown && (
-          <div className={css.menu}>
-            <Link className={css.userInfo} to="/user" onClick={closeMenu}>
+          <div className={css.burgerMenu}>
+            <Link className={css.userInfoMobile} to="/user" onClick={closeMenu}>
               <img src={user.imageURL} alt="user icon" width="28" />
               <p>{user.name}</p>
             </Link>
             <Nav onClick={closeMenu} />
-            <div className={css.logoutBtn}>
+            <div className={css.logoutBtnMob}>
               <Logout
                 onClick={handleOpen}
                 className={css.logoutBtnMain}
