@@ -29,12 +29,6 @@
   }
 }
 
-/* .logoutBtnMain img {
-  fill: white;
-  stroke: white;
-  color: white;
-} */
-
 .logoutBtnTab {
   @media screen and (min-width: 320px) {
     display: none;
