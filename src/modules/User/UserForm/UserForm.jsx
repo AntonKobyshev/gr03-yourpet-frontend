@@ -18,6 +18,8 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
   const [avatarPreview, setAvatarPreview] = useState(initialValues.avatar);
   const [avatarUploaded, setAvatarUploaded] = useState(false);
   const [showConfirmButtons, setShowConfirmButtons] = useState(false);
+  const [saveButtonClicked, setSaveButtonClicked] = useState(false);
+  const [hasValidationErrors, setHasValidationErrors] = useState(false);
 
   const { user } = useSelector((state) => state.auth);
 
@@ -34,9 +36,14 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
   };
 
   const handleSaveClick = () => {
-    onEdit(false);
+    // Якщо була спроба натиснути кнопку "Save"
+    if (saveButtonClicked) {
+      // Якщо є помилки валідації, не виконуємо onEdit
+      if (!hasValidationErrors) {
+        onEdit(false);
+      }
+    }
   };
-
   const handleEditPhotoClick = () => {
     const fileInput = document.getElementById("avatar");
 
@@ -112,6 +119,14 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
           initialValues={initialValues}
           validationSchema={userFormSchema}
           onSubmit={handleSaveClick}
+          validate={(values) => {
+            try {
+              userFormSchema.validateSync(values, { abortEarly: false });
+              setHasValidationErrors(false);
+            } catch (validationError) {
+              setHasValidationErrors(true);
+            }
+          }}
         >
           {({ errors, touched }) => (
             <Form>
@@ -222,7 +237,10 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
                   <button
                     type="submit"
                     className={css.saveBtn}
-                    onClick={handleSaveClick}
+                    onClick={() => {
+                      setSaveButtonClicked(true);
+                      handleSaveClick();
+                    }}
                   >
                     Save
                   </button>
