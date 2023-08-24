@@ -14,7 +14,6 @@ export default function Header() {
         <Nav />
       </div>
       {isLoggedIn ? <UserNav /> : <AuthNav />}
-   
     </header>
   );
 }
