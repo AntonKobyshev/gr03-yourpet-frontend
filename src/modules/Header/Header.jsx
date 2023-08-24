@@ -13,9 +13,8 @@ export default function Header() {
       <div className={css.shouldShowNav}>
         <Nav />
       </div>
-      {/* {isLoggedIn ? <UserNav /> : <AuthNav />} */}
-      <UserNav />
-      <AuthNav />
+      {isLoggedIn ? <UserNav /> : <AuthNav />}
+   
     </header>
   );
 }
