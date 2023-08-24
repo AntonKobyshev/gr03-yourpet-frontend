@@ -71,12 +71,13 @@
   }
 }
 
-/* .userInfoWideScreen {
+.userInfoWideScreen {
   @media screen and (min-width: 320px) {
-    display: none;
+    visibility: hidden;
   }
 
   @media screen and (min-width: 768px) {
+    visibility: visible;
     display: flex;
     gap: 12px;
     color: var(--yellow-color);
@@ -84,7 +85,7 @@
     font-size: 16px;
     letter-spacing: 0.64px;
   }
-}  */
+}
 
 .burgerMenu {
   display: none;
