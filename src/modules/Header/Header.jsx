@@ -13,7 +13,9 @@ export default function Header() {
       <div className={css.shouldShowNav}>
         <Nav />
       </div>
-      {isLoggedIn ? <UserNav /> : <AuthNav />}
+      {/* {isLoggedIn ? <UserNav /> : <AuthNav />} */}
+      <UserNav />
+      <AuthNav />
     </header>
   );
 }
