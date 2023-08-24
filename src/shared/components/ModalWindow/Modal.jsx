@@ -1,7 +1,8 @@
 import { useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 
-import { ReactComponent as Close } from "../../../images/icons/close.svg";
+// import { ReactComponent as Close } from "../../../images/icons/close.svg";
+import { ReactComponent as Close } from "../../../images/icons/cross-small.svg";
 
 import css from "./modal-window.module.css";
 
