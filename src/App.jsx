@@ -4,13 +4,13 @@ import SharedLayout from "./shared/components/SharedLayout/SharedLayout";
 import MainPage from "./pages/MainPage/MainPage";
 import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList";
 // import PublicRoute from "./Routes/PublicRoute/PublicRoute";
-import PrivateRoute from "./Routes/PrivateRoute/PrivateRoute";
 import Loader from "./shared/components/Loader/Loader";
 import UserPage from "./pages/UserPage/UserPage";
 import AddPetPage from "./pages/AddPetPage/AddPetPage";
 
 import NewsPage from "./pages/NewsPage/NewsPage";
 import { RestrictedRoute } from "./Routes/RestrictedRoute";
+import { PrivateRoute } from "./Routes/PrivateRoute";
 // import AddPetPage from "./pages/AddPetPage/AddPetPage";
 
 //  import AddPetPage from "./pages/AddPetPage/AddPetPage";
@@ -35,13 +35,16 @@ function App() {
             <Route
               path="/register"
               element={
-                <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
+                <RestrictedRoute
+                  redirectTo="/user"
+                  component={<RegisterPage />}
+                />
               }
             />
             <Route
               path="/login"
               element={
-                <RestrictedRoute redirectTo="/" component={<LoginPage />} />
+                <RestrictedRoute redirectTo="/user" component={<LoginPage />} />
               }
             />
             <Route path="/notices" element={<NoticesPage />}>
@@ -62,6 +65,7 @@ function App() {
                 <PrivateRoute redirectTo="/login" component={<AddPetPage />} />
               }
             />
+
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
