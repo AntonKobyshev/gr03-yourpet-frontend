@@ -12,7 +12,7 @@ const NewsPage = () => {
   // const currentPage = useSelector(selectAllNewsPage);
 
   useEffect(() => {
-    dispatch(fetchAllNews(1));
+    dispatch(fetchAllNews());
   }, [dispatch]);
 
   return (

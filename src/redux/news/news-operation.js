@@ -3,9 +3,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchAllNews = createAsyncThunk(
   "news/fetch-all",
-  async (page, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const data = await api.getAllNews(page);
+      const data = await api.getAllNews();
       return data;
     } catch ({ response }) {
       return thunkAPI.rejectWithValue(response.data);

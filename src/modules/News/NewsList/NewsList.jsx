@@ -3,10 +3,9 @@ import css from "./NewsList.module.css";
 import { selectAllNews } from "../../../redux/news/news-selectors";
 import { useSelector } from "react-redux";
 import React from "react";
-import news from "../News.json";
 
 const NewsList = () => {
-  // const news = useSelector(selectAllNews);
+  const news = useSelector(selectAllNews);
 
   const newsData = news;
 
