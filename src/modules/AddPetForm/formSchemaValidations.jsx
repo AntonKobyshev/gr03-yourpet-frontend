@@ -1,7 +1,10 @@
 import * as Yup from 'yup';
 
-const validationSchema = step => {
+const formSchemaValidations = step => {
   let schema;
+
+  const commonValidation = category =>
+    ['sell', 'lost-found', 'for-free'].includes(category);
 
   if (step === 0) {
     schema = Yup.object().shape({
@@ -11,13 +14,25 @@ const validationSchema = step => {
     });
   }
 
-  if (step === 1) {
-    schema = Yup.object().shape({
+   if (step === 1) {
+    const commonFieldsValidation = Yup.object().shape({
       name: Yup.string()
         .required()
         .trim()
         .min(2, 'Too Short!')
         .max(16, 'Too Long!'),
+      breed: Yup.string()
+        .required()
+        .min(2, 'Too Short!')
+        .max(16, 'Too Long!')
+        .trim(),
+      title: Yup.string().when('category', {
+        is: commonValidation,
+        then: () => Yup.string().trim().required('Title is required'),
+      }),
+    });
+
+    schema = commonFieldsValidation.shape({
       dateOfBirth: Yup.string()
         .required('Date is required')
         .matches(
@@ -37,39 +52,28 @@ const validationSchema = step => {
             return inputDate <= currentDate;
           }
         ),
-
-      breed: Yup.string()
-        .required()
-        .min(2, 'Too Short!')
-        .max(16, 'Too Long!')
-        .trim(),
-      title: Yup.string().when('category', {
-        is: category => ['sell', 'lost-found', 'for-free'].includes(category),
-        then: () => Yup.string().trim().required('Title is required'),
-      }),
     });
   }
 
   if (step === 2) {
-    schema = Yup.object().shape({
+    const commonFieldsValidation = Yup.object().shape({
       sex: Yup.string().when('category', {
-        is: category => ['sell', 'lost-found', 'for-free'].includes(category),
+        is: commonValidation,
         then: () =>
           Yup.string()
-            
             .oneOf(['male', 'female'])
-            
-        .required('The sex is required'),
+            .required('The sex is required'),
       }),
       place: Yup.string().when('category', {
-        is: category => ['sell', 'lost-found', 'for-free'].includes(category),
+        is: commonValidation,
         then: () => Yup.string().trim().required('Location is required'),
-      })
-  
-    })
+      }),
+    });
+
+    schema = commonFieldsValidation;
   }
   return schema;
 
 };
 
-export default validationSchema;
+export default formSchemaValidations;
