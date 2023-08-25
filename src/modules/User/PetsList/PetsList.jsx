@@ -1,5 +1,6 @@
 import React from "react";
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { userMyPets, selectIsLoading } from '../../../redux/auth/auth-selectors';
 import PetsItem from "../PetsItem/PetsItem";
 import Loader from '../../../shared/components/Loader/Loader'
@@ -8,6 +9,8 @@ import css from "./PetsList.module.css";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 // const petData = [
+
+
 //   {
 //     id: 1,
 //     name: "Jack",
@@ -37,6 +40,7 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 const PetsList = () => {
    const isLoading = useSelector(selectIsLoading);
   const pets = useSelector(userMyPets);
+  
 
   return (    
     <div className={css.listContainer}>
