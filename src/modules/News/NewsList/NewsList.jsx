@@ -4,7 +4,6 @@ import { selectAllNews } from "../../../redux/news/news-selectors";
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect } from "react";
 import { selectQuery, selectPage } from "../../../redux/news/news-selectors";
-import { setQuery } from "../../../redux/news/news-slice";
 import { fetchNews } from "../../../redux/news/news-operation";
 
 const NewsList = () => {
@@ -13,7 +12,6 @@ const NewsList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setQuery(""));
     dispatch(fetchNews({ query: inputQuery, page: currentPage }));
   }, [dispatch, inputQuery, currentPage]);
 
