@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 import { addPet, addNotice } from "./pets-operations";
 
 const initialState = {
