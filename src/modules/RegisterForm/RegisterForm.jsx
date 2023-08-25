@@ -51,7 +51,7 @@ const RegisterForm = () => {
           validationSchema={registerSchema}
         >
           {({ values, errors, touched, handleSubmit, handleChange }) => (
-            <Form className={css.form} onSubmit={handleSubmit}>
+            <Form noValidate className={css.form} onSubmit={handleSubmit}>
               <h2 className={css.title}>{"Registration"}</h2>
               <Box
                 sx={{

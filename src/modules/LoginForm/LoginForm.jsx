@@ -48,7 +48,7 @@ const LoginForm = () => {
           validationSchema={loginSchema}
         >
           {({ values, errors, touched, handleSubmit, handleChange }) => (
-            <Form className={css.form} onSubmit={handleSubmit}>
+            <Form  noValidate className={css.form} onSubmit={handleSubmit}>
               <h2 className={css.title}>{"Login"}</h2>
               <Box
                 sx={{
@@ -62,6 +62,7 @@ const LoginForm = () => {
                   type="email"
                   label="Email"
                   size="small"
+                 
                   fullWidth
                   sx={{
                     ".MuiInputBase-root.MuiOutlinedInput-root": {

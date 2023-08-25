@@ -19,6 +19,7 @@ const UserPage = () => {
 
   return (
     <div className={css.container}>
+      {/* {showModal && <ModalCongrats />} */}
       {isLoading && <Loader />}
       <div className={css.userContainer}>
         <p className={css.title}>My information:</p>
