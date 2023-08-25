@@ -66,8 +66,16 @@
   font-family: "Manrope";
   font-weight: 700;
   margin-bottom: 16px;
+  height: 66px;
   display: block;
-  height: 66;
+}
+
+.hidenTitle {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .text {
@@ -75,7 +83,7 @@
   font-family: "Manrope";
   margin-bottom: 40px;
   display: block;
-  height: 154px;
+  height: 50px;
 }
 
 @media screen and (min-width: 768px) {
@@ -87,6 +95,26 @@
 @media screen and (min-width: 1280px) {
   .text {
     height: 110px;
+  }
+}
+
+.hidenText {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (min-width: 768px) {
+  .hidenText {
+    -webkit-line-clamp: 6;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hidenText {
+    -webkit-line-clamp: 5;
   }
 }
 

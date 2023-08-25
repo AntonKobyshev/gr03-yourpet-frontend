@@ -4,17 +4,26 @@ import SharedLayout from "./shared/components/SharedLayout/SharedLayout";
 import MainPage from "./pages/MainPage/MainPage";
 import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList";
 import Loader from "./shared/components/Loader/Loader";
+
 import NewsPage from "./pages/NewsPage/NewsPage";
 import { RestrictedRoute } from "./Routes/RestrictedRoute";
-import { PrivateRoute } from "./Routes/PrivateRoute";
 import { useDispatch, useSelector } from "react-redux";
 import { current } from "./redux/auth/auth-operations";
+
+import UserPage from "./pages/UserPage/UserPage";
+import AddPetPage from "./pages/AddPetPage/AddPetPage";
+
+import { PrivateRoute } from "./Routes/PrivateRoute";
+
+// import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList/NoticesCategoriesList";
+
 const NoticesPage = lazy(() => import("./pages/NoticesPage/NoticesPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const OurFriendsPage = lazy(() =>
   import("./pages/OurFriendsPage/OurFriendsPage")
 );
+const NewsPage = lazy(() => import("./pages/NewsPage/NewsPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 const AddPetPage = lazy(() => import("./pages/AddPetPage/AddPetPage"));
 const UserPage = lazy(() => import("./pages/UserPage/UserPage"));
