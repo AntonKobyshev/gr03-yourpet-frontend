@@ -8,9 +8,10 @@ import Loader from "./shared/components/Loader/Loader";
 import UserPage from "./pages/UserPage/UserPage";
 import AddPetPage from "./pages/AddPetPage/AddPetPage";
 
-import NewsPage from "./pages/NewsPage/NewsPage";
+// import NewsPage from "./pages/NewsPage/NewsPage";
 import { RestrictedRoute } from "./Routes/RestrictedRoute";
 import { PrivateRoute } from "./Routes/PrivateRoute";
+
 // import AddPetPage from "./pages/AddPetPage/AddPetPage";
 
 //  import AddPetPage from "./pages/AddPetPage/AddPetPage";
@@ -22,6 +23,7 @@ const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const OurFriendsPage = lazy(() =>
   import("./pages/OurFriendsPage/OurFriendsPage")
 );
+const NewsPage = lazy(() => import("./pages/NewsPage/NewsPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 function App() {
