@@ -1,9 +1,8 @@
-import React from "react";
 import { useState } from 'react';
 import DeleteIcon from "../../../images/icons/trash2.svg";
-import css from "./PetsItem.module.css";
 import ModalDeleteCardNotice from "../../ModalDeleteCardNotice/ModalDeleteCardNotice";
 import { defaultImageUrl } from "../../../shared/helpers/constants";
+import css from "./PetsItem.module.css";
 
 const PetsItem = ({ pet: { imageURL, name, _id, birthday, breed, comments }, }) => {
 
