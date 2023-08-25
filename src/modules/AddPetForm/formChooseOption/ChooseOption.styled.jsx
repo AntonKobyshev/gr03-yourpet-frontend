@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const CategoryWrapper = styled.div`
+export const FormCategory = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 95px;
@@ -11,7 +11,7 @@ export const CategoryWrapper = styled.div`
   }
 `;
 
-export const Label = styled.label`
+export const Form = styled.label`
   padding: 8px 16px;
   width: fit-content;
   cursor: pointer;

@@ -50,6 +50,24 @@ const validationSchema = step => {
     });
   }
 
+  if (step === 2) {
+    schema = Yup.object().shape({
+      sex: Yup.string().when('category', {
+        is: category => ['sell', 'lost-found', 'for-free'].includes(category),
+        then: () =>
+          Yup.string()
+            
+            .oneOf(['male', 'female'])
+            
+        .required('The sex is required'),
+      }),
+      place: Yup.string().when('category', {
+        is: category => ['sell', 'lost-found', 'for-free'].includes(category),
+        then: () => Yup.string().trim().required('Location is required'),
+      })
+  
+    })
+  }
   return schema;
 
 };

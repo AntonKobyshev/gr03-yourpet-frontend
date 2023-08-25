@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field } from 'formik';
-import { MoreInfoWrapper, AddLabel, PhotoWrap, CommentsLabel, Label, Input, TheSexWrapper, TextArea, FormFields, SexLabel, PhotoText, TheSexTitle } from './MoreInfo.styled';
+import { MoreInfoBlock, AddPoint, PhotoBlock, PointComment, Point, Input, GenderBlock, TextArea, FormFields, GenderLabelBlock, PhotoText, GenderTitle } from './MoreInfo.styled';
 import { Add, Male, Female } from '@mui/icons-material';
 import { Message } from './MoreInfo.styled';
 const MoreInfo = ({
@@ -22,32 +22,31 @@ const MoreInfo = ({
   };
 
   return (
-    <MoreInfoWrapper step={step} category={category}>
+    <MoreInfoBlock step={step} category={category}>
       <div>
         {category !== 'my-pet' && (
-          <TheSexWrapper>
-            <TheSexTitle>The sex</TheSexTitle>
+          <GenderBlock>
+            <GenderTitle>The sex</GenderTitle>
             <div>
-              <SexLabel checked={values.sex === 'female'}>
+              <GenderLabelBlock checked={values.sex === 'female'}>
                 <Female sx={{ color: values.sex === 'male' ? '#888888' : '#F43F5E' }} />
                 Female
                 <Field type="radio" name="sex" value="female" checked={values.sex === 'female'} />
-              </SexLabel>
-              <SexLabel checked={values.sex === 'male'}>
+              </GenderLabelBlock>
+              <GenderLabelBlock checked={values.sex === 'male'}>
                 <Male sx={{ color: values.sex === 'female' ? '#888888' : '#54ADFF', transform: 'rotate(-45deg)' }} />
                 Male
                 <Field type="radio" name="sex" value="male" checked={values.sex === 'male'} />
-              </SexLabel>
+              </GenderLabelBlock>
             </div>
             <Field name="sex" component="div" />
-          </TheSexWrapper>
+          </GenderBlock>
         )}
-
-               <PhotoWrap step={step} category={category}>
+         <PhotoBlock step={step} category={category}>
           <PhotoText step={step} category={category}>
             {values.image ? 'Add photo' : 'Load the pet’s image: '}
           </PhotoText>
-          <AddLabel>
+          <AddPoint>
             {values.image ? (
               <img src={URL.createObjectURL(values.image)} alt="pet" />
             ) : (
@@ -63,34 +62,34 @@ const MoreInfo = ({
             />
 
             <Message name="image" component="div" />
-          </AddLabel>
-        </PhotoWrap>
+          </AddPoint>
+        </PhotoBlock>
       </div>
 
       <FormFields>
         {category !== 'my-pet' && (
-          <Label>
+          <Point>
             Location
             <Input type="text" name="place" placeholder="Type location" errors={touched.place && errors.place} />
             <Field name="place" component="div" />
-          </Label>
+          </Point>
         )}
 
         {category === 'sell' && (
-          <Label>
+          <Point>
             Price
             <Input type="text" name="price" placeholder="Type price" errors={touched.price && errors.price} />
             <Field name="price" component="div" />
-          </Label>
+          </Point>
         )}
 
-        <CommentsLabel>
+        <PointComment>
           Comments
           <TextArea as="textarea" name="comments" placeholder="Type of pet" category={category} step={step} errors={touched.comments && errors.comments} />
           <Field name="comments" component="div" />
-        </CommentsLabel>
+        </PointComment>
       </FormFields>
-    </MoreInfoWrapper>
+    </MoreInfoBlock>
   );
 };
 export default MoreInfo;
