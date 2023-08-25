@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
+
+// import { useDispatch, useSelector } from 'react-reduxe';
+// import { fetchNoticesByCategory} from '../../redux/notices/notices-operations'
+// import { selectNoticesPage } from '../../redux/notices/notices-selectors';
+// import { addPet } from '../../redux/pets/pets-operations';
+// import { addPetLoading, addPetResult } from '../../redux/pets/pets-selectors';
+
 import ChooseOption from './formChooseOption/ChooseOption';
 import PersonalDetails from './formPersonalDetails/PersonalDetails';
 import MoreInfo from './formMoreInfo/MoreInfo';
@@ -14,7 +21,7 @@ import {
   ButtonWrap,
 } from './AddPetForm.styled';
 import { Pets, West } from '@mui/icons-material';
-import validationSchema from './validationSchema';
+import formSchemaValidations from './formSchemaValidations';
 
 const initialValues = {
   category: 'my-pet',
@@ -56,7 +63,7 @@ export const AddPetForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema(step)}
+      validationSchema={formSchemaValidations(step)}
       onSubmit={values => {
         console.log(values); 
       }}
