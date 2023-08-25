@@ -2,43 +2,24 @@ import React, { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { InputAdornment, IconButton, Input } from "@mui/material";
 import { Search, Clear } from "@mui/icons-material";
-import { fetchFilteredNews } from "../../../redux/news/news-operation";
 
 import css from "../NewsSearch/NewsSearch.module.css";
 import { toastInfo } from "../../../shared/toastify/toastify";
+import { setQuery, setPage } from "../../../redux/news/news-slice";
 
-const NoticesSearch = () => {
+const NewsSearch = () => {
   const dispatch = useDispatch();
   const [keyword, setKeyword] = useState("");
 
   const handleClear = () => {
-    setKeyword("");
-    try {
-      dispatch(
-        fetchFilteredNews({
-          query: "",
-          page: 1,
-        })
-      );
-    } catch (error) {
-      console.log(error);
-    }
+    dispatch(setQuery(""));
   };
 
   const handleKeywordChange = (e) => {
     const query = e.target.value;
     setKeyword(query);
     if (query === "") {
-      try {
-        dispatch(
-          fetchFilteredNews({
-            query: "",
-            page: 1,
-          })
-        );
-      } catch (error) {
-        console.log(error);
-      }
+      dispatch(setQuery(""));
     }
   };
 
@@ -48,19 +29,12 @@ const NoticesSearch = () => {
       const trimmedKeyword = keyword.trim();
 
       if (trimmedKeyword === "") {
+        dispatch(setQuery(""));
         toastInfo("Please enter something");
         return;
       }
-      try {
-        dispatch(
-          fetchFilteredNews({
-            query: trimmedKeyword,
-            page: 1,
-          })
-        );
-      } catch (error) {
-        console.log(error);
-      }
+      dispatch(setPage(1));
+      dispatch(setQuery(trimmedKeyword));
     },
     [dispatch, keyword]
   );
@@ -70,6 +44,7 @@ const NoticesSearch = () => {
       <div className={css.inputContainer}>
         <form onSubmit={handleSubmit}>
           <Input
+            name="searchField"
             className={css.input}
             value={keyword}
             onChange={handleKeywordChange}
@@ -101,4 +76,4 @@ const NoticesSearch = () => {
   );
 };
 
-export default React.memo(NoticesSearch);
+export default React.memo(NewsSearch);

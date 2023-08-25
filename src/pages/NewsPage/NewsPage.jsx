@@ -1,26 +1,22 @@
-import React, { useEffect } from "react";
 import css from "./NewsPage.module.css";
 import NewsList from "../../modules/News/NewsList/NewsList";
-import { useDispatch } from "react-redux";
-import { fetchAllNews } from "../../redux/news/news-operation";
 import NewsSearch from "../../modules/News/NewsSearch/NewsSearch";
+import NewsPagination from "../../modules/News/NewsPagination/NewsPagination";
+import { useSelector } from "react-redux";
+import { selectIsLoadingNews } from "../../redux/news/news-selectors";
+import Loader from "../../shared/components/Loader/Loader";
 
 const NewsPage = () => {
-  const dispatch = useDispatch();
-
-  // const totalPages = useSelector(selectAllNewsTotalPages);
-  // const currentPage = useSelector(selectAllNewsPage);
-
-  useEffect(() => {
-    dispatch(fetchAllNews());
-  }, [dispatch]);
+  const { isLoading } = useSelector(selectIsLoadingNews);
 
   return (
     <div className="container">
       <div className="NewsPage">
         <h1 className={css.title}>News</h1>
         <NewsSearch />
-        {<NewsList />}
+        {isLoading && <Loader />}
+        <NewsList />
+        <NewsPagination />
       </div>
     </div>
   );
