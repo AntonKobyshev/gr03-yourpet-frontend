@@ -1,20 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
-import { addPet, addNotice } from './pets-operations';
+import { addPet, addNotice } from "./pets-operations";
 
 const initialState = {
   items: [],
   loading: false,
   error: null,
-  result: '',
+  result: "",
 };
 
 const petsSlice = createSlice({
-  name: 'pets',
+  name: "pets",
   initialState,
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(addPet.pending, state => {
+      .addCase(addPet.pending, (state) => {
         state.loading = true;
         state.error = null;
         state.result = `pending`;
@@ -26,11 +26,12 @@ const petsSlice = createSlice({
         state.result = `fulfilled`;
       })
       .addCase(addPet.rejected, (state, { payload }) => {
+        console.log(payload);
         state.loading = false;
         state.error = payload;
         state.result = `rejected`;
       })
-      .addCase(addNotice.pending, state => {
+      .addCase(addNotice.pending, (state) => {
         state.loading = true;
         state.error = null;
         state.result = `pending`;
