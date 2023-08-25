@@ -4,7 +4,7 @@ import DeleteIcon from "../../../images/icons/trash2.svg";
 import css from "./PetsItem.module.css";
 import ModalDeleteCardNotice from "../../ModalDeleteCardNotice/ModalDeleteCardNotice";
 
-const PetsItem = ({ imageURL, name, _id, birthday, breed, comments }) => {
+const PetsItem = ({ pet: { imageURL, name, _id, birthday, breed, comments }, }) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
