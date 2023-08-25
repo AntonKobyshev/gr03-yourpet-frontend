@@ -1,7 +1,16 @@
+.petsDataContainer {
+  position: relative;
+  margin-top: 31px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 22px;
+  }
+}
+
 .addBtn {
   position: absolute;
-  right: 20px;
-  top: 800px;
+  right: 0px;
+  top: 70px;
 
   display: flex;
   flex-direction: column;
@@ -33,17 +42,12 @@
     border-radius: 40px;
     flex-direction: row-reverse;
     gap: 8px;
-    right: 32px;
-    top: 505px;
+    right: 0px;
+    top: -62px;
 
     font-weight: 700;
     font-size: 16px;
     line-height: 1.37;
-  }
-
-  @media screen and (min-width: 1280px) {
-    right: 12px;
-    top: 125px;
   }
 }
 
@@ -59,12 +63,4 @@
 .addBtn img {
   width: 11px;
   height: 11px;
-}
-
-.petsDataContainer {
-  margin-top: 31px;
-
-  @media screen and (min-width: 768px) {
-    margin-top: 22px;
-  }
 }
