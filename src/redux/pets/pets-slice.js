@@ -26,7 +26,6 @@ const petsSlice = createSlice({
         state.result = `fulfilled`;
       })
       .addCase(addPet.rejected, (state, { payload }) => {
-        console.log(payload);
         state.loading = false;
         state.error = payload;
         state.result = `rejected`;
