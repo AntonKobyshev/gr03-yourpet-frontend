@@ -6,4 +6,4 @@ export const selectNoticesTotalPages = (store) => store.notices.totalPages;
 export const selectNoticesPage = (store) => store.notices.page;
 export const getAllFavoriteNotices = ({ notices }) => notices.itemsFavorite;
 export const selectNoticesLoading = (store) => store.notices.loading;
-export const selectKeyword = (store) => store.notices.keyword;
+export const selectQuery = (store) => store.notices.keyword;
