@@ -3,6 +3,7 @@ import { useState } from 'react';
 import DeleteIcon from "../../../images/icons/trash2.svg";
 import css from "./PetsItem.module.css";
 import ModalDeleteCardNotice from "../../ModalDeleteCardNotice/ModalDeleteCardNotice";
+import { defaultImageUrl } from "../../../shared/helpers/constants";
 
 const PetsItem = ({ pet: { imageURL, name, _id, birthday, breed, comments }, }) => {
 
@@ -28,7 +29,7 @@ const PetsItem = ({ pet: { imageURL, name, _id, birthday, breed, comments }, }) 
       )}
 
       <div className={css.imgWrapper}>
-        <img src={imageURL} alt="pet" />
+        <img className={css.img} src={imageURL ? imageURL : defaultImageUrl} alt="pet" />
       </div>
       <div className={css.textContainer}>
         <button

@@ -12,13 +12,13 @@ const PetsList = () => {
   const pets = useSelector(userMyPets);
 
   return (
-    <div className={css.listContainer}>
+    <>
       {isLoading && pets.length > 0 && (
-        <div className={css.petCardWrapper}>
-          <ul className={css.list}>
+        <div className={css.listContainer}>
+          <ul>
             {pets.map((pet, index) => {
               return (
-                <li key={index} className={css.item}>
+                <li key={index}>
                   <PetsItem pet={pet} />
                 </li>
               );
@@ -28,12 +28,12 @@ const PetsList = () => {
       )}
 
       {!isLoading && (
-        <div className={css.petCardWrapper}>
+        <div className={css.listContainer}>
           {pets.length > 0 ? (
-            <ul className={css.list}>
+            <ul>
               {pets.map((pet, index) => {
                 return (
-                  <li key={index} className={css.item}>
+                  <li key={index}>
                     <PetsItem pet={pet} />
                   </li>
                 );
@@ -44,7 +44,7 @@ const PetsList = () => {
           )}
         </div>
       )}
-    </div>
+    </>
   );
 };
 
