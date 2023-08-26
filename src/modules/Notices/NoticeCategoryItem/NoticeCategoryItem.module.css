@@ -1,4 +1,4 @@
-/* .item {
+.item {
     border-radius: 40px;
     background: var(--white-color);
     box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
@@ -346,9 +346,9 @@
     fill: var(--white-color);
     display: inline-block;
     margin-left: 12px;
-} */
+}
 
-
+/* -------- */
 .listItems {
     list-style: none;
     width: 280px;

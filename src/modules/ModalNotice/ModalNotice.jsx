@@ -4,6 +4,16 @@ import heart from "../../images/icons/heart.svg";
 import css from "./ModalNotice.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 
+import {
+  getNoticesById,
+  getNoticesByIdOwner,
+} from "../../redux/notices/notices-selectors";
+import { fetchNoticeById } from "../../redux/notices/notices-operations";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+// import Contact from "./Contact/Contact";
+// import AddToFavorite from "./AddToFavorite/AddToFavorite";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -15,10 +25,17 @@ const style = {
   borderRadius: 8,
 };
 
-const ModalNotice = () => {
+const ModalNotice = ({ handleFavoriteToggle, _id, onClose, addFavorite }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const item = useSelector(getNoticesById);
+  const owner = useSelector(getNoticesByIdOwner);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchNoticeById(_id));
+  }, [dispatch, _id]);
   return (
     <div>
       <Button onClick={handleOpen}>Modal Notice</Button>
@@ -47,8 +64,8 @@ const ModalNotice = () => {
               <div className={css.contentContainer}>
                 <img
                   className={css.image}
-                  src={""}
-                  alt={"title"}
+                  src={item.file}
+                  alt={item.title}
                   loading="lazy"
                 />
                 <div className={css.textContainer}>
@@ -64,16 +81,22 @@ const ModalNotice = () => {
                       <p className={css.subTitle}>Phone:</p>
                     </div>
                     <div className={css.secondContainer}>
-                      <p className={css.text}>{"Rich"}</p>
-                      <p className={css.text}>{"21.09.2020"}</p>
-                      <p className={css.text}>{"Pomeranian"}</p>
-                      <p className={css.text}>{"Lviv"}</p>
-                      <p className={css.text}>{"male"}</p>
-                      <a className={css.textContact} href={`mailto:{' '}`}>
-                        {"user@mail.com"}
+                      <p className={css.text}>{item.name}</p>
+                      <p className={css.text}>{item.date}</p>
+                      <p className={css.text}>{item.breed}</p>
+                      <p className={css.text}>{item.location}</p>
+                      <p className={css.text}>{item.sex}</p>
+                      <a
+                        className={css.textContact}
+                        href={`mailto:${owner.email}`}
+                      >
+                        {owner.email}
                       </a>
-                      <a className={css.textContact} href={`tel:${" "}`}>
-                        {"+380971234567"}
+                      <a
+                        className={css.textContact}
+                        href={`tel:${owner.phone}`}
+                      >
+                        {owner.phone}
                       </a>
                     </div>
                   </div>
@@ -83,9 +106,7 @@ const ModalNotice = () => {
                 {" "}
                 <p className={css.subTitle}>
                   Comments:{" "}
-                  <span
-                    className={css.textComment}
-                  >{`'Rich would be the perfect addition to an active family that loves to play and go on walks. I bet he would love having a doggy playmate too! '`}</span>
+                  <span className={css.textComment}>{item.comments}</span>
                 </p>
               </div>
               <div className={css.btnContainer}>
@@ -93,6 +114,7 @@ const ModalNotice = () => {
                   onClick={handleClose}
                   className={css.btnAccent}
                   type="button"
+                  phone={owner.phone}
                 >
                   Contact
                 </button>
