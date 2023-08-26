@@ -1,41 +1,38 @@
-import React from "react";
-import { useState } from 'react';
-import DeleteIcon from "../../../images/icons/trash2.svg";
-import css from "./PetsItem.module.css";
+import { useState } from "react";
+import DeleteIcon from "../../../images/icons/delete.svg";
 import ModalDeleteCardNotice from "../../ModalDeleteCardNotice/ModalDeleteCardNotice";
+import { defaultImageUrl } from "../../../shared/helpers/constants";
+import css from "./PetsItem.module.css";
 
-const PetsItem = ({ imageURL, name, _id, birthday, breed, comments }) => {
-
+const PetsItem = ({
+  pet: { imageURL, name, _id, birthday, breed, comments },
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleDelete = () => {
-    setIsModalOpen(true);
+    alert("Delete btn");
+    // setIsModalOpen(true);
   };
 
-    const closeModal = () => {
+  const closeModal = () => {
     setIsModalOpen(false);
   };
 
   return (
     <div className={css.petsContainer}>
-
-       {isModalOpen && (
-        <ModalDeleteCardNotice
-          closeModal={closeModal}
-          _id={_id}
-          name={name}
-        />
+      {isModalOpen && (
+        <ModalDeleteCardNotice closeModal={closeModal} _id={_id} name={name} />
       )}
 
       <div className={css.imgWrapper}>
-        <img src={imageURL} alt="pet" />
+        <img
+          className={css.img}
+          src={imageURL ? imageURL : defaultImageUrl}
+          alt="pet"
+        />
       </div>
       <div className={css.textContainer}>
-        <button
-          type="button"
-          className={css.deleteBtn}
-          onClick={handleDelete}
-        >
+        <button type="button" className={css.deleteBtn} onClick={handleDelete}>
           <img src={DeleteIcon} alt="Delete icon" />
         </button>
 

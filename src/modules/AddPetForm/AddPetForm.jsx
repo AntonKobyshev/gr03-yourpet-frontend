@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Formik, Form } from 'formik';
-import ChooseOption from './formChooseOption/ChooseOption';
-import PersonalDetails from './formPersonalDetails/PersonalDetails';
-import MoreInfo from './formMoreInfo/MoreInfo';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Formik, Form } from "formik";
+
+// import { useDispatch, useSelector } from 'react-reduxe';
+// import { fetchNoticesByCategory} from '../../redux/notices/notices-operations'
+// import { selectNoticesPage } from '../../redux/notices/notices-selectors';
+// import { addPet } from '../../redux/pets/pets-operations';
+// import { addPetLoading, addPetResult } from '../../redux/pets/pets-selectors';
+
+import ChooseOption from "./formChooseOption/ChooseOption";
+import PersonalDetails from "./formPersonalDetails/PersonalDetails";
+import MoreInfo from "./formMoreInfo/MoreInfo";
 import {
   AddPetFormWrapper,
   PetFormTitle,
@@ -12,29 +19,32 @@ import {
   Button,
   ButtonFilled,
   ButtonWrap,
-} from './AddPetForm.styled';
-import { Pets, West } from '@mui/icons-material';
-import validationSchema from './validationSchema';
+} from "./AddPetForm.styled";
+import { Pets, West } from "@mui/icons-material";
+import formSchemaValidations from "./formSchemaValidations";
+import { useDispatch } from "react-redux";
+import { addPet } from "../../redux/pets/pets-operations";
 
 const initialValues = {
-  category: 'my-pet',
-  name: '',
-  dateOfBirth: '',
-  breed: '',
-  image: '',
-  sex: '',
-  place: '',
-  price: '',
-  comments: '',
-  title: '',
+  category: "my-pet",
+  name: "",
+  dateOfBirth: "",
+  breed: "",
+  image: "",
+  sex: "",
+  place: "",
+  price: "",
+  comments: "",
+  title: "",
 };
 
 export const AddPetForm = () => {
   const [step, setStep] = useState(0);
   const navigate = useNavigate();
-  const steps = ['Choose option', 'Personal details', 'More info'];
+  const steps = ["Choose option", "Personal details", "More info"];
+  const dispatch = useDispatch();
 
-  const handleClickNext = e => {
+  const handleClickNext = (e) => {
     e.preventDefault();
 
     if (step === 2) {
@@ -43,22 +53,26 @@ export const AddPetForm = () => {
     setStep(step + 1);
   };
 
-  const handleClickBack = e => {
+  const handleClickBack = (e) => {
     e.preventDefault();
     setStep(step - 1);
   };
 
-  const handleCancel = e => {
+  const handleCancel = (e) => {
     e.preventDefault();
     navigate(-1);
+  };
+
+  const handleAddPet = (data) => {
+    dispatch(addPet(data));
   };
 
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema(step)}
-      onSubmit={values => {
-        console.log(values); 
+      validationSchema={formSchemaValidations(step)}
+      onSubmit={(values) => {
+        handleAddPet(values);
       }}
     >
       {({
@@ -76,14 +90,14 @@ export const AddPetForm = () => {
         >
           <PetFormTitle step={step} category={values.category}>
             {step === 0
-              ? 'Add pet'
-              : values.category === 'my-pet'
-              ? 'Add pet'
-              : values.category === 'sell'
-              ? 'Add pet for sale'
-              : values.category === 'lost-found'
-              ? 'Add lost pet'
-              : 'Add for free'}
+              ? "Add pet"
+              : values.category === "my-pet"
+              ? "Add pet"
+              : values.category === "sell"
+              ? "Add pet for sale"
+              : values.category === "lost-found"
+              ? "Add lost pet"
+              : "Add for free"}
           </PetFormTitle>
           <Form>
             <StepsList step={step}>
@@ -129,24 +143,24 @@ export const AddPetForm = () => {
                     sx={{
                       width: 24,
                       height: 20,
-                      color: 'white',
-                      transform: 'rotate(25deg)',
+                      color: "white",
+                      transform: "rotate(25deg)",
                     }}
                   />
                 </ButtonFilled>
               ) : (
                 <ButtonFilled
                   type="button"
-                  onClick={e => {
+                  onClick={(e) => {
                     if (step === 0) {
                       setTouched({});
                       handleClickNext(e);
                     }
                     if (step === 1) {
-                      validateField('name');
-                      validateField('dateOfBirth');
-                      validateField('breed');
-                      validateField('title');
+                      validateField("name");
+                      validateField("dateOfBirth");
+                      validateField("breed");
+                      validateField("title");
                       setTouched({
                         name: true,
                         dateOfBirth: true,
@@ -164,9 +178,8 @@ export const AddPetForm = () => {
                   }}
                 >
                   Next
-        
                   <Pets
-                    sx={{ width: 24, height: 24, transform: 'rotate(25deg)' }}
+                    sx={{ width: 24, height: 24, transform: "rotate(25deg)" }}
                   />
                 </ButtonFilled>
               )}
@@ -175,7 +188,7 @@ export const AddPetForm = () => {
                 onClick={step === 0 ? handleCancel : handleClickBack}
               >
                 <West sx={{ width: 24, height: 24 }} />
-                <span>{step === 0 ? 'Cancel' : 'Back'}</span>
+                <span>{step === 0 ? "Cancel" : "Back"}</span>
               </Button>
             </ButtonWrap>
           </Form>

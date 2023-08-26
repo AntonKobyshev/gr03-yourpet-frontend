@@ -18,14 +18,10 @@ const NewsItem = ({ news }) => {
         <img className={css.newsImage} src={news.imgUrl} alt={news.title} />
         <div className={css.contentWrapper}>
           <h2 className={css.title}>
-            {news.title.length > 58
-              ? news.title.substring(0, 50) + "..."
-              : news.title}
+            <span className={css.hidenTitle}>{news.title}</span>
           </h2>
           <p className={css.text}>
-            {news.text.length > 240
-              ? news.text.substring(0, 240) + "..."
-              : news.text}
+            <span className={css.hidenText}>{news.text}</span>
           </p>
           <div className={css.dateReadMoreWrapper}>
             <p className={css.date}>{formattedDate}</p>

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { InputAdornment, IconButton, Input } from "@mui/material";
 import { Search, Clear } from "@mui/icons-material";
+
 import {
   selectAllNewsTotalPages,
   selectAllNewsPage,
@@ -18,6 +19,7 @@ import { toastInfo } from "../../../shared/toastify/toastify";
 import css from "../NewsSearch/NewsSearch.module.css";
 
 const NewsSearch = () => {
+
   const [keyword, setKeyword] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [currentNewsPage, setCurrentNewsPage] = useState(1);
@@ -55,6 +57,7 @@ const NewsSearch = () => {
       setKeyword("");
     } else {
       setSubmitted(true);
+
     }
   };
 
@@ -132,3 +135,4 @@ const NewsSearch = () => {
 };
 
 export default NewsSearch;
+

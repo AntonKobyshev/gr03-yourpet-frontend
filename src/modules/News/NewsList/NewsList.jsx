@@ -1,10 +1,20 @@
 import NewsItem from "../NewsItem/NewsItem";
 import css from "./NewsList.module.css";
 import { selectAllNews } from "../../../redux/news/news-selectors";
-import { useSelector } from "react-redux";
-import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { selectQuery, selectPage } from "../../../redux/news/news-selectors";
+import { fetchNews } from "../../../redux/news/news-operation";
 
 const NewsList = () => {
+  const inputQuery = useSelector(selectQuery);
+  const currentPage = useSelector(selectPage);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchNews({ query: inputQuery, page: currentPage }));
+  }, [dispatch, inputQuery, currentPage]);
+
   const news = useSelector(selectAllNews);
 
   const newsData = news;

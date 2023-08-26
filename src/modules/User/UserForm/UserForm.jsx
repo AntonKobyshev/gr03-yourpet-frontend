@@ -192,7 +192,7 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
                       type="date"
                       id="birthday"
                       name="birthday"
-                      // format="DD-MM-YYYY"
+                      format="DD-MM-YYYY"
                       readOnly={!editing}
                     />
                   </Tooltip>
