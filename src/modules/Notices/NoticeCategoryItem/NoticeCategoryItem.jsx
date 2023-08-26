@@ -310,9 +310,11 @@ const NoticeCategoryItem = ({
             Learn more
             <PawPrintIcon className={css.learnMoreButtonIcon} />
           </Button>
-          {isModalOpen && (
-            <Modal closeModal={closeModal}>
+          {isModalOpen &&
+            ((<Modal closeModal={closeModal}></Modal>),
+            (
               <NoticeModal
+                openModal={openModal}
                 _id={_id}
                 file={file}
                 category={category}
@@ -324,10 +326,9 @@ const NoticeCategoryItem = ({
                 breed={breed}
                 owner={owner}
                 name={name}
-                handleFavoriteToggle={handleFavoriteToggle}
+                // handleFavoriteToggle={handleFavoriteToggle}
               />
-            </Modal>
-          )}
+            ))}
         </div>
       </div>
     </li>
