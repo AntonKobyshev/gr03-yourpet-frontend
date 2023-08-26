@@ -7,6 +7,7 @@ import linkedin from "../../images/icons/linkedin.svg";
 import teams from "../../images/icons/teams.svg";
 import yurii from "../../images/team/yurii.webp";
 import taras from "../../images/team/taras.webp";
+import incognito from "../../images/team/incognito.jpg";
 import anna from "../../images/team/anna.webp";
 import tanya from "../../images/team/tanya.webp";
 
@@ -54,7 +55,11 @@ const ModalTeam = () => {
             <div className={css.contentContainer}>
               <ul className={css.teamList}>
                 <li className={css.teamItem}>
-                  <img className={css.image} src={""} alt={"Anton Kobyshev"} />
+                  <img
+                    className={css.image}
+                    src={incognito}
+                    alt={"Anton Kobyshev"}
+                  />
                   <p className={css.title}>
                     Anton
                     <br /> Kobyshev
@@ -88,7 +93,11 @@ const ModalTeam = () => {
                   </div>
                 </li>{" "}
                 <li className={css.teamItem}>
-                  <img className={css.image} src={""} alt={"Serhii Shmatok"} />
+                  <img
+                    className={css.image}
+                    src={incognito}
+                    alt={"Serhii Shmatok"}
+                  />
                   <p className={css.title}>
                     Serhii
                     <br /> Shmatok
@@ -271,7 +280,7 @@ const ModalTeam = () => {
                 <li className={css.teamItem}>
                   <img
                     className={css.image}
-                    src={""}
+                    src={incognito}
                     alt={"Markiian Levytskyi"}
                   />
                   <p className={css.title}>
@@ -309,7 +318,7 @@ const ModalTeam = () => {
                 <li className={css.teamItem}>
                   <img
                     className={css.image}
-                    src={""}
+                    src={incognito}
                     alt={"Kostiantyn Tymoshenko"}
                   />
                   <p className={css.title}>
@@ -347,7 +356,7 @@ const ModalTeam = () => {
                 <li className={css.teamItem}>
                   <img
                     className={css.image}
-                    src={""}
+                    src={incognito}
                     alt={"Viktoriia Melnyk"}
                   />
                   <p className={css.title}>
