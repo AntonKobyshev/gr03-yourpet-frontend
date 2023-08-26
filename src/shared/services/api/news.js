@@ -6,3 +6,7 @@ export const getNews = async (query = "", page = 1) => {
   );
   return data;
 };
+export const getFilteredNews = async (query, page) => {
+  const { data } = await instance.get(`/news?search=${query}&page=${page}`);
+  return data;
+};
