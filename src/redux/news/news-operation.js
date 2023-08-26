@@ -12,14 +12,3 @@ export const fetchNews = createAsyncThunk(
     }
   }
 );
-export const fetchFilteredNews = createAsyncThunk(
-  "news/filteredNews",
-  async ({ query, page }, thunkAPI) => {
-    try {
-      const data = await api.getFilteredNews(query, page);
-      return data;
-    } catch ({ response }) {
-      return thunkAPI.rejectWithValue(response.data);
-    }
-  }
-);
