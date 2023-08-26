@@ -9,7 +9,7 @@ import {
   selectAllNewsPage,
 } from "../../../redux/news/news-selectors";
 import {
-  fetchAllNews,
+  fetchNews,
   fetchFilteredNews,
 } from "../../../redux/news/news-operation";
 import NewsList from "../NewsList/NewsList";
@@ -19,7 +19,6 @@ import { toastInfo } from "../../../shared/toastify/toastify";
 import css from "../NewsSearch/NewsSearch.module.css";
 
 const NewsSearch = () => {
-
   const [keyword, setKeyword] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [currentNewsPage, setCurrentNewsPage] = useState(1);
@@ -31,7 +30,7 @@ const NewsSearch = () => {
 
   useEffect(() => {
     if (!submitted) {
-      dispatch(fetchAllNews(currentNewsPage));
+      dispatch(fetchNews(currentNewsPage));
       setCurrentFilterPage(1);
     }
   }, [currentNewsPage, submitted, dispatch]);
@@ -57,7 +56,6 @@ const NewsSearch = () => {
       setKeyword("");
     } else {
       setSubmitted(true);
-
     }
   };
 
@@ -135,4 +133,3 @@ const NewsSearch = () => {
 };
 
 export default NewsSearch;
-
