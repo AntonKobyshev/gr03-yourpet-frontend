@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
-
-// import { useDispatch, useSelector } from 'react-reduxe';
-// import { fetchNoticesByCategory} from '../../redux/notices/notices-operations'
-// import { selectNoticesPage } from '../../redux/notices/notices-selectors';
-// import { addPet } from '../../redux/pets/pets-operations';
-// import { addPetLoading, addPetResult } from '../../redux/pets/pets-selectors';
-
 import ChooseOption from "./formChooseOption/ChooseOption";
 import PersonalDetails from "./formPersonalDetails/PersonalDetails";
 import MoreInfo from "./formMoreInfo/MoreInfo";
@@ -23,7 +16,7 @@ import {
 import { Pets, West } from "@mui/icons-material";
 import formSchemaValidations from "./formSchemaValidations";
 import { useDispatch } from "react-redux";
-import { addPet } from "../../redux/pets/pets-operations";
+import { addPet, addNotice } from "../../redux/pets/pets-operations";
 
 const initialValues = {
   category: "my-pet",
@@ -64,16 +57,43 @@ export const AddPetForm = () => {
   };
 
   const handleAddPet = (data) => {
-    dispatch(addPet(data));
+    let formData = new FormData();
+    formData.append("category", data.category);
+    formData.append("name", data.name);
+    formData.append("birthday", data.dateOfBirth);
+    formData.append("breed", data.breed);
+    formData.append("pets-photo", data.image);
+
+    if (data.comments) {
+      formData.append("comments", data.comments);
+    }
+
+    if (data.category === "my-pet") {
+      dispatch(addPet(formData));
+      return;
+    }
+
+    formData.append("title", data.title);
+    formData.append("sex", data.sex);
+    formData.append("location", data.place);
+
+    if (data.category === "for-free" || data.category === "lost-found") {
+      dispatch(addNotice(formData));
+      return;
+    }
+
+    formData.append("price", data.price);
+
+    if (data.category === "sell") {
+      dispatch(addNotice(formData));
+    }
   };
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={formSchemaValidations(step)}
-      onSubmit={(values) => {
-        handleAddPet(values);
-      }}
+      onSubmit={handleAddPet}
     >
       {({
         values,
