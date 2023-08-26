@@ -25,25 +25,32 @@ const style = {
   borderRadius: 8,
 };
 
-const ModalNotice = ({ handleFavoriteToggle, _id, onClose, addFavorite }) => {
+const ModalNotice = ({
+  handleFavoriteToggle,
+  _id,
+  onClose,
+  addFavorite,
+  openModal,
+}) => {
+  const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const item = useSelector(getNoticesById);
   const owner = useSelector(getNoticesByIdOwner);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchNoticeById(_id));
   }, [dispatch, _id]);
+
   return (
     <div>
-      <Button onClick={handleOpen}>Modal Notice</Button>
+      {/* <Button onClick={openModal}>Learn more</Button> */}
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={open}
-        onClose={handleClose}
+        open={openModal}
+        onClose={onClose}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
         slotProps={{
@@ -52,10 +59,10 @@ const ModalNotice = ({ handleFavoriteToggle, _id, onClose, addFavorite }) => {
           },
         }}
       >
-        <Fade in={open}>
+        <Fade in={openModal}>
           <Box sx={style} className={css.modalBox}>
             <CloseIcon
-              onClick={handleClose}
+              onClick={onClose}
               className={css.closeBtn}
               sx={{ width: 30, height: 30 }}
             />
@@ -111,7 +118,7 @@ const ModalNotice = ({ handleFavoriteToggle, _id, onClose, addFavorite }) => {
               </div>
               <div className={css.btnContainer}>
                 <button
-                  onClick={handleClose}
+                  onClick={onClose}
                   className={css.btnAccent}
                   type="button"
                   phone={owner.phone}

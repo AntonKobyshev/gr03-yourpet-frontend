@@ -8,12 +8,12 @@ import { selectIsLoggedIn } from "../../../redux/auth/auth-selectors";
 import { useParams } from "react-router-dom";
 import {
   fetchAddToFavorite,
-  fetchRemoveFromFavorite,
+  // fetchRemoveFromFavorite,
   fetchDeleteNotice,
 } from "../../../redux/notices/notices-operations";
 import ModalNotice from "../../ModalNotice/ModalNotice";
 import NoticeModal from "../../../modules/NoticeModal/NoticeModal";
-import ModalDelete from "../../ModalDelete/ModalDelete";
+// import ModalDelete from "../../ModalDelete/ModalDelete";
 import ModalAttention from "../../ModalAttention/ModalAttention";
 import ModalDeleteCardNotice from "../../ModalDeleteCardNotice/ModalDeleteCardNotice";
 
@@ -36,6 +36,7 @@ const NoticeCategoryItem = ({
   const [isAttentionModalOpen, setIsAttentionModalOpen] = useState(false);
   const { categoryName } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [openModal, setOpenModal] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const favorites = useSelector(getFavorite);
   const dispatch = useDispatch();
@@ -207,8 +208,9 @@ const NoticeCategoryItem = ({
         </div>
       </li>
       {isModalOpen && (
-        <NoticeModal
-          // openModal={openModal}
+        <ModalNotice
+          openModal={handleOpenModal}
+          onClose={handleCloseModal}
           _id={_id}
           file={file}
           category={category}
@@ -221,8 +223,6 @@ const NoticeCategoryItem = ({
           owner={owner}
           name={name}
           // handleFavoriteToggle={handleFavoriteToggle}
-          // id={_id}
-          onClose={handleCloseModal}
           isFavorite={favorites}
           addToFavorite={addToFavorites}
         />
@@ -245,7 +245,7 @@ const NoticeCategoryItem = ({
 export default NoticeCategoryItem;
 
 // ======================
-// -- code by Oleksandr --
+// -- code var --
 // ======================
 
 // import PropTypes from "prop-types";
