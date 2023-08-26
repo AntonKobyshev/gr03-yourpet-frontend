@@ -58,11 +58,29 @@ export const AddPetForm = () => {
 
   const handleAddPet = (data) => {
     let formData = new FormData();
-    formData.append("category", data.category);
+
+    if (data.category !== "my-pet") {
+      formData.append("category", data.category);
+    }
+
     formData.append("name", data.name);
-    formData.append("birthday", data.dateOfBirth);
+
+    if (data.category !== "my-pet") {
+      formData.append("date", data.dateOfBirth);
+    } else {
+      formData.append("birthday", data.dateOfBirth);
+    }
+
     formData.append("breed", data.breed);
-    formData.append("pets-photo", data.image);
+    if (data.category !== "my-pet") {
+      formData.append("title", data.title);
+    }
+
+    if (data.category !== "my-pet") {
+      formData.append("file", data.image);
+    } else {
+      formData.append("imageURL", data.image);
+    }
 
     if (data.comments) {
       formData.append("comments", data.comments);
@@ -73,7 +91,6 @@ export const AddPetForm = () => {
       return;
     }
 
-    formData.append("title", data.title);
     formData.append("sex", data.sex);
     formData.append("location", data.place);
 
