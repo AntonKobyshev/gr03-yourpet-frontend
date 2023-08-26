@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { fetchNews, fetchFilteredNews } from "./news-operation";
+import { fetchNews } from "./news-operation";
 
 const initialState = {
   items: [],
@@ -36,21 +36,21 @@ const newsSlice = createSlice({
       .addCase(fetchNews.rejected, (state, { payload }) => {
         state.loading = false;
         state.error = payload;
-      })
-      .addCase(fetchFilteredNews.pending, (state) => {
-        state.loading = true;
-        state.items = [];
-      })
-      .addCase(fetchFilteredNews.fulfilled, (state, { payload }) => {
-        state.totalPages = payload.totalPages;
-        state.page = Number(payload.page);
-        state.loading = false;
-        state.items = payload.news;
-      })
-      .addCase(fetchFilteredNews.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.error = payload;
       });
+    // .addCase(fetchFilteredNews.pending, (state) => {
+    //   state.loading = true;
+    //   state.items = [];
+    // })
+    // .addCase(fetchFilteredNews.fulfilled, (state, { payload }) => {
+    //   state.totalPages = payload.totalPages;
+    //   state.page = Number(payload.page);
+    //   state.loading = false;
+    //   state.items = payload.news;
+    // })
+    // .addCase(fetchFilteredNews.rejected, (state, { payload }) => {
+    //   state.loading = false;
+    //   state.error = payload;
+    // });
   },
 });
 export default newsSlice.reducer;
