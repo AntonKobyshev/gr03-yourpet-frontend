@@ -15,6 +15,7 @@ import ModalNotice from "../../ModalNotice/ModalNotice";
 import NoticeModal from "../../../modules/NoticeModal/NoticeModal";
 import ModalDelete from "../../ModalDelete/ModalDelete";
 import ModalAttention from "../../ModalAttention/ModalAttention";
+import ModalDeleteCardNotice from "../../ModalDeleteCardNotice/ModalDeleteCardNotice";
 
 const NoticeCategoryItem = ({
   _id,
@@ -206,15 +207,28 @@ const NoticeCategoryItem = ({
         </div>
       </li>
       {isModalOpen && (
-        <ModalNotice
-          id={_id}
+        <NoticeModal
+          // openModal={openModal}
+          _id={_id}
+          file={file}
+          category={category}
+          location={location}
+          date={date}
+          sex={sex}
+          title={title}
+          comments={comments}
+          breed={breed}
+          owner={owner}
+          name={name}
+          // handleFavoriteToggle={handleFavoriteToggle}
+          // id={_id}
           onClose={handleCloseModal}
           isFavorite={favorites}
           addToFavorite={addToFavorites}
         />
       )}
       {isDeleteModalOpen && (
-        <ModalDelete
+        <ModalDeleteCardNotice
           onClose={handleDeleteModalClose}
           id={_id}
           title={title}

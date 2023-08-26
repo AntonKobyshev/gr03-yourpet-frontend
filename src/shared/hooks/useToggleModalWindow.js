@@ -5,11 +5,11 @@ const useToggleModalWindow = (initialState = false) => {
 
   const openModal = () => {
     setIsModalOpen(true);
-    // document.body.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
   };
   const closeModal = () => {
     setIsModalOpen(false);
-    // document.body.style.overflow = "scroll";
+    document.body.style.overflow = "scroll";
   };
   const toggleModal = () => setIsModalOpen((isModalOpen) => !isModalOpen);
 
