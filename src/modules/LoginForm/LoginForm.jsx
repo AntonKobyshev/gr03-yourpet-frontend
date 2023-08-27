@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Formik, Form, ErrorMessage, getIn } from "formik";
-import { TextField, IconButton, Box} from "@mui/material";
+import { TextField, IconButton, Box } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { blue } from "@mui/material/colors";
 import { loginSchema } from "../../shared/helpers/schemas";
@@ -26,7 +26,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleFormSubmit = async (values) => {
     const data = {
@@ -50,7 +50,7 @@ const LoginForm = () => {
           validationSchema={loginSchema}
         >
           {({ values, errors, touched, handleSubmit, handleChange }) => (
-            <Form  noValidate className={css.form} onSubmit={handleSubmit}>
+            <Form noValidate className={css.form} onSubmit={handleSubmit}>
               <h2 className={css.title}>{"Login"}</h2>
               <Box
                 sx={{
@@ -64,7 +64,6 @@ const LoginForm = () => {
                   type="email"
                   label="Email"
                   size="small"
-                 
                   fullWidth
                   sx={{
                     ".MuiInputBase-root.MuiOutlinedInput-root": {
@@ -156,7 +155,6 @@ const LoginForm = () => {
                               }}
                             />
                           )}
-                          { }
                         </IconButton>
                       </div>
                     ),
@@ -164,18 +162,15 @@ const LoginForm = () => {
                   onChange={handleChange}
                   value={values.password}
                   error={touched.password && Boolean(errors.password)}
-                  helperText={touched.password &&
+                  helperText={
+                    touched.password &&
                     (errors.password ? (
                       <ErrorMessage name="password" />
                     ) : (
                       getIn(values, "password") && (
-                        <Typography
-                          variant="body2"
-                          color="#00C3AD"
-                          style={{ fontSize: 12 }}
-                        >
+                        <span style={{ fontSize: 12, color: "#00C3AD" }}>
                           Password is secure
-                        </Typography>
+                        </span>
                       )
                     ))
                   }
@@ -186,12 +181,12 @@ const LoginForm = () => {
                   {"Login"}
                 </button>
               </div>
-              <p className={css.questionText}>
+              <div className={css.questionText}>
                 {"Don't have an account?"}{" "}
                 <Link to="/register" className={css.registerLink}>
                   {"Register"}
                 </Link>
-              </p>
+              </div>
             </Form>
           )}
         </Formik>

@@ -10,7 +10,6 @@ import { register } from "../../redux/auth/auth-operations";
 import Loader from "../../shared/components/Loader/Loader";
 import { registerSchema } from "../../shared/helpers/schemas";
 import css from "./registerForm.module.css";
-import Typography from "@mui/material/Typography";
 import CheckIcon from "@mui/icons-material/Check";
 
 const data = {
@@ -205,13 +204,9 @@ const RegisterForm = () => {
                       <ErrorMessage name="password" />
                     ) : (
                       getIn(values, "password") && (
-                        <Typography
-                          variant="body2"
-                          color="#00C3AD"
-                          style={{ fontSize: 12 }}
-                        >
+                        <span style={{ fontSize: 12, color: "#00C3AD" }}>
                           Password is secure
-                        </Typography>
+                        </span>
                       )
                     ))
                   }
@@ -291,13 +286,9 @@ const RegisterForm = () => {
                     (errors.confirmPassword ? (
                       <ErrorMessage name="confirmPassword" />
                     ) : (
-                      <Typography
-                        variant="body2"
-                        color="#00C3AD"
-                        style={{ fontSize: 12 }}
-                      >
+                      <span style={{ fontSize: 12, color: "#00C3AD" }}>
                         Passwords match
-                      </Typography>
+                      </span>
                     ))
                   }
                 />
