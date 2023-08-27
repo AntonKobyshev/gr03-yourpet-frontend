@@ -35,25 +35,17 @@
 
 .btnClose {
   position: absolute;
-  top: 23px;
+  top: 26px;
   right: 26px;
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.btnClose:hover,
-.btnClose:focus {
-  transform: scale(1.2);
-}
 
 .modalContent {
   max-height: 600px;
   overflow-y: auto;
-}
-
-.myСomponent.dark .modal {
-  background-color: #467c82;
 }

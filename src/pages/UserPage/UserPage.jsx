@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { selectIsLoading, isModalOpen, selectRegistrationSuccessful } from '../../redux/auth/auth-selectors';
 import { fetchUser, openModal } from '../../redux/auth/auth-operations';
 
+import ModalDeleteCardNotice from '../../modules/ModalDeleteCardNotice/ModalDeleteCardNotice';
 import ModalCongrats from '../../modules/ModalCongrats/ModalCongrats';
 import Loader from '../../shared/components/Loader/Loader';
 import UserData from "../../modules/User/UserData/UserData";
@@ -13,23 +14,14 @@ const UserPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const showModal = useSelector(isModalOpen);
   const dispatch = useDispatch();
-  const registrationSuccessful = useSelector(selectRegistrationSuccessful);
-
 
 useEffect(() => {
   dispatch(fetchUser());
-
-//  if (registrationSuccessful && !localStorage.getItem('modalShown')) {
-//       dispatch(openModal());
-//       localStorage.setItem('modalShown', 'true');
-//     }
   }, [dispatch]);
-
-
-
 
   return (
     <div className={css.container}>
+   
       {showModal && <ModalCongrats />}
       {isLoading && <Loader />}
       <div className={css.userContainer}>

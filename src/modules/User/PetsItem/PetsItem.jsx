@@ -1,8 +1,9 @@
 import { useState } from "react";
 import DeleteIcon from "../../../images/icons/delete.svg";
-import ModalDeleteCardNotice from "../../ModalDeleteCardNotice/ModalDeleteCardNotice";
 import { defaultImageUrl } from "../../../shared/helpers/constants";
 import css from "./PetsItem.module.css";
+
+import ModalApproveActionDeletePet from "../../ModalApproveActionDeletePet/ModalApproveActionDeletePet";
 
 const PetsItem = ({
   pet: { imageURL, name, _id, birthday, breed, comments },
@@ -10,8 +11,7 @@ const PetsItem = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleDelete = () => {
-    alert("Delete btn");
-    // setIsModalOpen(true);
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
@@ -21,7 +21,7 @@ const PetsItem = ({
   return (
     <div className={css.petsContainer}>
       {isModalOpen && (
-        <ModalDeleteCardNotice closeModal={closeModal} _id={_id} name={name} />
+        < ModalApproveActionDeletePet closeModal={closeModal} _id={_id} name={name} />
       )}
 
       <div className={css.imgWrapper}>
