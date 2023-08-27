@@ -51,7 +51,7 @@ const ModalCongrats = () => {
             <div className={css.contentContainer}>
               <p className={css.title}>Congrats!</p>
               <p className={css.text}>Youre registration is success</p>
-              <button className={css.btn} type="button">
+              <button onClick={handleClose} className={css.btn} type="button">
                 <span>Go to profile</span>{" "}
                 <img src={pawprint} alt="paw print" />
               </button>
