@@ -237,7 +237,7 @@ const RegisterForm = () => {
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
                         borderRadius: 40,
-                        border: errors.password
+                        border: errors.confirmPassword
                           ? "1px solid #54ADFF"
                           : "1px solid #00C3AD",
                       },
