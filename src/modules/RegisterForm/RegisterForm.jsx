@@ -1,15 +1,18 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { Formik, Form } from "formik";
+import { Formik, Form, ErrorMessage, getIn } from "formik";
 import { TextField, IconButton, Box } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { blue } from "@mui/material/colors";
-import { selectIsLoading } from '../../redux/auth/auth-selectors';
+import { selectIsLoading } from "../../redux/auth/auth-selectors";
 import { register } from "../../redux/auth/auth-operations";
-import Loader from '../../shared/components/Loader/Loader';
+import Loader from "../../shared/components/Loader/Loader";
 import { registerSchema } from "../../shared/helpers/schemas";
 import css from "./registerForm.module.css";
+import Typography from "@mui/material/Typography";
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CheckIcon from '@mui/icons-material/Check';
 
 const data = {
   name: "",
@@ -17,7 +20,6 @@ const data = {
   password: "",
   confirmPassword: "",
 };
-
 
 const RegisterForm = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -44,7 +46,7 @@ const RegisterForm = () => {
   return (
     <>
       {isLoading && <Loader />}
-       <div className={css.myСomponent}>
+      <div className={css.myСomponent}>
         <Formik
           initialValues={data}
           onSubmit={handleFormSubmit}
@@ -150,6 +152,7 @@ const RegisterForm = () => {
                   sx={{
                     ".MuiInputBase-root.MuiOutlinedInput-root": {
                       borderRadius: "40px",
+                      borderColor: "green",
                     },
                     "& .MuiInputLabel-root.Mui-focused": {
                       color: "#54ADFF",
@@ -157,7 +160,7 @@ const RegisterForm = () => {
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
                         borderRadius: 40,
-                        border: "1px solid #54ADFF",
+                        border: errors.password ? "1px solid #54ADFF" : "1px solid #00C3AD",
                       },
 
                       "&:hover fieldset": {
@@ -171,33 +174,40 @@ const RegisterForm = () => {
                   }}
                   InputProps={{
                     endAdornment: (
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        edge="end"
-                        size="small"
-                      >
-                        {showPassword ? (
-                          <Visibility
-                            style={{
-                              color: blue[300],
-                            }}
-                          />
-                        ) : (
-                          <VisibilityOff
-                            style={{
-                              color: blue[300],
-                            }}
-                          />
-                        )}
-                        {}
-                      </IconButton>
+                        <div style={{ display: "flex", alignItems: "center" }}>
+        {values.password && !errors.password && (
+          <CheckIcon style={{ color: "#00C3AD", marginRight: "8px" }} />
+        )}
+        <IconButton
+          aria-label="toggle password visibility"
+          onClick={handleClickShowPassword}
+          edge="end"
+          size="small"
+        >
+          {showPassword ? (
+            <Visibility style={{ color: blue[300] }} />
+          ) : (
+            <VisibilityOff style={{ color: blue[300] }} />
+          )}
+        </IconButton>
+      </div>
                     ),
                   }}
                   onChange={handleChange}
                   value={values.password}
                   error={touched.password && Boolean(errors.password)}
-                  helperText={touched.password && errors.password}
+                  helperText={
+                    touched.password &&
+                    (errors.password ? (
+                      <ErrorMessage name="password" />
+                    ) : (
+                      getIn(values, "password") && (
+                        <Typography variant="body2" color="#00C3AD" style={{ fontSize: 12 }} >
+                          Password is secure
+                        </Typography>
+                      )
+                    ))
+                  }
                 />
               </Box>
               <Box
@@ -220,7 +230,7 @@ const RegisterForm = () => {
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
                         borderRadius: 40,
-                        border: "1px solid #54ADFF",
+                        border: errors.password ? "1px solid #54ADFF" : "1px solid #00C3AD",
                       },
                       "&:hover fieldset": {
                         borderColor: "#54ADFF",
@@ -233,6 +243,10 @@ const RegisterForm = () => {
                   }}
                   InputProps={{
                     endAdornment: (
+                      <div style={{ display: "flex", alignItems: "center" }}>
+        {values.confirmPassword && !errors.confirmPassword && (
+          <CheckIcon style={{ color: "#00C3AD", marginRight: "8px" }} />
+        )}
                       <IconButton
                         aria-label="toggle password visibility"
                         onClick={handleClickShowConfirmPassword}
@@ -253,6 +267,7 @@ const RegisterForm = () => {
                           />
                         )}
                       </IconButton>
+                         </div>
                     ),
                   }}
                   onChange={handleChange}
@@ -260,7 +275,16 @@ const RegisterForm = () => {
                   error={
                     touched.confirmPassword && Boolean(errors.confirmPassword)
                   }
-                  helperText={touched.confirmPassword && errors.confirmPassword}
+                  helperText={
+                    touched.confirmPassword &&
+                    (errors.confirmPassword ? (
+                      <ErrorMessage name="confirmPassword" />
+                    ) : (
+                      <Typography variant="body2" color="#00C3AD" style={{ fontSize: 12 }}>
+                        Passwords match
+                      </Typography>
+                    ))
+                  }
                 />
               </Box>
               <div className={css.buttonContainer}>
