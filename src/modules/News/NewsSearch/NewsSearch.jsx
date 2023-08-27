@@ -1,18 +1,25 @@
-import React, { useState, useCallback } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { InputAdornment, IconButton, Input } from "@mui/material";
 import { Search, Clear } from "@mui/icons-material";
 
 import css from "../NewsSearch/NewsSearch.module.css";
 import { toastInfo } from "../../../shared/toastify/toastify";
 import { setQuery, setPage } from "../../../redux/news/news-slice";
+import { selectQuery } from "../../../redux/news/news-selectors";
 
 const NewsSearch = () => {
   const dispatch = useDispatch();
   const [keyword, setKeyword] = useState("");
+  const query = useSelector(selectQuery);
+
+  useEffect(() => {
+    setKeyword(query);
+  }, [query]);
 
   const handleClear = () => {
     dispatch(setQuery(""));
+    dispatch(setPage(1));
   };
 
   const handleKeywordChange = (e) => {
