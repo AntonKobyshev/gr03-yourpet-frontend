@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { Formik, Form } from "formik";
-import { TextField, IconButton, Box } from "@mui/material";
+import { Formik, Form, ErrorMessage, getIn } from "formik";
+import { TextField, IconButton, Box} from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { blue } from "@mui/material/colors";
 import { loginSchema } from "../../shared/helpers/schemas";
+import Typography from "@mui/material/Typography";
+import CheckIcon from "@mui/icons-material/Check";
 
 import {
   selectIsLoading,
@@ -114,7 +116,9 @@ const LoginForm = () => {
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
                         borderRadius: 40,
-                        border: "1px solid #54ADFF",
+                        border: errors.password
+                          ? "1px solid #54ADFF"
+                          : "1px solid #00C3AD",
                       },
                       "&:hover fieldset": {
                         borderColor: "#54ADFF",
@@ -127,33 +131,54 @@ const LoginForm = () => {
                   }}
                   InputProps={{
                     endAdornment: (
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        edge="end"
-                        size="small"
-                      >
-                        {showPassword ? (
-                          <Visibility
-                            style={{
-                              color: blue[300],
-                            }}
-                          />
-                        ) : (
-                          <VisibilityOff
-                            style={{
-                              color: blue[300],
-                            }}
+                      <div style={{ display: "flex", alignItems: "center" }}>
+                        {values.password && !errors.password && (
+                          <CheckIcon
+                            style={{ color: "#00C3AD", marginRight: "8px" }}
                           />
                         )}
-                        {}
-                      </IconButton>
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleClickShowPassword}
+                          edge="end"
+                          size="small"
+                        >
+                          {showPassword ? (
+                            <Visibility
+                              style={{
+                                color: blue[300],
+                              }}
+                            />
+                          ) : (
+                            <VisibilityOff
+                              style={{
+                                color: blue[300],
+                              }}
+                            />
+                          )}
+                          { }
+                        </IconButton>
+                      </div>
                     ),
                   }}
                   onChange={handleChange}
                   value={values.password}
                   error={touched.password && Boolean(errors.password)}
-                  helperText={touched.password && errors.password}
+                  helperText={touched.password &&
+                    (errors.password ? (
+                      <ErrorMessage name="password" />
+                    ) : (
+                      getIn(values, "password") && (
+                        <Typography
+                          variant="body2"
+                          color="#00C3AD"
+                          style={{ fontSize: 12 }}
+                        >
+                          Password is secure
+                        </Typography>
+                      )
+                    ))
+                  }
                 />
               </Box>
               <div className={css.buttonContainer}>
