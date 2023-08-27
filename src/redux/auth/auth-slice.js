@@ -8,6 +8,8 @@ import {
   fetchUpdateUser,
   fetchUpdateAvatar,
   fetchDeleteUserPet,
+  closeModal,
+  openModal,
 } from "./auth-operations";
 
 const initialState = {
@@ -47,10 +49,17 @@ const authSlice = createSlice({
         state.token = accessToken;
         state.isLoggedIn = true;
         state.error = null;
+        state.isModalOpen = true;
       })
       .addCase(register.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
+      })
+      .addCase(openModal, (state) => {
+        state.isModalOpen = true;
+      })
+      .addCase(closeModal, (state) => {
+        state.isModalOpen = false;
       })
 
       .addCase(login.pending, (state) => {

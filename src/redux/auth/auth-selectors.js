@@ -27,3 +27,5 @@ export const userMyPets = (state) => {
   const { pets } = state.auth;
   return pets;
 };
+
+export const isModalOpen = ({ auth }) => auth.isModalOpen;

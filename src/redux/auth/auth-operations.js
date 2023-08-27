@@ -1,14 +1,14 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import * as toasty from "../../shared/toastify/toastify";
-
 import * as api from "../../shared/services/api/auth";
 import { setToken } from "../../shared/services/api/auth";
 
 export const register = createAsyncThunk(
   "auth/register",
-  async (data, { rejectWithValue }) => {
+  async (data, { rejectWithValue, dispatch }) => {
     try {
       const result = await api.register(data);
+      dispatch(openModal());
       return result;
     } catch ({ response }) {
       if (response.status === 400 || response.status === 409) {
@@ -128,3 +128,6 @@ export const fetchDeleteUserPet = createAsyncThunk(
     }
   }
 );
+
+export const openModal = createAction("auth/openModal");
+export const closeModal = createAction("auth/closeModal");

@@ -1,5 +1,6 @@
 import { Backdrop, Box, Button, Fade, Modal } from "@mui/material";
 import React from "react";
+import { useState } from "react";
 import css from "./ModalCongrats.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 import pawprint from "../../images/icons/pawprint.svg";
@@ -16,12 +17,16 @@ const style = {
 };
 
 const ModalCongrats = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [open, setOpen] = React.useState(true);
+    const handleClose = () => {
+      setOpen(false);
+      setShouldUpdate(true);
+    localStorage.setItem("modalShown", "true");
+  };
+  const [shouldUpdate, setShouldUpdate] = useState(false);
   return (
     <div>
-      <Button onClick={handleOpen}>Modal Congrats</Button>
+     
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -50,6 +55,7 @@ const ModalCongrats = () => {
                 <span>Go to profile</span>{" "}
                 <img src={pawprint} alt="paw print" />
               </button>
+              {shouldUpdate && window.location.reload()}
             </div>
           </Box>
         </Fade>
