@@ -4,10 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { logout } from "../../../redux/auth/auth-operations";
 import ApproveLeaving from "../../ApproveLeaving/ApproveLeaving";
-import {
-  fetchUpdateUser,
-  fetchUpdateAvatar,
-} from "../../../redux/auth/auth-operations";
+import { fetchUpdateUser } from "../../../redux/auth/auth-operations";
 import {
   selectAuth,
   selectIsLoading,
@@ -22,15 +19,12 @@ import UserAvatar from "../UserAvatar/UserAvatar";
 import UserLogoutBtn from "../UserLogoutBtn/UserLogoutBtn";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import CloseIcon from "@mui/icons-material/Close";
+import { fields } from '../../../shared/helpers/constants'
 
 const UserForm = () => {
   const { token } = useSelector(selectAuth);
   const isLoading = useSelector(selectIsLoading);
   const { user } = useSelector(userInfo);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [previewImage, setPreviewImage] = useState(null);
-  const [isPhotoUploaded, setIsPhotoUploaded] = useState(false);
-  const filePicker = useRef(null);
   const [isEditing, setIsEditing] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -63,31 +57,6 @@ const UserForm = () => {
       setOpen(false);
     }
   }, [isLoading, isLoggedIn, logoutSuccessful]);
-
-  const handleChangeAvatar = (e) => {
-    setIsPhotoUploaded(false);
-    const file = e.target.files[0];
-    setSelectedImage(file);
-    setPreviewImage(URL.createObjectURL(file));
-  };
-
-  const handleDeleteAvatar = () => {
-    setPreviewImage(null);
-    setIsPhotoUploaded(true);
-  };
-
-  const addAvatarBtn = () => {
-    filePicker.current.click();
-  };
-
-  const handleUpload = async () => {
-    const formData = new FormData();
-    formData.append("imageURL", selectedImage);
-
-    await dispatch(fetchUpdateAvatar({ token, formData }));
-
-    setIsPhotoUploaded(true);
-  };
 
   const handleChangeInput = (event) => {
     const { name, value } = event.target;
@@ -145,29 +114,6 @@ const UserForm = () => {
     });
   };
 
-  const fields = [
-    { fieldName: "name", label: "Name", type: "text", placeholder: "Name" },
-    {
-      fieldName: "email",
-      label: "Email",
-      type: "email",
-      placeholder: "email@xxx.com",
-    },
-    {
-      fieldName: "birthday",
-      label: "Birthday",
-      type: "text",
-      placeholder: "00.00.0000",
-    },
-    {
-      fieldName: "phone",
-      label: "Phone",
-      type: "tel",
-      placeholder: "+38000000000",
-    },
-    { fieldName: "city", label: "City", type: "text", placeholder: "Kyiv" },
-  ];
-
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const handleLogout = () => {
@@ -220,13 +166,6 @@ const UserForm = () => {
                   </div>
 
                   <UserAvatar
-                    previewImage={previewImage}
-                    selectedImage={selectedImage}
-                    isPhotoUploaded={isPhotoUploaded}
-                    handleUpload={handleUpload}
-                    handleDeleteAvatar={handleDeleteAvatar}
-                    addAvatarBtn={addAvatarBtn}
-                    handleChangeAvatar={handleChangeAvatar}
                     isEditing={isEditing}
                     setIsEditing={setIsEditing}
                   />

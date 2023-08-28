@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useDispatch } from "react-redux";
 import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import DoneOutlinedIcon from "@mui/icons-material/DoneOutlined";
@@ -6,19 +7,50 @@ import Button from "@mui/material/Button";
 import css from "./UserAvatar.module.css";
 import { userInfo } from "../../../redux/auth/auth-selectors";
 import { useSelector } from "react-redux";
+import {
+  fetchUpdateUser,
+  fetchUpdateAvatar,
+} from "../../../redux/auth/auth-operations";
+import { useState, useEffect } from "react";
+import {
+  selectAuth,
+} from "../../../redux/auth/auth-selectors";
+
 
 const UserAvatar = ({
-  previewImage,
-  selectedImage,
-  isPhotoUploaded,
-  handleUpload,
-  handleDeleteAvatar,
-  addAvatarBtn,
-  handleChangeAvatar,
   isEditing,
 }) => {
-  const { user } = useSelector(userInfo);
+   const { token } = useSelector(selectAuth);
+   const [selectedImage, setSelectedImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
+  const [isPhotoUploaded, setIsPhotoUploaded] = useState(false);
   const filePicker = useRef(null);
+  const dispatch = useDispatch();
+  const { user } = useSelector(userInfo);
+    const handleChangeAvatar = (e) => {
+    setIsPhotoUploaded(false);
+    const file = e.target.files[0];
+    setSelectedImage(file);
+    setPreviewImage(URL.createObjectURL(file));
+  };
+
+  const handleDeleteAvatar = () => {
+    setPreviewImage(null);
+    setIsPhotoUploaded(true);
+  };
+
+  const addAvatarBtn = () => {
+    filePicker.current.click();
+  };
+
+  const handleUpload = async () => {
+    const formData = new FormData();
+    formData.append("imageURL", selectedImage);
+
+    await dispatch(fetchUpdateAvatar({ token, formData }));
+
+    setIsPhotoUploaded(true);
+  };
 
   
   return (
