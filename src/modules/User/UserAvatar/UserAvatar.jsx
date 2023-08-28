@@ -1,33 +1,22 @@
-import { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Button from "@mui/material/Button";
 import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import DoneOutlinedIcon from "@mui/icons-material/DoneOutlined";
-import Button from "@mui/material/Button";
+import { fetchUpdateAvatar } from "../../../redux/auth/auth-operations";
+import { selectAuth, userInfo } from "../../../redux/auth/auth-selectors";
 import css from "./UserAvatar.module.css";
-import { userInfo } from "../../../redux/auth/auth-selectors";
-import { useSelector } from "react-redux";
-import {
-  fetchUpdateUser,
-  fetchUpdateAvatar,
-} from "../../../redux/auth/auth-operations";
-import { useState, useEffect } from "react";
-import {
-  selectAuth,
-} from "../../../redux/auth/auth-selectors";
 
-
-const UserAvatar = ({
-  isEditing,
-}) => {
-   const { token } = useSelector(selectAuth);
-   const [selectedImage, setSelectedImage] = useState(null);
+const UserAvatar = ({ isEditing }) => {
+  const { token } = useSelector(selectAuth);
+  const [selectedImage, setSelectedImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [isPhotoUploaded, setIsPhotoUploaded] = useState(false);
   const filePicker = useRef(null);
   const dispatch = useDispatch();
   const { user } = useSelector(userInfo);
-    const handleChangeAvatar = (e) => {
+  const handleChangeAvatar = (e) => {
     setIsPhotoUploaded(false);
     const file = e.target.files[0];
     setSelectedImage(file);
@@ -52,7 +41,6 @@ const UserAvatar = ({
     setIsPhotoUploaded(true);
   };
 
-  
   return (
     <div className={css.avatarWrapper}>
       {previewImage ? (
