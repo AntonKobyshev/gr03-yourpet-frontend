@@ -30,9 +30,8 @@
 }
 
 .logoutBtnTab {
-  @media screen and (min-width: 320px) {
-    display: none;
-  }
+  display: none;
+
   @media screen and (min-width: 768px) {
     display: block;
   }
@@ -72,8 +71,7 @@
 }
 
 .userInfoWideScreen {
-    visibility: hidden;
-  
+  visibility: hidden;
 
   @media screen and (min-width: 768px) {
     visibility: visible;
@@ -91,12 +89,10 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 1279px) {
-
   .burgerMenu {
     width: 100%;
     height: 100%;
     position: fixed;
-    top: 20;
     left: 0;
     background-color: var(--bg-color);
     z-index: 999;
@@ -108,7 +104,6 @@
 }
 
 @media screen and (min-width: 1280px) {
-
   .burgerMenu {
     display: none;
   }
