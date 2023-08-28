@@ -4,7 +4,7 @@ export const AddPetFormWrapper = styled.div`
   margin: 0 auto;
   max-width: 458px;
   padding: 20px 8px;
-  margin-top: 40px;
+  margin-top: 20px;
 
   background-color: #ffffff;
   box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
@@ -12,11 +12,13 @@ export const AddPetFormWrapper = styled.div`
 
   @media (min-width: 768px) {
     padding: 20px 32px;
+    margin-top: 60px;
     max-width: ${props =>
       props.category !== 'my-pet' && props.step === 2 ? '704px' : '458px'};
   }
 
   @media (min-width: 1280px) {
+    margin-top: 40px;
     max-width: ${props =>
       props.category !== 'my-pet' && props.step === 2 ? '822px' : '458px'};
     padding: ${props =>
@@ -36,6 +38,7 @@ export const PetFormTitle = styled.h1`
   color: #111111;
 
   @media (min-width: 768px) {
+    font-size: 28px;
     margin-left: 0;
     text-align: ${props =>
       props.category !== 'my-pet' && props.step === 2 ? 'center' : 'left'};
