@@ -15,7 +15,7 @@ import { userFormSchema } from "../../../shared/helpers/schemas";
 import { useSelector } from "react-redux";
 
 const UserForm = ({ initialValues, editing, onEdit }) => {
-  const [avatarPreview, setAvatarPreview] = useState(initialValues.avatar);
+  const [avatarPreview, setAvatarPreview] = useState(initialValues.image);
   const [avatarUploaded, setAvatarUploaded] = useState(false);
   const [showConfirmButtons, setShowConfirmButtons] = useState(false);
   const [saveButtonClicked, setSaveButtonClicked] = useState(false);

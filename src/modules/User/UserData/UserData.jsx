@@ -13,7 +13,7 @@ const UserData = () => {
     birthday: user?.birthday || "",
     phone: user?.phone || "",
     city: user?.city || "",
-    avatar: "",
+    Image: user?.Image || "",
   };
 
   const [editing, setEditing] = useState(false);
