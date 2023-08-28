@@ -5,7 +5,7 @@
 
 .title {
   margin-bottom: 18px;
-  font-family: 'Manrope';
+  font-family: "Manrope";
   font-style: normal;
   font-weight: 500;
   font-size: 28px;
@@ -41,7 +41,7 @@
 }
 
 .label {
-  font-family: 'Manrope';
+  font-family: "Manrope";
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -58,7 +58,7 @@
   min-width: 190px;
   border: 1px solid var(--blue-color);
   border-radius: 20px;
-  font-family: 'Manrope';
+  font-family: "Manrope";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -66,11 +66,53 @@
   color: #111111;
 }
 
-.checkbox {
-  position: absolute;
-  top: -8px;
-  right: 2px;
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  background: none;
+  border: none;
   cursor: pointer;
+  padding: 0;
+  display: inline;
+  outline: none;
+}
+
+.icon {
+  color: #54adff;
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: #ffc107;
+}
+
+.btnSave {
+  background: var(--blue-color);
+  width: 255px;
+  height: 34px;
+  border-radius: 40px;
+  cursor: pointer;
+  padding: 0;
+  display: inline;
+  outline: none;
+  color: #fef9f9;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.64px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
+  margin-left: 10px;
+}
+
+.btnSave:hover {
+  background-color: #ffc107;
+  color: #fff;
 }
 
 @media screen and (min-width: 280px) {
@@ -107,6 +149,10 @@
 
   .input {
     min-width: 255px;
+  }
+
+  .btnSave {
+    height: 32px;
   }
 }
 

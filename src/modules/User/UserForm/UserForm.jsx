@@ -20,6 +20,8 @@ import Loader from "../../../shared/components/Loader/Loader";
 import css from "./UserForm.module.css";
 import UserAvatar from "../UserAvatar/UserAvatar";
 import UserLogoutBtn from "../UserLogoutBtn/UserLogoutBtn";
+import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
+import CloseIcon from "@mui/icons-material/Close";
 
 const UserForm = () => {
   const { token } = useSelector(selectAuth);
@@ -121,8 +123,11 @@ const UserForm = () => {
       }
       results.forEach((result) => {
         if (result.meta.requestStatus !== "fulfilled") {
-          const updatedUser = { ...user, [result.payload.fieldToUpdate]: result.payload.newValue };
-    dispatch(userInfo.actions.setUser(updatedUser));
+          const updatedUser = {
+            ...user,
+            [result.payload.fieldToUpdate]: result.payload.newValue,
+          };
+          dispatch(userInfo.actions.setUser(updatedUser));
         }
       });
     } catch (error) {}
@@ -201,9 +206,19 @@ const UserForm = () => {
             >
               {({ errors, touched }) => (
                 <Form className={css.forma}>
-                  <button onClick={handleEditAllFields}>
-                    {editAllFields ? "Cancel Edit All" : "Edit All"}
-                  </button>
+                  <div className={css.buttonContainer}>
+                    <button
+                      onClick={handleEditAllFields}
+                      className={css.button}
+                    >
+                      {editAllFields ? (
+                        <CloseIcon className={css.icon} />
+                      ) : (
+                        <DriveFileRenameOutlineIcon className={css.icon} />
+                      )}
+                    </button>
+                  </div>
+
                   <UserAvatar
                     previewImage={previewImage}
                     selectedImage={selectedImage}
@@ -241,7 +256,10 @@ const UserForm = () => {
                       ))}
                       <UserLogoutBtn handleOpen={handleOpen} />
                       {isEditing && (
-                        <button onClick={handleSaveChanges}>
+                        <button
+                          className={css.btnSave}
+                          onClick={handleSaveChanges}
+                        >
                           Save Changes
                         </button>
                       )}
