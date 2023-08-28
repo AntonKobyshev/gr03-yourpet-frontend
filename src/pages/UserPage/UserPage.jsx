@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { selectIsLoading, isModalOpen, selectRegistrationSuccessful } from '../../redux/auth/auth-selectors';
 import { fetchUser, openModal } from '../../redux/auth/auth-operations';
 
-import ModalDeleteCardNotice from '../../modules/ModalDeleteCardNotice/ModalDeleteCardNotice';
 import ModalCongrats from '../../modules/ModalCongrats/ModalCongrats';
 import Loader from '../../shared/components/Loader/Loader';
 import UserData from "../../modules/User/UserData/UserData";
