@@ -149,3 +149,21 @@
   }
 }
 
+.myСomponent.dark .modalTitle {
+  color: #c3bfbf;
+}
+
+.myСomponent.dark .modalText {
+  color: #c3bfbf;
+}
+
+.myСomponent.dark .modalBtn {
+  background: transparent;
+  border: 2px solid #2f5a5f;
+  color: #c3bfbf;
+}
+
+.myСomponent.dark .modalBtn:hover {
+  background: linear-gradient(290.46deg, #55787c 0%, #64999e 107.89%);
+  color: #d9d2d2;
+}

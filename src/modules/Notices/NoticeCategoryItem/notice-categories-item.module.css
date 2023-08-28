@@ -192,3 +192,25 @@
     flex-basis: calc((100% - 96px) / 4);
   }
 }
+
+.myСomponent.dark .categoryInfo {
+  color: #c9c7c7;
+  background-color: #417075;
+}
+
+.myСomponent.dark .noticeInfo {
+  color: #c9c7c7;
+  background-color: #417075;
+}
+
+.myСomponent.dark .learnBtn {
+  color: #c9c7c7;
+  background-color: #417075;
+  /* border: 1px solid #c9c7c7; */
+}
+
+.myСomponent.dark .learnBtn:hover,
+.learnBtn:focus {
+  background: linear-gradient(290.46deg, #55787c 0%, #64999e 107.89%);
+  /* border: 1px solid #c9c7c7; */
+}

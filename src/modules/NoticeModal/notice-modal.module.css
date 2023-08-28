@@ -142,3 +142,28 @@ table tr:not(:last-child) {
     margin-left: auto;
   }
 }
+
+.myСomponent.dark .title {
+  color: #c9c7c7;
+}
+
+.myСomponent.dark .categoryInfo {
+  color: #c9c7c7;
+  background-color: #417075;
+}
+
+.myСomponent.dark .infoTitle {
+  color: #c9c7c7;
+}
+
+.myСomponent.dark .info {
+  color: #c9c7c7;
+}
+
+.myСomponent.dark .commentsInfo {
+  color: #c9c7c7;
+}
+
+.myСomponent.dark .commentsInfo {
+  color: #c9c7c7;
+}

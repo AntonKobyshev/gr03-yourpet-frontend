@@ -1,0 +1,45 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltipText {
+  position: absolute;
+  top: 24px;
+
+  background-color: rgba(230, 67, 67, 0.795);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+  font-size: 14px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  white-space: nowrap;
+  z-index: 100;
+
+  @media screen and (max-width: 767px) {
+    right: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 0;
+    left: 102%;
+  }
+
+  /* @media screen and (min-width: 1280px) {
+    top: 0;
+    left: 102%;
+  } */
+}
+
+.tooltipText.no-bg {
+  background-color: transparent;
+}
+
+.tooltip.active,
+.tooltip:focus,
+.tooltipText {
+  visibility: visible;
+  opacity: 1;
+}

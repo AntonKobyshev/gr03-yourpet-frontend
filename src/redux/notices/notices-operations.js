@@ -60,7 +60,6 @@ export const fetchNoticesByCategory = createAsyncThunk(
     }
   }
 );
-
 export const fetchNoticesByOwn = createAsyncThunk(
   "notices/own",
   async ({ query, page }, { rejectWithValue }) => {

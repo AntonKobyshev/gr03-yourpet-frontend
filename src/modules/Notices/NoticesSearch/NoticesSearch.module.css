@@ -34,3 +34,7 @@
     line-height: 24px;
   }
 }
+
+.myСomponent.dark .placeholder {
+  color: #c3bfbf;
+}

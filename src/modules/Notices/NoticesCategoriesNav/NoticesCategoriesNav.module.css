@@ -135,3 +135,35 @@
   align-items: flex-start;
   margin-bottom: 4px;
 }
+
+.myСomponent.dark .active {
+  color: #c3bfbf;
+}
+
+.myСomponent.dark .navLink {
+  color: #c3bfbf;
+}
+
+.myСomponent.dark .btn {
+  color: #c9c7c7;
+  background-color: #417075;
+}
+
+.myСomponent.dark .btn:hover {
+  background: linear-gradient(290.46deg, #55787c 0%, #64999e 107.89%);
+}
+
+.myСomponent.dark .navLink {
+  color: #c9c7c7;
+  background-color: #417075;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.myСomponent.dark .navLink.active {
+  background: linear-gradient(290.46deg, #55787c 0%, #89b4b7 107.89%);
+  border: 1px solid #c9c7c7;
+}
+
+.myСomponent.dark .navLink:hover,
+.myСomponent.dark .navLink:focus {
+  background: linear-gradient(290.46deg, #55787c 0%, #64999e 107.89%);
+}
