@@ -1,6 +1,6 @@
 @media screen and (min-width: 280px) {
   .container {
-    margin-top: 400px;
+    margin-top: 18px;
     margin-left: 20px;
     margin-right: 20px;
   }
@@ -9,7 +9,7 @@
 @media screen and (min-width: 768px) {
   .container {
     max-width: 704px;
-    margin-top: 60px;
+    margin-top: 24px;
     margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
@@ -21,7 +21,6 @@
     max-width: 1248px;
     display: flex;
     justify-content: space-around;
-    margin-top: 62px;
     margin-right: auto;
     margin-left: auto;
   }

@@ -3,16 +3,6 @@
   margin-left: auto;
 }
 
-.title {
-  margin-bottom: 18px;
-  font-family: "Manrope";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 38px;
-  color: #111111;
-}
-
 .formWrapper {
   margin-bottom: 21px;
 }
@@ -159,7 +149,6 @@ button {
 @media screen and (min-width: 1280px) {
   .wrapper {
     max-width: 395px;
-    margin-right: 32px;
   }
 
   .forma {
