@@ -19,7 +19,7 @@ import ModalDeleteCardNotice from "../../ModalDeleteCardNotice/ModalDeleteCardNo
 
 const NoticeCategoryItem = ({
   _id,
-  file,
+  image,
   category,
   title,
   location,
@@ -34,7 +34,7 @@ const NoticeCategoryItem = ({
   const userId = useSelector(getUserId);
   const [sexIcon, setSexIcon] = useState("icon-male");
   const [isAttentionModalOpen, setIsAttentionModalOpen] = useState(false);
-  const { categoryName } = useParams();
+  // const { categoryName } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   // const [openModal, setOpenModal] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -76,21 +76,8 @@ const NoticeCategoryItem = ({
       setIsAttentionModalOpen(true);
       return;
     }
-    dispatch(
-      fetchAddToFavorite({
-        pet: {
-          _id,
-          title,
-          file,
-          location,
-          date,
-          sex,
-          category,
-          owner,
-        },
-        categoryName,
-      })
-    );
+
+    dispatch(fetchAddToFavorite(_id));
   };
 
   function getAge(date) {
@@ -146,7 +133,7 @@ const NoticeCategoryItem = ({
         <div className={css.imageWrapper}>
           <img
             className={css.image}
-            src={imageError ? imagePet : file}
+            src={imageError ? imagePet : image}
             alt={title}
             loading="lazy"
             onError={handleImageError}
@@ -212,7 +199,7 @@ const NoticeCategoryItem = ({
           openModal={handleOpenModal}
           onClose={handleCloseModal}
           _id={_id}
-          file={file}
+          image={image}
           category={category}
           location={location}
           date={date}

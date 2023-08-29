@@ -5,9 +5,7 @@ import css from "./PetsItem.module.css";
 
 import ModalApproveActionDeletePet from "../../ModalApproveActionDeletePet/ModalApproveActionDeletePet";
 
-const PetsItem = ({
-  pet: { image, name, _id, birthday, breed, comments },
-}) => {
+const PetsItem = ({ pet: { image, name, _id, birthday, breed, comments } }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleDelete = () => {
@@ -21,7 +19,11 @@ const PetsItem = ({
   return (
     <div className={css.petsContainer}>
       {isModalOpen && (
-        < ModalApproveActionDeletePet closeModal={closeModal} _id={_id} name={name} />
+        <ModalApproveActionDeletePet
+          closeModal={closeModal}
+          _id={_id}
+          name={name}
+        />
       )}
 
       <div className={css.imgWrapper}>
