@@ -17,6 +17,7 @@ import { Pets, West } from "@mui/icons-material";
 import formSchemaValidations from "./formSchemaValidations";
 import { useDispatch } from "react-redux";
 import { addPet, addNotice } from "../../redux/pets/pets-operations";
+import Loader from "../../shared/components/Loader/Loader";
 
 const initialValues = {
   category: "my-pet",
@@ -36,6 +37,8 @@ export const AddPetForm = () => {
   const navigate = useNavigate();
   const steps = ["Choose option", "Personal details", "More info"];
   const dispatch = useDispatch();
+  const [isAdding, setIsAdding] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClickNext = (e) => {
     e.preventDefault();
@@ -56,53 +59,62 @@ export const AddPetForm = () => {
     navigate(-1);
   };
 
-  const handleAddPet = (data) => {
-    let formData = new FormData();
+  const handleAddPet = async (data) => {
+    try {
+      setIsAdding(true);
+      setIsLoading(true);
+      let formData = new FormData();
 
-    if (data.category !== "my-pet") {
-      formData.append("category", data.category);
-    }
+      if (data.category !== "my-pet") {
+        formData.append("category", data.category);
+      }
 
-    formData.append("name", data.name);
+      formData.append("name", data.name);
 
-    if (data.category !== "my-pet") {
-      formData.append("date", data.dateOfBirth);
-    } else {
-      formData.append("birthday", data.dateOfBirth);
-    }
+      if (data.category !== "my-pet") {
+        formData.append("date", data.dateOfBirth);
+      } else {
+        formData.append("birthday", data.dateOfBirth);
+      }
 
-    formData.append("breed", data.breed);
-    if (data.category !== "my-pet") {
-      formData.append("title", data.title);
-    }
+      formData.append("breed", data.breed);
+      if (data.category !== "my-pet") {
+        formData.append("title", data.title);
+      }
 
-    if (data.category !== "my-pet") {
-      formData.append("file", data.image);
-    } else {
-      formData.append("image", data.image);
-    }
+      if (data.category !== "my-pet") {
+        formData.append("file", data.image);
+      } else {
+        formData.append("image", data.image);
+      }
 
-    if (data.comments) {
-      formData.append("comments", data.comments);
-    }
+      if (data.comments) {
+        formData.append("comments", data.comments);
+      }
 
-    if (data.category === "my-pet") {
-      dispatch(addPet(formData));
-      return;
-    }
+      if (data.category === "my-pet") {
+        await dispatch(addPet(formData));
+        navigate("/user");
+      }
 
-    formData.append("sex", data.sex);
-    formData.append("location", data.place);
+      formData.append("sex", data.sex);
+      formData.append("location", data.place);
 
-    if (data.category === "for-free" || data.category === "lost-found") {
-      dispatch(addNotice(formData));
-      return;
-    }
+      if (data.category === "for-free" || data.category === "lost-found") {
+        await dispatch(addNotice(formData));
+        navigate("/user");
+      }
 
-    formData.append("price", data.price);
+      formData.append("price", data.price);
 
-    if (data.category === "sell") {
-      dispatch(addNotice(formData));
+      if (data.category === "sell") {
+        await dispatch(addNotice(formData));
+        navigate("/user");
+      }
+    } catch (error) {
+    } finally {
+      setIsAdding(false);
+      setIsLoading(false);
     }
   };
 
@@ -174,8 +186,8 @@ export const AddPetForm = () => {
             )}
             <ButtonWrap category={values.category} step={step}>
               {step === 2 ? (
-                <ButtonFilled type="submit">
-                  <span>Done</span>
+                <ButtonFilled type="submit" disabled={isLoading}>
+                  {isLoading ? <Loader /> : <span>Done</span>}
                   <Pets
                     sx={{
                       width: 24,
