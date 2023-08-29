@@ -8,6 +8,8 @@ import {
   fetchNoticesByCategory,
   fetchNoticesByOwn,
   fetchAllFavoriteNotices,
+  fetchAddToFavorite,
+  fetchRemoveFromFavorite,
 } from "./notices-operations";
 
 const initialState = {
@@ -20,6 +22,7 @@ const initialState = {
   page: 1,
   totalPages: 1,
   keyword: "",
+  favoriteItems: [],
 };
 
 const noticesSlice = createSlice({
@@ -125,6 +128,14 @@ const noticesSlice = createSlice({
       .addCase(fetchAllFavoriteNotices.rejected, (store, { payload }) => {
         store.loading = false;
         store.error = payload.notices;
+      })
+      .addCase(fetchAddToFavorite.fulfilled, (state, { payload }) => {
+        state.favoriteItems.push(payload);
+      })
+      .addCase(fetchRemoveFromFavorite.fulfilled, (state, { payload }) => {
+        state.favoriteItems = state.favoriteItems.filter(
+          (item) => item !== payload
+        );
       });
   },
 });
