@@ -7,7 +7,7 @@ import { getFavorite, getUserId } from "../../../redux/auth/auth-selectors";
 import { selectIsLoggedIn } from "../../../redux/auth/auth-selectors";
 import {
   fetchAddToFavorite,
-  // fetchRemoveFromFavorite,
+  fetchRemoveFromFavorite,
   fetchDeleteNotice,
 } from "../../../redux/notices/notices-operations";
 import ModalNotice from "../../ModalNotice/ModalNotice";
@@ -79,6 +79,14 @@ const NoticeCategoryItem = ({
     dispatch(fetchAddToFavorite(_id));
   };
 
+  const removeFromFavorites = () => {
+    if (!isUserRegistered) {
+      setIsAttentionModalOpen(true);
+      return;
+    }
+    dispatch(fetchRemoveFromFavorite(_id));
+  };
+
   function getAge(date) {
     const ymdArr = date.split(".").map(Number).reverse();
     ymdArr[1]--;
@@ -140,8 +148,9 @@ const NoticeCategoryItem = ({
           <p className={css.category}>{updatedCategory} </p>
           {isFavorite && (
             <button
-              className={css.addToFavoritesButton}
-              onClick={addToFavorites}
+              className={css.deleteFavoritesButton}
+              type="button"
+              onClick={removeFromFavorites}
             >
               <svg width="24" height="24">
                 <use href={`${svgSprite}#icon-heart-off`} fill="#54ADFF"></use>
@@ -149,7 +158,11 @@ const NoticeCategoryItem = ({
             </button>
           )}
           {!isFavorite && (
-            <button className={css.deleteFavoritesButton} type="button">
+            <button
+              className={css.addToFavoritesButton}
+              onClick={addToFavorites}
+              type="button"
+            >
               <svg width="24" height="24">
                 <use href={`${svgSprite}#icon-heart-on`}></use>
               </svg>
