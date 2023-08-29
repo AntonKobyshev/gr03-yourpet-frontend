@@ -69,35 +69,35 @@ const NoticeCategoryItem = ({
 
   const handleImageError = () => setImageError(true);
 
-  const addToFavorites = () => {
-    if (!isUserRegistered) {
-      setIsAttentionModalOpen(true);
-      return;
-    }
-
-    dispatch(fetchAddToFavorite(_id));
-  };
-
-  // const handleFavoriteToggle = async () => {
-  //   if (!isUserRegistered) return toasty.toastInfo("You must be logged in");
-  //   if (favorites.includes(_id)) {
-  //     try {
-  //       dispatch(fetchRemoveFromFavorite(_id));
-  //       toasty.toastSuccess("remove from favorite");
-  //       return;
-  //     } catch (e) {
-  //       toasty.toastError(e.message);
-  //     }
-  //   } else {
-  //     try {
-  //       dispatch(fetchAddToFavorite(_id));
-  //       toasty.toastSuccess("add to favorite");
-  //       return;
-  //     } catch (e) {
-  //       toasty.toastError(e.message);
-  //     }
+  // const addToFavorites = () => {
+  //   if (!isUserRegistered) {
+  //     setIsAttentionModalOpen(true);
+  //     return;
   //   }
+
+  //   dispatch(fetchAddToFavorite(_id));
   // };
+
+  const handleFavoriteToggle = async () => {
+    if (!isUserRegistered) return toasty.toastInfo("You must be logged in");
+    if (favorites.includes(_id)) {
+      try {
+        dispatch(fetchRemoveFromFavorite(_id));
+        toasty.toastSuccess("remove from favorite");
+        return;
+      } catch (e) {
+        toasty.toastError(e.message);
+      }
+    } else {
+      try {
+        dispatch(fetchAddToFavorite(_id));
+        toasty.toastSuccess("add to favorite");
+        return;
+      } catch (e) {
+        toasty.toastError(e.message);
+      }
+    }
+  };
 
   // const handleFavoriteToggle = async () => {
   //   if (!isUserRegistered) return toasty.toastInfo("You must be logged in");
@@ -181,7 +181,10 @@ const NoticeCategoryItem = ({
             onError={handleImageError}
           />
           <p className={css.category}>{updatedCategory} </p>
-          <button className={css.addToFavoritesButton} onClick={addToFavorites}>
+          <button
+            className={css.addToFavoritesButton}
+            onClick={handleFavoriteToggle}
+          >
             {favorites ? (
               <svg width="24" height="24">
                 <use href={`${svgSprite}#icon-heart-off`} fill="#54ADFF"></use>
@@ -253,7 +256,7 @@ const NoticeCategoryItem = ({
           name={name}
           // handleFavoriteToggle={handleFavoriteToggle}
           isFavorite={favorites}
-          addToFavorite={addToFavorites}
+          addToFavorite={handleFavoriteToggle}
         />
       )}
       {isDeleteModalOpen && (
