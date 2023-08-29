@@ -40,7 +40,6 @@ const NoticeCategoryItem = ({
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const favorites = useSelector(getFavorite);
   const dispatch = useDispatch();
-  const isFavorite = favorites.includes(_id);
 
   const noticeCategories = Object.freeze({
     SELL: "sell",
@@ -184,25 +183,20 @@ const NoticeCategoryItem = ({
             onError={handleImageError}
           />
           <p className={css.category}>{updatedCategory} </p>
-
-          {isFavorite && (
-            <button
-              className={css.addToFavoritesButton}
-              onClick={addToFavorites}
-            >
+          <button
+            className={css.addToFavoritesButton}
+            onClick={handleFavoriteToggle}
+          >
+            {favorites.includes(_id) ? (
               <svg width="24" height="24">
                 <use href={`${svgSprite}#icon-heart-off`} fill="#54ADFF"></use>
               </svg>
-            </button>
-          )}
-          {!isFavorite && (
-            <button className={css.deleteFavoritesButton} type="button">
+            ) : (
               <svg width="24" height="24">
                 <use href={`${svgSprite}#icon-heart-on`}></use>
               </svg>
-            </button>
-          )}
-
+            )}
+          </button>
           {owner === userId && (
             <button
               className={css.deleteFavoritesButton}
