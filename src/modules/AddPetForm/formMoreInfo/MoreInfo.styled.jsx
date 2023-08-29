@@ -34,9 +34,6 @@ export const GenderTitle = styled.p`
   font-size: 14px;
   color: #111111;
   line-height: 1.36;
-  @media (min-width: 768px) {
-  font-size: 20px;
-  }
 `;
 
 export const GenderLabelBlock = styled.label`
@@ -95,8 +92,6 @@ export const AddPoint = styled.label`
   align-items: center;
   background-color: #cce4fb;
   border-radius: 20px;
-  width: 112px;
-  height: 112px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
 
@@ -145,10 +140,6 @@ export const Point = styled.label`
   font-size: 14px;
   color: #111111;
   line-height: 1.36;
-   @media (min-width: 768px) {
-     font-size: 20px;
-  }
-
 `;
 
 export const Input = styled(Field)`
@@ -162,9 +153,6 @@ export const Input = styled(Field)`
   border-radius: 40px;
   border: 1px solid;
   border-color: ${props => (props.errors ? '#f43f5e' : '#54ADFF')};
-  @media (min-width: 768px) {
-    font-size: 16px;
-  }
 `;
 
 export const PointComment = styled.label`
@@ -174,9 +162,6 @@ export const PointComment = styled.label`
   font-weight: 500;
   font-size: 14px;
   line-height: 1.36;
-   @media (min-width: 768px) {
-     font-size: 20px;
-  }
 `;
 
 export const TextArea = styled(Field)`

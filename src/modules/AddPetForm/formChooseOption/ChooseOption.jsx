@@ -4,12 +4,12 @@ import { Field } from 'formik';
 const ChooseOption = ({ values }) => {
   return (
     <FormCategory role="group" aria-labelledby="category-radio-group">
-      <Form checked={values.category ==='my-pet'}>
+      <Form checked={values.category === 'my-pet'}>
         <Field
           type="radio"
           value="my-pet"
           name="category"
-          checked={values.category ==='my-pet'}
+          checked={values.category === 'my-pet'}
         />
         your pet
       </Form>
@@ -24,16 +24,16 @@ const ChooseOption = ({ values }) => {
         sell
       </Form>
 
-      <Form checked={values.category ==='lost-found'}>
+      <Form checked={values.category === 'lost-found'}>
         <Field
           type="radio"
           value="lost-found"
           name="category"
-          checked={values.category ==='lost-found'}
+          checked={values.category === 'lost-found'}
         />
         lost/found
       </Form>
-      <Form checked={values.category ==='for-free'}>
+      <Form checked={values.category === 'for-free'}>
         <Field
           type="radio"
           value="for-free"

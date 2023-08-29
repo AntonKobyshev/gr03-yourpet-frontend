@@ -17,10 +17,8 @@ export const Form = styled.label`
   cursor: pointer;
   font-weight: 500;
   font-size: 14px;
-  line-height: normal;
+  line-height: calc(19 / 14);
   border-radius: 40px;
-  justify-content: center;
- align-items: center; 
 
   background-color: ${props => (props.checked ? '#54adff' : '#CCE4FB')};
   color: ${props => (props.checked ? '#FEF9F9' : '#54ADFF')};
