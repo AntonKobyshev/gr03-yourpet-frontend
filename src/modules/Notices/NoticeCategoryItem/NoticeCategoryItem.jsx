@@ -7,13 +7,14 @@ import { getFavorite, getUserId } from "../../../redux/auth/auth-selectors";
 import { selectIsLoggedIn } from "../../../redux/auth/auth-selectors";
 import {
   fetchAddToFavorite,
-  // fetchRemoveFromFavorite,
+  fetchRemoveFromFavorite,
   fetchDeleteNotice,
 } from "../../../redux/notices/notices-operations";
 import ModalNotice from "../../ModalNotice/ModalNotice";
 // import ModalDelete from "../../ModalDelete/ModalDelete";
 import ModalAttention from "../../ModalAttention/ModalAttention";
 import ModalDeleteCardNotice from "../../ModalDeleteCardNotice/ModalDeleteCardNotice";
+import * as toasty from "../../../shared/toastify/toastify";
 
 const NoticeCategoryItem = ({
   _id,
