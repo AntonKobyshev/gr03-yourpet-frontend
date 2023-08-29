@@ -34,7 +34,7 @@ const NoticeCategoryItem = ({
   const userId = useSelector(getUserId);
   const [sexIcon, setSexIcon] = useState("icon-male");
   const [isAttentionModalOpen, setIsAttentionModalOpen] = useState(false);
-  const { categoryName } = useParams();
+  // const { categoryName } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   // const [openModal, setOpenModal] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -76,21 +76,8 @@ const NoticeCategoryItem = ({
       setIsAttentionModalOpen(true);
       return;
     }
-    dispatch(
-      fetchAddToFavorite({
-        pet: {
-          _id,
-          title,
-          image,
-          location,
-          date,
-          sex,
-          category,
-          owner,
-        },
-        categoryName,
-      })
-    );
+
+    dispatch(fetchAddToFavorite(_id));
   };
 
   function getAge(date) {
