@@ -78,6 +78,50 @@ const NoticeCategoryItem = ({
     dispatch(fetchAddToFavorite(_id));
   };
 
+  // const handleFavoriteToggle = async () => {
+  //   if (!isUserRegistered) return toasty.toastInfo("You must be logged in");
+  //   if (favorites.includes(_id)) {
+  //     try {
+  //       dispatch(fetchRemoveFromFavorite(_id));
+  //       toasty.toastSuccess("remove from favorite");
+  //       return;
+  //     } catch (e) {
+  //       toasty.toastError(e.message);
+  //     }
+  //   } else {
+  //     try {
+  //       dispatch(fetchAddToFavorite(_id));
+  //       toasty.toastSuccess("add to favorite");
+  //       return;
+  //     } catch (e) {
+  //       toasty.toastError(e.message);
+  //     }
+  //   }
+  // };
+
+  // const handleFavoriteToggle = async () => {
+  //   if (!isUserRegistered) return toasty.toastInfo("You must be logged in");
+  //   if (favorites.includes(_id)) {
+  //     try {
+  //       await dispatch(fetchRemoveFromFavorite(_id));
+  //       toasty.toastSuccess("remove from favorite");
+  //       dispatch(updateFavoritesAfterRemove(_id));
+  //       return;
+  //     } catch (e) {
+  //       toasty.toastError(e.message);
+  //     }
+  //   } else {
+  //     try {
+  //       await dispatch(fetchAddToFavorite(_id));
+  //       toasty.toastSuccess("add to favorite");
+  //       dispatch(updateFavoritesAfterAdd(_id));
+  //       return;
+  //     } catch (e) {
+  //       toasty.toastError(e.message);
+  //     }
+  //   }
+  // };
+
   function getAge(date) {
     const ymdArr = date.split(".").map(Number).reverse();
     ymdArr[1]--;
