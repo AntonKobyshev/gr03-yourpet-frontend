@@ -36,3 +36,13 @@
   color: inherit;
   width: 100%;
 }
+
+.myСomponent.dark .contact {
+  color: #c9c7c7;
+  background-color: #417075;
+  border: 2px solid #c9c7c7;
+}
+
+.myСomponent.dark .contact:hover {
+  background: linear-gradient(290.46deg, #55787c 0%, #64999e 107.89%);
+}

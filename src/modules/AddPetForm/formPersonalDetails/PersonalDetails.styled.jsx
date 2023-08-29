@@ -11,10 +11,7 @@ export const Point = styled.label`
   position: relative;
   font-weight: 500;
   font-size: 14px;
-  @media (min-width: 768px) {
-  font-size: 20px;
-  }
-
+  
   line-height: calc(19 / 14);
   color: #111111;
 
@@ -46,9 +43,6 @@ export const Input = styled(Field)`
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
-  @media (min-width: 768px) {
-  font-size: 16px;
-  }
 
   outline: none;
   border-radius: 40px;
