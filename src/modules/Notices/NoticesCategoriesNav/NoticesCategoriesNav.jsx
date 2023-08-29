@@ -7,7 +7,7 @@ import * as toasty from "../../../shared/toastify/toastify";
 import PlusIcon from "../../../icons/PlusIcon";
 
 import css from "./NoticesCategoriesNav.module.css";
-
+import Filter from "../NoticesFilters/NoticesFilters";
 const link = [
   { to: "sell", text: "sell" },
   { to: "lost-found", text: "lost/found" },
@@ -71,7 +71,7 @@ const NoticesCategoriesNav = ({ onOwnClick, onFavoriteClick }) => {
           )}
         </ul>
         <div className={css.btnContainer}>
-          {/* <Filter /> */}
+          <Filter />
           <button className={css.btn} onClick={handleClick}>
             Add Pet <PlusIcon color="#FEF9F9" className={css.iconBtn} />
           </button>
