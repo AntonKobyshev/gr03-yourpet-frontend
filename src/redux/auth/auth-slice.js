@@ -19,7 +19,7 @@ const initialState = {
     birthday: "",
     phone: "",
     city: "",
-    image: "",
+    imageURL: "",
     favorite: [],
     itemsFavorite: [],
   },
