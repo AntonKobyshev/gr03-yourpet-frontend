@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import css from "./NoticesFilters.module.css";
 import FilterIconBlue from "../../../images/icons/filterBlue.svg";
 import FilterIconWhite from "../../../images/icons/filterWhite.svg";
-
 import ArrowDown from "../../../images/icons/chevron-down.svg";
 import Box from "../../../images/icons/round.svg";
+import {
+  setAgeFilter,
+  setGenderFilter,
+} from "../../../redux/filter/filter-slice";
+import { useDispatch } from "react-redux";
 const Filter = () => {
   const [isFilterOpen, setFilterOpen] = useState(false);
   const [isAgeMenuOpen, setAgeMenuOpen] = useState(false);
   const [isGenderMenuOpen, setGenderMenuOpen] = useState(false);
   const [selectedAges, setSelectedAges] = useState([]);
   const [selectedGenders, setSelectedGenders] = useState([]);
+  const dispatch = useDispatch();
 
   const toggleFilter = () => {
     setFilterOpen(!isFilterOpen);
@@ -40,6 +45,14 @@ const Filter = () => {
     }
   };
 
+  useEffect(() => {
+    dispatch(setAgeFilter(selectedAges));
+  }, [selectedAges, dispatch]);
+
+  useEffect(() => {
+    dispatch(setGenderFilter(selectedGenders));
+  }, [selectedGenders, dispatch]);
+
   return (
     <div>
       <button
@@ -67,8 +80,8 @@ const Filter = () => {
               <label className={css.checkbox}>
                 <input
                   type="checkbox"
-                  checked={selectedAges.includes("up to 1 year")}
-                  onChange={() => toggleAgeOption("up to 1 year")}
+                  checked={selectedAges.includes("0-1")}
+                  onChange={() => toggleAgeOption("0-1")}
                 />
                 <img src={Box} alt="chekbox" className={css.checkmark} />
                 up to 1 year
@@ -76,8 +89,8 @@ const Filter = () => {
               <label className={css.checkbox}>
                 <input
                   type="checkbox"
-                  checked={selectedAges.includes("up to 2 years")}
-                  onChange={() => toggleAgeOption("up to 2 years")}
+                  checked={selectedAges.includes("1-2")}
+                  onChange={() => toggleAgeOption("1-2")}
                 />
                 <img src={Box} alt="chekbox" className={css.checkmark} />
                 up to 2 years
@@ -85,8 +98,8 @@ const Filter = () => {
               <label className={css.checkbox}>
                 <input
                   type="checkbox"
-                  checked={selectedAges.includes("from 2 years")}
-                  onChange={() => toggleAgeOption("from 2 years")}
+                  checked={selectedAges.includes("2+")}
+                  onChange={() => toggleAgeOption("2+")}
                 />
                 <img src={Box} alt="chekbox" className={css.checkmark} />
                 from 2 years
