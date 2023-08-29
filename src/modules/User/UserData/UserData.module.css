@@ -1,46 +1,27 @@
-.userContainer {
-  position: relative;
-  height: 517px;
-  width: 280px;
-  padding: 20px 8px;
-  margin: auto;
-  margin-top: 18px;
-
-  border-radius: 20px;
-
-  background-color: #ffffff;
-  box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.2);
-
-  @media screen and (min-width: 768px) {
-    width: 704px;
-    height: 268px;
-    padding: 20px;
-    border-radius: 40px;
-    margin-top: 24px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 395px;
-    height: 520px;
+@media screen and (min-width: 280px) {
+  .container {
+    margin-top: 18px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
-.editBtn {
-  position: absolute;
-  top: 14px;
-  right: 14px;
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 704px;
+    margin-top: 24px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  width: 24px;
-  height: 24px;
-  border: none;
-  background-color: transparent;
-
-  @media screen and (min-width: 768px) {
-    top: 18px;
-    right: 18px;
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1248px;
+    display: flex;
+    justify-content: space-around;
+    margin-right: auto;
+    margin-left: auto;
   }
 }

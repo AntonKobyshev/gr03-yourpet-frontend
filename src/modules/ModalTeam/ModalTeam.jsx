@@ -5,11 +5,15 @@ import CloseIcon from "@mui/icons-material/Close";
 import github from "../../images/icons/github.svg";
 import linkedin from "../../images/icons/linkedin.svg";
 import teams from "../../images/icons/teams.svg";
+import incognito from "../../images/team/incognito.jpg";
 import yurii from "../../images/team/yurii.webp";
 import taras from "../../images/team/taras.webp";
-import incognito from "../../images/team/incognito.jpg";
 import anna from "../../images/team/anna.webp";
 import tanya from "../../images/team/tanya.webp";
+import anton from "../../images/team/anton.webp";
+import serhii from "../../images/team/serhii.webp";
+import markiian from "../../images/team/markiian.webp";
+import kostiantyn from "../../images/team/kostiantyn.webp";
 
 const style = {
   position: "absolute",
@@ -57,7 +61,7 @@ const ModalTeam = () => {
                 <li className={css.teamItem}>
                   <img
                     className={css.image}
-                    src={incognito}
+                    src={anton}
                     alt={"Anton Kobyshev"}
                   />
                   <p className={css.title}>
@@ -80,7 +84,7 @@ const ModalTeam = () => {
                     </a>
                     <a
                       className={css.socialLink}
-                      href="http://linkedin.com"
+                      href="https://www.linkedin.com/in/antonkobyshev/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -95,7 +99,7 @@ const ModalTeam = () => {
                 <li className={css.teamItem}>
                   <img
                     className={css.image}
-                    src={incognito}
+                    src={serhii}
                     alt={"Serhii Shmatok"}
                   />
                   <p className={css.title}>
@@ -118,7 +122,7 @@ const ModalTeam = () => {
                     </a>
                     <a
                       className={css.socialLink}
-                      href="http://linkedin.com"
+                      href="https://www.linkedin.com/in/cryosphere/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -280,7 +284,7 @@ const ModalTeam = () => {
                 <li className={css.teamItem}>
                   <img
                     className={css.image}
-                    src={incognito}
+                    src={markiian}
                     alt={"Markiian Levytskyi"}
                   />
                   <p className={css.title}>
@@ -303,7 +307,7 @@ const ModalTeam = () => {
                     </a>
                     <a
                       className={css.socialLink}
-                      href="http://linkedin.com"
+                      href="https://www.linkedin.com/in/markiian-levitskiy-292a0220a/?originalSubdomain=ua"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -318,7 +322,7 @@ const ModalTeam = () => {
                 <li className={css.teamItem}>
                   <img
                     className={css.image}
-                    src={incognito}
+                    src={kostiantyn}
                     alt={"Kostiantyn Tymoshenko"}
                   />
                   <p className={css.title}>
@@ -341,7 +345,7 @@ const ModalTeam = () => {
                     </a>
                     <a
                       className={css.socialLink}
-                      href="http://linkedin.com"
+                      href="https://www.linkedin.com/in/kostiantyn-tymoshenko/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
