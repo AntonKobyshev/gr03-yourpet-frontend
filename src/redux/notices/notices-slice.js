@@ -7,6 +7,7 @@ import {
   fetchDeleteNotice,
   fetchNoticesByCategory,
   fetchNoticesByOwn,
+  fetchAllFavoriteNotices,
 } from "./notices-operations";
 
 const initialState = {
@@ -107,6 +108,21 @@ const noticesSlice = createSlice({
         store.totalPages = payload.totalPages;
       })
       .addCase(fetchNoticesByOwn.rejected, (store, { payload }) => {
+        store.loading = false;
+        store.error = payload.notices;
+      })
+      .addCase(fetchAllFavoriteNotices.pending, (store) => {
+        store.loading = true;
+        store.items = [];
+        store.category = "";
+      })
+      .addCase(fetchAllFavoriteNotices.fulfilled, (store, { payload }) => {
+        store.loading = false;
+        store.items = [...payload.notices];
+        store.page = Number(payload.page);
+        store.totalPages = payload.totalPages;
+      })
+      .addCase(fetchAllFavoriteNotices.rejected, (store, { payload }) => {
         store.loading = false;
         store.error = payload.notices;
       });
