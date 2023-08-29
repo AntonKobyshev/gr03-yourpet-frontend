@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../../../redux/auth/auth-operations";
 import ModalApproveAction from "../../ModalApproveAction/ModalApproveAction";
 import ApproveLeaving from "../../ApproveLeaving/ApproveLeaving";
-import Tooltip from "./Tooltip";
+
 import { userFormSchema } from "../../../shared/helpers/schemas";
 import { useSelector } from "react-redux";
 
@@ -145,10 +145,7 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
               <div className={css.inputsContainer}>
                 <div className={css.formLabelBox}>
                   <label htmlFor="name">Name:</label>
-                  <Tooltip
-                    text={errors.name}
-                    show={touched.name && errors.name}
-                  >
+                  
                     <Field
                       className={`${css.input} ${
                         touched.name && errors.name ? css.errorInput : ""
@@ -158,14 +155,11 @@ const UserForm = ({ initialValues, editing, onEdit }) => {
                       name="name"
                       readOnly={!editing}
                     />
-                  </Tooltip>
+                  
                 </div>
                 <div className={css.formLabelBox}>
                   <label htmlFor="email">Email:</label>
-                  <Tooltip
-                    text={errors.email}
-                    show={touched.email && errors.email}
-                  >
+                
                     <Field
                       className={`${css.input} ${
                         touched.email && errors.email ? css.errorInput : ""
