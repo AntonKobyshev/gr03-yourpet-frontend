@@ -28,6 +28,7 @@ const NoticeCategoryItem = ({
   breed,
   owner,
   name,
+  favorite,
 }) => {
   const [imageError, setImageError] = useState(false);
   const userId = useSelector(getUserId);
@@ -186,7 +187,7 @@ const NoticeCategoryItem = ({
             className={css.addToFavoritesButton}
             onClick={handleFavoriteToggle}
           >
-            {favorites ? (
+            {favorites.includes(_id) ? (
               <svg width="24" height="24">
                 <use href={`${svgSprite}#icon-heart-off`} fill="#54ADFF"></use>
               </svg>
