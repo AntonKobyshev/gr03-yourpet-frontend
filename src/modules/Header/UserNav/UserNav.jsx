@@ -92,7 +92,7 @@ export default function UserNav() {
                 to="/user"
                 onClick={closeMenu}
               >
-                <img src={user.imageURL} alt="user icon" width="28" />
+                <img src={user.image} alt="user icon" width="28" />
                 <p>{user.name}</p>
               </Link>
             </>
@@ -113,7 +113,7 @@ export default function UserNav() {
         {isMenuShown && (
           <div className={css.burgerMenu}>
             <Link className={css.userInfoMobile} to="/user" onClick={closeMenu}>
-              <img src={user.imageURL} alt="user icon" width="28" />
+              <img src={user.image} alt="user icon" width="28" />
               <p>{user.name}</p>
             </Link>
             <Nav onClick={closeMenu} />
