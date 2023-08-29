@@ -66,7 +66,7 @@ const NoticeCategoryItem = ({
     } else {
       setSexIcon("icon-male");
     }
-  }, [sex]);
+  }, [sex, favorites]);
 
   const handleImageError = () => setImageError(true);
 
