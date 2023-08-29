@@ -106,6 +106,7 @@ const authSlice = createSlice({
       .addCase(logout.fulfilled, (state) => {
         state.isLoading = false;
         state.user = {};
+        state.pets = {};
         state.registrationSuccessful = false;
         state.token = null;
         state.isLoggedIn = false;

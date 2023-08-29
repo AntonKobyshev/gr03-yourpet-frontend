@@ -26,9 +26,14 @@ const UserPage = lazy(() => import("./pages/UserPage/UserPage"));
 function App() {
   const { isRefreshing } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
   useEffect(() => {
-    dispatch(fetchUser());
-  }, [dispatch]);
+    if (isLoggedIn) {
+      dispatch(fetchUser());
+    }
+  }, [isLoggedIn, dispatch]);
+
   useEffect(() => {
     dispatch(current());
   }, [dispatch]);
