@@ -82,11 +82,7 @@ export const AddPetForm = () => {
         formData.append("title", data.title);
       }
 
-      if (data.category !== "my-pet") {
-        formData.append("file", data.image);
-      } else {
-        formData.append("image", data.image);
-      }
+      formData.append("image", data.image);
 
       if (data.comments) {
         formData.append("comments", data.comments);
