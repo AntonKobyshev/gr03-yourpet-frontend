@@ -1,118 +1,31 @@
-import { useState, useRef, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { Formik, Form } from "formik";
-import { logout } from "../../../redux/auth/auth-operations";
-import ApproveLeaving from "../../ApproveLeaving/ApproveLeaving";
-import { fetchUpdateUser } from "../../../redux/auth/auth-operations";
-import {
-  selectAuth,
-  selectIsLoading,
-  selectIsLoggedIn,
-  selectlogoutSuccessful,
-  userInfo,
-} from "../../../redux/auth/auth-selectors";
-import ModalApproveAction from "../../ModalApproveAction/ModalApproveAction";
-import Loader from "../../../shared/components/Loader/Loader";
+import React, { useState } from "react";
+import { Formik, Form, Field } from "formik";
 import css from "./UserForm.module.css";
-import UserAvatar from "../UserAvatar/UserAvatar";
-import UserLogoutBtn from "../UserLogoutBtn/UserLogoutBtn";
-import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
-import CloseIcon from "@mui/icons-material/Close";
-import { fields } from '../../../shared/helpers/constants'
+import Logout from "../../Header/Logout/Logout";
+import CameraIcon from "../../../images/icons/camera.svg";
+import CheckIcon from "../../../images/icons/check.svg";
+import CrossIcon from "../../../images/icons/cross14.svg";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../../../redux/auth/auth-operations";
+import ModalApproveAction from "../../ModalApproveAction/ModalApproveAction";
+import ApproveLeaving from "../../ApproveLeaving/ApproveLeaving";
 
-const UserForm = () => {
-  const { token } = useSelector(selectAuth);
-  const isLoading = useSelector(selectIsLoading);
-  const { user } = useSelector(userInfo);
-  const [isEditing, setIsEditing] = useState(false);
+import { userFormSchema } from "../../../shared/helpers/schemas";
+import { useSelector } from "react-redux";
 
-  const [formData, setFormData] = useState({
-    name: user.name,
-    email: user.email,
-    birthday: user.birthday,
-    phone: user.phone,
-    city: user.city,
-  });
+const UserForm = ({ initialValues, editing, onEdit }) => {
+  const [avatarPreview, setAvatarPreview] = useState(initialValues.image);
+  const [avatarUploaded, setAvatarUploaded] = useState(false);
+  const [showConfirmButtons, setShowConfirmButtons] = useState(false);
+  const [saveButtonClicked, setSaveButtonClicked] = useState(false);
+  const [hasValidationErrors, setHasValidationErrors] = useState(false);
 
-  const [editingFields, setEditingFields] = useState({
-    name: false,
-    email: false,
-    birthday: false,
-    phone: false,
-    city: false,
-  });
-
-  const [editAllFields, setEditAllFields] = useState(false);
+  const { user } = useSelector((state) => state.auth);
 
   const [open, setOpen] = useState(false);
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  const logoutSuccessful = useSelector(selectlogoutSuccessful);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!isLoading && !isLoggedIn && logoutSuccessful) {
-      setOpen(false);
-    }
-  }, [isLoading, isLoggedIn, logoutSuccessful]);
-
-  const handleChangeInput = (event) => {
-    const { name, value } = event.target;
-    return setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
-
-  const handleSaveChanges = async () => {
-    try {
-      const updatedData = {};
-      for (const fieldName in formData) {
-        const value = formData[fieldName];
-        if (value !== user[fieldName]) {
-          updatedData[fieldName] = value;
-        }
-      }
-      if (Object.keys(updatedData).length === 0) {
-        return;
-      }
-      const results = [];
-      for (const fieldName in updatedData) {
-        const value = updatedData[fieldName];
-        const result = await dispatch(
-          fetchUpdateUser({
-            token,
-            fieldToUpdate: fieldName,
-            newValue: value,
-          })
-        );
-        results.push(result);
-      }
-      results.forEach((result) => {
-        if (result.meta.requestStatus !== "fulfilled") {
-          const updatedUser = {
-            ...user,
-            [result.payload.fieldToUpdate]: result.payload.newValue,
-          };
-          dispatch(userInfo.actions.setUser(updatedUser));
-        }
-      });
-    } catch (error) {}
-  };
-
-  const handleEditAllFields = () => {
-    setEditAllFields(!editAllFields);
-    setIsEditing(!editAllFields);
-    setEditingFields((prevEditingFields) => {
-      const updatedEditingFields = {};
-      for (const fieldName in prevEditingFields) {
-        updatedEditingFields[fieldName] = !editAllFields;
-      }
-      return updatedEditingFields;
-    });
-  };
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -122,8 +35,221 @@ const UserForm = () => {
     navigate("/");
   };
 
+  const handleSaveClick = () => {
+    // Якщо була спроба натиснути кнопку "Save"
+    if (saveButtonClicked) {
+      // Якщо є помилки валідації, не виконуємо onEdit
+      if (!hasValidationErrors) {
+        onEdit(false);
+      }
+    }
+  };
+  const handleEditPhotoClick = () => {
+    const fileInput = document.getElementById("avatar");
+
+    fileInput.click();
+  };
+
+  const handleAvatarChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setAvatarPreview(reader.result);
+        setAvatarUploaded(true);
+        setShowConfirmButtons(true);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setAvatarPreview(null);
+      setAvatarUploaded(false);
+      setShowConfirmButtons(false);
+    }
+  };
+
+  const handleDeleteAvatar = () => {
+    setAvatarPreview(null);
+    setShowConfirmButtons(false);
+  };
+
+  const handleConfirmClick = () => {
+    setShowConfirmButtons(false);
+  };
+
   return (
-    <>
+    <div className={css.formContainer}>
+      <div className={css.imageWrapper}>
+        <img src={user.imageURL} alt="avatar" className={css.userImage} />
+
+        {editing && !showConfirmButtons && (
+          <button
+            type="button"
+            className={css.editPhotoButton}
+            onClick={handleEditPhotoClick}
+          >
+            <img src={CameraIcon} alt={"Camera icon"} />
+            Edit photo
+          </button>
+        )}
+
+        {editing && avatarUploaded && showConfirmButtons && (
+          <div className={css.confirmButtons}>
+            <button
+              type="button"
+              className={css.confirmBtn}
+              onClick={handleConfirmClick}
+            >
+              <img src={CheckIcon} alt={"Check icon"} />
+            </button>
+            <p>Confirm</p>
+            <button
+              type="button"
+              className={css.deleteBtn}
+              onClick={handleDeleteAvatar}
+            >
+              <img src={CrossIcon} alt={"Cross icon"} />
+            </button>
+          </div>
+        )}
+      </div>
+
+      <div>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={userFormSchema}
+          onSubmit={handleSaveClick}
+          validate={(values) => {
+            try {
+              userFormSchema.validateSync(values, { abortEarly: false });
+              setHasValidationErrors(false);
+            } catch (validationError) {
+              setHasValidationErrors(true);
+            }
+          }}
+        >
+          {({ errors, touched }) => (
+            <Form>
+              <div className={css.formAvatar}>
+                <Field
+                  className={css.input}
+                  type="file"
+                  id="avatar"
+                  name="avatar"
+                  accept=".jpg, .jpeg, .png"
+                  onChange={handleAvatarChange}
+                  style={{ display: "none" }}
+                  readOnly={!editing}
+                />
+              </div>
+              <div className={css.inputsContainer}>
+                <div className={css.formLabelBox}>
+                  <label htmlFor="name">Name:</label>
+                  
+                    <Field
+                      className={`${css.input} ${
+                        touched.name && errors.name ? css.errorInput : ""
+                      }`}
+                      type="text"
+                      id="name"
+                      name="name"
+                      readOnly={!editing}
+                    />
+                  
+                </div>
+                <div className={css.formLabelBox}>
+                  <label htmlFor="email">Email:</label>
+                
+                    <Field
+                      className={`${css.input} ${
+                        touched.email && errors.email ? css.errorInput : ""
+                      }`}
+                      type="email"
+                      id="email"
+                      name="email"
+                      readOnly={!editing}
+                    />
+                  </Tooltip>
+                </div>
+                <div className={css.formLabelBox}>
+                  <label htmlFor="birthday">Birthday:</label>
+                  <Tooltip
+                    text={errors.birthday}
+                    show={touched.birthday && errors.birthday}
+                  >
+                    <Field
+                      className={`${css.input} ${
+                        touched.birthday && errors.birthday
+                          ? css.errorInput
+                          : ""
+                      }`}
+                      type="date"
+                      id="birthday"
+                      name="birthday"
+                      format="DD-MM-YYYY"
+                      readOnly={!editing}
+                    />
+                  </Tooltip>
+                </div>
+                <div className={css.formLabelBox}>
+                  <label htmlFor="phone">Phone:</label>
+                  <Tooltip
+                    text={errors.phone}
+                    show={touched.phone && errors.phone}
+                  >
+                    <Field
+                      className={`${css.input} ${
+                        touched.phone && errors.phone ? css.errorInput : ""
+                      }`}
+                      type="number"
+                      id="phone"
+                      name="phone"
+                      readOnly={!editing}
+                    />
+                  </Tooltip>
+                </div>
+                <div className={css.formLabelBox}>
+                  <label htmlFor="city">City:</label>
+                  <Tooltip
+                    text={errors.city}
+                    show={touched.city && errors.city}
+                  >
+                    <Field
+                      className={`${css.input} ${
+                        touched.city && errors.city ? css.errorInput : ""
+                      }`}
+                      type="text"
+                      id="city"
+                      name="city"
+                      readOnly={!editing}
+                    />
+                  </Tooltip>
+                </div>
+              </div>
+              {editing ? (
+                <div className={css.buttonContainer}>
+                  <button
+                    type="submit"
+                    className={css.saveBtn}
+                    onClick={() => {
+                      setSaveButtonClicked(true);
+                      handleSaveClick();
+                    }}
+                  >
+                    Save
+                  </button>
+                </div>
+              ) : (
+                <Logout
+                  className={css.logoutBtnProfile}
+                  onClick={handleOpen}
+                  iconColor="blue"
+                />
+              )}
+            </Form>
+          )}
+        </Formik>
+      </div>
       {open && (
         <ModalApproveAction
           handleOpen={handleOpen}
@@ -136,81 +262,8 @@ const UserForm = () => {
           />
         </ModalApproveAction>
       )}
-      <div>
-        {isLoading && <Loader />}
-
-        <div className={css.myСomponent}>
-          <div className={css.wrapper}>
-            <Formik
-              initialValues={{
-                name: user.name,
-                email: user.email,
-                birthday: user.birthday,
-                phone: user.phone,
-                city: user.city,
-              }}
-            >
-              {({ errors, touched }) => (
-                <Form className={css.forma}>
-                  <div className={css.buttonContainer}>
-                    <button
-                      onClick={handleEditAllFields}
-                      className={css.button}
-                    >
-                      {editAllFields ? (
-                        <CloseIcon className={css.icon} />
-                      ) : (
-                        <DriveFileRenameOutlineIcon className={css.icon} />
-                      )}
-                    </button>
-                  </div>
-
-                  <UserAvatar
-                    isEditing={isEditing}
-                    setIsEditing={setIsEditing}
-                  />
-                  {user && (
-                    <div className={css.formWrapper}>
-                      {fields.map((field) => (
-                        <div className={css.row} key={field.fieldName}>
-                          <label className={css.label}>{field.label}:</label>
-
-                          <div className={css.inputContainer}>
-                            <input
-                              name={field.fieldName}
-                              type={field.type}
-                              className={css.input}
-                              value={formData[field.fieldName]}
-                              placeholder={field.placeholder}
-                              required={field.email}
-                              onChange={handleChangeInput}
-                              disabled={!editingFields[field.fieldName]}
-                            />
-                            {errors[field.fieldName] &&
-                            touched[field.fieldName] ? (
-                              <div>{errors[field.fieldName]}</div>
-                            ) : null}
-                          </div>
-                        </div>
-                      ))}
-                      <UserLogoutBtn handleOpen={handleOpen} />
-                      {isEditing && (
-                        <button
-                          className={css.btnSave}
-                          onClick={handleSaveChanges}
-                        >
-                          Save Changes
-                        </button>
-                      )}
-                    </div>
-                  )}
-                </Form>
-              )}
-            </Formik>
-          </div>
-        </div>
-      </div>
-    </>
+    </div>
   );
 };
+
 export default UserForm;

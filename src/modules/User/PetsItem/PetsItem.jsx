@@ -6,7 +6,7 @@ import css from "./PetsItem.module.css";
 import ModalApproveActionDeletePet from "../../ModalApproveActionDeletePet/ModalApproveActionDeletePet";
 
 const PetsItem = ({
-  pet: { imageURL, name, _id, birthday, breed, comments },
+  pet: { image, name, _id, birthday, breed, comments },
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -27,7 +27,7 @@ const PetsItem = ({
       <div className={css.imgWrapper}>
         <img
           className={css.img}
-          src={imageURL ? imageURL : defaultImageUrl}
+          src={image ? image : defaultImageUrl}
           alt="pet"
         />
       </div>
