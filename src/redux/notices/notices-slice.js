@@ -129,17 +129,15 @@ const noticesSlice = createSlice({
         store.loading = false;
         store.error = payload.notices;
       })
-      .addCase(fetchAddToFavorite.pending, (state) => {
-        state.isLoading = true;
+      .addCase(fetchAddToFavorite.pending, (store) => {
+        store.isLoading = true;
       })
-      .addCase(fetchAddToFavorite.fulfilled, (state, { payload }) => {
-        const { id } = payload;
-        state.user.favorite.push(id);
-        state.user.itemsFavorite = [id];
+      .addCase(fetchAddToFavorite.fulfilled, (store, { payload }) => {
+        store.itemsFavorite.push(payload);
       })
-      .addCase(fetchAddToFavorite.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
+      .addCase(fetchAddToFavorite.rejected, (store, { payload }) => {
+        store.isLoading = false;
+        store.error = payload;
       })
       .addCase(fetchRemoveFromFavorite.pending, (state) => {
         return {
@@ -148,22 +146,11 @@ const noticesSlice = createSlice({
         };
       })
       .addCase(fetchRemoveFromFavorite.fulfilled, (state, { payload }) => {
+        state.itemsFavorite = state.itemsFavorite.filter(
+          ({ _id }) => _id !== payload
+        );
         state.isLoading = false;
-        const favoriteList = state.user.favorite;
-        const itemsFavoriteList = state.user.itemsFavorite;
-
-        if (favoriteList) {
-          state.user.favorite = favoriteList.filter((id) => id !== payload.id);
-        }
-
-        if (itemsFavoriteList) {
-          const indexItemFavorite = itemsFavoriteList.findIndex(({ _id }) => {
-            return _id === payload.id;
-          });
-          if (indexItemFavorite !== -1) {
-            itemsFavoriteList.splice(indexItemFavorite, 1);
-          }
-        }
+        state.isError = null;
       })
       .addCase(fetchRemoveFromFavorite.rejected, (state, { payload }) => {
         state.isLoading = false;
