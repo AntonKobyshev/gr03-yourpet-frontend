@@ -71,7 +71,7 @@ const ModalNotice = ({
               <div className={css.contentContainer}>
                 <img
                   className={css.image}
-                  src={item.file}
+                  src={item.image}
                   alt={item.title}
                   loading="lazy"
                 />
