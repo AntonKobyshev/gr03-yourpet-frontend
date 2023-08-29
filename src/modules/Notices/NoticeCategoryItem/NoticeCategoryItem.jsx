@@ -189,7 +189,7 @@ const NoticeCategoryItem = ({
             <button
               className={css.deleteFavoritesButton}
               type="button"
-              onClick={removeFromFavorites}
+              onClick={handleFavoriteToggle}
             >
               <svg width="24" height="24">
                 <use href={`${svgSprite}#icon-heart-off`} fill="#54ADFF"></use>
@@ -199,7 +199,7 @@ const NoticeCategoryItem = ({
           {!isFavorite && (
             <button
               className={css.addToFavoritesButton}
-              onClick={addToFavorites}
+              onClick={handleFavoriteToggle}
               type="button"
             >
               <svg width="24" height="24">
