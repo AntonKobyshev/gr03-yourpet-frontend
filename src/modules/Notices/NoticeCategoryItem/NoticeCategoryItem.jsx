@@ -19,7 +19,7 @@ import ModalDeleteCardNotice from "../../ModalDeleteCardNotice/ModalDeleteCardNo
 
 const NoticeCategoryItem = ({
   _id,
-  file,
+  image,
   category,
   title,
   location,
@@ -81,7 +81,7 @@ const NoticeCategoryItem = ({
         pet: {
           _id,
           title,
-          file,
+          image,
           location,
           date,
           sex,
@@ -146,7 +146,7 @@ const NoticeCategoryItem = ({
         <div className={css.imageWrapper}>
           <img
             className={css.image}
-            src={imageError ? imagePet : file}
+            src={imageError ? imagePet : image}
             alt={title}
             loading="lazy"
             onError={handleImageError}
@@ -212,7 +212,7 @@ const NoticeCategoryItem = ({
           openModal={handleOpenModal}
           onClose={handleCloseModal}
           _id={_id}
-          file={file}
+          image={image}
           category={category}
           location={location}
           date={date}
