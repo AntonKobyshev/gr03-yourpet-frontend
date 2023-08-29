@@ -68,7 +68,7 @@ const NoticeCategoryItem = ({
     } else {
       setSexIcon("icon-male");
     }
-  }, [sex]);
+  }, [sex, favorites]);
 
   const handleImageError = () => setImageError(true);
 
@@ -85,7 +85,7 @@ const NoticeCategoryItem = ({
     if (!isUserRegistered) return toasty.toastInfo("You must be logged in");
     if (favorites.includes(_id)) {
       try {
-        await dispatch(fetchRemoveFromFavorite(_id));
+        dispatch(fetchRemoveFromFavorite(_id));
         toasty.toastSuccess("remove from favorite");
         return;
       } catch (e) {
@@ -93,7 +93,7 @@ const NoticeCategoryItem = ({
       }
     } else {
       try {
-        await dispatch(fetchAddToFavorite(_id));
+        dispatch(fetchAddToFavorite(_id));
         toasty.toastSuccess("add to favorite");
         return;
       } catch (e) {
@@ -101,6 +101,29 @@ const NoticeCategoryItem = ({
       }
     }
   };
+
+  // const handleFavoriteToggle = async () => {
+  //   if (!isUserRegistered) return toasty.toastInfo("You must be logged in");
+  //   if (favorites.includes(_id)) {
+  //     try {
+  //       await dispatch(fetchRemoveFromFavorite(_id));
+  //       toasty.toastSuccess("remove from favorite");
+  //       dispatch(updateFavoritesAfterRemove(_id));
+  //       return;
+  //     } catch (e) {
+  //       toasty.toastError(e.message);
+  //     }
+  //   } else {
+  //     try {
+  //       await dispatch(fetchAddToFavorite(_id));
+  //       toasty.toastSuccess("add to favorite");
+  //       dispatch(updateFavoritesAfterAdd(_id));
+  //       return;
+  //     } catch (e) {
+  //       toasty.toastError(e.message);
+  //     }
+  //   }
+  // };
 
   function getAge(date) {
     const ymdArr = date.split(".").map(Number).reverse();
@@ -165,13 +188,13 @@ const NoticeCategoryItem = ({
             className={css.addToFavoritesButton}
             onClick={handleFavoriteToggle}
           >
-            {favorites ? (
+            {favorites.includes(_id) ? (
               <svg width="24" height="24">
-                <use href={`${svgSprite}#icon-heart-on`} fill="#54ADFF"></use>
+                <use href={`${svgSprite}#icon-heart-off`} fill="#54ADFF"></use>
               </svg>
             ) : (
               <svg width="24" height="24">
-                <use href={`${svgSprite}#icon-heart-off`}></use>
+                <use href={`${svgSprite}#icon-heart-on`}></use>
               </svg>
             )}
           </button>
