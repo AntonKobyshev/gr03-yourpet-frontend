@@ -88,7 +88,7 @@ export const AddPetForm = () => {
 
     if (data.category === "my-pet") {
       dispatch(addPet(formData));
-      return;
+      navigate('/user');
     }
 
     formData.append("sex", data.sex);
@@ -96,13 +96,14 @@ export const AddPetForm = () => {
 
     if (data.category === "for-free" || data.category === "lost-found") {
       dispatch(addNotice(formData));
-      return;
+      navigate('/user');
     }
 
     formData.append("price", data.price);
 
     if (data.category === "sell") {
       dispatch(addNotice(formData));
+      navigate('/user');
     }
   };
 
