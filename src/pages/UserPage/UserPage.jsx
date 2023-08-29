@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { selectIsLoading, isModalOpen, selectRegistrationSuccessful } from '../../redux/auth/auth-selectors';
-import { fetchUser, openModal } from '../../redux/auth/auth-operations';
+import { selectIsLoading, isModalOpen } from '../../redux/auth/auth-selectors';
+import { fetchUser } from '../../redux/auth/auth-operations';
 
 import ModalCongrats from '../../modules/ModalCongrats/ModalCongrats';
 import Loader from '../../shared/components/Loader/Loader';

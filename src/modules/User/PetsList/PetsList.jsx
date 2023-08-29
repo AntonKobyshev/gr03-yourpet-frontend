@@ -10,9 +10,16 @@ import css from "./PetsList.module.css";
 const PetsList = () => {
   const isLoading = useSelector(selectIsLoading);
   const pets = useSelector(userMyPets);
+    const petExampleData = {
+    name: 'Here will be name of Pet',
+    birthday: 'date',
+    breed: 'Here will breed of your Pet',
+    comments: 'This is just example, pleasee push Add pet to start using',
+  };
 
   return (
     <>
+      {isLoading && <Loader />}
       {isLoading && pets.length > 0 && (
         <div className={css.listContainer}>
           <ul>
@@ -40,7 +47,7 @@ const PetsList = () => {
               })}
             </ul>
           ) : (
-            <p className={css.title}>{"My pets list empty"}</p>
+               <PetsItem pet={petExampleData} />
           )}
         </div>
       )}
