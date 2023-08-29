@@ -1,42 +1,29 @@
-import React, { useState } from "react";
-import UserForm from "../UserForm/UserForm";
-import css from "./UserData.module.css";
-import EditIcon from "../../../images/icons/edit.svg";
-import CrossIcon from "../../../images/icons/cross14.svg";
-import { useSelector } from "react-redux";
-const UserData = () => {
-  const user = useSelector((state) => state.auth.user);
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import Loader from '../../../shared/components/Loader/Loader';
+import UserForm from "../UserForm/UserForm"
+import { selectIsLoading } from '../../../redux/auth/auth-selectors';
+import { fetchUser } from '../../../redux/auth/auth-operations';
 
-  const initialValues = {
-    name: user?.name || "",
-    email: user?.email || "",
-    birthday: user?.birthday || "",
-    phone: user?.phone || "",
-    city: user?.city || "",
-    Image: user?.Image || "",
-  };
+import css from './UserData.module.css';
 
-  const [editing, setEditing] = useState(false);
+const UserCard = () => {
+  const isLoading = useSelector(selectIsLoading);
+  const dispatch = useDispatch();
 
-  const handleEditClick = () => {
-    setEditing(!editing);
-  };
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, [dispatch]);
 
   return (
-    <div className={css.userContainer}>
-      <UserForm
-        initialValues={initialValues}
-        editing={editing}
-        onEdit={setEditing}
-      />
-      <button type="button" className={css.editBtn} onClick={handleEditClick}>
-        <img
-          src={editing ? CrossIcon : EditIcon}
-          alt={editing ? "Close icon" : "Edit icon"}
-        />
-      </button>
-    </div>
+    <section className={css.container}>
+      {isLoading && <Loader />}
+      <>
+        <UserForm />
+      </>
+    </section>
   );
 };
 
-export default UserData;
+export default UserCard;
