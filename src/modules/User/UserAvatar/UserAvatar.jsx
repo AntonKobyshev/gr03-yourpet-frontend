@@ -34,7 +34,7 @@ const UserAvatar = ({ isEditing }) => {
 
   const handleUpload = async () => {
     const formData = new FormData();
-    formData.append("imageURL", selectedImage);
+    formData.append("image", selectedImage);
 
     await dispatch(fetchUpdateAvatar({ token, formData }));
 
@@ -46,7 +46,7 @@ const UserAvatar = ({ isEditing }) => {
       {previewImage ? (
         <img src={previewImage} alt="Preview" className={css.avatar} />
       ) : (
-        <img src={user.imageURL} alt="avatar" className={css.avatar} />
+        <img src={user.image} alt="avatar" className={css.avatar} />
       )}
 
       <div className={css.wrapperFile}>
