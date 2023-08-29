@@ -23,7 +23,6 @@ import ScrollButton from "../../shared/components/ScrollButton/ScrollButton";
 const NoticesPage = () => {
   const dispatch = useDispatch();
   const notices = useSelector(getAllNotices);
-
   const [ownCurrentPage, setOwnCurrentPage] = useState(1);
   const [favoriteCurrentPage, setFavoriteCurrentPage] = useState(1);
   const totalPages = useSelector(selectNoticesTotalPages);
