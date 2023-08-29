@@ -187,8 +187,9 @@ const NoticeCategoryItem = ({
 
           {isFavorite && (
             <button
-              className={css.addToFavoritesButton}
-              onClick={addToFavorites}
+              className={css.deleteFavoritesButton}
+              type="button"
+              onClick={handleFavoriteToggle}
             >
               <svg width="24" height="24">
                 <use href={`${svgSprite}#icon-heart-off`} fill="#54ADFF"></use>
@@ -196,7 +197,11 @@ const NoticeCategoryItem = ({
             </button>
           )}
           {!isFavorite && (
-            <button className={css.deleteFavoritesButton} type="button">
+            <button
+              className={css.addToFavoritesButton}
+              onClick={handleFavoriteToggle}
+              type="button"
+            >
               <svg width="24" height="24">
                 <use href={`${svgSprite}#icon-heart-on`}></use>
               </svg>
