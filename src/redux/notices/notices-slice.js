@@ -145,16 +145,16 @@ const noticesSlice = createSlice({
           isLoading: true,
         };
       })
-      .addCase(fetchRemoveFromFavorite.fulfilled, (state, { payload }) => {
-        state.itemsFavorite = state.itemsFavorite.filter(
+      .addCase(fetchRemoveFromFavorite.fulfilled, (store, { payload }) => {
+        store.itemsFavorite = store.itemsFavorite.filter(
           ({ _id }) => _id !== payload
         );
-        state.isLoading = false;
-        state.isError = null;
+        store.isLoading = false;
+        store.isError = null;
       })
-      .addCase(fetchRemoveFromFavorite.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
+      .addCase(fetchRemoveFromFavorite.rejected, (store, { payload }) => {
+        store.isLoading = false;
+        store.error = payload;
       });
   },
 });
