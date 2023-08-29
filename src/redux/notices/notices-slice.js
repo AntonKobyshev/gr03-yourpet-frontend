@@ -128,6 +128,46 @@ const noticesSlice = createSlice({
       .addCase(fetchAllFavoriteNotices.rejected, (store, { payload }) => {
         store.loading = false;
         store.error = payload.notices;
+      })
+      .addCase(fetchAddToFavorite.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchAddToFavorite.fulfilled, (state, { payload }) => {
+        const { id } = payload;
+        state.user.favorite.push(id);
+        state.user.itemsFavorite = [id];
+      })
+      .addCase(fetchAddToFavorite.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
+      .addCase(fetchRemoveFromFavorite.pending, (state) => {
+        return {
+          ...state,
+          isLoading: true,
+        };
+      })
+      .addCase(fetchRemoveFromFavorite.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        const favoriteList = state.user.favorite;
+        const itemsFavoriteList = state.user.itemsFavorite;
+
+        if (favoriteList) {
+          state.user.favorite = favoriteList.filter((id) => id !== payload.id);
+        }
+
+        if (itemsFavoriteList) {
+          const indexItemFavorite = itemsFavoriteList.findIndex(({ _id }) => {
+            return _id === payload.id;
+          });
+          if (indexItemFavorite !== -1) {
+            itemsFavoriteList.splice(indexItemFavorite, 1);
+          }
+        }
+      })
+      .addCase(fetchRemoveFromFavorite.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
       });
   },
 });
