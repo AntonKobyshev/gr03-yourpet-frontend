@@ -23,6 +23,7 @@ const initialState = {
   totalPages: 1,
   keyword: "",
   favoriteItems: [],
+  isLoading: false,
 };
 
 const noticesSlice = createSlice({
