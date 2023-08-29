@@ -41,7 +41,7 @@ const NoticesCategoriesList = () => {
   const currentCategory = location.pathname.split("/")[2];
   return (
     <div className={css.noticesListContainer}>
-      {currentCategory === "favorite" ? (
+      {currentCategory === "favorites" ? (
         <ul className={css.noticeList}>
           {allFavoriteNotices &&
             allFavoriteNotices.map(({ _id, owner, ...props }) => (

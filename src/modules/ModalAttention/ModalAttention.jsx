@@ -16,12 +16,12 @@ const style = {
 };
 
 const ModalAttention = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
     <div>
-      <Button onClick={handleOpen}>Modal Attention</Button>
+      {/* <Button onClick={handleOpen}>Modal Attention</Button> */}
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
