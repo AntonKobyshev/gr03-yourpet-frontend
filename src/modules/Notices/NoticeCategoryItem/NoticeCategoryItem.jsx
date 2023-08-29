@@ -7,13 +7,14 @@ import { getFavorite, getUserId } from "../../../redux/auth/auth-selectors";
 import { selectIsLoggedIn } from "../../../redux/auth/auth-selectors";
 import {
   fetchAddToFavorite,
-  // fetchRemoveFromFavorite,
+  fetchRemoveFromFavorite,
   fetchDeleteNotice,
 } from "../../../redux/notices/notices-operations";
 import ModalNotice from "../../ModalNotice/ModalNotice";
 // import ModalDelete from "../../ModalDelete/ModalDelete";
 import ModalAttention from "../../ModalAttention/ModalAttention";
 import ModalDeleteCardNotice from "../../ModalDeleteCardNotice/ModalDeleteCardNotice";
+import * as toasty from "../../../shared/toastify/toastify";
 
 const NoticeCategoryItem = ({
   _id,
@@ -27,6 +28,7 @@ const NoticeCategoryItem = ({
   breed,
   owner,
   name,
+  favorite,
 }) => {
   const [imageError, setImageError] = useState(false);
   const userId = useSelector(getUserId);
@@ -65,18 +67,62 @@ const NoticeCategoryItem = ({
     } else {
       setSexIcon("icon-male");
     }
-  }, [sex]);
+  }, [sex, favorites]);
 
   const handleImageError = () => setImageError(true);
 
-  const addToFavorites = () => {
-    if (!isUserRegistered) {
-      setIsAttentionModalOpen(true);
-      return;
-    }
+  // const addToFavorites = () => {
+  //   if (!isUserRegistered) {
+  //     setIsAttentionModalOpen(true);
+  //     return;
+  //   }
 
-    dispatch(fetchAddToFavorite(_id));
+  //   dispatch(fetchAddToFavorite(_id));
+  // };
+
+  const handleFavoriteToggle = async () => {
+    if (!isUserRegistered) return toasty.toastInfo("You must be logged in");
+    if (favorites.includes(_id)) {
+      try {
+        await dispatch(fetchRemoveFromFavorite(_id));
+        toasty.toastSuccess("remove from favorite");
+        return;
+      } catch (e) {
+        toasty.toastError(e.message);
+      }
+    } else {
+      try {
+        await dispatch(fetchAddToFavorite(_id));
+        toasty.toastSuccess("add to favorite");
+        return;
+      } catch (e) {
+        toasty.toastError(e.message);
+      }
+    }
   };
+
+  // const handleFavoriteToggle = async () => {
+  //   if (!isUserRegistered) return toasty.toastInfo("You must be logged in");
+  //   if (favorites.includes(_id)) {
+  //     try {
+  //       await dispatch(fetchRemoveFromFavorite(_id));
+  //       toasty.toastSuccess("remove from favorite");
+  //       dispatch(updateFavoritesAfterRemove(_id));
+  //       return;
+  //     } catch (e) {
+  //       toasty.toastError(e.message);
+  //     }
+  //   } else {
+  //     try {
+  //       await dispatch(fetchAddToFavorite(_id));
+  //       toasty.toastSuccess("add to favorite");
+  //       dispatch(updateFavoritesAfterAdd(_id));
+  //       return;
+  //     } catch (e) {
+  //       toasty.toastError(e.message);
+  //     }
+  //   }
+  // };
 
   function getAge(date) {
     const ymdArr = date.split(".").map(Number).reverse();
@@ -137,8 +183,11 @@ const NoticeCategoryItem = ({
             onError={handleImageError}
           />
           <p className={css.category}>{updatedCategory} </p>
-          <button className={css.addToFavoritesButton} onClick={addToFavorites}>
-            {favorites ? (
+          <button
+            className={css.addToFavoritesButton}
+            onClick={handleFavoriteToggle}
+          >
+            {favorites.includes(_id) ? (
               <svg width="24" height="24">
                 <use href={`${svgSprite}#icon-heart-off`} fill="#54ADFF"></use>
               </svg>
@@ -209,7 +258,7 @@ const NoticeCategoryItem = ({
           name={name}
           // handleFavoriteToggle={handleFavoriteToggle}
           isFavorite={favorites}
-          addToFavorite={addToFavorites}
+          addToFavorite={handleFavoriteToggle}
         />
       )}
       {isDeleteModalOpen && (
