@@ -23,6 +23,9 @@ const initialState = {
   totalPages: 1,
   keyword: "",
   favoriteItems: [],
+  favorite: [],
+  itemsFavorite: [],
+  isLoading: true,
 };
 
 const noticesSlice = createSlice({
@@ -150,6 +153,7 @@ const noticesSlice = createSlice({
       .addCase(fetchRemoveFromFavorite.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         const favoriteList = state.user.favorite;
+        console.log(state.user.favorite);
         const itemsFavoriteList = state.user.itemsFavorite;
 
         if (favoriteList) {
