@@ -11,6 +11,7 @@ const PetsList = () => {
   const isLoading = useSelector(selectIsLoading);
   const pets = useSelector(userMyPets);
   const petExampleData = {
+    _id: 'petExampleData',
     name: "Here will be name of Pet",
     birthday: "date",
     breed: "Here will breed of your Pet",

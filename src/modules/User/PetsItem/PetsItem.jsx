@@ -16,6 +16,8 @@ const PetsItem = ({ pet: { image, name, _id, birthday, breed, comments } }) => {
     setIsModalOpen(false);
   };
 
+    const shouldRenderDeleteButton = _id !== "petExampleData";
+
   return (
     <div className={css.petsContainer}>
       {isModalOpen && (
@@ -34,9 +36,11 @@ const PetsItem = ({ pet: { image, name, _id, birthday, breed, comments } }) => {
         />
       </div>
       <div className={css.textContainer}>
-        <button type="button" className={css.deleteBtn} onClick={handleDelete}>
-          <img src={DeleteIcon} alt="Delete icon" />
-        </button>
+              {shouldRenderDeleteButton && (
+          <button type="button" className={css.deleteBtn} onClick={handleDelete}>
+            <img src={DeleteIcon} alt="Delete icon"  className={css.deleteIcon} />
+          </button>
+        )}
 
         <ul className={css.list}>
           <li className={css.item}>
