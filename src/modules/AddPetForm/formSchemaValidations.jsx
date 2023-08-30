@@ -68,6 +68,25 @@ const formSchemaValidations = step => {
         is: commonValidation,
         then: () => Yup.string().trim().required('Location is required'),
       }),
+      price: Yup.number().when('category', {
+        is: commonValidation,
+        then: () =>
+          Yup.number()
+            .required('Price is required')
+            .positive('Price should be positive')
+            .typeError('please enter a valid number'),
+      }),
+      comments: Yup.string()
+        .min(4, 'Comments should be at least 4 characters')
+        .max(120, 'Comments should not exceed 120 characters')
+        .trim(),
+      image: Yup.mixed()
+        .required('Image is required')
+        .test(
+          'image', 
+          'Image size must be less then 3mb',
+          value => value && value.size <= 3* 1024 * 1024
+      ),
     });
 
     schema = commonFieldsValidation;
