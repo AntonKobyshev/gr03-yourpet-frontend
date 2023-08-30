@@ -36,8 +36,6 @@ import css from "./NoticesCategoriesList.module.css";
 const NoticesCategoriesList = () => {
   const allNotices = useSelector(getAllNotices);
   const allFavoriteNotices = useSelector(getAllFavoriteNotices);
-  
-
   const location = useLocation();
   const currentCategory = location.pathname.split("/")[2] || "sell";
   return (
