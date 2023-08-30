@@ -19,13 +19,14 @@ import UserAvatar from "../UserAvatar/UserAvatar";
 import UserLogoutBtn from "../UserLogoutBtn/UserLogoutBtn";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import CloseIcon from "@mui/icons-material/Close";
-import { fields } from '../../../shared/helpers/constants'
+import { fields } from "../../../shared/helpers/constants";
 
 const UserForm = () => {
   const { token } = useSelector(selectAuth);
   const isLoading = useSelector(selectIsLoading);
   const { user } = useSelector(userInfo);
   const [isEditing, setIsEditing] = useState(false);
+  const [editAllFields, setEditAllFields] = useState(false);
 
   const [formData, setFormData] = useState({
     name: user.name,
@@ -42,8 +43,6 @@ const UserForm = () => {
     phone: false,
     city: false,
   });
-
-  const [editAllFields, setEditAllFields] = useState(false);
 
   const [open, setOpen] = useState(false);
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -151,11 +150,11 @@ const UserForm = () => {
               }}
             >
               {({ errors, touched }) => (
-                <Form className={css.forma}>
-                  <div className={css.buttonContainer}>
+                <Form className={css.formContainer}>
+                  <>
                     <button
                       onClick={handleEditAllFields}
-                      className={css.button}
+                      className={css.buttonClose}
                     >
                       {editAllFields ? (
                         <CloseIcon className={css.icon} />
@@ -163,7 +162,7 @@ const UserForm = () => {
                         <DriveFileRenameOutlineIcon className={css.icon} />
                       )}
                     </button>
-                  </div>
+                  </>
 
                   <UserAvatar
                     isEditing={isEditing}
@@ -193,7 +192,7 @@ const UserForm = () => {
                           </div>
                         </div>
                       ))}
-                      <UserLogoutBtn handleOpen={handleOpen} />
+
                       {isEditing && (
                         <button
                           className={css.btnSave}
@@ -202,6 +201,10 @@ const UserForm = () => {
                           Save Changes
                         </button>
                       )}
+                      <UserLogoutBtn
+                        handleOpen={handleOpen}
+                        editAllFields={editAllFields}
+                      />
                     </div>
                   )}
                 </Form>
