@@ -77,9 +77,11 @@ const formSchemaValidations = step => {
             .typeError('please enter a valid number'),
       }),
       comments: Yup.string()
-        .min(4, 'Comments should be at least 4 characters')
+        .min(8, 'Comments should be at least 8 characters')
         .max(120, 'Comments should not exceed 120 characters')
+        .typeError()
         .trim(),
+    
       image: Yup.mixed()
         .required('Image is required')
         .test(
