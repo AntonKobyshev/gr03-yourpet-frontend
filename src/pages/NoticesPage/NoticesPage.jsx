@@ -12,10 +12,12 @@ import {
   getAllNotices,
   selectNoticesTotalPages,
   selectNoticesPage,
+  selectNoticesLoading,
 } from "../../redux/notices/notices-selectors";
 import NoticesSearch from "../../modules/Notices/NoticesSearch/NoticesSearch";
 import NoticesCategoriesNav from "../../modules/Notices/NoticesCategoriesNav/NoticesCategoriesNav";
 import PaginationNotices from "../../shared/components/Pagination/PaginationNotices";
+import NoNoticesFound from "../../modules/Notices/NoNoticesFound/NoNoticesFound";
 
 import css from "../NoticesPage/NoticesPage.module.css";
 import ScrollButton from "../../shared/components/ScrollButton/ScrollButton";
@@ -28,6 +30,7 @@ import { keyboard } from "@testing-library/user-event/dist/keyboard";
 const NoticesPage = () => {
   const dispatch = useDispatch();
   const notices = useSelector(getAllNotices);
+  const isLoading = useSelector(selectNoticesLoading);
   const [ownCurrentPage, setOwnCurrentPage] = useState(1);
   const [favoriteCurrentPage, setFavoriteCurrentPage] = useState(1);
   const totalPages = useSelector(selectNoticesTotalPages);
@@ -154,7 +157,11 @@ const NoticesPage = () => {
         onFavoriteClick={handleFavoriteClick}
       />
 
-      {filteredNotices.length > 0 && <Outlet />}
+      {filteredNotices.length === 0 && !isLoading ? (
+        <NoNoticesFound />
+      ) : (
+        <Outlet />
+      )}
       <PaginationNotices
         currentPage={currentPage}
         totalPages={totalPages}
