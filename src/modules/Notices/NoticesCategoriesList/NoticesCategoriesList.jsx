@@ -1,27 +1,3 @@
-// import React, { useState } from "react";
-// import NoticeCategoryItem from "../NoticeCategoryItem";
-// import { useSelector } from "react-redux";
-// import css from "./NoticesCategoriesList.module.css";
-
-// import { getAllNotices } from "../../../redux/notices/notices-selectors";
-
-// const NoticesCategoriesList = () => {
-//   const allNotices = useSelector(getAllNotices);
-//   return (
-//     <>
-//       <ul className={css.list}>
-//         <NoticeCategoryItem />
-//       </ul>
-//     </>
-//   );
-// };
-
-// export default NoticesCategoriesList;
-
-// ======================
-// -- code by Sergiy --
-// ======================
-
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 
