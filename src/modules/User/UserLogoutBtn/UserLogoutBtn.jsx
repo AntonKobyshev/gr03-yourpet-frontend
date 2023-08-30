@@ -8,6 +8,7 @@ const LogoutButton = ({ handleOpen, editAllFields }) => {
     <>
       {editAllFields ? null : (
         <Button
+          className={css.logoutBtn}
           onClick={handleOpen}
           variant="outlined"
           style={{
@@ -19,7 +20,6 @@ const LogoutButton = ({ handleOpen, editAllFields }) => {
             textTransform: "none",
             marginRight: "auto",
           }}
-          className={css.logoutBtn}
           startIcon={
             <LogoutOutlinedIcon
               style={{
