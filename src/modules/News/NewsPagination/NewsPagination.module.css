@@ -1,6 +1,6 @@
 .pagination {
   margin-top: 40px;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
@@ -11,13 +11,13 @@
 @media screen and (min-width: 768px) {
   .pagination {
     margin-top: 70px;
-    margin-bottom: 36px;
+    margin-bottom: 50px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .pagination {
     margin-top: 80px;
-    margin-bottom: 48px;
+    margin-bottom: 60px;
   }
 }
