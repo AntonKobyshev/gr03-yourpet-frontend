@@ -1,6 +1,9 @@
 import NewsItem from "../NewsItem/NewsItem";
 import css from "./NewsList.module.css";
-import { selectAllNews } from "../../../redux/news/news-selectors";
+import {
+  selectAllNews,
+  selectIsLoadingNews,
+} from "../../../redux/news/news-selectors";
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect } from "react";
 import {
@@ -20,6 +23,7 @@ const NewsList = () => {
   }, [dispatch, inputQuery, currentPage]);
 
   const news = useSelector(selectAllNews);
+  const isLoading = useSelector(selectIsLoadingNews);
 
   const newsData = news;
 
@@ -29,7 +33,7 @@ const NewsList = () => {
 
   return (
     <>
-      {sortedNews.length === 0 ? (
+      {sortedNews.length === 0 && !isLoading ? (
         <NoNoticesFound title="news" />
       ) : (
         <ul className={css.list}>
