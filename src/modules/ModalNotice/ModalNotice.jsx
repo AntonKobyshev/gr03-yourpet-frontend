@@ -1,5 +1,5 @@
 import React from "react";
-import { Backdrop, Box, Button, Fade, Modal } from "@mui/material";
+import { Backdrop, Box, Fade, Modal } from "@mui/material";
 import heart from "../../images/icons/heart.svg";
 import css from "./ModalNotice.module.css";
 import CloseIcon from "@mui/icons-material/Close";
@@ -26,16 +26,16 @@ const style = {
 };
 
 const ModalNotice = ({
-  handleFavoriteToggle,
+  // handleFavoriteToggle,
   _id,
   onClose,
-  addFavorite,
-  openModal,
+  // addFavorite,
+  // openModal,
 }) => {
   const dispatch = useDispatch();
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  // const [open, setOpen] = React.useState(false);
+  // const handleOpen = () => setOpen(true);
+  // const handleClose = () => setOpen(false);
   const item = useSelector(getNoticesById);
   const owner = useSelector(getNoticesByIdOwner);
 
@@ -49,7 +49,7 @@ const ModalNotice = ({
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={openModal}
+        open={true}
         onClose={onClose}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
@@ -59,7 +59,7 @@ const ModalNotice = ({
           },
         }}
       >
-        <Fade in={openModal}>
+        <Fade in={true}>
           <Box sx={style} className={css.modalBox}>
             <CloseIcon
               onClick={onClose}
