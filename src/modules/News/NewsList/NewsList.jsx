@@ -1,6 +1,9 @@
 import NewsItem from "../NewsItem/NewsItem";
 import css from "./NewsList.module.css";
-import { selectAllNews } from "../../../redux/news/news-selectors";
+import {
+  selectAllNews,
+  selectIsLoadingNews,
+} from "../../../redux/news/news-selectors";
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect } from "react";
 import {
@@ -8,6 +11,7 @@ import {
   selectAllNewsPage,
 } from "../../../redux/news/news-selectors";
 import { fetchNews } from "../../../redux/news/news-operation";
+import NoNoticesFound from "../../Notices/NoNoticesFound/NoNoticesFound";
 
 const NewsList = () => {
   const inputQuery = useSelector(selectQuery);
@@ -19,6 +23,7 @@ const NewsList = () => {
   }, [dispatch, inputQuery, currentPage]);
 
   const news = useSelector(selectAllNews);
+  const isLoading = useSelector(selectIsLoadingNews);
 
   const newsData = news;
 
@@ -27,11 +32,17 @@ const NewsList = () => {
   );
 
   return (
-    <ul className={css.list}>
-      {sortedNews.map((sortedNews) => (
-        <NewsItem key={sortedNews._id} news={sortedNews} />
-      ))}
-    </ul>
+    <>
+      {sortedNews.length === 0 && !isLoading ? (
+        <NoNoticesFound title="news" />
+      ) : (
+        <ul className={css.list}>
+          {sortedNews.map((singleNews) => (
+            <NewsItem key={singleNews._id} news={singleNews} />
+          ))}
+        </ul>
+      )}
+    </>
   );
 };
 
