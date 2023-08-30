@@ -8,6 +8,7 @@ import {
   selectAllNewsPage,
 } from "../../../redux/news/news-selectors";
 import { fetchNews } from "../../../redux/news/news-operation";
+import NoNoticesFound from "../../Notices/NoNoticesFound/NoNoticesFound";
 
 const NewsList = () => {
   const inputQuery = useSelector(selectQuery);
@@ -27,11 +28,17 @@ const NewsList = () => {
   );
 
   return (
-    <ul className={css.list}>
-      {sortedNews.map((sortedNews) => (
-        <NewsItem key={sortedNews._id} news={sortedNews} />
-      ))}
-    </ul>
+    <>
+      {sortedNews.length === 0 ? (
+        <NoNoticesFound title="news" />
+      ) : (
+        <ul className={css.list}>
+          {sortedNews.map((singleNews) => (
+            <NewsItem key={singleNews._id} news={singleNews} />
+          ))}
+        </ul>
+      )}
+    </>
   );
 };
 

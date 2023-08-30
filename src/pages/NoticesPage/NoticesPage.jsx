@@ -158,7 +158,7 @@ const NoticesPage = () => {
       />
 
       {filteredNotices.length === 0 && !isLoading ? (
-        <NoNoticesFound />
+        <NoNoticesFound title={"notices"} />
       ) : (
         <Outlet />
       )}
