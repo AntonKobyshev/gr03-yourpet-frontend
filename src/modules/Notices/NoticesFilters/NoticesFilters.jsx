@@ -55,17 +55,18 @@ const Filter = () => {
 
   return (
     <div>
-      <button
-        className={isFilterOpen ? css.filterBtnOpen : css.filterBtn}
-        onClick={toggleFilter}
-      >
-        <p className={css.filterBtnText}>Filter</p>
-        {isFilterOpen ? (
+      {isFilterOpen ? (
+        <button className={css.filterBtnOpen} onClick={toggleFilter}>
+          <p className={css.filterBtnText}>Filter</p>
           <img src={FilterIconWhite} alt="filter icon white" />
-        ) : (
-          <img src={FilterIconBlue} alt="filter icon blue" />
-        )}
-      </button>
+        </button>
+      ) : (
+        <button className={css.filterBtn} onClick={toggleFilter}>
+          <p className={css.filterBtnText}>Filter</p>
+          <img src={FilterIconBlue} alt="filter icon white" />
+        </button>
+      )}
+
       {isFilterOpen && (
         <div className={css.filterMenu}>
           <h3 className={css.filtersTitle}>Filters</h3>

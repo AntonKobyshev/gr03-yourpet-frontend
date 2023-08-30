@@ -34,4 +34,10 @@
 .inactive {
   text-decoration: none;
   color: var(--black-color);
+  transition: 0.2s;
+
+  &:hover {
+    color: var(--yellow-color);
+    scale: 1.05;
+  }
 }

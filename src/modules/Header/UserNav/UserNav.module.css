@@ -72,6 +72,7 @@
 
 .userInfoWideScreen {
   visibility: hidden;
+  transition: 0.2s;
 
   @media screen and (min-width: 768px) {
     visibility: visible;
@@ -81,6 +82,11 @@
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 0.64px;
+  }
+
+  &:hover,
+  &:focus {
+    scale: 1.05;
   }
 }
 
