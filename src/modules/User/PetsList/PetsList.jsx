@@ -10,11 +10,11 @@ import css from "./PetsList.module.css";
 const PetsList = () => {
   const isLoading = useSelector(selectIsLoading);
   const pets = useSelector(userMyPets);
-    const petExampleData = {
-    name: 'Here will be name of Pet',
-    birthday: 'date',
-    breed: 'Here will breed of your Pet',
-    comments: 'This is just example, pleasee push Add pet to start using',
+  const petExampleData = {
+    name: "Here will be name of Pet",
+    birthday: "date",
+    breed: "Here will breed of your Pet",
+    comments: "This is just example, pleasee push Add pet to start using",
   };
 
   return (
@@ -40,14 +40,14 @@ const PetsList = () => {
             <ul>
               {pets.map((pet, index) => {
                 return (
-                  <li key={index}>
+                  <li key={index} className={css.petItem}>
                     <PetsItem pet={pet} />
                   </li>
                 );
               })}
             </ul>
           ) : (
-               <PetsItem pet={petExampleData} />
+            <PetsItem pet={petExampleData} />
           )}
         </div>
       )}

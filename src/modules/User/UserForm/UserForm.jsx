@@ -198,7 +198,7 @@ const UserForm = () => {
                           className={css.btnSave}
                           onClick={handleSaveChanges}
                         >
-                          Save Changes
+                          Save
                         </button>
                       )}
                       <UserLogoutBtn

@@ -32,7 +32,7 @@
   font-size: 12px;
   line-height: 1.36;
 
-  z-index: 100;
+  z-index: 4;
 
   transition: transform background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
