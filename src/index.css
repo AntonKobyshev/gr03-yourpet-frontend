@@ -1,4 +1,4 @@
-@import 'modern-normalize/modern-normalize.css';
+@import-normalize;
 
 :root {
   --primary-font: 'Manrope', sans-serif;
