@@ -44,7 +44,7 @@ const NoticeCategoryItem = ({
 
   const noticeCategories = Object.freeze({
     SELL: "sell",
-    LOSTFOUND: "lost-found",
+    LOSTFOUND: "lost/found",
     FORFREE: "for-free",
     MYPET: "mypets",
     FAVORITE: "favorite",
