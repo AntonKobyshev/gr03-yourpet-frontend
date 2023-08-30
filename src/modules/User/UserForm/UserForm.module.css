@@ -3,31 +3,48 @@
   margin-left: auto;
 }
 
-.formWrapper {
-  margin-bottom: 21px;
-}
-
-.forma {
+.formContainer {
+  position: relative;
+  width: 280px;
+  height: 517px;
   gap: 15px;
-  margin-bottom: 21px;
   padding: 20px 8px 25px 8px;
   background-color: var(--white-color);
   box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
-  border-radius: 40px;
+  border-radius: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 268px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+    height: 520px;
+    flex-direction: column;
+  }
 }
 
 .formWrapper {
-  margin-bottom: 21px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @media screen and (min-width: 768px) {
+    width: 355px;
+    gap: 10px;
+  }
 }
 
 .row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.row:not(:last-child) {
-  margin-bottom: 12px;
 }
 
 .label {
@@ -37,6 +54,9 @@
   font-size: 14px;
   line-height: 19px;
   color: #111111;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 }
 
 .inputContainer {
@@ -46,6 +66,7 @@
 .input {
   padding: 6px 6px 6px 12px;
   min-width: 190px;
+  height: 24px;
   border: 1px solid var(--blue-color);
   border-radius: 20px;
   font-family: "Manrope";
@@ -54,14 +75,19 @@
   font-size: 12px;
   line-height: 16px;
   color: #111111;
+  background-color: transparent;
+
+  @media screen and (min-width: 768px) {
+    width: 255px;
+    height: 30px;
+    font-size: 16px;
+  }
 }
 
-.buttonContainer {
-  display: flex;
-  justify-content: flex-end;
-}
-
-button {
+.buttonClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
   background: none;
   border: none;
   cursor: pointer;
@@ -81,13 +107,12 @@ button {
 
 .btnSave {
   background: var(--blue-color);
-  width: 255px;
+  width: 248px;
   height: 34px;
   border-radius: 40px;
+
   cursor: pointer;
   padding: 0;
-  display: inline;
-  outline: none;
   color: #fef9f9;
   font-family: Manrope;
   font-size: 16px;
@@ -97,76 +122,21 @@ button {
   letter-spacing: 0.64px;
   transition: background-color 0.3s ease, color 0.3s ease;
   border: none;
-  margin-left: 10px;
+
+  @media screen and (max-width: 767px) {
+    margin: auto;
+    margin-top: 9px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+    width: 255px;
+    height: 32px;
+    padding: 5px;
+    margin-left: auto;
+  }
 }
 
 .btnSave:hover {
   background-color: #ffc107;
   color: #fff;
-}
-
-@media screen and (min-width: 280px) {
-  .wrapper {
-    max-width: 330px;
-  }
-
-  .title {
-    font-size: 20px;
-    line-height: 27px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .wrapper {
-    max-width: 704px;
-    margin-bottom: 40px;
-  }
-
-  .forma {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    margin-bottom: 0;
-    padding-left: 20px;
-    padding-right: 76px;
-    padding-bottom: 21px;
-  }
-
-  .formWrapper {
-    width: 355px;
-    margin-bottom: 0;
-  }
-
-  .input {
-    min-width: 255px;
-  }
-
-  .btnSave {
-    height: 32px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .wrapper {
-    max-width: 395px;
-  }
-
-  .forma {
-    display: block;
-    padding: 20px 24px 20px 16px;
-  }
-
-  .title {
-    margin-bottom: 24px;
-    font-size: 28px;
-  }
-
-  .label {
-    font-size: 18px;
-  }
-
-  .input {
-    font-size: 16px;
-    line-height: 22px;
-  }
 }
