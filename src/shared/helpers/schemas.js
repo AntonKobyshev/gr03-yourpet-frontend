@@ -80,3 +80,4 @@ export const userFormSchema = yup.object().shape({
     ),
   city: yup.string().required("City is required"),
 });
+

@@ -79,7 +79,7 @@ const formSchemaValidations = step => {
       comments: Yup.string()
         .min(8, 'Comments should be at least 8 characters')
         .max(120, 'Comments should not exceed 120 characters')
-        .typeError()
+        .typeError('Comments should be at least 8 characters')
         .trim(),
     
       image: Yup.mixed()
