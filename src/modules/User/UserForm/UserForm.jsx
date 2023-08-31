@@ -152,7 +152,7 @@ const UserForm = () => {
               {({ errors, touched }) => (
                 <Form className={css.formContainer}>
                   <>
-                    <button
+                    <button type="button"
                       onClick={handleEditAllFields}
                       className={css.buttonClose}
                     >
@@ -194,7 +194,7 @@ const UserForm = () => {
                       ))}
 
                       {isEditing && (
-                        <button
+                        <button type="button"
                           className={css.btnSave}
                           onClick={handleSaveChanges}
                         >
