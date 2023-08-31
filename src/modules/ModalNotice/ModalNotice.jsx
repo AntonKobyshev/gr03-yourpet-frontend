@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { selectIsLoggedIn } from "../../redux/auth/auth-selectors";
 import { useNavigate } from "react-router-dom";
 import ModalAttention from "../ModalAttention/ModalAttention";
+import svgSprite from "../../images/icons/sprite-cardPet.svg";
 
 const style = {
   position: "absolute",
