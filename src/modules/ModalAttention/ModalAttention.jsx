@@ -3,6 +3,8 @@ import React from "react";
 import css from "./ModalAttention.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 import pawprint from "../../images/icons/pawprint.svg";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const style = {
   position: "absolute",
@@ -16,9 +18,25 @@ const style = {
 };
 
 const ModalAttention = () => {
+  const [isMenuShown, setIsMenuShown] = useState(false);
+  const navigate = useNavigate();
   const [open, setOpen] = React.useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const closeMenu = () => {
+    setIsMenuShown(false);
+  };
+
+  const handleLoginBtnClick = () => {
+    navigate("/login");
+    closeMenu();
+  };
+
+  const handleRegisterBtnClick = () => {
+    navigate("/register");
+    closeMenu();
+  };
+
   return (
     <div>
       {/* <Button onClick={handleOpen}>Modal Attention</Button> */}
@@ -54,14 +72,18 @@ const ModalAttention = () => {
               </div>
               <div className={css.btnContainer}>
                 <button
-                  //   onClick={handleClose}
+                  onClick={handleLoginBtnClick}
                   className={css.btn}
                   type="button"
                 >
                   <span>Log IN</span>
                   <img src={pawprint} alt="paw print" />
                 </button>
-                <button className={css.btnAccent} type="button">
+                <button
+                  onClick={handleRegisterBtnClick}
+                  className={css.btnAccent}
+                  type="button"
+                >
                   <span>Registration</span>
                 </button>
               </div>
