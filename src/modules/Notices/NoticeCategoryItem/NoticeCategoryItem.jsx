@@ -39,10 +39,14 @@ const NoticeCategoryItem = ({
   const favorites = useSelector(getFavorite);
   const dispatch = useDispatch();
   const [isFavorite, setIsFavorite] = useState(favorites.includes(_id));
+  
 
   useEffect(() => {
     setIsFavorite(favorites.includes(_id));
   }, [favorites, _id]);
+
+
+
 
   const noticeCategories = Object.freeze({
     SELL: "sell",
@@ -90,6 +94,7 @@ const NoticeCategoryItem = ({
       toasty.toastError(e.message);
     }
   };
+
   const { isModalOpenApprove, openModalApprove, closeModalApprove } =
     useToggleModalDeleteCardNotice();
 
@@ -113,14 +118,7 @@ const NoticeCategoryItem = ({
 
     const age = Math.floor(ageAsTimestamp * oneYearInMs);
     return age;
-  };
-   const checkOwner = owner => {
-    if (owner === userId) {
-      return true;
-    }
-    return false;
-  };
-  
+  }; 
   
 
   function getAge(date) {
