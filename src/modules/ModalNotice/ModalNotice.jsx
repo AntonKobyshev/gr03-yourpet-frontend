@@ -3,6 +3,7 @@ import { Backdrop, Box, Fade, Modal } from "@mui/material";
 import heart from "../../images/icons/heart.svg";
 import css from "./ModalNotice.module.css";
 import CloseIcon from "@mui/icons-material/Close";
+import svgSprite from "../../images/icons/sprite-cardPet.svg";
 
 import {
   getNoticesById,
