@@ -6,11 +6,12 @@
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
-  padding: 40px 15px;
+  padding: 15px;
 
   @media (min-width: 768px) {
     width: 608px;
     height: 769px;
+    padding: 15px 15px;
   }
 
   @media (min-width: 1280px) {
@@ -28,19 +29,23 @@
 .closeBtn {
   cursor: pointer;
   color: var(--blue-color);
-  position: absolute;
-  top: 15px;
-  right: 15px;
+  position: sticky;
+  top: 0;
+  right: 0;
+  margin-left: auto;
 
   @media (min-width: 768px) {
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
   }
 }
 
 .contentContainer {
   display: flex;
   justify-content: center;
+  padding: 10px;
 }
 
 .teamList {
@@ -126,10 +131,6 @@
   font-size: 16px;
 
   border-radius: 50px;
-  /*   
-    border: 2px solid var(--blue-color);
-    color: var(--blue-color);
-    background-color: transparent; */
 
   width: 30px;
   height: 30px;
@@ -142,14 +143,6 @@
 
   &:hover,
   &:focus {
-    /* background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
-    border: none;
-    color: var(--bg-color); */
-    /* box-shadow: 7px 13px 14px 0px rgba(116, 177, 232, 0.24); */
     transform: scale(1.1);
   }
 }
-
-/* .socialIcon {
-  fill: #54adff;
-} */
