@@ -284,8 +284,12 @@ const NoticeCategoryItem = ({
           handleDeleteClick={handleDeleteConfirmed}
         />
       )}
-      {isAttentionModalOpen && !isUserRegistered && (
-        <ModalAttention modalOpen={setIsAttentionModalOpen} />
+      {isAttentionModalOpen && (
+        <ModalAttention
+          onClick={() => {
+            setIsAttentionModalOpen(false);
+          }}
+        />
       )}
     </div>
   );
