@@ -1,7 +1,7 @@
 .scrollButton {
   position: fixed;
-  bottom: 7%;
-  right: 3%;
+  bottom: 8%;
+  right: 6%;
   background-color: #f1c40f;
   color: #fff;
   z-index: 4;
@@ -14,6 +14,16 @@
   cursor: pointer;
   opacity: 0.7;
   transition: opacity 0.3s ease-in-out;
+
+  @media (min-width: 768px) {
+    bottom: 10%;
+    right: 3%;
+  }
+
+  @media (min-width: 1280px) {
+    bottom: 10%;
+    right: 35px;
+  }
 }
 
 .scrollButton:hover {
