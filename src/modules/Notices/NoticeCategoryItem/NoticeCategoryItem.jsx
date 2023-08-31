@@ -28,7 +28,6 @@ const NoticeCategoryItem = ({
   breed,
   owner,
   name,
-  favorite,
 }) => {
   const [imageError, setImageError] = useState(false);
   const userId = useSelector(getUserId);
@@ -79,7 +78,10 @@ const NoticeCategoryItem = ({
   const handleImageError = () => setImageError(true);
 
   const handleFavoriteToggle = async () => {
-    if (!isUserRegistered) return toasty.toastInfo("You must be logged in");
+    if (!isUserRegistered) {
+      setIsAttentionModalOpen(true);
+      return toasty.toastInfo("You must be logged in");
+    }
 
     try {
       if (isFavorite) {
@@ -256,8 +258,8 @@ const NoticeCategoryItem = ({
           breed={breed}
           owner={owner}
           name={name}
-          isFavorite={favorites}
-          addToFavorite={handleFavoriteToggle}
+          isFavorite={isFavorite}
+          handleFavoriteToggle={handleFavoriteToggle}
         />
       )}
               {isModalOpenApprove && (
