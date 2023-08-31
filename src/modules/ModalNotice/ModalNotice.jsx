@@ -76,7 +76,7 @@ const ModalNotice = ({
                   loading="lazy"
                 />
                 <div className={css.textContainer}>
-                  <p className={css.title}>{`Сute dog looking for a home`}</p>
+                  <p className={css.title}>{item.title}</p>
                   <div className={css.flexContainer}>
                     <div className={css.firstContainer}>
                       <p className={css.subTitle}>Name:</p>
@@ -121,9 +121,11 @@ const ModalNotice = ({
                   onClick={onClose}
                   className={css.btnAccent}
                   type="button"
-                  phone={owner.phone}
+                  phone={`tel:${owner.phone}`}
                 >
-                  Contact
+                  <a href={`tel:${owner.phone}`} type="button">
+                    Contact
+                  </a>
                 </button>
                 <button className={css.btn} type="button">
                   <span>Add to </span> <img src={heart} alt="heart icon" />
