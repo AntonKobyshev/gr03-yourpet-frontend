@@ -14,6 +14,7 @@ import ModalNotice from "../../ModalNotice/ModalNotice";
 import ModalAttention from "../../ModalAttention/ModalAttention";
 import ModalDeleteCardNotice from "../../ModalDeleteCardNotice/ModalDeleteCardNotice";
 import * as toasty from "../../../shared/toastify/toastify";
+import useToggleModalDeleteCardNotice from '../../../shared/hooks/useToggleModalDeleteCardNotice';
 
 const NoticeCategoryItem = ({
   _id,
@@ -89,6 +90,38 @@ const NoticeCategoryItem = ({
       toasty.toastError(e.message);
     }
   };
+  const { isModalOpenApprove, openModalApprove, closeModalApprove } =
+    useToggleModalDeleteCardNotice();
+
+  function getAge(date) {
+    const ymdArr = date.split('.').map(Number).reverse();
+    ymdArr[1]--;
+    const bornDate = new Date(...ymdArr);
+
+    const now = new Date();
+
+    const leapYears = (now.getFullYear() - ymdArr[0]) / 4;
+
+    now.setDate(now.getDate() - Math.floor(leapYears));
+
+    const nowAsTimestamp = now.getTime();
+    const bornDateAsTimestamp = bornDate.getTime();
+
+    const ageAsTimestamp = nowAsTimestamp - bornDateAsTimestamp;
+
+    const oneYearInMs = 3.17098e-11;
+
+    const age = Math.floor(ageAsTimestamp * oneYearInMs);
+    return age;
+  };
+   const checkOwner = owner => {
+    if (owner === userId) {
+      return true;
+    }
+    return false;
+  };
+  
+  
 
   function getAge(date) {
     const ymdArr = date.split(".").map(Number).reverse();
@@ -128,14 +161,6 @@ const NoticeCategoryItem = ({
     }
   };
 
-  const handleDeleteConfirmed = () => {
-    dispatch(fetchDeleteNotice(_id));
-    setIsDeleteModalOpen(false);
-  };
-
-  const handleDeleteModalClose = () => {
-    setIsDeleteModalOpen(false);
-  };
 
   return (
     <div>
@@ -176,13 +201,15 @@ const NoticeCategoryItem = ({
             <button
               className={css.deleteFavoritesButton}
               type="button"
-              onClick={handleDelete}
+              onClick={openModalApprove}
             >
               <svg width="24" height="24">
                 <use href={`${svgSprite}#icon-trash-2`}></use>
               </svg>
             </button>
           )}
+
+
           <div className={css.infoWrapper}>
             <p className={css.location}>
               <svg className={css.iconSvg} width="24" height="24">
@@ -235,14 +262,14 @@ const NoticeCategoryItem = ({
           addToFavorite={handleFavoriteToggle}
         />
       )}
-      {isDeleteModalOpen && (
-        <ModalDeleteCardNotice
-          onClose={handleDeleteModalClose}
-          id={_id}
-          title={title}
-          handleDeleteClick={handleDeleteConfirmed}
-        />
-      )}
+              {isModalOpenApprove && (
+                <ModalDeleteCardNotice
+                  closeModal={closeModalApprove}
+                  handleDelete={handleDelete}
+                  _id={_id}
+                  title={title}
+                />
+              )}
       {isAttentionModalOpen && (
         <ModalAttention
           onClick={() => {
