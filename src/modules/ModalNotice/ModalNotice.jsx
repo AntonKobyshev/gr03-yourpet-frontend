@@ -84,7 +84,7 @@ const ModalNotice = ({
           },
         }}
       >
-        <Fade in={openModal}>
+        <Fade in={true}>
           <Box sx={style} className={css.modalBox}>
             <CloseIcon
               onClick={onClose}
