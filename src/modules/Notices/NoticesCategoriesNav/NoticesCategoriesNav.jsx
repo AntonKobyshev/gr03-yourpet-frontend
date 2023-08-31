@@ -24,7 +24,7 @@ const NoticesCategoriesNav = ({ onOwnClick, onFavoriteClick }) => {
   const navigate = useNavigate();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const [showModal, setShowModal] = useState(false);
-  console.log(showModal);
+  // console.log(showModal);
   const handleClick = () => {
     if (!isLoggedIn) {
       toasty.toastInfo("You must be logged in");

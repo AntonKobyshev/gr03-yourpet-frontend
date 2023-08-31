@@ -121,9 +121,11 @@ const ModalNotice = ({
                   onClick={onClose}
                   className={css.btnAccent}
                   type="button"
-                  phone={owner.phone}
+                  phone={`tel:${owner.phone}`}
                 >
-                  Contact
+                  <a href={`tel:${owner.phone}`} type="button">
+                    Contact
+                  </a>
                 </button>
                 <button className={css.btn} type="button">
                   <span>Add to </span> <img src={heart} alt="heart icon" />
