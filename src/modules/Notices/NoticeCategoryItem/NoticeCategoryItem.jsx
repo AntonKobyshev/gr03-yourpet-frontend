@@ -27,7 +27,7 @@ const NoticeCategoryItem = ({
   breed,
   owner,
   name,
-  favorite,
+  // favorite,
 }) => {
   const [imageError, setImageError] = useState(false);
   const userId = useSelector(getUserId);
