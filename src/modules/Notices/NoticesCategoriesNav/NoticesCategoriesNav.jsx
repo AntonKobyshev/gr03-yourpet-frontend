@@ -56,6 +56,7 @@ const NoticesCategoriesNav = ({ onOwnClick, onFavoriteClick }) => {
                   my ads
                 </NavLink>
               </li>
+
               <li key="favorite">
                 <NavLink
                   to="favorite"

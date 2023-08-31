@@ -56,7 +56,7 @@ const NoticesPage = () => {
     if (currentCategory === "lost-found") {
       dispatch(
         fetchNoticesByCategory({
-          categoryName: "lost-found",
+          categoryName: "lost/found",
           query: "",
           page: 1,
         })

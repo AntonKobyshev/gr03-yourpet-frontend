@@ -198,7 +198,7 @@ export const TextArea = styled(Field)`
 
   @media (min-width: 768px) {
     height: ${props =>
-      props.category === 'lost-found' ||
+      props.category === 'lost/found' ||
       (props.category === 'for-free' && props.step === 2)
         ? '182px'
         : '79px'};
