@@ -3,7 +3,7 @@ import { Backdrop, Box, Button, Fade, Modal } from "@mui/material";
 import heart from "../../images/icons/heart.svg";
 import css from "./ModalNotice.module.css";
 import CloseIcon from "@mui/icons-material/Close";
-
+import svgSprite from "../../images/icons/sprite-cardPet.svg";
 import {
   getNoticesById,
   getNoticesByIdOwner,
@@ -13,6 +13,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 // import Contact from "./Contact/Contact";
 // import AddToFavorite from "./AddToFavorite/AddToFavorite";
+
+const HeartOnSvg = () => {
+  return (
+    <svg width="24" height="24">
+      <use href={`${svgSprite}#icon-heart-on`}></use>
+    </svg>
+  );
+};
+
+const HeartOffSvg = () => {
+  return (
+    <svg width="24" height="24">
+      <use href={`${svgSprite}#icon-heart-off`} fill="#54ADFF"></use>
+    </svg>
+  );
+};
 
 const style = {
   position: "absolute",
@@ -27,9 +43,10 @@ const style = {
 
 const ModalNotice = ({
   handleFavoriteToggle,
+  isFavorite,
   _id,
   onClose,
-  addFavorite,
+  // addFavorite,
   openModal,
 }) => {
   const dispatch = useDispatch();
@@ -49,7 +66,7 @@ const ModalNotice = ({
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={openModal}
+        open={true}
         onClose={onClose}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
@@ -59,7 +76,7 @@ const ModalNotice = ({
           },
         }}
       >
-        <Fade in={openModal}>
+        <Fade in={true}>
           <Box sx={style} className={css.modalBox}>
             <CloseIcon
               onClick={onClose}
@@ -127,8 +144,23 @@ const ModalNotice = ({
                     Contact
                   </a>
                 </button>
-                <button className={css.btn} type="button">
-                  <span>Add to </span> <img src={heart} alt="heart icon" />
+                <button
+                  onClick={handleFavoriteToggle}
+                  className={css.addToFavotiteBtn}
+                  type="button"
+                >
+                  {isFavorite ? (
+                    <>
+                      <p>Delete from</p>
+                      <HeartOnSvg />
+                    </>
+                  ) : (
+                    <>
+                      <p>Add to</p>
+                      <HeartOffSvg />
+                    </>
+                  )}
+                  {/* <span>Add to </span> <img src={heart} alt="heart icon" /> */}
                 </button>
               </div>
             </div>
