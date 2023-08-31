@@ -76,7 +76,7 @@ const ModalNotice = ({
                   loading="lazy"
                 />
                 <div className={css.textContainer}>
-                  <p className={css.title}>{`Сute dog looking for a home`}</p>
+                  <p className={css.title}>{item.title}</p>
                   <div className={css.flexContainer}>
                     <div className={css.firstContainer}>
                       <p className={css.subTitle}>Name:</p>
