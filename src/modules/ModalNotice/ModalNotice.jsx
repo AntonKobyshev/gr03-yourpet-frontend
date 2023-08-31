@@ -16,6 +16,22 @@ import { selectIsLoggedIn } from "../../redux/auth/auth-selectors";
 import { useNavigate } from "react-router-dom";
 import ModalAttention from "../ModalAttention/ModalAttention";
 
+const HeartOnSvg = () => {
+  return (
+    <svg width="24" height="24">
+      <use href={`${svgSprite}#icon-heart-on`}></use>
+    </svg>
+  );
+};
+
+const HeartOffSvg = () => {
+  return (
+    <svg width="24" height="24">
+      <use href={`${svgSprite}#icon-heart-off`} fill="#54ADFF"></use>
+    </svg>
+  );
+};
+
 const style = {
   position: "absolute",
   top: "50%",
