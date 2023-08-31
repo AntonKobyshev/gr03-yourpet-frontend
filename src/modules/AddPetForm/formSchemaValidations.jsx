@@ -5,6 +5,7 @@ const formSchemaValidations = (step) => {
 
   const commonValidation = (category) =>
     ["sell", "lost/found", "for-free"].includes(category);
+  
 
   if (step === 0) {
     schema = Yup.object().shape({
@@ -78,7 +79,7 @@ const formSchemaValidations = (step) => {
           Yup.number()
             .nullable()
             .positive("Price should be positive")
-            .required("Please enter the price"),
+            .typeError("Please enter the price"),
       }),
       comments: Yup.string()
         .min(8, "Comments should be at least 8 characters")
