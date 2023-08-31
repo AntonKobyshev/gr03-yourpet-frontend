@@ -83,7 +83,12 @@
   height: auto;
   position: absolute;
   z-index: 900;
+  @media (max-width: 768px) {
+      left: 169px;     
+    }
 }
+
+
 
 .filtersTitle {
   font-family: "Manrope";
