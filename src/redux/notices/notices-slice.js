@@ -22,7 +22,7 @@ const initialState = {
   page: 1,
   totalPages: 1,
   keyword: "",
-  favoriteItems: [],
+  itemsFavorite: [],
   isLoading: false,
 };
 
