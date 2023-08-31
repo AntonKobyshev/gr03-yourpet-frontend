@@ -15,7 +15,7 @@ const style = {
   borderRadius: 8,
 };
 
-const ModalAttention = () => {
+const ModalAttention = ({ onClick }) => {
   const [open, setOpen] = React.useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -26,7 +26,10 @@ const ModalAttention = () => {
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
-        onClose={handleClose}
+        onClose={() => {
+          handleClose();
+          onClick();
+        }}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
         slotProps={{
@@ -38,7 +41,10 @@ const ModalAttention = () => {
         <Fade in={open}>
           <Box sx={style} className={css.modalBox}>
             <CloseIcon
-              onClick={handleClose}
+              onClick={() => {
+                handleClose();
+                onClick();
+              }}
               className={css.closeBtn}
               sx={{ width: 30, height: 30 }}
             />
@@ -53,11 +59,7 @@ const ModalAttention = () => {
                 </p>
               </div>
               <div className={css.btnContainer}>
-                <button
-                  //   onClick={handleClose}
-                  className={css.btn}
-                  type="button"
-                >
+                <button className={css.btn} type="button">
                   <span>Log IN</span>
                   <img src={pawprint} alt="paw print" />
                 </button>

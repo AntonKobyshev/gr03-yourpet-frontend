@@ -111,7 +111,7 @@ const NoticesPage = () => {
     dispatch(fetchAllFavoriteNotices({ query: "", page }));
   };
   return (
-    <div className="container">
+    <>
       <h2 className={css.title}>Find your favorite pet</h2>
       <NoticesSearch />
       <NoticesCategoriesNav
@@ -136,7 +136,7 @@ const NoticesPage = () => {
         }}
       />
       <ScrollButton />
-    </div>
+    </>
   );
 };
 

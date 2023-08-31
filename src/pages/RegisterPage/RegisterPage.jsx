@@ -5,9 +5,7 @@ const RegisterPage = () => {
   return (
     <div className={css.myСomponent}>
       <section className={css.sectionMain}>
-        <div className="container">
-          <RegisterForm />
-        </div>
+        <RegisterForm />
       </section>
     </div>
   );
