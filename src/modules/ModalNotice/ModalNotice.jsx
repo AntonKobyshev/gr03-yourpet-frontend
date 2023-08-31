@@ -3,7 +3,6 @@ import { Backdrop, Box, Fade, Modal } from "@mui/material";
 import heart from "../../images/icons/heart.svg";
 import css from "./ModalNotice.module.css";
 import CloseIcon from "@mui/icons-material/Close";
-
 import {
   getNoticesById,
   getNoticesByIdOwner,
@@ -14,6 +13,23 @@ import { useEffect } from "react";
 import { selectIsLoggedIn } from "../../redux/auth/auth-selectors";
 import { useNavigate } from "react-router-dom";
 import ModalAttention from "../ModalAttention/ModalAttention";
+import svgSprite from "../../images/icons/sprite-cardPet.svg";
+
+const HeartOnSvg = () => {
+  return (
+    <svg width="24" height="24">
+      <use href={`${svgSprite}#icon-heart-on`}></use>
+    </svg>
+  );
+};
+
+// const HeartOffSvg = () => {
+//   return (
+//     <svg width="24" height="24">
+//       <use href={`${svgSprite}#icon-heart-off`} fill="#54ADFF"></use>
+//     </svg>
+//   );
+// };
 
 const style = {
   position: "absolute",
@@ -26,7 +42,13 @@ const style = {
   borderRadius: 8,
 };
 
-const ModalNotice = ({ _id, onClose, openModal }) => {
+const ModalNotice = ({
+  _id,
+  onClose,
+  openModal,
+  handleFavoriteToggle,
+  isFavorite,
+}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isAttentionModalOpen, setIsAttentionModalOpen] = useState(false);
@@ -52,7 +74,7 @@ const ModalNotice = ({ _id, onClose, openModal }) => {
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={openModal}
+        open={true}
         onClose={onClose}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
@@ -62,7 +84,7 @@ const ModalNotice = ({ _id, onClose, openModal }) => {
           },
         }}
       >
-        <Fade in={openModal}>
+        <Fade in={true}>
           <Box sx={style} className={css.modalBox}>
             <CloseIcon
               onClick={onClose}
@@ -130,9 +152,27 @@ const ModalNotice = ({ _id, onClose, openModal }) => {
                     Contact
                   </a>
                 </button>
-                <button className={css.btn} type="button" onClick={handleClick}>
-                  <span>Add to </span> <img src={heart} alt="heart icon" />
+                <button
+                  onClick={handleFavoriteToggle}
+                  className={css.addToFavotiteBtn}
+                  type="button"
+                >
+                  {isFavorite ? (
+                    <>
+                      <p>Delete from</p>
+                      <HeartOnSvg />
+                    </>
+                  ) : (
+                    <>
+                      <p>Add to</p>
+                      <HeartOnSvg />
+                    </>
+                  )}
+                  {/* <span>Add to </span> <img src={heart} alt="heart icon" /> */}
                 </button>
+                {/* <button className={css.btn} type="button" onClick={handleClick}>
+                  <span>Add to </span> <img src={heart} alt="heart icon" />
+                </button> */}
                 {isAttentionModalOpen && (
                   <ModalAttention
                     onClick={() => {
