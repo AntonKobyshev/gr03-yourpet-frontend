@@ -3,6 +3,7 @@ import React from "react";
 import { Stack, Pagination, PaginationItem } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import css from "./PaginationNotices.module.css";
 
 const PaginationNotices = ({
   totalPages,
@@ -25,7 +26,7 @@ const PaginationNotices = ({
   };
 
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2} className={css.pagination}>
       {totalPages > 1 && (
         <Pagination
           count={totalPages}
@@ -36,8 +37,6 @@ const PaginationNotices = ({
           sx={{
             marginX: "auto",
             marginBottom: "20px",
-            boxShadow: "3px 8px 14px rgba(136, 198, 253, 0.19)",
-            borderRadius: "45px",
             padding: "8px 12px",
             background: "#FEF9F9",
           }}
