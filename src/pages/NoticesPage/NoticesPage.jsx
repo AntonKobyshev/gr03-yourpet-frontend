@@ -20,8 +20,6 @@ import PaginationNotices from "../../shared/components/Pagination/PaginationNoti
 import css from "../NoticesPage/NoticesPage.module.css";
 import ScrollButton from "../../shared/components/ScrollButton/ScrollButton";
 
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
-
 const NoticesPage = () => {
   const dispatch = useDispatch();
   const notices = useSelector(getAllNotices);

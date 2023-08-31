@@ -1,5 +1,5 @@
-import React from "react";
-import { Backdrop, Box, Button, Fade, Modal } from "@mui/material";
+import React, { useState } from "react";
+import { Backdrop, Box, Fade, Modal } from "@mui/material";
 import heart from "../../images/icons/heart.svg";
 import css from "./ModalNotice.module.css";
 import CloseIcon from "@mui/icons-material/Close";
@@ -11,8 +11,9 @@ import {
 import { fetchNoticeById } from "../../redux/notices/notices-operations";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-// import Contact from "./Contact/Contact";
-// import AddToFavorite from "./AddToFavorite/AddToFavorite";
+import { selectIsLoggedIn } from "../../redux/auth/auth-selectors";
+import { useNavigate } from "react-router-dom";
+import ModalAttention from "../ModalAttention/ModalAttention";
 
 const style = {
   position: "absolute",
@@ -25,17 +26,12 @@ const style = {
   borderRadius: 8,
 };
 
-const ModalNotice = ({
-  handleFavoriteToggle,
-  _id,
-  onClose,
-  addFavorite,
-  openModal,
-}) => {
+const ModalNotice = ({ _id, onClose, openModal }) => {
   const dispatch = useDispatch();
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const navigate = useNavigate();
+  const [isAttentionModalOpen, setIsAttentionModalOpen] = useState(false);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
   const item = useSelector(getNoticesById);
   const owner = useSelector(getNoticesByIdOwner);
 
@@ -43,9 +39,16 @@ const ModalNotice = ({
     dispatch(fetchNoticeById(_id));
   }, [dispatch, _id]);
 
+  const handleClick = () => {
+    if (!isLoggedIn) {
+      setIsAttentionModalOpen(true);
+    } else {
+      navigate("/add-pet");
+    }
+  };
+
   return (
     <div>
-      {/* <Button onClick={openModal}>Learn more</Button> */}
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -127,9 +130,16 @@ const ModalNotice = ({
                     Contact
                   </a>
                 </button>
-                <button className={css.btn} type="button">
+                <button className={css.btn} type="button" onClick={handleClick}>
                   <span>Add to </span> <img src={heart} alt="heart icon" />
                 </button>
+                {isAttentionModalOpen && (
+                  <ModalAttention
+                    onClick={() => {
+                      setIsAttentionModalOpen(false);
+                    }}
+                  />
+                )}
               </div>
             </div>
           </Box>
