@@ -204,6 +204,44 @@ const ModalTeam = () => {
                 <li className={css.teamItem}>
                   <img
                     className={css.image}
+                    src={kostiantyn}
+                    alt={"Kostiantyn Tymoshenko"}
+                  />
+                  <p className={css.title}>
+                    Kostiantyn
+                    <br /> Tymoshenko
+                  </p>
+                  <p className={css.text}>Developer</p>
+                  <div className={css.btnContainer}>
+                    <a
+                      className={css.socialLink}
+                      href="https://github.com/Kossti"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        className={css.socialIcon}
+                        src={github}
+                        alt="github"
+                      />
+                    </a>
+                    <a
+                      className={css.socialLink}
+                      href="https://www.linkedin.com/in/kostiantyn-tymoshenko/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        className={css.socialIcon}
+                        src={linkedin}
+                        alt="linkedin"
+                      />
+                    </a>
+                  </div>
+                </li>{" "}
+                <li className={css.teamItem}>
+                  <img
+                    className={css.image}
                     src={tanya}
                     alt={"Tetiana Yablonska"}
                   />
@@ -304,44 +342,6 @@ const ModalTeam = () => {
                     <a
                       className={css.socialLink}
                       href="https://www.linkedin.com/in/markiian-levitskiy-292a0220a/?originalSubdomain=ua"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        className={css.socialIcon}
-                        src={linkedin}
-                        alt="linkedin"
-                      />
-                    </a>
-                  </div>
-                </li>{" "}
-                <li className={css.teamItem}>
-                  <img
-                    className={css.image}
-                    src={kostiantyn}
-                    alt={"Kostiantyn Tymoshenko"}
-                  />
-                  <p className={css.title}>
-                    Kostiantyn
-                    <br /> Tymoshenko
-                  </p>
-                  <p className={css.text}>Developer</p>
-                  <div className={css.btnContainer}>
-                    <a
-                      className={css.socialLink}
-                      href="https://github.com/Kossti"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        className={css.socialIcon}
-                        src={github}
-                        alt="github"
-                      />
-                    </a>
-                    <a
-                      className={css.socialLink}
-                      href="https://www.linkedin.com/in/kostiantyn-tymoshenko/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
