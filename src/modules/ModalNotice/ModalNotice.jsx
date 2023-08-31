@@ -42,7 +42,13 @@ const style = {
   borderRadius: 8,
 };
 
-const ModalNotice = ({ _id, onClose, openModal }) => {
+const ModalNotice = ({
+  _id,
+  onClose,
+  openModal,
+  handleFavoriteToggle,
+  isFavorite,
+}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isAttentionModalOpen, setIsAttentionModalOpen] = useState(false);
