@@ -23,13 +23,13 @@ const HeartOnSvg = () => {
   );
 };
 
-const HeartOffSvg = () => {
-  return (
-    <svg width="24" height="24">
-      <use href={`${svgSprite}#icon-heart-off`} fill="#54ADFF"></use>
-    </svg>
-  );
-};
+// const HeartOffSvg = () => {
+//   return (
+//     <svg width="24" height="24">
+//       <use href={`${svgSprite}#icon-heart-off`} fill="#54ADFF"></use>
+//     </svg>
+//   );
+// };
 
 const style = {
   position: "absolute",
@@ -74,7 +74,7 @@ const ModalNotice = ({
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={openModal}
+        open={true}
         onClose={onClose}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
@@ -165,7 +165,7 @@ const ModalNotice = ({
                   ) : (
                     <>
                       <p>Add to</p>
-                      <HeartOffSvg />
+                      <HeartOnSvg />
                     </>
                   )}
                   {/* <span>Add to </span> <img src={heart} alt="heart icon" /> */}

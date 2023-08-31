@@ -231,8 +231,8 @@ const NoticeCategoryItem = ({
           breed={breed}
           owner={owner}
           name={name}
-          isFavorite={favorites}
-          addToFavorite={handleFavoriteToggle}
+          isFavorite={isFavorite}
+          handleFavoriteToggle={handleFavoriteToggle}
         />
       )}
       {isDeleteModalOpen && (
