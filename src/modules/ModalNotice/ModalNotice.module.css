@@ -270,3 +270,15 @@
   box-shadow: 7px 13px 14px 0px rgba(116, 177, 232, 0.24);
   background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
 }
+
+.addToFavotiteBtn:hover svg {
+  width: 24px;
+  height: 24px;
+  --color1: var(--white-color);
+}
+
+.addToFavotiteBtn svg {
+  width: 24px;
+  height: 24px;
+  --color1: var(--white-color);
+}
