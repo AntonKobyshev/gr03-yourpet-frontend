@@ -152,9 +152,27 @@ const ModalNotice = ({
                     Contact
                   </a>
                 </button>
-                <button className={css.btn} type="button" onClick={handleClick}>
-                  <span>Add to </span> <img src={heart} alt="heart icon" />
+                <button
+                  onClick={handleFavoriteToggle}
+                  className={css.addToFavotiteBtn}
+                  type="button"
+                >
+                  {isFavorite ? (
+                    <>
+                      <p>Delete from</p>
+                      <HeartOnSvg />
+                    </>
+                  ) : (
+                    <>
+                      <p>Add to</p>
+                      <HeartOffSvg />
+                    </>
+                  )}
+                  {/* <span>Add to </span> <img src={heart} alt="heart icon" /> */}
                 </button>
+                {/* <button className={css.btn} type="button" onClick={handleClick}>
+                  <span>Add to </span> <img src={heart} alt="heart icon" />
+                </button> */}
                 {isAttentionModalOpen && (
                   <ModalAttention
                     onClick={() => {
