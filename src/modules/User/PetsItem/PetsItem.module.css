@@ -19,7 +19,7 @@
   }
 
   @media screen and (min-width: 1280px) {
-    width: 821px;
+    min-width: 821px;
     min-height: 212px;
 
     display: flex;

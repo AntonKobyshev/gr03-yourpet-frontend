@@ -29,6 +29,9 @@
   @media screen and (max-width: 1279px) {
     margin-top: 46px;
   }
+  @media screen and (min-width: 1279px) {
+    min-width: 821px;
+  }
 }
 
 .userContainer {
