@@ -22,7 +22,7 @@ const style = {
   transform: "translate(-50%, -50%)",
   backgroundColor: "background.paper",
   boxShadow: 24,
-  p: 4,
+
   borderRadius: 8,
 };
 
@@ -51,11 +51,7 @@ const ModalTeam = () => {
       >
         <Fade in={open}>
           <Box sx={style} className={css.modalBox}>
-            <CloseIcon
-              onClick={handleClose}
-              className={css.closeBtn}
-              sx={{ width: 30, height: 30 }}
-            />
+            <CloseIcon onClick={handleClose} className={css.closeBtn} />
             <div className={css.contentContainer}>
               <ul className={css.teamList}>
                 <li className={css.teamItem}>
