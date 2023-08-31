@@ -17,7 +17,8 @@ const style = {
   borderRadius: 8,
 };
 
-const ModalAttention = () => {
+
+const ModalAttention = ({ onClick }) => {
   const [isMenuShown, setIsMenuShown] = useState(false);
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(true);
@@ -44,7 +45,10 @@ const ModalAttention = () => {
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
-        onClose={handleClose}
+        onClose={() => {
+          handleClose();
+          onClick();
+        }}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
         slotProps={{
@@ -56,7 +60,10 @@ const ModalAttention = () => {
         <Fade in={open}>
           <Box sx={style} className={css.modalBox}>
             <CloseIcon
-              onClick={handleClose}
+              onClick={() => {
+                handleClose();
+                onClick();
+              }}
               className={css.closeBtn}
               sx={{ width: 30, height: 30 }}
             />

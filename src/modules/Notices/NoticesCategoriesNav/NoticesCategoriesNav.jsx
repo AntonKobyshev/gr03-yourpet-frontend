@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import PlusIcon from "../../../icons/PlusIcon";
 
 import css from "./NoticesCategoriesNav.module.css";
 import Filter from "../NoticesFilters/NoticesFilters";
+import ModalAttention from "../../ModalAttention/ModalAttention";
 const link = [
   { to: "sell", text: "sell" },
   { to: "lost-found", text: "lost/found" },
@@ -22,11 +23,12 @@ const getClassNameLink = ({ isActive }) => {
 const NoticesCategoriesNav = ({ onOwnClick, onFavoriteClick }) => {
   const navigate = useNavigate();
   const isLoggedIn = useSelector(selectIsLoggedIn);
-
+  const [showModal, setShowModal] = useState(false);
+  console.log(showModal);
   const handleClick = () => {
     if (!isLoggedIn) {
       toasty.toastInfo("You must be logged in");
-      return;
+      setShowModal(true);
     } else {
       navigate("/add-pet");
     }
@@ -76,6 +78,7 @@ const NoticesCategoriesNav = ({ onOwnClick, onFavoriteClick }) => {
           <button className={css.btn} onClick={handleClick}>
             Add Pet <PlusIcon color="#FEF9F9" className={css.iconBtn} />
           </button>
+          {showModal && <ModalAttention onClick={() => setShowModal(false)} />}
         </div>
       </div>
     </div>

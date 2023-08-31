@@ -47,7 +47,7 @@
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .sectionMain {
-      background-image: url("../../images/404-desktop@2x.png");
+      background-image: url("../../images/bg-desktop@2x.png");
     }
   }
 }
