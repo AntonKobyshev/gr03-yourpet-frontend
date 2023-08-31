@@ -187,7 +187,7 @@ const NoticeCategoryItem = ({
 
           {isFavorite && (
             <button
-              className={css.deleteFavoritesButton}
+              className={css.addToFavoritesButton}
               type="button"
               onClick={handleFavoriteToggle}
             >
