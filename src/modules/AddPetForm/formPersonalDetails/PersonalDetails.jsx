@@ -1,15 +1,15 @@
-import { Point, Input, PersonalDetailsBlock } from './PersonalDetails.styled';
+import { Point, Input, PersonalDetailsBlock } from "./PersonalDetails.styled";
 
 const PersonalDetails = ({ category, touched, errors }) => {
   return (
     <PersonalDetailsBlock category={category}>
-      {category !== 'my-pet' && (
+      {category !== "my-pet" && (
         <Point>
           Title of add
           <Input
             type="text"
             name="title"
-            placeholder="Title of add"
+            placeholder="Dog in good hands"
             errors={touched.title && errors.title}
           />
           {touched.title && errors.title && <div>{errors.title}</div>}
@@ -20,7 +20,7 @@ const PersonalDetails = ({ category, touched, errors }) => {
         <Input
           type="text"
           name="name"
-          placeholder="Type name pet"
+          placeholder="Cute dog"
           errors={touched.name && errors.name}
         />
         {touched.name && errors.name && <div>{errors.name}</div>}
@@ -50,8 +50,5 @@ const PersonalDetails = ({ category, touched, errors }) => {
     </PersonalDetailsBlock>
   );
 };
-
-
-
 
 export default PersonalDetails;

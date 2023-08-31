@@ -26,7 +26,7 @@ const initialValues = {
   breed: "",
   image: "",
   sex: "",
-  place: "",
+  location: "",
   price: "",
   comments: "",
   title: "",

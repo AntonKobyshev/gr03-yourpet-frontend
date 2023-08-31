@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const AddPetFormWrapper = styled.div`
   margin: 0 auto;
@@ -13,18 +13,18 @@ export const AddPetFormWrapper = styled.div`
   @media (min-width: 768px) {
     padding: 20px 32px;
     margin-top: 60px;
-    max-width: ${props =>
-      props.category !== 'my-pet' && props.step === 2 ? '704px' : '458px'};
+    max-width: ${(props) =>
+      props.category !== "my-pet" && props.step === 2 ? "704px" : "458px"};
   }
 
   @media (min-width: 1280px) {
     margin-top: 40px;
-    max-width: ${props =>
-      props.category !== 'my-pet' && props.step === 2 ? '822px' : '458px'};
-    padding: ${props =>
-      props.category !== 'my-pet' && props.step === 2
-        ? '30px 75px'
-        : '20px 32px'};
+    max-width: ${(props) =>
+      props.category !== "my-pet" && props.step === 2 ? "822px" : "458px"};
+    padding: ${(props) =>
+      props.category !== "my-pet" && props.step === 2
+        ? "30px 75px"
+        : "20px 32px"};
   }
 `;
 
@@ -40,8 +40,8 @@ export const PetFormTitle = styled.h1`
   @media (min-width: 768px) {
     font-size: 28px;
     margin-left: 0;
-    text-align: ${props =>
-      props.category !== 'my-pet' && props.step === 2 ? 'center' : 'left'};
+    text-align: ${(props) =>
+      props.category !== "my-pet" && props.step === 2 ? "center" : "left"};
   }
 `;
 
@@ -54,7 +54,7 @@ export const StepsList = styled.ul`
 
   @media (min-width: 768px) {
     gap: 16px;
-    margin-bottom: ${props => (props.step === 0 ? '60px' : '36px')};
+    margin-bottom: ${(props) => (props.step === 0 ? "60px" : "36px")};
   }
 `;
 
@@ -64,17 +64,17 @@ export const Step = styled.li`
   font-size: 10px;
   line-height: calc(14 / 10);
   font-weight: 500;
-  color: ${props => {
+  color: ${(props) => {
     if (props.step === 0) {
-      return props.index === 0 ? '#54ADFF' : '#888888';
+      return props.index === 0 ? "#54ADFF" : "#888888";
     } else if (props.step === 1) {
       return props.index === 0
-        ? '#00C3AD'
+        ? "#00C3AD"
         : props.index === 1
-        ? '#54ADFF'
-        : '#888888';
+        ? "#54ADFF"
+        : "#888888";
     } else if (props.step === 2) {
-      return props.index < 2 ? '#00C3AD' : '#54ADFF';
+      return props.index < 2 ? "#00C3AD" : "#54ADFF";
     }
   }};
 
@@ -85,24 +85,24 @@ export const Step = styled.li`
   }
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -20px;
     left: 0;
     width: 100%;
     height: 8px;
     border-radius: 8px;
-    background-color: ${props => {
+    background-color: ${(props) => {
       if (props.step === 0) {
-        return props.index === 0 ? '#54ADFF' : '#CCE4FB';
+        return props.index === 0 ? "#54ADFF" : "#CCE4FB";
       } else if (props.step === 1) {
         return props.index === 0
-          ? '#00C3AD'
+          ? "#00C3AD"
           : props.index === 1
-          ? '#54ADFF'
-          : '#CCE4FB';
+          ? "#54ADFF"
+          : "#CCE4FB";
       } else if (props.step === 2) {
-        return props.index < 2 ? '#00C3AD' : '#54ADFF';
+        return props.index < 2 ? "#00C3AD" : "#54ADFF";
       }
     }};
   }

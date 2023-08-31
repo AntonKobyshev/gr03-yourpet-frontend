@@ -82,7 +82,11 @@ const NoticeCategoryItem = ({
   // };
 
   const handleFavoriteToggle = async () => {
-    if (!isUserRegistered) return toasty.toastInfo("You must be logged in");
+    if (!isUserRegistered) {
+      setIsAttentionModalOpen(true);
+      toasty.toastInfo("You must be logged in");
+      return;
+    }
     if (favorites.includes(_id)) {
       try {
         await dispatch(fetchRemoveFromFavorite(_id));
