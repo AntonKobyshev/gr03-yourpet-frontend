@@ -74,7 +74,10 @@ const NoticeCategoryItem = ({
   const handleImageError = () => setImageError(true);
 
   const handleFavoriteToggle = async () => {
-    if (!isUserRegistered) return toasty.toastInfo("You must be logged in");
+    if (!isUserRegistered) {
+      setIsAttentionModalOpen(true);
+      return toasty.toastInfo("You must be logged in");
+    }
 
     try {
       if (isFavorite) {
