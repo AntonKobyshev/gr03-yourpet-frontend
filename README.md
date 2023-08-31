@@ -2,7 +2,7 @@
 
 **Hello everyone!**
 
-Greetings from the students of the Fullstack course at GoIT IT-professional school!
+Greetings from the students of the Fullstack course at GoIT school!
 
 We are delighted to present to you our graduation project developed by GoIT students upon completing the React and Node.js course.
 
