@@ -40,7 +40,11 @@ const NoticeCategoryItem = ({
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const favorites = useSelector(getFavorite);
   const dispatch = useDispatch();
-  const isFavorite = favorites.includes(_id);
+  const [isFavorite, setIsFavorite] = useState(favorites.includes(_id));
+
+  useEffect(() => {
+    setIsFavorite(favorites.includes(_id));
+  }, [favorites, _id]);
 
   const noticeCategories = Object.freeze({
     SELL: "sell",
@@ -82,27 +86,19 @@ const NoticeCategoryItem = ({
   // };
 
   const handleFavoriteToggle = async () => {
-    if (!isUserRegistered) {
-      setIsAttentionModalOpen(true);
-      toasty.toastInfo("You must be logged in");
-      return;
-    }
-    if (favorites.includes(_id)) {
-      try {
+    if (!isUserRegistered) return toasty.toastInfo("You must be logged in");
+
+    try {
+      if (isFavorite) {
         await dispatch(fetchRemoveFromFavorite(_id));
-        toasty.toastSuccess("remove from favorite");
-        return;
-      } catch (e) {
-        toasty.toastError(e.message);
-      }
-    } else {
-      try {
+        toasty.toastSuccess("Removed from favorites");
+      } else {
         await dispatch(fetchAddToFavorite(_id));
-        toasty.toastSuccess("add to favorite");
-        return;
-      } catch (e) {
-        toasty.toastError(e.message);
+        toasty.toastSuccess("Added to favorites");
       }
+      setIsFavorite(!isFavorite);
+    } catch (e) {
+      toasty.toastError(e.message);
     }
   };
 
@@ -189,9 +185,9 @@ const NoticeCategoryItem = ({
           />
           <p className={css.category}>{updatedCategory} </p>
 
-          {isFavorite && (
+          {isFavorite ? (
             <button
-              className={css.addToFavoritesButton}
+              className={css.deleteFavoritesButton}
               type="button"
               onClick={handleFavoriteToggle}
             >
@@ -199,8 +195,7 @@ const NoticeCategoryItem = ({
                 <use href={`${svgSprite}#icon-heart-off`} fill="#54ADFF"></use>
               </svg>
             </button>
-          )}
-          {!isFavorite && (
+          ) : (
             <button
               className={css.addToFavoritesButton}
               onClick={handleFavoriteToggle}
