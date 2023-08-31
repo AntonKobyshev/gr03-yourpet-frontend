@@ -96,7 +96,7 @@ export const AddPetForm = () => {
       formData.append("sex", data.sex);
       formData.append("location", data.place);
 
-      if (data.category === "for-free" || data.category === "lost-found") {
+      if (data.category === "for-free" || data.category === "lost/found") {
         await dispatch(addNotice(formData));
         navigate("/user");
       }
@@ -140,7 +140,7 @@ export const AddPetForm = () => {
               ? "Add pet"
               : values.category === "sell"
               ? "Add pet for sale"
-              : values.category === "lost-found"
+              : values.category === "lost/found"
               ? "Add lost pet"
               : "Add for free"}
           </PetFormTitle>

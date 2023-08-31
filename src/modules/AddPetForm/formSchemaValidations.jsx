@@ -4,12 +4,12 @@ const formSchemaValidations = step => {
   let schema;
 
   const commonValidation = category =>
-    ['sell', 'lost-found', 'for-free'].includes(category);
+    ['sell', 'lost/found', 'for-free'].includes(category);
 
   if (step === 0) {
     schema = Yup.object().shape({
       category: Yup.string()
-        .oneOf(['my-pet', 'sell', 'lost-found', 'for-free'])
+        .oneOf(['my-pet', 'sell', 'lost/found', 'for-free'])
         .required(),
     });
   }
@@ -72,7 +72,7 @@ const formSchemaValidations = step => {
         is: commonValidation,
         then: () =>
           Yup.number()
-            .required('Price is required')
+            .nullable() 
             .positive('Price should be positive')
             .typeError('please enter a valid number'),
       }),
