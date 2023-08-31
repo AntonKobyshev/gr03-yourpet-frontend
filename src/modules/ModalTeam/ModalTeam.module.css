@@ -10,13 +10,13 @@
 
   @media (min-width: 768px) {
     width: 608px;
-    height: 769px;
+    height: 980px;
     padding: 15px 15px;
   }
 
   @media (min-width: 1280px) {
-    width: 808px;
-    height: 769px;
+    width: 1200px;
+    height: 820px;
   }
 }
 
@@ -76,7 +76,7 @@
 
   @media (min-width: 768px) {
     width: 150px;
-    height: 180px;
+    height: 175px;
   }
 
   @media (min-width: 1280px) {
