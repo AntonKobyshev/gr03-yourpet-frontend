@@ -1,7 +1,6 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { selectIsLoading, isModalOpen } from '../../redux/auth/auth-selectors';
-import { fetchUser } from '../../redux/auth/auth-operations';
+
 
 import ModalCongrats from '../../modules/ModalCongrats/ModalCongrats';
 import Loader from '../../shared/components/Loader/Loader';
@@ -12,12 +11,6 @@ import css from "./UserPage.module.css";
 const UserPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const showModal = useSelector(isModalOpen);
-  const dispatch = useDispatch();
-
-useEffect(() => {
-  dispatch(fetchUser());
-  }, [dispatch]);
-
   return (
     <div className={css.container}>
    
