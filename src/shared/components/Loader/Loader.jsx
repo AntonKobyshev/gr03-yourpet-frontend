@@ -5,9 +5,10 @@ const Loader = () => {
   return (
     <div className={css.wrapper}>
       <RotatingTriangles
+        colors={['#ffc107', '#54adff', '#FF7E6B']}
         visible={true}
-        height="80"
-        width="80"
+        height="120"
+        width="120"
         ariaLabel="rotating-triangels-loading"
         wrapperStyle={{}}
         wrapperClass="rotating-triangels-wrapper"
