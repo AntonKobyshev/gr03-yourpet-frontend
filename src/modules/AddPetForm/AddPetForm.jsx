@@ -18,6 +18,7 @@ import formSchemaValidations from "./formSchemaValidations";
 import { useDispatch } from "react-redux";
 import { addPet, addNotice } from "../../redux/pets/pets-operations";
 import Loader from "../../shared/components/Loader/Loader";
+import * as toasty from "../../shared/toastify/toastify";
 
 const initialValues = {
   category: "my-pet",
@@ -91,23 +92,35 @@ export const AddPetForm = () => {
       if (data.category === "my-pet") {
         await dispatch(addPet(formData));
         navigate("/user");
+        toasty.toastSuccess("Your own pet successfully added");
       }
 
       formData.append("sex", data.sex);
       formData.append("location", data.place);
 
-      if (data.category === "for-free" || data.category === "lost/found") {
+      if (data.category === "for-free") {
         await dispatch(addNotice(formData));
-        navigate("/user");
+        navigate("/notices/for-free");
+        toasty.toastSuccess(
+          "The pet with in a good hands category successfully added"
+        );
+      }
+
+      if (data.category === "lost/found") {
+        await dispatch(addNotice(formData));
+        navigate("/notices/lost-found");
+        toasty.toastSuccess("The pet lost/found category successfully added");
       }
 
       formData.append("price", data.price);
 
       if (data.category === "sell") {
         await dispatch(addNotice(formData));
-        navigate("/user");
+        navigate("/notices/sell");
+        toasty.toastSuccess("The pet sell category successfully added");
       }
-    } catch (error) {
+    } catch (e) {
+      toasty.toastError(e.message);
     } finally {
       setIsAdding(false);
       setIsLoading(false);
