@@ -5,7 +5,6 @@ const formSchemaValidations = (step) => {
 
   const commonValidation = (category) =>
     ["sell", "lost/found", "for-free"].includes(category);
-  
 
   if (step === 0) {
     schema = Yup.object().shape({
@@ -20,10 +19,12 @@ const formSchemaValidations = (step) => {
       name: Yup.string()
         .required("Please enter name of your pet")
         .trim()
+        .matches(/^[a-zA-Z]*$/, "Please type name in english")
         .min(2, "Too Short!")
         .max(16, "Too Long!"),
       breed: Yup.string()
         .required("Please enter breed of your pet")
+        .matches(/^[a-zA-Z]*$/, "Please type name in english")
         .min(2, "Too Short!")
         .max(16, "Too Long!")
         .trim(),
@@ -70,6 +71,7 @@ const formSchemaValidations = (step) => {
         is: commonValidation,
         then: () =>
           Yup.string()
+            .matches(/^[a-zA-Z]*$/, "Please type name in english")
             .trim()
             .required("Location is required, please enter your city"),
       }),
@@ -84,6 +86,7 @@ const formSchemaValidations = (step) => {
       comments: Yup.string()
         .min(8, "Comments should be at least 8 characters")
         .max(120, "Comments should not exceed 120 characters")
+        .matches(/^[a-zA-Z]*$/, "Please type name in english")
         .required("Comments should be at least 8 characters")
         .trim(),
 
