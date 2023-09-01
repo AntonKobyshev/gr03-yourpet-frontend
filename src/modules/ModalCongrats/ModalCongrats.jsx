@@ -1,4 +1,4 @@
-import { Backdrop, Box, Button, Fade, Modal } from "@mui/material";
+import { Backdrop, Box, Fade, Modal } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import css from "./ModalCongrats.module.css";
