@@ -8,6 +8,7 @@ import { selectIsLoggedIn } from "../../../redux/auth/auth-selectors";
 import {
   fetchAddToFavorite,
   fetchRemoveFromFavorite,
+  fetchAllFavoriteNotices
 } from "../../../redux/notices/notices-operations";
 import ModalNotice from "../../ModalNotice/ModalNotice";
 import ModalAttention from "../../ModalAttention/ModalAttention";
@@ -86,6 +87,7 @@ const NoticeCategoryItem = ({
       if (isFavorite) {
         await dispatch(fetchRemoveFromFavorite(_id));
         toasty.toastSuccess("Removed from favorites");
+        await dispatch(fetchAllFavoriteNotices(_id))
       } else {
         await dispatch(fetchAddToFavorite(_id));
         toasty.toastSuccess("Added to favorites");
