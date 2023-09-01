@@ -27,7 +27,7 @@ const NoticesCategoriesList = () => {
   const ageFilter = useSelector(selectAgeFilter);
   const genderFilter = useSelector(selectGenderFilter);
   const isLoading = useSelector(selectNoticesLoading);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [filteredNotices, setFilteredNotices] = useState([]);
 
@@ -60,14 +60,6 @@ const NoticesCategoriesList = () => {
 
     setFilteredNotices(filtered);
   }, [allNotices, genderFilter, ageFilter]);
-
-  const { category } = useParams();
-
-   useEffect(() => {
-    if (category) {
-      dispatch(fetchAllNotices());
-    }
-  }, [category, dispatch]);
 
   const currentCategory = location.pathname.split("/")[2] || "sell";
   return (

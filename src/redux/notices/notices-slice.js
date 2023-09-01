@@ -140,9 +140,9 @@ const noticesSlice = createSlice({
         store.isLoading = false;
         store.error = payload;
       })
-      .addCase(fetchRemoveFromFavorite.pending, (state) => {
+      .addCase(fetchRemoveFromFavorite.pending, (store) => {
         return {
-          ...state,
+          ...store,
           isLoading: true,
         };
       })
