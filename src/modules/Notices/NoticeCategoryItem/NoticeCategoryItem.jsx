@@ -8,7 +8,6 @@ import { selectIsLoggedIn } from "../../../redux/auth/auth-selectors";
 import {
   fetchAddToFavorite,
   fetchRemoveFromFavorite,
-  fetchDeleteNotice,
 } from "../../../redux/notices/notices-operations";
 import ModalNotice from "../../ModalNotice/ModalNotice";
 import ModalAttention from "../../ModalAttention/ModalAttention";
@@ -122,29 +121,6 @@ const NoticeCategoryItem = ({
     return age;
   }; 
   
-
-  function getAge(date) {
-    const ymdArr = date.split(".").map(Number).reverse();
-    ymdArr[1]--;
-    const bornDate = new Date(...ymdArr);
-
-    const now = new Date();
-
-    const leapYears = (now.getFullYear() - ymdArr[0]) / 4;
-
-    now.setDate(now.getDate() - Math.floor(leapYears));
-
-    const nowAsTimestamp = now.getTime();
-    const bornDateAsTimestamp = bornDate.getTime();
-
-    const ageAsTimestamp = nowAsTimestamp - bornDateAsTimestamp;
-
-    const oneYearInMs = 3.17098e-11;
-
-    const age = Math.floor(ageAsTimestamp * oneYearInMs);
-    return age;
-  }
-
   const age = getAge(date);
 
   const handleOpenModal = () => {
@@ -199,7 +175,7 @@ const NoticeCategoryItem = ({
 
           {owner === userId && (
             <button
-              className={css.deleteFavoritesButton}
+              className={css.deleteNoticeButton}
               type="button"
               onClick={openModalApprove}
             >
