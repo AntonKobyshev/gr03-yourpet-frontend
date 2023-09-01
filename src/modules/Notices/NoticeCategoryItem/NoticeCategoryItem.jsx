@@ -31,6 +31,7 @@ const NoticeCategoryItem = ({
 }) => {
   const [imageError, setImageError] = useState(false);
   const userId = useSelector(getUserId);
+  const [shouldShowTrashcan, setShouldShowTrashcan] = useState(false);
   const [sexIcon, setSexIcon] = useState("icon-male");
   const [isAttentionModalOpen, setIsAttentionModalOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,6 +39,12 @@ const NoticeCategoryItem = ({
   const favorites = useSelector(getFavorite);
   const dispatch = useDispatch();
   const [isFavorite, setIsFavorite] = useState(favorites?.includes(_id));
+
+  useEffect(() => {
+    if (userId === owner) {
+      setShouldShowTrashcan(true);
+    }
+  }, [userId, owner]);
 
   useEffect(() => {
     setIsFavorite(favorites?.includes(_id));
@@ -172,7 +179,7 @@ const NoticeCategoryItem = ({
             </button>
           )}
 
-          {owner === userId && (
+          {shouldShowTrashcan && (
             <button
               className={css.deleteNoticeButton}
               type="button"
