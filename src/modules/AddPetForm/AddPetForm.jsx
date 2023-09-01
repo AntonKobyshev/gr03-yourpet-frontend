@@ -195,17 +195,24 @@ export const AddPetForm = () => {
             )}
             <ButtonWrap category={values.category} step={step}>
               {step === 2 ? (
-                <ButtonFilled type="submit" disabled={isLoading}>
-                  {isLoading ? <Loader /> : <span>Done</span>}
-                  <Pets
-                    sx={{
-                      width: 24,
-                      height: 20,
-                      color: "white",
-                      transform: "rotate(25deg)",
-                    }}
-                  />
-                </ButtonFilled>
+                <>
+                  {" "}
+                  {isLoading ? (
+                    <Loader />
+                  ) : (
+                    <ButtonFilled type="submit" disabled={isLoading}>
+                      {<span>Done</span>}
+                      <Pets
+                        sx={{
+                          width: 24,
+                          height: 20,
+                          color: "white",
+                          transform: "rotate(25deg)",
+                        }}
+                      />
+                    </ButtonFilled>
+                  )}
+                </>
               ) : (
                 <ButtonFilled
                   type="button"
