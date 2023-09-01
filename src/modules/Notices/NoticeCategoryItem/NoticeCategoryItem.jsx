@@ -45,8 +45,6 @@ const NoticeCategoryItem = ({
   }, [favorites, _id]);
 
 
-
-
   const noticeCategories = Object.freeze({
     SELL: "sell",
     LOSTFOUND: "lost/found",
@@ -87,7 +85,10 @@ const NoticeCategoryItem = ({
       if (isFavorite) {
         await dispatch(fetchRemoveFromFavorite(_id));
         toasty.toastSuccess("Removed from favorites");
-        // await dispatch(fetchAllFavoriteNotices(_id))
+        if (window.location.pathname === "/notices/favorite") {
+        await dispatch(fetchAllFavoriteNotices(_id));
+      }
+      
       } else {
         await dispatch(fetchAddToFavorite(_id));
         toasty.toastSuccess("Added to favorites");
