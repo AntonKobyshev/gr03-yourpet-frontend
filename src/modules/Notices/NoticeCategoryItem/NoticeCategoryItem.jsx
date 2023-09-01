@@ -8,13 +8,13 @@ import { selectIsLoggedIn } from "../../../redux/auth/auth-selectors";
 import {
   fetchAddToFavorite,
   fetchRemoveFromFavorite,
-  fetchAllFavoriteNotices
+  fetchAllFavoriteNotices,
 } from "../../../redux/notices/notices-operations";
 import ModalNotice from "../../ModalNotice/ModalNotice";
 import ModalAttention from "../../ModalAttention/ModalAttention";
 import ModalDeleteCardNotice from "../../ModalDeleteCardNotice/ModalDeleteCardNotice";
 import * as toasty from "../../../shared/toastify/toastify";
-import useToggleModalDeleteCardNotice from '../../../shared/hooks/useToggleModalDeleteCardNotice';
+import useToggleModalDeleteCardNotice from "../../../shared/hooks/useToggleModalDeleteCardNotice";
 
 const NoticeCategoryItem = ({
   _id,
@@ -37,13 +37,11 @@ const NoticeCategoryItem = ({
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const favorites = useSelector(getFavorite);
   const dispatch = useDispatch();
-  const [isFavorite, setIsFavorite] = useState(favorites.includes(_id));
-  
+  const [isFavorite, setIsFavorite] = useState(favorites?.includes(_id));
 
   useEffect(() => {
-    setIsFavorite(favorites.includes(_id));
+    setIsFavorite(favorites?.includes(_id));
   }, [favorites, _id]);
-
 
   const noticeCategories = Object.freeze({
     SELL: "sell",
@@ -86,9 +84,8 @@ const NoticeCategoryItem = ({
         await dispatch(fetchRemoveFromFavorite(_id));
         toasty.toastSuccess("Removed from favorites");
         if (window.location.pathname === "/notices/favorite") {
-        await dispatch(fetchAllFavoriteNotices(_id));
-      }
-      
+          await dispatch(fetchAllFavoriteNotices(_id));
+        }
       } else {
         await dispatch(fetchAddToFavorite(_id));
         toasty.toastSuccess("Added to favorites");
@@ -103,7 +100,7 @@ const NoticeCategoryItem = ({
     useToggleModalDeleteCardNotice();
 
   function getAge(date) {
-    const ymdArr = date.split('.').map(Number).reverse();
+    const ymdArr = date.split(".").map(Number).reverse();
     ymdArr[1]--;
     const bornDate = new Date(...ymdArr);
 
@@ -122,8 +119,8 @@ const NoticeCategoryItem = ({
 
     const age = Math.floor(ageAsTimestamp * oneYearInMs);
     return age;
-  }; 
-  
+  }
+
   const age = getAge(date);
 
   const handleOpenModal = () => {
@@ -139,7 +136,6 @@ const NoticeCategoryItem = ({
       setIsDeleteModalOpen(true);
     }
   };
-
 
   return (
     <div>
@@ -187,7 +183,6 @@ const NoticeCategoryItem = ({
               </svg>
             </button>
           )}
-
 
           <div className={css.infoWrapper}>
             <p className={css.location}>
@@ -241,14 +236,14 @@ const NoticeCategoryItem = ({
           handleFavoriteToggle={handleFavoriteToggle}
         />
       )}
-              {isModalOpenApprove && (
-                <ModalDeleteCardNotice
-                  closeModal={closeModalApprove}
-                  handleDelete={handleDelete}
-                  _id={_id}
-                  title={title}
-                />
-              )}
+      {isModalOpenApprove && (
+        <ModalDeleteCardNotice
+          closeModal={closeModalApprove}
+          handleDelete={handleDelete}
+          _id={_id}
+          title={title}
+        />
+      )}
       {isAttentionModalOpen && (
         <ModalAttention
           onClick={() => {
