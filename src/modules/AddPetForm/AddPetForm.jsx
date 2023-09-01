@@ -90,34 +90,54 @@ export const AddPetForm = () => {
       }
 
       if (data.category === "my-pet") {
-        await dispatch(addPet(formData));
-        navigate("/user");
-        toasty.toastSuccess("Your own pet successfully added");
+        const response = await dispatch(addPet(formData));
+
+        if (response.error) {
+          toasty.toastError("Oooops! Pet not added, something went wrong!");
+        } else {
+          toasty.toastSuccess("Your own pet successfully added");
+          navigate("/user");
+        }
       }
 
       formData.append("sex", data.sex);
       formData.append("location", data.place);
 
       if (data.category === "for-free") {
-        await dispatch(addNotice(formData));
-        navigate("/notices/for-free");
-        toasty.toastSuccess(
-          "The pet with in a good hands category successfully added"
-        );
+        const response = await dispatch(addNotice(formData));
+
+        if (response.error) {
+          toasty.toastError("Oooops! Pet not added, something went wrong!");
+        } else {
+          toasty.toastSuccess(
+            "The pet with in a good hands category successfully added"
+          );
+          navigate("/notices/for-free");
+        }
       }
 
       if (data.category === "lost/found") {
-        await dispatch(addNotice(formData));
-        navigate("/notices/lost-found");
-        toasty.toastSuccess("The pet lost/found category successfully added");
+        const response = await dispatch(addNotice(formData));
+
+        if (response.error) {
+          toasty.toastError("Oooops! Pet not added, something went wrong!");
+        } else {
+          toasty.toastSuccess("The pet lost/found category successfully added");
+          navigate("/notices/lost-found");
+        }
       }
 
       formData.append("price", data.price);
 
       if (data.category === "sell") {
-        await dispatch(addNotice(formData));
-        navigate("/notices/sell");
-        toasty.toastSuccess("The pet sell category successfully added");
+        const response = await dispatch(addNotice(formData));
+
+        if (response.error) {
+          toasty.toastError("Oooops! Pet not added, something went wrong!");
+        } else {
+          toasty.toastSuccess("The pet sell category successfully added");
+          navigate("/notices/sell");
+        }
       }
     } catch (e) {
       toasty.toastError(e.message);
