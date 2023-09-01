@@ -15,6 +15,7 @@ import ModalAttention from "../../ModalAttention/ModalAttention";
 import ModalDeleteCardNotice from "../../ModalDeleteCardNotice/ModalDeleteCardNotice";
 import * as toasty from "../../../shared/toastify/toastify";
 import useToggleModalDeleteCardNotice from "../../../shared/hooks/useToggleModalDeleteCardNotice";
+import { current } from "../../../redux/auth/auth-operations";
 
 const NoticeCategoryItem = ({
   _id,
@@ -87,14 +88,14 @@ const NoticeCategoryItem = ({
     }
 
     try {
-      if (isFavorite) {
+     if (isFavorite) {
         await dispatch(fetchRemoveFromFavorite(_id));
+        await dispatch(current());
         toasty.toastSuccess("Removed from favorites");
-        if (window.location.pathname === "/notices/favorite") {
-          await dispatch(fetchAllFavoriteNotices(_id));
-        }
+        // await dispatch(fetchAllFavoriteNotices(_id))
       } else {
         await dispatch(fetchAddToFavorite(_id));
+        await dispatch(current());
         toasty.toastSuccess("Added to favorites");
       }
       setIsFavorite(!isFavorite);
