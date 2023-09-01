@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
-
+import { useDispatch } from "react-redux";
 import {
   getAllNotices,
   selectNoticesLoading,
 } from "../../../redux/notices/notices-selectors";
+import { useParams } from "react-router-dom";
+import { fetchAllNotices } from "../../../redux/notices/notices-operations";
 import { getAllFavoriteNotices } from "../../../redux/auth/auth-selectors";
 import { useLocation } from "react-router-dom";
 
@@ -25,6 +27,7 @@ const NoticesCategoriesList = () => {
   const ageFilter = useSelector(selectAgeFilter);
   const genderFilter = useSelector(selectGenderFilter);
   const isLoading = useSelector(selectNoticesLoading);
+  const dispatch = useDispatch();
 
   const [filteredNotices, setFilteredNotices] = useState([]);
 
@@ -57,6 +60,14 @@ const NoticesCategoriesList = () => {
 
     setFilteredNotices(filtered);
   }, [allNotices, genderFilter, ageFilter]);
+
+  const { category } = useParams();
+
+   useEffect(() => {
+    if (category) {
+      dispatch(fetchAllNotices());
+    }
+  }, [category, dispatch]);
 
   const currentCategory = location.pathname.split("/")[2] || "sell";
   return (
