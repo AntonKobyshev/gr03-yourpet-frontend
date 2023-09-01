@@ -10,6 +10,9 @@ import { current } from "./redux/auth/auth-operations";
 import { PrivateRoute } from "./Routes/PrivateRoute";
 import { fetchUser } from "./redux/auth/auth-operations";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // import NoticesCategoriesList from "./modules/Notices/NoticesCategoriesList/NoticesCategoriesList";
 
 const NoticesPage = lazy(() => import("./pages/NoticesPage/NoticesPage"));
@@ -41,44 +44,50 @@ function App() {
   return isRefreshing ? (
     <Loader />
   ) : (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<MainPage />} />
-        <Route path="main" element={<MainPage />} />
-        <Route
-          path="/register"
-          element={
-            <RestrictedRoute redirectTo="/user" component={<RegisterPage />} />
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <RestrictedRoute redirectTo="/user" component={<LoginPage />} />
-          }
-        />
-        <Route
-          path="/add-pet"
-          element={
-            <PrivateRoute redirectTo="/login" component={<AddPetPage />} />
-          }
-        />
-        <Route
-          path="/user"
-          element={
-            <PrivateRoute redirectTo="/login" component={<UserPage />} />
-          }
-        />
-        <Route path="/notices" element={<NoticesPage />}>
-          <Route index element={<Navigate to="sell" replace />} />
-          <Route path=":categoryName" element={<NoticesCategoriesList />} />
-        </Route>
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="friends" element={<OurFriendsPage />} />
+    <>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<MainPage />} />
+          <Route path="main" element={<MainPage />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/user"
+                component={<RegisterPage />}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute redirectTo="/user" component={<LoginPage />} />
+            }
+          />
+          <Route
+            path="/add-pet"
+            element={
+              <PrivateRoute redirectTo="/login" component={<AddPetPage />} />
+            }
+          />
+          <Route
+            path="/user"
+            element={
+              <PrivateRoute redirectTo="/login" component={<UserPage />} />
+            }
+          />
+          <Route path="/notices" element={<NoticesPage />}>
+            <Route index element={<Navigate to="sell" replace />} />
+            <Route path=":categoryName" element={<NoticesCategoriesList />} />
+          </Route>
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="friends" element={<OurFriendsPage />} />
 
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
-    </Routes>
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+      <ToastContainer />
+    </>
   );
 }
 
